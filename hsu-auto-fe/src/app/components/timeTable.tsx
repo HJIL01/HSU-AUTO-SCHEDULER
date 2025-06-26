@@ -1,30 +1,37 @@
-import { Fragment } from "react";
+"use client";
 
 export default function TimeTable() {
   const days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
   const hours = Array.from({ length: 15 }, (_, i) => 9 + i); // 9시 ~ 23시
 
   return (
-    <div className="h-max max-w-[800px]">
-      {/* 요일 헤더 부분 */}
-      <div className="sticky top-0 grid h-[40px] grid-cols-[60px_repeat(5,_1fr)] place-items-center bg-white">
-        <div />
-        {days.map((day) => (
-          <div key={day}>{day}</div>
-        ))}
-      </div>
-
-      {/* 타임 테이블 부분 */}
-      <div className="grid h-[50px] grid-cols-[60px_repeat(5,1fr)] place-items-center">
+    <table className="w-full max-w-[800px] border border-gray-500 bg-gray-50">
+      <thead className="bg-gray-200">
+        <tr className="h-[40px]">
+          <th className="w-[60px] border border-gray-500" />
+          {days.map((day) => (
+            <th key={day} className="w-[60px] border border-gray-500">
+              {day}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
         {hours.map((hour) => (
-          <Fragment key={hour}>
-            <div>{hour}:00</div>
+          <tr key={hour} className="h-[50px] select-none">
+            <th className="border border-gray-500 select-none">
+              {String(hour).padStart(2, "0")}:00
+            </th>
             {days.map((day) => (
-              <div key={`${day}-${hour}:00`} />
+              <td
+                key={`${day}-${hour}:00`}
+                className="border border-gray-500 transition-colors hover:bg-blue-100"
+                onMouseDown={(e) => console.log(e.target)}
+              />
             ))}
-          </Fragment>
+          </tr>
         ))}
-      </div>
-    </div>
+      </tbody>
+    </table>
   );
 }
