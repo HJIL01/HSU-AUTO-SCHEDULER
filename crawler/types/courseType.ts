@@ -21,7 +21,7 @@ export type CourseType = {
   credit: number;
   dayOrNight: string;
   classSection: number;
-  grade: number;
+  grade: number | null;
   gradeLimit: number | null;
   professor: string;
   sessionInfo: null | SessionInfoType;
