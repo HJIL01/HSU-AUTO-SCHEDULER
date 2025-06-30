@@ -1,6 +1,7 @@
 import { XMLParser } from "fast-xml-parser";
 import { CourseType } from "../types/courseType";
 import { formatClassInfo } from "./formatSession";
+import { parseDayOrNight } from "./parseStringToCode";
 
 export function xmlToJson(xmlText: string) {
   const parser = new XMLParser({
@@ -31,7 +32,7 @@ export function xmlToJson(xmlText: string) {
     completionType: row.isugubun,
     deliveryMethod: row.kwamok_gubun,
     credit: Number(row.hakjum),
-    dayOrNight: row.juya,
+    dayOrNight: parseDayOrNight(row.juya),
     classSection: row.bunban,
     grade: Number(row.haknean),
     gradeLimit: row.haknean_limit || null,

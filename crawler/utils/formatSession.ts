@@ -1,5 +1,5 @@
 import { SessionInfoType } from "../types/courseType";
-import { parseDays } from "./parseDayCode";
+import { parseDays } from "./parseStringToCode";
 
 /* 
       요일과 시간의 문자열을 넣으면 분리하여 배열 형태로 return 하는 함수
