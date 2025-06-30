@@ -2,6 +2,16 @@ import json
 
 from ortools.sat.python import cp_model
 
+CONSTRAINTS = {
+    "grade": 3,
+    "major": "V024",
+    "day_or_night": "night",
+    "max_credit": 18,
+    "major_foundation": 0,
+    "major_required": 6,
+    "major_elective": 9,
+}
+
 with open("../courses.json", encoding="utf-8") as f:
     courses = json.load(f)
 
@@ -31,4 +41,4 @@ def simple_sat_program():
         print("No solution found.")
 
 
-# simple_sat_program()
+simple_sat_program()
