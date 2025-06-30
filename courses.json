@@ -15,7 +15,7 @@
       "offline": [
         {
           "place": "상상관406",
-          "day": "목",
+          "day": "Thu",
           "startTime": 1080,
           "endTime": 1200
         }
@@ -38,7 +38,7 @@
       "offline": [
         {
           "place": "상상관406",
-          "day": "화",
+          "day": "Tue",
           "startTime": 720,
           "endTime": 840
         }
@@ -61,7 +61,7 @@
       "offline": [
         {
           "place": "미래관B104",
-          "day": "월",
+          "day": "Mon",
           "startTime": 780,
           "endTime": 960
         }
@@ -84,7 +84,7 @@
       "offline": [
         {
           "place": "공학관309",
-          "day": "금",
+          "day": "Fri",
           "startTime": 780,
           "endTime": 840
         }
@@ -107,7 +107,7 @@
       "offline": [
         {
           "place": "미래관B104",
-          "day": "월",
+          "day": "Mon",
           "startTime": 600,
           "endTime": 660
         }
@@ -130,7 +130,7 @@
       "offline": [
         {
           "place": "공학관309",
-          "day": "금",
+          "day": "Fri",
           "startTime": 600,
           "endTime": 660
         }
@@ -153,7 +153,7 @@
       "offline": [
         {
           "place": "상상관304",
-          "day": "월",
+          "day": "Mon",
           "startTime": 900,
           "endTime": 960
         }
@@ -176,7 +176,7 @@
       "offline": [
         {
           "place": "공학관201",
-          "day": "월",
+          "day": "Mon",
           "startTime": 960,
           "endTime": 1020
         }
@@ -199,7 +199,7 @@
       "offline": [
         {
           "place": "공학관305",
-          "day": "화",
+          "day": "Tue",
           "startTime": 1200,
           "endTime": 1260
         }
@@ -222,7 +222,7 @@
       "offline": [
         {
           "place": "공학관201",
-          "day": "월",
+          "day": "Mon",
           "startTime": 1080,
           "endTime": 1140
         }
@@ -245,7 +245,7 @@
       "offline": [
         {
           "place": "탐구관205",
-          "day": "화",
+          "day": "Tue",
           "startTime": 900,
           "endTime": 960
         }
@@ -268,7 +268,7 @@
       "offline": [
         {
           "place": "공학관202",
-          "day": "수",
+          "day": "Wed",
           "startTime": 540,
           "endTime": 660
         }
@@ -291,7 +291,7 @@
       "offline": [
         {
           "place": "공학관202",
-          "day": "금",
+          "day": "Fri",
           "startTime": 540,
           "endTime": 660
         }
@@ -314,7 +314,7 @@
       "offline": [
         {
           "place": "탐구관503",
-          "day": "수",
+          "day": "Wed",
           "startTime": 900,
           "endTime": 1020
         }
@@ -337,7 +337,7 @@
       "offline": [
         {
           "place": "탐구관503",
-          "day": "수",
+          "day": "Wed",
           "startTime": 1080,
           "endTime": 1200
         }
@@ -360,7 +360,7 @@
       "offline": [
         {
           "place": "탐구관506",
-          "day": "월",
+          "day": "Mon",
           "startTime": 900,
           "endTime": 960
         }
@@ -383,7 +383,7 @@
       "offline": [
         {
           "place": "상상관506",
-          "day": "금",
+          "day": "Fri",
           "startTime": 960,
           "endTime": 960
         }
@@ -406,7 +406,7 @@
       "offline": [
         {
           "place": "탐구관401",
-          "day": "목",
+          "day": "Thu",
           "startTime": 900,
           "endTime": 960
         }
@@ -429,7 +429,7 @@
       "offline": [
         {
           "place": "탐구관507",
-          "day": "월",
+          "day": "Mon",
           "startTime": 720,
           "endTime": 780
         }
@@ -452,7 +452,7 @@
       "offline": [
         {
           "place": "탐구관507",
-          "day": "월",
+          "day": "Mon",
           "startTime": 900,
           "endTime": 960
         }
@@ -475,7 +475,7 @@
       "offline": [
         {
           "place": "탐구관401",
-          "day": "목",
+          "day": "Thu",
           "startTime": 600,
           "endTime": 660
         }
@@ -498,7 +498,7 @@
       "offline": [
         {
           "place": "상상관506",
-          "day": "금",
+          "day": "Fri",
           "startTime": 900,
           "endTime": 900
         }
@@ -521,7 +521,7 @@
       "offline": [
         {
           "place": "탐구관506",
-          "day": "월",
+          "day": "Mon",
           "startTime": 1080,
           "endTime": 1140
         }
@@ -544,7 +544,7 @@
       "offline": [
         {
           "place": "상상관406",
-          "day": "수",
+          "day": "Wed",
           "startTime": 720,
           "endTime": 960
         }
@@ -567,7 +567,7 @@
       "offline": [
         {
           "place": "탐구관501",
-          "day": "화",
+          "day": "Tue",
           "startTime": 660,
           "endTime": 660
         }
@@ -590,7 +590,7 @@
       "offline": [
         {
           "place": "탐구관504",
-          "day": "화",
+          "day": "Tue",
           "startTime": 900,
           "endTime": 900
         }
@@ -613,7 +613,7 @@
       "offline": [
         {
           "place": "탐구관지하102",
-          "day": "화",
+          "day": "Tue",
           "startTime": 900,
           "endTime": 900
         }
@@ -636,7 +636,7 @@
       "offline": [
         {
           "place": "탐구관지하102",
-          "day": "화",
+          "day": "Tue",
           "startTime": 960,
           "endTime": 960
         }
@@ -659,7 +659,7 @@
       "offline": [
         {
           "place": "탐구관지하102",
-          "day": "화",
+          "day": "Tue",
           "startTime": 1020,
           "endTime": 1020
         }
@@ -682,7 +682,7 @@
       "offline": [
         {
           "place": "탐구관지하102",
-          "day": "화",
+          "day": "Tue",
           "startTime": 1080,
           "endTime": 1080
         }
@@ -705,7 +705,7 @@
       "offline": [
         {
           "place": "공학관305",
-          "day": "화",
+          "day": "Tue",
           "startTime": 600,
           "endTime": 600
         }
@@ -728,7 +728,7 @@
       "offline": [
         {
           "place": "공학관305",
-          "day": "화",
+          "day": "Tue",
           "startTime": 660,
           "endTime": 660
         }
@@ -751,7 +751,7 @@
       "offline": [
         {
           "place": "공학관201",
-          "day": "수",
+          "day": "Wed",
           "startTime": 780,
           "endTime": 840
         }
@@ -774,7 +774,7 @@
       "offline": [
         {
           "place": "공학관201",
-          "day": "수",
+          "day": "Wed",
           "startTime": 720,
           "endTime": 780
         }
@@ -797,7 +797,7 @@
       "offline": [
         {
           "place": "공학관305",
-          "day": "금",
+          "day": "Fri",
           "startTime": 840,
           "endTime": 840
         }
@@ -820,7 +820,7 @@
       "offline": [
         {
           "place": "공학관305",
-          "day": "금",
+          "day": "Fri",
           "startTime": 900,
           "endTime": 900
         }
@@ -843,7 +843,7 @@
       "offline": [
         {
           "place": "공학관309",
-          "day": "월",
+          "day": "Mon",
           "startTime": 1080,
           "endTime": 1140
         }
@@ -866,7 +866,7 @@
       "offline": [
         {
           "place": "미래관B104",
-          "day": "수",
+          "day": "Wed",
           "startTime": 900,
           "endTime": 1020
         }
@@ -889,7 +889,7 @@
       "offline": [
         {
           "place": "미래관B104",
-          "day": "화",
+          "day": "Tue",
           "startTime": 900,
           "endTime": 900
         }
@@ -912,7 +912,7 @@
       "offline": [
         {
           "place": "탐구관406",
-          "day": "월",
+          "day": "Mon",
           "startTime": 960,
           "endTime": 1020
         }
@@ -935,7 +935,7 @@
       "offline": [
         {
           "place": "미래관B104",
-          "day": "화",
+          "day": "Tue",
           "startTime": 600,
           "endTime": 600
         }
@@ -958,7 +958,7 @@
       "offline": [
         {
           "place": "미래관B104",
-          "day": "화",
+          "day": "Tue",
           "startTime": 660,
           "endTime": 660
         }
@@ -981,7 +981,7 @@
       "offline": [
         {
           "place": "공학관201",
-          "day": "월",
+          "day": "Mon",
           "startTime": 540,
           "endTime": 600
         }
@@ -1004,7 +1004,7 @@
       "offline": [
         {
           "place": "탐구관406",
-          "day": "월",
+          "day": "Mon",
           "startTime": 1080,
           "endTime": 1140
         }
@@ -1027,7 +1027,7 @@
       "offline": [
         {
           "place": "공학관202",
-          "day": "토",
+          "day": "Sat",
           "startTime": 720,
           "endTime": 840
         }
@@ -1050,7 +1050,7 @@
       "offline": [
         {
           "place": "공학관202",
-          "day": "토",
+          "day": "Sat",
           "startTime": 900,
           "endTime": 1020
         }
@@ -1073,7 +1073,7 @@
       "offline": [
         {
           "place": "공학관202",
-          "day": "토",
+          "day": "Sat",
           "startTime": 540,
           "endTime": 660
         }
@@ -1096,7 +1096,7 @@
       "offline": [
         {
           "place": "공학관202",
-          "day": "토",
+          "day": "Sat",
           "startTime": 1080,
           "endTime": 1200
         }
@@ -1119,7 +1119,7 @@
       "offline": [
         {
           "place": "공학관202",
-          "day": "월",
+          "day": "Mon",
           "startTime": 780,
           "endTime": 960
         }
@@ -1142,7 +1142,7 @@
       "offline": [
         {
           "place": "공학관202",
-          "day": "수",
+          "day": "Wed",
           "startTime": 1080,
           "endTime": 1140
         }
@@ -1165,7 +1165,7 @@
       "offline": [
         {
           "place": "공학관202",
-          "day": "목",
+          "day": "Thu",
           "startTime": 900,
           "endTime": 960
         }
@@ -1188,7 +1188,7 @@
       "offline": [
         {
           "place": "공학관309",
-          "day": "월",
+          "day": "Mon",
           "startTime": 780,
           "endTime": 840
         }
@@ -1211,7 +1211,7 @@
       "offline": [
         {
           "place": "공학관202",
-          "day": "목",
+          "day": "Thu",
           "startTime": 1080,
           "endTime": 1140
         }
@@ -1234,7 +1234,7 @@
       "offline": [
         {
           "place": "공학관202",
-          "day": "월",
+          "day": "Mon",
           "startTime": 1080,
           "endTime": 1200
         }
@@ -1257,7 +1257,7 @@
       "offline": [
         {
           "place": "탐구관504",
-          "day": "화",
+          "day": "Tue",
           "startTime": 960,
           "endTime": 960
         }
@@ -1280,7 +1280,7 @@
       "offline": [
         {
           "place": "탐구관504",
-          "day": "화",
+          "day": "Tue",
           "startTime": 600,
           "endTime": 600
         }
@@ -1303,7 +1303,7 @@
       "offline": [
         {
           "place": "탐구관504",
-          "day": "화",
+          "day": "Tue",
           "startTime": 660,
           "endTime": 660
         }
@@ -1326,7 +1326,7 @@
       "offline": [
         {
           "place": "탐구관지하101",
-          "day": "화",
+          "day": "Tue",
           "startTime": 1080,
           "endTime": 1080
         }
@@ -1349,7 +1349,7 @@
       "offline": [
         {
           "place": "미래관B107",
-          "day": "월",
+          "day": "Mon",
           "startTime": 960,
           "endTime": 1020
         }
@@ -1372,7 +1372,7 @@
       "offline": [
         {
           "place": "미래관B107",
-          "day": "월",
+          "day": "Mon",
           "startTime": 840,
           "endTime": 900
         }
@@ -1395,7 +1395,7 @@
       "offline": [
         {
           "place": "미래관B107",
-          "day": "월",
+          "day": "Mon",
           "startTime": 600,
           "endTime": 660
         }
@@ -1418,7 +1418,7 @@
       "offline": [
         {
           "place": "공학관202",
-          "day": "화",
+          "day": "Tue",
           "startTime": 600,
           "endTime": 660
         }
@@ -1441,7 +1441,7 @@
       "offline": [
         {
           "place": "탐구관203",
-          "day": "월",
+          "day": "Mon",
           "startTime": 960,
           "endTime": 1020
         }
@@ -1464,7 +1464,7 @@
       "offline": [
         {
           "place": "탐구관203",
-          "day": "월",
+          "day": "Mon",
           "startTime": 1080,
           "endTime": 1140
         }
@@ -1487,7 +1487,7 @@
       "offline": [
         {
           "place": "공학관201",
-          "day": "화",
+          "day": "Tue",
           "startTime": 900,
           "endTime": 900
         }
@@ -1510,7 +1510,7 @@
       "offline": [
         {
           "place": "공학관305",
-          "day": "수",
+          "day": "Wed",
           "startTime": 780,
           "endTime": 840
         }
@@ -1533,7 +1533,7 @@
       "offline": [
         {
           "place": "공학관201",
-          "day": "화",
+          "day": "Tue",
           "startTime": 660,
           "endTime": 660
         }
@@ -1556,7 +1556,7 @@
       "offline": [
         {
           "place": "공학관201",
-          "day": "화",
+          "day": "Tue",
           "startTime": 720,
           "endTime": 720
         }
@@ -1579,7 +1579,7 @@
       "offline": [
         {
           "place": "탐구관203",
-          "day": "화",
+          "day": "Tue",
           "startTime": 900,
           "endTime": 900
         }
@@ -1602,7 +1602,7 @@
       "offline": [
         {
           "place": "공학관202",
-          "day": "화",
+          "day": "Tue",
           "startTime": 900,
           "endTime": 960
         }
@@ -1625,7 +1625,7 @@
       "offline": [
         {
           "place": "공학관305",
-          "day": "수",
+          "day": "Wed",
           "startTime": 1080,
           "endTime": 1140
         }
@@ -1648,7 +1648,7 @@
       "offline": [
         {
           "place": "공학관305",
-          "day": "화",
+          "day": "Tue",
           "startTime": 1080,
           "endTime": 1140
         }
@@ -1671,7 +1671,7 @@
       "offline": [
         {
           "place": "상상관204",
-          "day": "월",
+          "day": "Mon",
           "startTime": 900,
           "endTime": 960
         }
@@ -1694,7 +1694,7 @@
       "offline": [
         {
           "place": "상상관204",
-          "day": "월",
+          "day": "Mon",
           "startTime": 960,
           "endTime": 1020
         }
@@ -1717,7 +1717,7 @@
       "offline": [
         {
           "place": "상상관203",
-          "day": "월",
+          "day": "Mon",
           "startTime": 1140,
           "endTime": 1200
         }
@@ -1740,7 +1740,7 @@
       "offline": [
         {
           "place": "공학관305",
-          "day": "목",
+          "day": "Thu",
           "startTime": 900,
           "endTime": 960
         }
@@ -1763,7 +1763,7 @@
       "offline": [
         {
           "place": "공학관305",
-          "day": "목",
+          "day": "Thu",
           "startTime": 1080,
           "endTime": 1140
         }
@@ -1786,7 +1786,7 @@
       "offline": [
         {
           "place": "탐구관307",
-          "day": "목",
+          "day": "Thu",
           "startTime": 900,
           "endTime": 1020
         }
@@ -1809,7 +1809,7 @@
       "offline": [
         {
           "place": "미래관B104",
-          "day": "금",
+          "day": "Fri",
           "startTime": 900,
           "endTime": 900
         }
@@ -1832,7 +1832,7 @@
       "offline": [
         {
           "place": "미래관B104",
-          "day": "금",
+          "day": "Fri",
           "startTime": 600,
           "endTime": 600
         }
@@ -1855,7 +1855,7 @@
       "offline": [
         {
           "place": "미래관B104",
-          "day": "금",
+          "day": "Fri",
           "startTime": 660,
           "endTime": 660
         }
@@ -1878,7 +1878,7 @@
       "offline": [
         {
           "place": "미래관B104",
-          "day": "금",
+          "day": "Fri",
           "startTime": 840,
           "endTime": 840
         }
@@ -1901,7 +1901,7 @@
       "offline": [
         {
           "place": "공학관305",
-          "day": "화",
+          "day": "Tue",
           "startTime": 900,
           "endTime": 960
         }
@@ -1924,7 +1924,7 @@
       "offline": [
         {
           "place": "공학관201",
-          "day": "화",
+          "day": "Tue",
           "startTime": 1080,
           "endTime": 1140
         }
@@ -1947,7 +1947,7 @@
       "offline": [
         {
           "place": "상상관304",
-          "day": "화",
+          "day": "Tue",
           "startTime": 960,
           "endTime": 1020
         }
@@ -1970,7 +1970,7 @@
       "offline": [
         {
           "place": "공학관202",
-          "day": "목",
+          "day": "Thu",
           "startTime": 780,
           "endTime": 840
         }
@@ -1993,7 +1993,7 @@
       "offline": [
         {
           "place": "공학관309",
-          "day": "화",
+          "day": "Tue",
           "startTime": 600,
           "endTime": 660
         }
@@ -2016,7 +2016,7 @@
       "offline": [
         {
           "place": "공학관202",
-          "day": "화",
+          "day": "Tue",
           "startTime": 1140,
           "endTime": 1200
         }
@@ -2039,7 +2039,7 @@
       "offline": [
         {
           "place": "공학관309",
-          "day": "화",
+          "day": "Tue",
           "startTime": 900,
           "endTime": 960
         }
@@ -2062,7 +2062,7 @@
       "offline": [
         {
           "place": "공학관202",
-          "day": "월",
+          "day": "Mon",
           "startTime": 540,
           "endTime": 660
         }
@@ -2085,7 +2085,7 @@
       "offline": [
         {
           "place": "공학관305",
-          "day": "수",
+          "day": "Wed",
           "startTime": 900,
           "endTime": 960
         }
@@ -2108,7 +2108,7 @@
       "offline": [
         {
           "place": "공학관305",
-          "day": "화",
+          "day": "Tue",
           "startTime": 780,
           "endTime": 840
         }
@@ -2131,7 +2131,7 @@
       "offline": [
         {
           "place": "공학관309",
-          "day": "화",
+          "day": "Tue",
           "startTime": 1080,
           "endTime": 1140
         }
@@ -2154,7 +2154,7 @@
       "offline": [
         {
           "place": "공학관201",
-          "day": "월",
+          "day": "Mon",
           "startTime": 900,
           "endTime": 960
         }
@@ -2177,7 +2177,7 @@
       "offline": [
         {
           "place": "공학관201",
-          "day": "목",
+          "day": "Thu",
           "startTime": 900,
           "endTime": 960
         }
@@ -2200,7 +2200,7 @@
       "offline": [
         {
           "place": "공학관201",
-          "day": "목",
+          "day": "Thu",
           "startTime": 960,
           "endTime": 1020
         }
@@ -2223,7 +2223,7 @@
       "offline": [
         {
           "place": "공학관201",
-          "day": "월",
+          "day": "Mon",
           "startTime": 600,
           "endTime": 660
         }
@@ -2246,7 +2246,7 @@
       "offline": [
         {
           "place": "공학관201",
-          "day": "월",
+          "day": "Mon",
           "startTime": 780,
           "endTime": 840
         }
@@ -2269,7 +2269,7 @@
       "offline": [
         {
           "place": "공학관201",
-          "day": "목",
+          "day": "Thu",
           "startTime": 600,
           "endTime": 660
         }
@@ -2292,7 +2292,7 @@
       "offline": [
         {
           "place": "공학관201",
-          "day": "목",
+          "day": "Thu",
           "startTime": 1080,
           "endTime": 1140
         }
@@ -2315,7 +2315,7 @@
       "offline": [
         {
           "place": "탐구관301",
-          "day": "화",
+          "day": "Tue",
           "startTime": 600,
           "endTime": 720
         }
@@ -2338,7 +2338,7 @@
       "offline": [
         {
           "place": "탐구관205",
-          "day": "화",
+          "day": "Tue",
           "startTime": 600,
           "endTime": 600
         }
@@ -2361,7 +2361,7 @@
       "offline": [
         {
           "place": "탐구관203",
-          "day": "화",
+          "day": "Tue",
           "startTime": 660,
           "endTime": 660
         }
@@ -2384,7 +2384,7 @@
       "offline": [
         {
           "place": "공학관201",
-          "day": "화",
+          "day": "Tue",
           "startTime": 1200,
           "endTime": 1320
         }

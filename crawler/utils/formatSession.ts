@@ -1,4 +1,5 @@
 import { SessionInfoType } from "../types/courseType";
+import { parseDays } from "./parseDayCode";
 
 /* 
       요일과 시간의 문자열을 넣으면 분리하여 배열 형태로 return 하는 함수
@@ -43,7 +44,7 @@ function extractInPersonSchedule(inPersonSchedule: string) {
 
   return formatted.map((schedule) => ({
     place: schedule[0],
-    day: schedule[1],
+    day: parseDays(schedule[1]),
     startTime: 9 * 60 + (Number(schedule[2]) - 1) * 60,
     endTime: 9 * 60 + (Number(schedule[3]) - 1) * 60,
   }));
