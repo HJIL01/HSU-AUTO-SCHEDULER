@@ -1,5 +1,6 @@
 import { test } from "@playwright/test";
 import { xmlToJson } from "../utils/xmlToJson";
+import { CourseType } from "../types/courseType";
 
 /* 
   !!!!!!!!!
@@ -54,7 +55,7 @@ test("연도-학기 선택 -> 전공 선택 -> xml 파싱", async ({ page }) => 
     major_response.text(),
   ]);
 
-  const courses = xmlToJson(major_xml);
+  const courses: CourseType[] = xmlToJson(major_xml);
 
   console.log(JSON.stringify(courses, null, 2));
 });

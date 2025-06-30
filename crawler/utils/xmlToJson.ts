@@ -1,4 +1,6 @@
 import { XMLParser } from "fast-xml-parser";
+import { CourseType } from "../types/courseType";
+import { formatClassInfo } from "./formatSession";
 
 export function xmlToJson(xmlText: string) {
   const parser = new XMLParser({
@@ -23,7 +25,7 @@ export function xmlToJson(xmlText: string) {
         교수
         강의실 및 교시
   */
-  const json = rows.map((row) => ({
+  const json: CourseType[] = rows.map((row) => ({
     courseCode: row.kwamokcode,
     courseName: row.kwamokname,
     completionType: row.isugubun,
@@ -34,7 +36,11 @@ export function xmlToJson(xmlText: string) {
     grade: Number(row.haknean),
     gradeLimit: row.haknean_limit || null,
     professor: row.prof,
-    classTimeAndRoom: row.classroom,
+    sessionInfoType: formatClassInfo(
+      row.kwamok_gubun,
+      Number(row.hakjum),
+      row.classroom
+    ),
   }));
 
   return json;

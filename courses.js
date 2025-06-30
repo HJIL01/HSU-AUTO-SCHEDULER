@@ -24,7 +24,7 @@ const courses = [
     grade: 4,
     gradeLimit: null,
     professor: "신성",
-    classTimeAndRoom: "상상관406 화4~6M",
+    classTimeAndRoom: "낙산관102  월8M~9M,목5M~6M",
   },
   {
     courseCode: "V020001",
@@ -50,20 +50,21 @@ const courses = [
     grade: 2,
     gradeLimit: null,
     professor: "유상미",
-    classTimeAndRoom: "온라인강좌 1시간 / 공학관309  금5~6M",
+    classTimeAndRoom:
+      "온라인강좌 1시간 / 공학관309  금5~6M / 낙산관102  월8M~9M,목5M~6M",
   },
   {
     courseCode: "V020001",
     courseName: "객체지향언어1",
     completionType: "전선",
-    deliveryMethod: "BL",
+    deliveryMethod: "대면수업",
     credit: 3,
     dayOrNight: "주",
     classSection: "A",
     grade: 2,
     gradeLimit: null,
     professor: "황기태",
-    classTimeAndRoom: "온라인강좌 1.5시간 / 미래관B104  월2M~3M",
+    classTimeAndRoom: "낙산관102  월8M~9M,목5M~6M / 상상관507 수5M~6",
   },
   {
     courseCode: "V020001",

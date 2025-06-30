@@ -10,7 +10,17 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "한충구",
-    "classTimeAndRoom": "상상관406 목10~12M"
+    "sessionInfoType": {
+      "online": 0,
+      "offline": [
+        {
+          "place": "상상관406",
+          "day": "목",
+          "startTime": 1080,
+          "endTime": 1200
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020026",
@@ -23,7 +33,17 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "신성",
-    "classTimeAndRoom": "상상관406 화4~6M"
+    "sessionInfoType": {
+      "online": 0,
+      "offline": [
+        {
+          "place": "상상관406",
+          "day": "화",
+          "startTime": 720,
+          "endTime": 840
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020001",
@@ -36,7 +56,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "황기태",
-    "classTimeAndRoom": "미래관B104  월5M~8"
+    "sessionInfoType": {
+      "online": 0,
+      "offline": [
+        {
+          "place": "미래관B104",
+          "day": "월",
+          "startTime": 780,
+          "endTime": 960
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020001",
@@ -49,7 +79,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "유상미",
-    "classTimeAndRoom": "온라인강좌 1시간 / 공학관309  금5~6M"
+    "sessionInfoType": {
+      "online": 1,
+      "offline": [
+        {
+          "place": "공학관309",
+          "day": "금",
+          "startTime": 780,
+          "endTime": 840
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020001",
@@ -62,7 +102,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "황기태",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 미래관B104  월2M~3M"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "미래관B104",
+          "day": "월",
+          "startTime": 600,
+          "endTime": 660
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020001",
@@ -75,7 +125,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "유상미",
-    "classTimeAndRoom": "온라인강좌 1시간 / 공학관309  금2~3M"
+    "sessionInfoType": {
+      "online": 1,
+      "offline": [
+        {
+          "place": "공학관309",
+          "day": "금",
+          "startTime": 600,
+          "endTime": 660
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020001",
@@ -88,7 +148,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "이찬수",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 상상관304 월7~8"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "상상관304",
+          "day": "월",
+          "startTime": 900,
+          "endTime": 960
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020001",
@@ -101,7 +171,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "안영아",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관201  월8M~9M"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관201",
+          "day": "월",
+          "startTime": 960,
+          "endTime": 1020
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020001",
@@ -114,7 +194,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "유상미",
-    "classTimeAndRoom": "온라인강좌 1시간 / 공학관305  화12~13M"
+    "sessionInfoType": {
+      "online": 1,
+      "offline": [
+        {
+          "place": "공학관305",
+          "day": "화",
+          "startTime": 1200,
+          "endTime": 1260
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020001",
@@ -127,7 +217,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "안영아",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관201  월10~11"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관201",
+          "day": "월",
+          "startTime": 1080,
+          "endTime": 1140
+        }
+      ]
+    }
   },
   {
     "courseCode": "M020040",
@@ -140,7 +240,17 @@
     "grade": null,
     "gradeLimit": null,
     "professor": "이신희",
-    "classTimeAndRoom": "온라인강좌 1시간 / 탐구관205  화7~8M"
+    "sessionInfoType": {
+      "online": 1,
+      "offline": [
+        {
+          "place": "탐구관205",
+          "day": "화",
+          "startTime": 900,
+          "endTime": 960
+        }
+      ]
+    }
   },
   {
     "courseCode": "V022003",
@@ -153,7 +263,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "이청용",
-    "classTimeAndRoom": "공학관202  수1~3M"
+    "sessionInfoType": {
+      "online": 0,
+      "offline": [
+        {
+          "place": "공학관202",
+          "day": "수",
+          "startTime": 540,
+          "endTime": 660
+        }
+      ]
+    }
   },
   {
     "courseCode": "V022003",
@@ -166,7 +286,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "이청용",
-    "classTimeAndRoom": "공학관202  금1~3M"
+    "sessionInfoType": {
+      "online": 0,
+      "offline": [
+        {
+          "place": "공학관202",
+          "day": "금",
+          "startTime": 540,
+          "endTime": 660
+        }
+      ]
+    }
   },
   {
     "courseCode": "V022003",
@@ -179,7 +309,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "신성",
-    "classTimeAndRoom": "탐구관503  수7~9M"
+    "sessionInfoType": {
+      "online": 0,
+      "offline": [
+        {
+          "place": "탐구관503",
+          "day": "수",
+          "startTime": 900,
+          "endTime": 1020
+        }
+      ]
+    }
   },
   {
     "courseCode": "V022003",
@@ -192,7 +332,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "신성",
-    "classTimeAndRoom": "탐구관503  수10~12M"
+    "sessionInfoType": {
+      "online": 0,
+      "offline": [
+        {
+          "place": "탐구관503",
+          "day": "수",
+          "startTime": 1080,
+          "endTime": 1200
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020012",
@@ -205,7 +355,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "신성",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 탐구관506  월7~8"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "탐구관506",
+          "day": "월",
+          "startTime": 900,
+          "endTime": 960
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020012",
@@ -218,7 +378,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "김영웅",
-    "classTimeAndRoom": "온라인강좌 2시간 / 상상관506 금8~8M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "상상관506",
+          "day": "금",
+          "startTime": 960,
+          "endTime": 960
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020012",
@@ -231,7 +401,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "장재영",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 탐구관401  목7~8"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "탐구관401",
+          "day": "목",
+          "startTime": 900,
+          "endTime": 960
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020012",
@@ -244,7 +424,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "장재영",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 탐구관507  월4~5"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "탐구관507",
+          "day": "월",
+          "startTime": 720,
+          "endTime": 780
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020012",
@@ -257,7 +447,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "장재영",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 탐구관507  월7~8"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "탐구관507",
+          "day": "월",
+          "startTime": 900,
+          "endTime": 960
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020012",
@@ -270,7 +470,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "장재영",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 탐구관401  목2M~3M"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "탐구관401",
+          "day": "목",
+          "startTime": 600,
+          "endTime": 660
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020012",
@@ -283,7 +493,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "김영웅",
-    "classTimeAndRoom": "온라인강좌 2시간 / 상상관506 금7~7M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "상상관506",
+          "day": "금",
+          "startTime": 900,
+          "endTime": 900
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020012",
@@ -296,7 +516,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "신성",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 탐구관506  월10~11"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "탐구관506",
+          "day": "월",
+          "startTime": 1080,
+          "endTime": 1140
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020025",
@@ -309,7 +539,17 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "심규현,박선영",
-    "classTimeAndRoom": "상상관406 수4M~8"
+    "sessionInfoType": {
+      "online": 0,
+      "offline": [
+        {
+          "place": "상상관406",
+          "day": "수",
+          "startTime": 720,
+          "endTime": 960
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020013",
@@ -322,7 +562,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "신성",
-    "classTimeAndRoom": "온라인강좌 2시간 / 탐구관501  화3~3M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "탐구관501",
+          "day": "화",
+          "startTime": 660,
+          "endTime": 660
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020013",
@@ -335,7 +585,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "송미화",
-    "classTimeAndRoom": "온라인강좌 2시간 / 탐구관504  화7~7M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "탐구관504",
+          "day": "화",
+          "startTime": 900,
+          "endTime": 900
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020013",
@@ -348,7 +608,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "유수진",
-    "classTimeAndRoom": "온라인강좌 2시간 / 탐구관지하102  화7~7M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "탐구관지하102",
+          "day": "화",
+          "startTime": 900,
+          "endTime": 900
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020013",
@@ -361,7 +631,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "유수진",
-    "classTimeAndRoom": "온라인강좌 2시간 / 탐구관지하102  화8~8M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "탐구관지하102",
+          "day": "화",
+          "startTime": 960,
+          "endTime": 960
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020013",
@@ -374,7 +654,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "유수진",
-    "classTimeAndRoom": "온라인강좌 2시간 / 탐구관지하102  화9~9M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "탐구관지하102",
+          "day": "화",
+          "startTime": 1020,
+          "endTime": 1020
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020013",
@@ -387,7 +677,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "유수진",
-    "classTimeAndRoom": "온라인강좌 2시간 / 탐구관지하102  화10~10M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "탐구관지하102",
+          "day": "화",
+          "startTime": 1080,
+          "endTime": 1080
+        }
+      ]
+    }
   },
   {
     "courseCode": "V021004",
@@ -400,7 +700,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "송미화",
-    "classTimeAndRoom": "온라인강좌 2시간 / 공학관305  화2~2M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "공학관305",
+          "day": "화",
+          "startTime": 600,
+          "endTime": 600
+        }
+      ]
+    }
   },
   {
     "courseCode": "V021004",
@@ -413,7 +723,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "송미화",
-    "classTimeAndRoom": "온라인강좌 2시간 / 공학관305  화3~3M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "공학관305",
+          "day": "화",
+          "startTime": 660,
+          "endTime": 660
+        }
+      ]
+    }
   },
   {
     "courseCode": "V021004",
@@ -426,7 +746,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "윤수미",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관201  수5M~6M"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관201",
+          "day": "수",
+          "startTime": 780,
+          "endTime": 840
+        }
+      ]
+    }
   },
   {
     "courseCode": "V021004",
@@ -439,7 +769,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "윤수미",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관201  수4~5"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관201",
+          "day": "수",
+          "startTime": 720,
+          "endTime": 780
+        }
+      ]
+    }
   },
   {
     "courseCode": "V021004",
@@ -452,7 +792,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "박필준",
-    "classTimeAndRoom": "온라인강좌 2시간 / 공학관305  금6~6M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "공학관305",
+          "day": "금",
+          "startTime": 840,
+          "endTime": 840
+        }
+      ]
+    }
   },
   {
     "courseCode": "V021004",
@@ -465,7 +815,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "박필준",
-    "classTimeAndRoom": "온라인강좌 2시간 / 공학관305  금7~7M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "공학관305",
+          "day": "금",
+          "startTime": 900,
+          "endTime": 900
+        }
+      ]
+    }
   },
   {
     "courseCode": "V021004",
@@ -478,7 +838,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "박필준",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관309  월10~11"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관309",
+          "day": "월",
+          "startTime": 1080,
+          "endTime": 1140
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020014",
@@ -491,7 +861,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "황기태",
-    "classTimeAndRoom": "미래관B104  수7~9M"
+    "sessionInfoType": {
+      "online": 0,
+      "offline": [
+        {
+          "place": "미래관B104",
+          "day": "수",
+          "startTime": 900,
+          "endTime": 1020
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020014",
@@ -504,7 +884,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "황기태",
-    "classTimeAndRoom": "온라인강좌 2시간 / 미래관B104  화7~7M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "미래관B104",
+          "day": "화",
+          "startTime": 900,
+          "endTime": 900
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020014",
@@ -517,7 +907,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "이찬수",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 탐구관406  월8M~9M"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "탐구관406",
+          "day": "월",
+          "startTime": 960,
+          "endTime": 1020
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020014",
@@ -530,7 +930,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "황기태",
-    "classTimeAndRoom": "온라인강좌 2시간 / 미래관B104  화2~2M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "미래관B104",
+          "day": "화",
+          "startTime": 600,
+          "endTime": 600
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020014",
@@ -543,7 +953,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "황기태",
-    "classTimeAndRoom": "온라인강좌 2시간 / 미래관B104  화3~3M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "미래관B104",
+          "day": "화",
+          "startTime": 660,
+          "endTime": 660
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020014",
@@ -556,7 +976,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "김진환",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관201  월1~2"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관201",
+          "day": "월",
+          "startTime": 540,
+          "endTime": 600
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020014",
@@ -569,7 +999,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "이찬수",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 탐구관406  월10~11"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "탐구관406",
+          "day": "월",
+          "startTime": 1080,
+          "endTime": 1140
+        }
+      ]
+    }
   },
   {
     "courseCode": "V024008",
@@ -582,7 +1022,17 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "김성동,김남윤,심규현,유수진",
-    "classTimeAndRoom": "공학관202  토4~6M"
+    "sessionInfoType": {
+      "online": 0,
+      "offline": [
+        {
+          "place": "공학관202",
+          "day": "토",
+          "startTime": 720,
+          "endTime": 840
+        }
+      ]
+    }
   },
   {
     "courseCode": "V024008",
@@ -595,7 +1045,17 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "김진환,박승현,송미화,유수진",
-    "classTimeAndRoom": "공학관202  토7~9M"
+    "sessionInfoType": {
+      "online": 0,
+      "offline": [
+        {
+          "place": "공학관202",
+          "day": "토",
+          "startTime": 900,
+          "endTime": 1020
+        }
+      ]
+    }
   },
   {
     "courseCode": "V024008",
@@ -608,7 +1068,17 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "황기태,김남윤,송미화,유수진",
-    "classTimeAndRoom": "공학관202  토1~3M"
+    "sessionInfoType": {
+      "online": 0,
+      "offline": [
+        {
+          "place": "공학관202",
+          "day": "토",
+          "startTime": 540,
+          "endTime": 660
+        }
+      ]
+    }
   },
   {
     "courseCode": "V024008",
@@ -621,7 +1091,17 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "김진환,김성동,심규현,송미화,유수진",
-    "classTimeAndRoom": "공학관202  토10~12M"
+    "sessionInfoType": {
+      "online": 0,
+      "offline": [
+        {
+          "place": "공학관202",
+          "day": "토",
+          "startTime": 1080,
+          "endTime": 1200
+        }
+      ]
+    }
   },
   {
     "courseCode": "V024004",
@@ -634,7 +1114,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "전원호",
-    "classTimeAndRoom": "공학관202  월5M~8"
+    "sessionInfoType": {
+      "online": 0,
+      "offline": [
+        {
+          "place": "공학관202",
+          "day": "월",
+          "startTime": 780,
+          "endTime": 960
+        }
+      ]
+    }
   },
   {
     "courseCode": "V024004",
@@ -647,7 +1137,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "심규현",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관202  수10~11"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관202",
+          "day": "수",
+          "startTime": 1080,
+          "endTime": 1140
+        }
+      ]
+    }
   },
   {
     "courseCode": "V024004",
@@ -660,7 +1160,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "심규현",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관202  목7~8"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관202",
+          "day": "목",
+          "startTime": 900,
+          "endTime": 960
+        }
+      ]
+    }
   },
   {
     "courseCode": "V024004",
@@ -673,7 +1183,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "김진환",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관309  월5M~6M"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관309",
+          "day": "월",
+          "startTime": 780,
+          "endTime": 840
+        }
+      ]
+    }
   },
   {
     "courseCode": "V024004",
@@ -686,7 +1206,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "심규현",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관202  목10~11"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관202",
+          "day": "목",
+          "startTime": 1080,
+          "endTime": 1140
+        }
+      ]
+    }
   },
   {
     "courseCode": "V024004",
@@ -699,7 +1229,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "전원호",
-    "classTimeAndRoom": "공학관202  월10~12M"
+    "sessionInfoType": {
+      "online": 0,
+      "offline": [
+        {
+          "place": "공학관202",
+          "day": "월",
+          "startTime": 1080,
+          "endTime": 1200
+        }
+      ]
+    }
   },
   {
     "courseCode": "V024006",
@@ -712,7 +1252,17 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "김남윤",
-    "classTimeAndRoom": "온라인강좌 2시간 / 탐구관504  화8~8M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "탐구관504",
+          "day": "화",
+          "startTime": 960,
+          "endTime": 960
+        }
+      ]
+    }
   },
   {
     "courseCode": "V024006",
@@ -725,7 +1275,17 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "김남윤",
-    "classTimeAndRoom": "온라인강좌 2시간 / 탐구관504  화2~2M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "탐구관504",
+          "day": "화",
+          "startTime": 600,
+          "endTime": 600
+        }
+      ]
+    }
   },
   {
     "courseCode": "V024006",
@@ -738,7 +1298,17 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "김남윤",
-    "classTimeAndRoom": "온라인강좌 2시간 / 탐구관504  화3~3M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "탐구관504",
+          "day": "화",
+          "startTime": 660,
+          "endTime": 660
+        }
+      ]
+    }
   },
   {
     "courseCode": "V024006",
@@ -751,7 +1321,17 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "김남윤",
-    "classTimeAndRoom": "온라인강좌 2시간 / 탐구관지하101  화10~10M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "탐구관지하101",
+          "day": "화",
+          "startTime": 1080,
+          "endTime": 1080
+        }
+      ]
+    }
   },
   {
     "courseCode": "CTE0002",
@@ -764,7 +1344,17 @@
     "grade": 1,
     "gradeLimit": null,
     "professor": "김민수",
-    "classTimeAndRoom": "온라인강좌 2시간 / 미래관B107  월8~9M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "미래관B107",
+          "day": "월",
+          "startTime": 960,
+          "endTime": 1020
+        }
+      ]
+    }
   },
   {
     "courseCode": "CTE0002",
@@ -777,7 +1367,17 @@
     "grade": 1,
     "gradeLimit": null,
     "professor": "김민수",
-    "classTimeAndRoom": "온라인강좌 2시간 / 미래관B107  월6~7M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "미래관B107",
+          "day": "월",
+          "startTime": 840,
+          "endTime": 900
+        }
+      ]
+    }
   },
   {
     "courseCode": "CTE0002",
@@ -790,7 +1390,17 @@
     "grade": 1,
     "gradeLimit": null,
     "professor": "김민수",
-    "classTimeAndRoom": "온라인강좌 2시간 / 미래관B107  월2~3M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "미래관B107",
+          "day": "월",
+          "startTime": 600,
+          "endTime": 660
+        }
+      ]
+    }
   },
   {
     "courseCode": "CTE0002",
@@ -803,7 +1413,17 @@
     "grade": 1,
     "gradeLimit": null,
     "professor": "김민수",
-    "classTimeAndRoom": "온라인강좌 2시간 / 공학관202  화2~3M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "공학관202",
+          "day": "화",
+          "startTime": 600,
+          "endTime": 660
+        }
+      ]
+    }
   },
   {
     "courseCode": "CTE0002",
@@ -816,7 +1436,17 @@
     "grade": 1,
     "gradeLimit": null,
     "professor": "심철준",
-    "classTimeAndRoom": "온라인강좌 2시간 / 탐구관203  월8~9M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "탐구관203",
+          "day": "월",
+          "startTime": 960,
+          "endTime": 1020
+        }
+      ]
+    }
   },
   {
     "courseCode": "CTE0002",
@@ -829,7 +1459,17 @@
     "grade": 1,
     "gradeLimit": null,
     "professor": "심철준",
-    "classTimeAndRoom": "온라인강좌 2시간 / 탐구관203  월10~11M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "탐구관203",
+          "day": "월",
+          "startTime": 1080,
+          "endTime": 1140
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020002",
@@ -842,7 +1482,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "권영미",
-    "classTimeAndRoom": "온라인강좌 2시간 / 공학관201  화7~7M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "공학관201",
+          "day": "화",
+          "startTime": 900,
+          "endTime": 900
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020002",
@@ -855,7 +1505,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "강희중",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관305  수5M~6M"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관305",
+          "day": "수",
+          "startTime": 780,
+          "endTime": 840
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020002",
@@ -868,7 +1528,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "권영미",
-    "classTimeAndRoom": "온라인강좌 2시간 / 공학관201  화3~3M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "공학관201",
+          "day": "화",
+          "startTime": 660,
+          "endTime": 660
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020002",
@@ -881,7 +1551,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "권영미",
-    "classTimeAndRoom": "온라인강좌 2시간 / 공학관201  화4~4M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "공학관201",
+          "day": "화",
+          "startTime": 720,
+          "endTime": 720
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020002",
@@ -894,7 +1574,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "김민수",
-    "classTimeAndRoom": "온라인강좌 2시간 / 탐구관203  화7~7M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "탐구관203",
+          "day": "화",
+          "startTime": 900,
+          "endTime": 900
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020002",
@@ -907,7 +1597,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "유상미",
-    "classTimeAndRoom": "온라인강좌 1시간 / 공학관202  화7~8M"
+    "sessionInfoType": {
+      "online": 1,
+      "offline": [
+        {
+          "place": "공학관202",
+          "day": "화",
+          "startTime": 900,
+          "endTime": 960
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020002",
@@ -920,7 +1620,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "강희중",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관305  수10~11"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관305",
+          "day": "수",
+          "startTime": 1080,
+          "endTime": 1140
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020002",
@@ -933,7 +1643,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "유상미",
-    "classTimeAndRoom": "온라인강좌 1시간 / 공학관305  화10~11M"
+    "sessionInfoType": {
+      "online": 1,
+      "offline": [
+        {
+          "place": "공학관305",
+          "day": "화",
+          "startTime": 1080,
+          "endTime": 1140
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020020",
@@ -946,7 +1666,17 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "박승현",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 상상관204 월7~8"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "상상관204",
+          "day": "월",
+          "startTime": 900,
+          "endTime": 960
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020020",
@@ -959,7 +1689,17 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "박승현",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 상상관204 월8M~9M"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "상상관204",
+          "day": "월",
+          "startTime": 960,
+          "endTime": 1020
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020020",
@@ -972,7 +1712,17 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "박승현",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 상상관203 월11M~12M"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "상상관203",
+          "day": "월",
+          "startTime": 1140,
+          "endTime": 1200
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020028",
@@ -985,7 +1735,17 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "이동희",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관305  목7~8"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관305",
+          "day": "목",
+          "startTime": 900,
+          "endTime": 960
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020028",
@@ -998,7 +1758,17 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "이동희",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관305  목10~11"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관305",
+          "day": "목",
+          "startTime": 1080,
+          "endTime": 1140
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020022",
@@ -1011,7 +1781,17 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "김성동",
-    "classTimeAndRoom": "탐구관307  목7~9M"
+    "sessionInfoType": {
+      "online": 0,
+      "offline": [
+        {
+          "place": "탐구관307",
+          "day": "목",
+          "startTime": 900,
+          "endTime": 1020
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020003",
@@ -1024,7 +1804,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "황호영",
-    "classTimeAndRoom": "온라인강좌 2시간 / 미래관B104  금7~7M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "미래관B104",
+          "day": "금",
+          "startTime": 900,
+          "endTime": 900
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020003",
@@ -1037,7 +1827,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "황호영",
-    "classTimeAndRoom": "온라인강좌 2시간 / 미래관B104  금2~2M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "미래관B104",
+          "day": "금",
+          "startTime": 600,
+          "endTime": 600
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020003",
@@ -1050,7 +1850,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "황호영",
-    "classTimeAndRoom": "온라인강좌 2시간 / 미래관B104  금3~3M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "미래관B104",
+          "day": "금",
+          "startTime": 660,
+          "endTime": 660
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020003",
@@ -1063,7 +1873,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "황호영",
-    "classTimeAndRoom": "온라인강좌 2시간 / 미래관B104  금6~6M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "미래관B104",
+          "day": "금",
+          "startTime": 840,
+          "endTime": 840
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020003",
@@ -1076,7 +1896,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "김동욱",
-    "classTimeAndRoom": "온라인강좌 1시간 / 공학관305  화7~8M"
+    "sessionInfoType": {
+      "online": 1,
+      "offline": [
+        {
+          "place": "공학관305",
+          "day": "화",
+          "startTime": 900,
+          "endTime": 960
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020003",
@@ -1089,7 +1919,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "김동욱",
-    "classTimeAndRoom": "온라인강좌 1시간 / 공학관201  화10~11M"
+    "sessionInfoType": {
+      "online": 1,
+      "offline": [
+        {
+          "place": "공학관201",
+          "day": "화",
+          "startTime": 1080,
+          "endTime": 1140
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020015",
@@ -1102,7 +1942,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "계희원",
-    "classTimeAndRoom": "온라인강좌 1시간 / 상상관304 화8~9M"
+    "sessionInfoType": {
+      "online": 1,
+      "offline": [
+        {
+          "place": "상상관304",
+          "day": "화",
+          "startTime": 960,
+          "endTime": 1020
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020015",
@@ -1115,7 +1965,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "이지은",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관202  목5M~6M"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관202",
+          "day": "목",
+          "startTime": 780,
+          "endTime": 840
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020015",
@@ -1128,7 +1988,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "계희원",
-    "classTimeAndRoom": "온라인강좌 1시간 / 공학관309  화2~3M"
+    "sessionInfoType": {
+      "online": 1,
+      "offline": [
+        {
+          "place": "공학관309",
+          "day": "화",
+          "startTime": 600,
+          "endTime": 660
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020015",
@@ -1141,7 +2011,17 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "계희원",
-    "classTimeAndRoom": "온라인강좌 1시간 / 공학관202  화11~12M"
+    "sessionInfoType": {
+      "online": 1,
+      "offline": [
+        {
+          "place": "공학관202",
+          "day": "화",
+          "startTime": 1140,
+          "endTime": 1200
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020004",
@@ -1154,7 +2034,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "강희중",
-    "classTimeAndRoom": "온라인강좌 1시간 / 공학관309  화7~8M"
+    "sessionInfoType": {
+      "online": 1,
+      "offline": [
+        {
+          "place": "공학관309",
+          "day": "화",
+          "startTime": 900,
+          "endTime": 960
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020004",
@@ -1167,7 +2057,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "정인환",
-    "classTimeAndRoom": "공학관202  월1~3M"
+    "sessionInfoType": {
+      "online": 0,
+      "offline": [
+        {
+          "place": "공학관202",
+          "day": "월",
+          "startTime": 540,
+          "endTime": 660
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020004",
@@ -1180,7 +2080,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "강희중",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관305  수7~8"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관305",
+          "day": "수",
+          "startTime": 900,
+          "endTime": 960
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020004",
@@ -1193,7 +2103,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "강희중",
-    "classTimeAndRoom": "온라인강좌 1시간 / 공학관305  화5~6M"
+    "sessionInfoType": {
+      "online": 1,
+      "offline": [
+        {
+          "place": "공학관305",
+          "day": "화",
+          "startTime": 780,
+          "endTime": 840
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020004",
@@ -1206,7 +2126,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "강희중",
-    "classTimeAndRoom": "온라인강좌 1시간 / 공학관309  화10~11M"
+    "sessionInfoType": {
+      "online": 1,
+      "offline": [
+        {
+          "place": "공학관309",
+          "day": "화",
+          "startTime": 1080,
+          "endTime": 1140
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020005",
@@ -1219,7 +2149,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "김성동",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관201  월7~8"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관201",
+          "day": "월",
+          "startTime": 900,
+          "endTime": 960
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020005",
@@ -1232,7 +2172,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "김인희",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관201  목7~8"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관201",
+          "day": "목",
+          "startTime": 900,
+          "endTime": 960
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020005",
@@ -1245,7 +2195,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "김인희",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관201  목8M~9M"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관201",
+          "day": "목",
+          "startTime": 960,
+          "endTime": 1020
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020005",
@@ -1258,7 +2218,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "김성동",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관201  월2M~3M"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관201",
+          "day": "월",
+          "startTime": 600,
+          "endTime": 660
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020005",
@@ -1271,7 +2241,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "김성동",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관201  월5M~6M"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관201",
+          "day": "월",
+          "startTime": 780,
+          "endTime": 840
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020005",
@@ -1284,7 +2264,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "김성동",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관201  목2M~3M"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관201",
+          "day": "목",
+          "startTime": 600,
+          "endTime": 660
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020005",
@@ -1297,7 +2287,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "김인희",
-    "classTimeAndRoom": "온라인강좌 1.5시간 / 공학관201  목10~11"
+    "sessionInfoType": {
+      "online": 1.5,
+      "offline": [
+        {
+          "place": "공학관201",
+          "day": "목",
+          "startTime": 1080,
+          "endTime": 1140
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020006",
@@ -1310,7 +2310,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "임선집",
-    "classTimeAndRoom": "탐구관301  화2~4M"
+    "sessionInfoType": {
+      "online": 0,
+      "offline": [
+        {
+          "place": "탐구관301",
+          "day": "화",
+          "startTime": 600,
+          "endTime": 720
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020006",
@@ -1323,7 +2333,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "엄종석",
-    "classTimeAndRoom": "온라인강좌 2시간 / 탐구관205  화2~2M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "탐구관205",
+          "day": "화",
+          "startTime": 600,
+          "endTime": 600
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020006",
@@ -1336,7 +2356,17 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "엄종석",
-    "classTimeAndRoom": "온라인강좌 2시간 / 탐구관203  화3~3M"
+    "sessionInfoType": {
+      "online": 2,
+      "offline": [
+        {
+          "place": "탐구관203",
+          "day": "화",
+          "startTime": 660,
+          "endTime": 660
+        }
+      ]
+    }
   },
   {
     "courseCode": "V020006",
@@ -1349,6 +2379,16 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "임선집",
-    "classTimeAndRoom": "공학관201  화12~14M"
+    "sessionInfoType": {
+      "online": 0,
+      "offline": [
+        {
+          "place": "공학관201",
+          "day": "화",
+          "startTime": 1200,
+          "endTime": 1320
+        }
+      ]
+    }
   }
 ]
