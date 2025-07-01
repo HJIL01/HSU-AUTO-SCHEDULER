@@ -46,31 +46,40 @@ def debugFilter():
     # print(len(filtered_by_day_or_night))
     # print(filtered_by_day_or_night)
 
+    return filtered_by_day_or_night
 
-debugFilter()
 
+def HSU_AUTO_SCHEDULER_CP_SAT():
+    # 최종 데이터임
+    data = debugFilter()
+    data_len = len(data)
 
-def simple_sat_program():
-    """Minimal CP-SAT example to showcase calling the solver."""
-    # Creates the model.
     model = cp_model.CpModel()
+    selected = [model.NewBoolVar(f"select_{i}") for i in range(data_len)]
 
-    # Creates the variables.
-    num_vals = 3
-    x1 = model.new_int_var(0, num_vals - 1, "x")
-    y = model.new_int_var(0, num_vals - 1, "y")
-    z = model.new_int_var(0, num_vals - 1, "z")
+    add_max_credit_constraint(
+        data, data_len, model, selected, CONSTRAINTS["max_credit"]
+    )
 
-    # Creates the constraints.
-    model.add(x1 != y)
-
-    # Creates a solver and solves the model.
     solver = cp_model.CpSolver()
     status = solver.solve(model)
 
     if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
-        print(f"x = {solver.value(x1)}")
-        print(f"y = {solver.value(y)}")
-        print(f"z = {solver.value(z)}")
+        print("선택된 과목:")
+        total_credit = 0
+        for i in range(data_len):
+            if solver.Value(selected[i]):
+                print(f"- {data[i]['courseName']} ({data[i]['credit']}학점)")
+                total_credit += data[i]["credit"]
+        print(f"총 학점: {total_credit}")
     else:
-        print("No solution found.")
+        print("해를 찾을 수 없습니다.")
+
+
+def add_max_credit_constraint(data, data_len, model, selected, max_credit: int):
+    model.add(
+        sum(selected[i] * data[i]["credit"] for i in range(data_len)) == max_credit
+    )
+
+
+HSU_AUTO_SCHEDULER_CP_SAT()
