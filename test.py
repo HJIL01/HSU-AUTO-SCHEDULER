@@ -12,4 +12,7 @@ test = [0, 1, 1, 0, 0]
 
 total = sum(pro["price"] * cur for pro, cur in zip(c_list, test) if pro["ss"] == "전기")
 
-print(total)
+tt = {"test": "sadsa"}
+
+if tt.get("test"):
+    print("asdsa")
