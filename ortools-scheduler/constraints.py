@@ -42,7 +42,7 @@ def set_objective_maximize_credit(courses, model, selected):
     )
 
 
-# 최대 학점 제한하는 제약조건 함수
+# 최대 학점 제한하는 제약조건 추가 함수
 def add_max_credit_constraint(courses, model, selected, max_credit: int):
     model.Add(
         sum(cur * course["credit"] for cur, course in zip(selected, courses))
@@ -50,7 +50,7 @@ def add_max_credit_constraint(courses, model, selected, max_credit: int):
     )
 
 
-# 과목의 이름을 기준으로 중복을 제거하는 제약함수
+# 과목의 이름을 기준으로 중복을 제거하는 제약조건 추가 함수
 def add_deduplicated_course_constraint(courses, model, selected):
     course_name_to_indices = defaultdict(list)
 
@@ -64,7 +64,7 @@ def add_deduplicated_course_constraint(courses, model, selected):
         model.Add(sum(selected[i] for i in indices) <= 1)
 
 
-# 사용자가 입력한 전공 기초 학점의 최솟값만큼 해에 전공 기초를 보장 제약 조건 추가 함수
+# 사용자가 입력한 전공 기초 학점의 최솟값만큼 해에 전공 기초를 보장 제약조건 추가 함수
 def add_major_foundation_min_constraint(
     courses, model, selected, major_foundation_credit
 ):
@@ -78,7 +78,7 @@ def add_major_foundation_min_constraint(
     )
 
 
-# 사용자가 입력한 전공 필수 학점의 최솟값만큼 해에 전공 필수를 보장 제약 조건 추가 함수
+# 사용자가 입력한 전공 필수 학점의 최솟값만큼 해에 전공 필수를 보장 제약조건 추가 함수
 def add_major_required_min_constraint(courses, model, selected, major_required_credit):
     model.Add(
         sum(
@@ -90,13 +90,29 @@ def add_major_required_min_constraint(courses, model, selected, major_required_c
     )
 
 
-# 사용자가 입력한 전공 선택 학점의 최솟값만큼 해에 전공 선택를 보장 제약 조건 추가 함수
+# 사용자가 입력한 전공 선택 학점의 최솟값만큼 해에 전공 선택를 보장 제약조건 추가 함수
 def add_major_elective_min_constaraint(courses, model, selected, major_elective_credit):
     model.Add(
         sum(
             course["credit"] * cur
             for course, cur in zip(courses, selected)
-            if course["completionType"]
+            if course["completionType"] == "전선"
         )
         >= major_elective_credit
     )
+
+
+# 하루 최대 강의수를 제한하는 제약조건 추가 함수
+def add_daily_lecture_limit_constraint(courses, model, selected, daily_lecture_limit):
+    course_day_indices = defaultdict(list)
+
+    for idx, course in enumerate(courses):
+        sessionInfoType = course["sessionInfoType"]
+        if sessionInfoType.get("offline"):
+            for offlineSession in sessionInfoType["offline"]:
+                course_day_indices[offlineSession["day"]].append(idx)
+
+    for indices in course_day_indices.values():
+        model.Add(sum(selected[i] for i in indices) <= daily_lecture_limit)
+        # 이 밑에는 선택된 요일들에 최소 하나씩은 강의를 배치해야 한다는 조건임. 나중에 시간표가 이상하다면 주석 풀기
+        # model.Add(sum(selected[i] for i in indices) >= 1)

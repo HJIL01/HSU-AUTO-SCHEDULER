@@ -2,12 +2,13 @@ import json
 
 from ortools.sat.python import cp_model
 from constraints import (
+    set_objective_maximize_credit,
     add_max_credit_constraint,
     add_deduplicated_course_constraint,
     add_major_foundation_min_constraint,
     add_major_required_min_constraint,
     add_major_elective_min_constaraint,
-    set_objective_maximize_credit,
+    add_daily_lecture_limit_constraint,
 )
 
 CONSTRAINTS = {
@@ -80,6 +81,9 @@ def HSU_AUTO_SCHEDULER_CP_SAT():
     )
     add_major_elective_min_constaraint(
         filtered_courses, model, selected, CONSTRAINTS["major_elective"]
+    )
+    add_daily_lecture_limit_constraint(
+        filtered_courses, model, selected, CONSTRAINTS["daily_lecture_limit"]
     )
 
     solver = cp_model.CpSolver()
