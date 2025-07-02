@@ -1,8 +1,14 @@
 import json
 
 from ortools.sat.python import cp_model
-from collections import defaultdict
-from constraints import add_max_credit_constraint, set_objective_max_credit
+from constraints import (
+    add_max_credit_constraint,
+    add_deduplicated_course_constraint,
+    add_major_foundation_min_constraint,
+    add_major_required_min_constraint,
+    add_major_elective_min_constaraint,
+    set_objective_maximize_credit,
+)
 
 CONSTRAINTS = {
     "major": "V024",
@@ -15,7 +21,7 @@ CONSTRAINTS = {
     ],
     "max_credit": 18,
     "major_foundation": 0,
-    "major_required": 6,
+    "major_required": 0,
     "major_elective": 9,
     "daily_lecture_limit": 3,
 }
@@ -53,19 +59,31 @@ def debugFilter():
 
 def HSU_AUTO_SCHEDULER_CP_SAT():
     # 최종 필터링된 데이터임
+    # 현재 필터링은 그냥 학년과 주야로만 했음
     filtered_courses = debugFilter()
     data_len = len(filtered_courses)
 
     model = cp_model.CpModel()
     selected = [model.NewBoolVar(f"select_{i}") for i in range(data_len)]
 
+    set_objective_maximize_credit(filtered_courses, model, selected)
+
     add_max_credit_constraint(
         filtered_courses, model, selected, CONSTRAINTS["max_credit"]
     )
     add_deduplicated_course_constraint(filtered_courses, model, selected)
-    set_objective_max_credit(filtered_courses, model, selected)
+    add_major_foundation_min_constraint(
+        filtered_courses, model, selected, CONSTRAINTS["major_foundation"]
+    )
+    add_major_required_min_constraint(
+        filtered_courses, model, selected, CONSTRAINTS["major_required"]
+    )
+    add_major_elective_min_constaraint(
+        filtered_courses, model, selected, CONSTRAINTS["major_elective"]
+    )
 
     solver = cp_model.CpSolver()
+    solver.parameters.enumerate_all_solutions = True
     status = solver.solve(model)
 
     if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
@@ -80,17 +98,6 @@ def HSU_AUTO_SCHEDULER_CP_SAT():
         print(f"총 학점: {total_credit}")
     else:
         print("해를 찾을 수 없습니다.")
-
-
-def add_deduplicated_course_constraint(courses, model, selected):
-    course_name_to_indices = defaultdict(list)
-
-    for idx, course in enumerate(courses):
-        course_name_to_indices[course["courseName"]].append(idx)
-
-    # 제약 추가: 같은 과목 이름은 하나만 선택 가능
-    for indices in course_name_to_indices.values():
-        model.Add(sum(selected[i] for i in indices) <= 1)
 
 
 HSU_AUTO_SCHEDULER_CP_SAT()
