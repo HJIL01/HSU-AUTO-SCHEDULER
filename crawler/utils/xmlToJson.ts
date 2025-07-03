@@ -2,14 +2,34 @@ import { XMLParser } from "fast-xml-parser";
 import { CourseType } from "../types/courseType";
 import { formatClassInfo } from "./formatSession";
 import { parseDayOrNight } from "./parseStringToCode";
+import { splitMajorCodeAndName } from "./splitMajorCodeAndName";
 
-export function xmlToJson(xmlText: string) {
+export function majorXmlToJson(majorMxlText: string) {
   const parser = new XMLParser({
     ignoreAttributes: false,
     trimValues: true,
   });
 
-  const jsonObj = parser.parse(xmlText);
+  const jsonObj = parser.parse(majorMxlText);
+
+  const items = jsonObj.root.items.item;
+
+  const majors = items.map((item) => ({
+    majorCode: item.tcd,
+    majorName: splitMajorCodeAndName(item.tnm),
+  }));
+
+  return majors;
+}
+
+// 과목 정보들의 xml을 json으로 파싱해주는 함수
+export function courseXmlToJson(courseXmlText: string) {
+  const parser = new XMLParser({
+    ignoreAttributes: false,
+    trimValues: true,
+  });
+
+  const jsonObj = parser.parse(courseXmlText);
 
   const rows = jsonObj.rows.row;
 
@@ -26,7 +46,7 @@ export function xmlToJson(xmlText: string) {
         교수
         강의실 및 교시
   */
-  const json: CourseType[] = rows.map((row) => ({
+  const courses: CourseType[] = rows.map((row) => ({
     courseCode: row.kwamokcode,
     courseName: row.kwamokname,
     completionType: row.isugubun,
@@ -44,5 +64,5 @@ export function xmlToJson(xmlText: string) {
     ),
   }));
 
-  return json;
+  return courses;
 }

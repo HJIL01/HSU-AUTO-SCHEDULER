@@ -1,22 +1,20 @@
 import { test } from "@playwright/test";
-import { xmlToJson } from "../utils/xmlToJson";
+import { courseXmlToJson, majorXmlToJson } from "../utils/xmlToJson";
 import { CourseType } from "../types/courseType";
-
-/* 
-  !!!!!!!!!
-  나중에 반드시 일련의 과정을 유닛 단위로 테스트하도록 바꾸기
-  !!!!!!!!!
- */
+import { MajorType } from "../types/majorType";
+import { randomDelay } from "../utils/randomDelay";
 
 const YEAR_SEMESTER_CODE = "20251";
 const MAJOR_CODE = "V024";
 
-test("연도-학기 선택 -> 전공 선택 -> xml 파싱", async ({ page }) => {
+test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모든 강좌 가져오기 -> 데베 저장", async ({
+  page,
+}) => {
   // 시간표 및 강의 계획서 홈페이지 접속
   await page.goto("https://info.hansung.ac.kr/jsp/haksa/siganpyo_aui.jsp");
 
   // 타겟 연도-학기 네트워크 요청이 성공했을 시
-  const [year_semester_response] = await Promise.all([
+  const [majors_response] = await Promise.all([
     page.waitForResponse((res) => {
       const requestBody = res.request().postData();
 
@@ -32,30 +30,42 @@ test("연도-학기 선택 -> 전공 선택 -> xml 파싱", async ({ page }) => 
     page.locator("#yearhakgi").selectOption(YEAR_SEMESTER_CODE),
   ]);
 
-  // 타겟 전공 네트워크 요청이 성공했을 시
-  const [major_response] = await Promise.all([
-    page.waitForResponse((res) => {
-      const requestBody = res.request().postData();
+  // 해당 학기의 모든 전공들을 받아옴
+  const majorsXml = await majors_response.text();
 
-      return (
-        res.url() ===
-          "https://info.hansung.ac.kr/jsp/haksa/siganpyo_aui_data.jsp" &&
-        res.status() === 200 &&
-        typeof requestBody === "string" &&
-        requestBody.includes(`syearhakgi=${YEAR_SEMESTER_CODE}`) &&
-        requestBody.includes(`sjungong=${MAJOR_CODE}`)
-      );
-    }),
-    page.locator("#jungong").selectOption(MAJOR_CODE),
-  ]);
+  const majors: MajorType[] = majorXmlToJson(majorsXml);
 
-  // 연도-학기 선택 시 응답받는 xml과 전공 선택 시 응답받는 xml을 text 형식으로 추출
-  const [year_semester_xml, major_xml] = await Promise.all([
-    year_semester_response.text(),
-    major_response.text(),
-  ]);
+  // 이건 원본이 너무 많아서 3개까지만 자른거임
+  const test = majors.slice(0, 3);
 
-  const courses: CourseType[] = xmlToJson(major_xml);
+  // 모든 전공들을 루프하면서 데이터베이스에 포맷된 정보를 기반으로 저장
+  // 지금은 console.log를 찍지만 나중에 데베 연동 시킬거임
+  for (const major of test) {
+    const majorCode = major.majorCode;
 
-  console.log(JSON.stringify(courses, null, 2));
+    // 전공들의 강좌들을 하나하나 받아오는 로직
+    const [courses_response] = await Promise.all([
+      page.waitForResponse((res) => {
+        const requestBody = res.request().postData();
+
+        return (
+          res.url() ===
+            "https://info.hansung.ac.kr/jsp/haksa/siganpyo_aui_data.jsp" &&
+          res.status() === 200 &&
+          typeof requestBody === "string" &&
+          requestBody.includes(`syearhakgi=${YEAR_SEMESTER_CODE}`) &&
+          requestBody.includes(`sjungong=${majorCode}`)
+        );
+      }),
+      page.locator("#jungong").selectOption(majorCode),
+    ]);
+
+    const coursesXml = await courses_response.text();
+
+    const courses: CourseType[] = courseXmlToJson(coursesXml);
+    console.log(courses);
+
+    // 너무 빨리 돌면 과부하 걸릴까봐 랜덤 딜레이 주기
+    await randomDelay();
+  }
 });
