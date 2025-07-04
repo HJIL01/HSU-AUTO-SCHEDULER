@@ -1,0 +1,13 @@
+services:
+  db:
+    image: postgres:16
+    container_name: hsu_auto_scheduler_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: dba1
+      POSTGRES_PASSWORD: qscz2973@
+      POSTGRES_DB: hsu_auto_scheduler
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
