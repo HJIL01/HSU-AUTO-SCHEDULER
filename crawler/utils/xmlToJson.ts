@@ -3,6 +3,7 @@ import { CourseType } from "../types/courseType";
 import { formatClassInfo } from "./formatSession";
 import { parseDayOrNight } from "./parseStringToCode";
 import { splitMajorCodeAndName } from "./splitMajorCodeAndName";
+import { MajorType } from "types/majorType";
 
 export function majorXmlToJson(majorMxlText: string) {
   const parser = new XMLParser({
@@ -14,7 +15,7 @@ export function majorXmlToJson(majorMxlText: string) {
 
   const items = jsonObj.root.items.item;
 
-  const majors = items.map((item) => ({
+  const majors: MajorType[] = items.map((item: Record<string, string>) => ({
     majorCode: item.tcd,
     majorName: splitMajorCodeAndName(item.tnm),
   }));
@@ -33,36 +34,33 @@ export function courseXmlToJson(courseXmlText: string) {
 
   const rows = jsonObj.rows.row;
 
-  /* 
-        과목코드
-        과목명
-        이수 구분(전필, 전선, 복전선, 일선 등 이건 중요x)
-        과목 구분(온라인100%, BL, 대면수업)
-        학점
-        주야
-        분반
-        학년
-        학년 제한
-        교수
-        강의실 및 교시
-  */
-  const courses: CourseType[] = rows.map((row) => ({
-    courseCode: row.kwamokcode,
-    courseName: row.kwamokname,
-    completionType: row.isugubun,
-    deliveryMethod: row.kwamok_gubun,
-    credit: Number(row.hakjum),
-    dayOrNight: parseDayOrNight(row.juya),
-    classSection: row.bunban,
-    grade: Number(row.haknean),
-    gradeLimit: row.haknean_limit || null,
-    professor: row.prof,
-    sessionInfoType: formatClassInfo(
-      row.kwamok_gubun,
-      Number(row.hakjum),
-      row.classroom
-    ),
-  }));
+  // 해당 전공의 과목 데이터가 없다면 null을 반환
+  if (!rows) {
+    return null;
+  }
+
+  // 배열이 아닌 형식의 단 하나의 객체가 있는 경우가 있어서 반드시 배열로 만들어주는 로직
+  const toArrayRows = Array.isArray(rows) ? rows : [rows];
+
+  const courses: CourseType[] = toArrayRows.map(
+    (row: Record<string, string>) => ({
+      courseCode: row.kwamokcode,
+      courseName: row.kwamokname,
+      completionType: row.isugubun,
+      deliveryMethod: row.kwamok_gubun,
+      credit: Number(row.hakjum),
+      dayOrNight: parseDayOrNight(row.juya),
+      classSection: row.bunban,
+      grade: Number(row.haknean) || row.haknean,
+      gradeLimit: Number(row.haknean_limit) || null,
+      professor: row.prof,
+      sessionInfo: formatClassInfo(
+        row.kwamok_gubun,
+        Number(row.hakjum),
+        row.classroom
+      ),
+    })
+  );
 
   return courses;
 }

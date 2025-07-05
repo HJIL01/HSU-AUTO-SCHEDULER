@@ -3,13 +3,18 @@ import { courseXmlToJson, majorXmlToJson } from "../utils/xmlToJson";
 import { CourseType } from "../types/courseType";
 import { MajorType } from "../types/majorType";
 import { randomDelay } from "../utils/randomDelay";
+import { logError } from "utils/logError";
 
+const TEST_FUNC_TIME_OUT = 1000 * 60 * 5;
 const YEAR_SEMESTER_CODE = "20251";
 const MAJOR_CODE = "V024";
 
 test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모든 강좌 가져오기 -> 데베 저장", async ({
   page,
 }) => {
+  // 테스트 함수 타임아웃 2분으로 정의
+  test.setTimeout(TEST_FUNC_TIME_OUT);
+
   // 시간표 및 강의 계획서 홈페이지 접속
   await page.goto("https://info.hansung.ac.kr/jsp/haksa/siganpyo_aui.jsp");
 
@@ -35,37 +40,52 @@ test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모�
 
   const majors: MajorType[] = majorXmlToJson(majorsXml);
 
-  // 이건 원본이 너무 많아서 3개까지만 자른거임
-  const test = majors.slice(0, 3);
+  // const arrayTest = majors.slice(0, 1);
 
   // 모든 전공들을 루프하면서 데이터베이스에 포맷된 정보를 기반으로 저장
   // 지금은 console.log를 찍지만 나중에 데베 연동 시킬거임
-  for (const major of test) {
+
+  for (const index in majors) {
+    const major = majors[index];
     const majorCode = major.majorCode;
+    const majorName = major.majorName;
+    // const majorCode = "M034";
 
-    // 전공들의 강좌들을 하나하나 받아오는 로직
-    const [courses_response] = await Promise.all([
-      page.waitForResponse((res) => {
-        const requestBody = res.request().postData();
+    try {
+      // 전공들의 강좌들을 하나하나 받아오는 로직
+      const [courses_response] = await Promise.all([
+        page.waitForResponse((res) => {
+          const requestBody = res.request().postData();
 
-        return (
-          res.url() ===
-            "https://info.hansung.ac.kr/jsp/haksa/siganpyo_aui_data.jsp" &&
-          res.status() === 200 &&
-          typeof requestBody === "string" &&
-          requestBody.includes(`syearhakgi=${YEAR_SEMESTER_CODE}`) &&
-          requestBody.includes(`sjungong=${majorCode}`)
-        );
-      }),
-      page.locator("#jungong").selectOption(majorCode),
-    ]);
+          return (
+            res.url() ===
+              "https://info.hansung.ac.kr/jsp/haksa/siganpyo_aui_data.jsp" &&
+            res.status() === 200 &&
+            typeof requestBody === "string" &&
+            requestBody.includes(`syearhakgi=${YEAR_SEMESTER_CODE}`) &&
+            requestBody.includes(`sjungong=${majorCode}`)
+          );
+        }),
+        page.locator("#jungong").selectOption(majorCode),
+      ]);
 
-    const coursesXml = await courses_response.text();
+      const coursesXml = await courses_response.text();
 
-    const courses: CourseType[] = courseXmlToJson(coursesXml);
-    console.log(courses);
+      const courses: CourseType[] | null = courseXmlToJson(coursesXml);
+      console.log(courses);
 
-    // 너무 빨리 돌면 과부하 걸릴까봐 랜덤 딜레이 주기
-    await randomDelay();
+      // 너무 빨리 돌면 과부하 걸릴까봐 랜덤 딜레이 주기
+      // await randomDelay();
+    } catch (error) {
+      // error 타입은 unknown 타입으로 처리되므로 message에 접근하기 위해 Error로 타입 단언을 사용한다.
+      // 다른 방법은 Error 객체가 아닐 시를 대비하여 if(error instanceof Error)로 타입 가드를 사용하는 방법이 있다.
+      const err = error as Error;
+      console.error(
+        `${index}번째 전공 전공이름: ${majorName} 전공코드: ${majorCode}에서 에러`,
+        err.message
+      );
+      await logError(Number(index), major, err.message);
+    }
   }
+  await page.waitForTimeout(1500); // 2000ms = 2초 대기
 });

@@ -14,15 +14,29 @@ export type SessionInfoType = {
 
 // 강좌 타입
 export type CourseType = {
-  courseCode: string;
-  courseName: string;
-  completionType: string;
-  deliveryMethod: string;
-  credit: number;
-  dayOrNight: string;
-  classSection: number;
-  grade: number | null;
-  gradeLimit: number | null;
-  professor: string;
-  sessionInfo: null | SessionInfoType;
+  courseCode: string; // 과목코드: string
+  courseName: string; // 과목명: string
+  completionType: string; // 이수 구분(전필, 전선, 복전선, 일선): string
+  deliveryMethod: string; // 과목 구분(온라인100%, BL, 대면수업): string
+  credit: number; // 학점: number
+  dayOrNight: string; // 주야구분: string
+  classSection: string; //분반: string
+  grade: number | string; // 학년(1, 2, 3, 4학년 또는 전학년): number 또는 string
+  gradeLimit: number | null; // 학년제한: number 또는 null
+  professor: string; // 교수: string
+  sessionInfo: null | SessionInfoType; // 강의실 및 교시: null 또는 위의 sessionInfoType
 };
+
+/* 
+        과목코드 
+        과목명
+        이수 구분(전필, 전선, 복전선, 일선)
+        과목 구분(온라인100%, BL, 대면수업)
+        학점
+        주야
+        분반
+        학년
+        학년 제한
+        교수
+        강의실 및 교시
+*/

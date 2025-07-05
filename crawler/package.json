@@ -8,7 +8,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.53.1"
+    "@playwright/test": "^1.53.1",
+    "@types/node": "^24.0.10"
   },
   "dependencies": {
     "fast-xml-parser": "^5.2.5"

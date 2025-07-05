@@ -1,4 +1,4 @@
-import { SessionInfoType } from "../types/courseType";
+import { SessionBlockType, SessionInfoType } from "../types/courseType";
 import { parseDays } from "./parseStringToCode";
 
 /* 
@@ -27,7 +27,7 @@ function getDayAndTime(dayAndTime: string) {
   ex) ["낙산관102 월8M~9M"] -> [["낙산관102", "월", "8", "9"]]
   4. 위에서 포맷한 배열의 모든 요소를 돌면서 offline 타입의 객체로 반환 
 */
-function extractInPersonSchedule(inPersonSchedule: string) {
+function extractInPersonSchedule(inPersonSchedule: string): SessionBlockType[] {
   const splitSchedules = inPersonSchedule.split("/").map((e) => e.trim());
 
   const matchSchedules = splitSchedules.flatMap((schedule) => {
@@ -42,21 +42,49 @@ function extractInPersonSchedule(inPersonSchedule: string) {
     return [place, ...getDayAndTime(timeString)];
   });
 
-  return formatted.map((schedule) => ({
-    place: schedule[0],
-    day: parseDays(schedule[1]),
-    startTime: 9 * 60 + (Number(schedule[2]) - 1) * 60,
-    endTime: 9 * 60 + (Number(schedule[3]) - 1) * 60,
-  }));
+  return formatted.map((schedule) => {
+    const place = schedule[0];
+    const day = parseDays(schedule[1]);
+    const startTime = 9 * 60 + (Number(schedule[2]) - 1) * 60;
+    const endTime = 9 * 60 + (Number(schedule[3]) - 1) * 60;
+
+    if (!place) {
+      throw new Error("Value of place is not valid");
+    }
+
+    if (!day) {
+      throw new Error("Value of day is not valid");
+    }
+
+    if (!startTime) {
+      throw new Error("Value of startTime is not valid");
+    }
+
+    if (!endTime) {
+      throw new Error("Value of endTime is not valid");
+    }
+
+    return {
+      place,
+      day,
+      startTime,
+      endTime,
+    };
+  });
 }
 
 export function formatClassInfo(
   deliveryMethod: string,
   credit: number,
   classRoom: string
-): SessionInfoType {
-  // 먼저 모든 1개 이상의 공백들을 공백 하나로 치환
-  classRoom = classRoom.replace(/\s+/g, " ");
+): SessionInfoType | null {
+  // 온라인100%가 아니고 강의실 및 교시 정보가 없다면
+  if (deliveryMethod !== "온라인100%" && !classRoom) {
+    return null;
+  }
+
+  // falsy값이 아니라면 모든 1개 이상의 공백들을 공백 하나로 치환
+  classRoom = classRoom ? classRoom.replace(/\s+/g, " ") : classRoom;
 
   switch (deliveryMethod) {
     case "온라인100%": {
