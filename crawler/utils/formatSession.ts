@@ -46,7 +46,7 @@ function extractInPersonSchedule(inPersonSchedule: string): SessionBlockType[] {
     const place = schedule[0];
     const day = parseDays(schedule[1]);
     const startTime = 9 * 60 + (Number(schedule[2]) - 1) * 60;
-    const endTime = 9 * 60 + (Number(schedule[3]) - 1) * 60;
+    const endTime = 9 * 60 + (Number(schedule[3]) - 1) * 60 + 60;
 
     if (!place) {
       throw new Error("Value of place is not valid");

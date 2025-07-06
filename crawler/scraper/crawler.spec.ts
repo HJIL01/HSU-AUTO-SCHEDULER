@@ -45,11 +45,11 @@ test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모�
   // 모든 전공들을 루프하면서 데이터베이스에 포맷된 정보를 기반으로 저장
   // 지금은 console.log를 찍지만 나중에 데베 연동 시킬거임
 
-  for (const index in majors) {
+  for (const index in [0]) {
     const major = majors[index];
-    const majorCode = major.majorCode;
+    // const majorCode = major.majorCode;
     const majorName = major.majorName;
-    // const majorCode = "M034";
+    const majorCode = MAJOR_CODE;
 
     try {
       // 전공들의 강좌들을 하나하나 받아오는 로직
@@ -72,7 +72,7 @@ test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모�
       const coursesXml = await courses_response.text();
 
       const courses: CourseType[] | null = courseXmlToJson(coursesXml);
-      console.log(courses);
+      console.log(JSON.stringify(courses, null, 2));
 
       // 너무 빨리 돌면 과부하 걸릴까봐 랜덤 딜레이 주기
       // await randomDelay();
@@ -87,5 +87,4 @@ test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모�
       await logError(Number(index), major, err.message);
     }
   }
-  await page.waitForTimeout(1500); // 2000ms = 2초 대기
 });
