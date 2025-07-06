@@ -54,6 +54,7 @@ export function courseXmlToJson(courseXmlText: string) {
       grade: Number(row.haknean) || row.haknean,
       gradeLimit: Number(row.haknean_limit) || null,
       professor: row.prof,
+      planCode: row.plan || null,
       sessionInfo: formatClassInfo(
         row.kwamok_gubun,
         Number(row.hakjum),

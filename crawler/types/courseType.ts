@@ -24,6 +24,7 @@ export type CourseType = {
   grade: number | string; // 학년(1, 2, 3, 4학년 또는 전학년): number 또는 string
   gradeLimit: number | null; // 학년제한: number 또는 null
   professor: string; // 교수: string
+  planCode: string | null; //강의 계획서 code string 또는 null
   sessionInfo: null | SessionInfoType; // 강의실 및 교시: null 또는 위의 sessionInfoType
 };
 
@@ -38,5 +39,6 @@ export type CourseType = {
         학년
         학년 제한
         교수
+        강의 계획서
         강의실 및 교시
 */
