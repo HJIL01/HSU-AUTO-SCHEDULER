@@ -2,20 +2,25 @@ import json
 
 from ortools.sat.python import cp_model
 from constraints import (
-    set_objective_maximize_credit,
+    # set_objective_maximize_credit,
     add_max_credit_constraint,
     add_deduplicated_course_constraint,
     add_major_foundation_min_constraint,
     add_major_required_min_constraint,
-    add_major_elective_min_constaraint,
+    add_major_elective_min_constraint,
     add_daily_lecture_limit_constraint,
+    add_class_gap_constraint,
 )
+from solution_collector import AllSolutionCollector
 
 CONSTRAINTS = {
     "major": "V024",
     "grade": 3,
     "day_or_night": "night",
-    "no_class_days": ["Mon", "Fri"],
+    "no_class_days": [
+        "Mon",
+        "Fri",
+    ],
     "personal_schedule": [
         {"schedule_name": "알바1", "day": "Tue", "startTime": 540, "endTime": 660},
         {"schedule_name": "알바2", "day": "Fri", "startTime": 1080, "endTime": 1350},
@@ -24,7 +29,9 @@ CONSTRAINTS = {
     "major_foundation": 0,
     "major_required": 0,
     "major_elective": 9,
-    "daily_lecture_limit": 3,
+    "daily_lecture_limit": 2,
+    "allowed_gap_minutes": 0,
+    "has_lunch_break": True,
 }
 
 with open("../courses.json", encoding="utf-8") as f:
@@ -65,43 +72,42 @@ def HSU_AUTO_SCHEDULER_CP_SAT():
     data_len = len(filtered_courses)
 
     model = cp_model.CpModel()
-    selected = [model.NewBoolVar(f"select_{i}") for i in range(data_len)]
 
-    set_objective_maximize_credit(filtered_courses, model, selected)
+    is_selected = [model.NewBoolVar(f"course{i}_is_selected") for i in range(data_len)]
+
+    # set_objective_maximize_credit(filtered_courses, model, is_selected)
 
     add_max_credit_constraint(
-        filtered_courses, model, selected, CONSTRAINTS["max_credit"]
+        filtered_courses, model, is_selected, CONSTRAINTS["max_credit"]
     )
-    add_deduplicated_course_constraint(filtered_courses, model, selected)
+    add_deduplicated_course_constraint(filtered_courses, model, is_selected)
     add_major_foundation_min_constraint(
-        filtered_courses, model, selected, CONSTRAINTS["major_foundation"]
+        filtered_courses, model, is_selected, CONSTRAINTS["major_foundation"]
     )
     add_major_required_min_constraint(
-        filtered_courses, model, selected, CONSTRAINTS["major_required"]
+        filtered_courses, model, is_selected, CONSTRAINTS["major_required"]
     )
-    add_major_elective_min_constaraint(
-        filtered_courses, model, selected, CONSTRAINTS["major_elective"]
+    add_major_elective_min_constraint(
+        filtered_courses, model, is_selected, CONSTRAINTS["major_elective"]
     )
     add_daily_lecture_limit_constraint(
-        filtered_courses, model, selected, CONSTRAINTS["daily_lecture_limit"]
+        filtered_courses, model, is_selected, CONSTRAINTS["daily_lecture_limit"]
+    )
+    add_class_gap_constraint(
+        filtered_courses, model, is_selected, CONSTRAINTS["allowed_gap_minutes"]
     )
 
     solver = cp_model.CpSolver()
+    solution_collector = AllSolutionCollector(is_selected, filtered_courses)
+
+    # Enumerate all solutions.
     solver.parameters.enumerate_all_solutions = True
-    status = solver.solve(model)
+
+    # Solve
+    status = solver.solve(model, solution_collector)
 
     if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
-        print("선택된 과목:")
-        total_credit = 0
-        for i in range(data_len):
-            if solver.Value(selected[i]):
-                print(
-                    f"- {filtered_courses[i]['courseName']} ({filtered_courses[i]['credit']}학점)"
-                )
-                total_credit += filtered_courses[i]["credit"]
-        print(f"총 학점: {total_credit}")
-    else:
-        print("해를 찾을 수 없습니다.")
+        solution_collector.solution_print()
 
 
 HSU_AUTO_SCHEDULER_CP_SAT()
