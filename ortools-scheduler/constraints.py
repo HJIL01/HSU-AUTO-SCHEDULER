@@ -141,7 +141,7 @@ def add_class_gap_constraint(courses, model, is_selected, allowed_gap_minutes):
             for offlineSession in session_info["offline"]:
                 course_day_indices[offlineSession["day"]].append(idx)
 
-    # 시작 시간 기준으로 sort를 하기 때문에 course_day_indices의 요일마다의 인덱스 배열은 항상 단방향임
+    # 시작 시간 기준으로 sort를 하기 때문에 course_day_indices의 요일마다의 인덱스 배열은 항상 시작 시간 기준의 단방향임
     # 요일마다 강의를 돌고, 해당 요일의 모든 시작 시간, 끝나는 시간을 해당 요일의 다른 모든 강좌들과 비교한다
     # 시간이 겹치거나, 현재 강의와 비교하는 강의(다음 강의)와의 gap이 n분 이상 차이가 나면 연강이 아니라고 판단한다
     # 위의 조건에 해당한다면 .Not()을 통해 둘 중 하나는 무조건 함께 선택되지 않아야 한다는 제약조건을 걸어둠
