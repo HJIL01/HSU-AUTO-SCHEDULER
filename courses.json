@@ -10,14 +10,14 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "한충구",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 0,
       "offline": [
         {
           "place": "상상관406",
           "day": "Thu",
           "startTime": 1080,
-          "endTime": 1200
+          "endTime": 1260
         }
       ]
     }
@@ -33,14 +33,14 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "신성",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 0,
       "offline": [
         {
           "place": "상상관406",
           "day": "Tue",
           "startTime": 720,
-          "endTime": 840
+          "endTime": 900
         }
       ]
     }
@@ -56,14 +56,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "황기태",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 0,
       "offline": [
         {
           "place": "미래관B104",
           "day": "Mon",
           "startTime": 780,
-          "endTime": 960
+          "endTime": 1020
         }
       ]
     }
@@ -79,14 +79,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "유상미",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1,
       "offline": [
         {
           "place": "공학관309",
           "day": "Fri",
           "startTime": 780,
-          "endTime": 840
+          "endTime": 900
         }
       ]
     }
@@ -102,14 +102,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "황기태",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "미래관B104",
           "day": "Mon",
           "startTime": 600,
-          "endTime": 660
+          "endTime": 720
         }
       ]
     }
@@ -125,14 +125,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "유상미",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1,
       "offline": [
         {
           "place": "공학관309",
           "day": "Fri",
           "startTime": 600,
-          "endTime": 660
+          "endTime": 720
         }
       ]
     }
@@ -148,14 +148,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "이찬수",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "상상관304",
           "day": "Mon",
           "startTime": 900,
-          "endTime": 960
+          "endTime": 1020
         }
       ]
     }
@@ -171,14 +171,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "안영아",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관201",
           "day": "Mon",
           "startTime": 960,
-          "endTime": 1020
+          "endTime": 1080
         }
       ]
     }
@@ -194,14 +194,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "유상미",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1,
       "offline": [
         {
           "place": "공학관305",
           "day": "Tue",
           "startTime": 1200,
-          "endTime": 1260
+          "endTime": 1320
         }
       ]
     }
@@ -217,14 +217,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "안영아",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관201",
           "day": "Mon",
           "startTime": 1080,
-          "endTime": 1140
+          "endTime": 1200
         }
       ]
     }
@@ -237,17 +237,17 @@
     "credit": 3,
     "dayOrNight": "both",
     "classSection": 7,
-    "grade": null,
+    "grade": "전학년",
     "gradeLimit": null,
     "professor": "이신희",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1,
       "offline": [
         {
           "place": "탐구관205",
           "day": "Tue",
           "startTime": 900,
-          "endTime": 960
+          "endTime": 1020
         }
       ]
     }
@@ -263,14 +263,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "이청용",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 0,
       "offline": [
         {
           "place": "공학관202",
           "day": "Wed",
           "startTime": 540,
-          "endTime": 660
+          "endTime": 720
         }
       ]
     }
@@ -286,14 +286,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "이청용",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 0,
       "offline": [
         {
           "place": "공학관202",
           "day": "Fri",
           "startTime": 540,
-          "endTime": 660
+          "endTime": 720
         }
       ]
     }
@@ -309,14 +309,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "신성",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 0,
       "offline": [
         {
           "place": "탐구관503",
           "day": "Wed",
           "startTime": 900,
-          "endTime": 1020
+          "endTime": 1080
         }
       ]
     }
@@ -332,14 +332,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "신성",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 0,
       "offline": [
         {
           "place": "탐구관503",
           "day": "Wed",
           "startTime": 1080,
-          "endTime": 1200
+          "endTime": 1260
         }
       ]
     }
@@ -355,14 +355,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "신성",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "탐구관506",
           "day": "Mon",
           "startTime": 900,
-          "endTime": 960
+          "endTime": 1020
         }
       ]
     }
@@ -378,14 +378,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "김영웅",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "상상관506",
           "day": "Fri",
           "startTime": 960,
-          "endTime": 960
+          "endTime": 1020
         }
       ]
     }
@@ -401,14 +401,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "장재영",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "탐구관401",
           "day": "Thu",
           "startTime": 900,
-          "endTime": 960
+          "endTime": 1020
         }
       ]
     }
@@ -424,14 +424,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "장재영",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "탐구관507",
           "day": "Mon",
           "startTime": 720,
-          "endTime": 780
+          "endTime": 840
         }
       ]
     }
@@ -447,14 +447,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "장재영",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "탐구관507",
           "day": "Mon",
           "startTime": 900,
-          "endTime": 960
+          "endTime": 1020
         }
       ]
     }
@@ -470,14 +470,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "장재영",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "탐구관401",
           "day": "Thu",
           "startTime": 600,
-          "endTime": 660
+          "endTime": 720
         }
       ]
     }
@@ -493,14 +493,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "김영웅",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "상상관506",
           "day": "Fri",
           "startTime": 900,
-          "endTime": 900
+          "endTime": 960
         }
       ]
     }
@@ -516,14 +516,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "신성",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "탐구관506",
           "day": "Mon",
           "startTime": 1080,
-          "endTime": 1140
+          "endTime": 1200
         }
       ]
     }
@@ -539,14 +539,14 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "심규현,박선영",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 0,
       "offline": [
         {
           "place": "상상관406",
           "day": "Wed",
           "startTime": 720,
-          "endTime": 960
+          "endTime": 1020
         }
       ]
     }
@@ -562,14 +562,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "신성",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "탐구관501",
           "day": "Tue",
           "startTime": 660,
-          "endTime": 660
+          "endTime": 720
         }
       ]
     }
@@ -585,14 +585,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "송미화",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "탐구관504",
           "day": "Tue",
           "startTime": 900,
-          "endTime": 900
+          "endTime": 960
         }
       ]
     }
@@ -608,14 +608,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "유수진",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "탐구관지하102",
           "day": "Tue",
           "startTime": 900,
-          "endTime": 900
+          "endTime": 960
         }
       ]
     }
@@ -631,14 +631,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "유수진",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "탐구관지하102",
           "day": "Tue",
           "startTime": 960,
-          "endTime": 960
+          "endTime": 1020
         }
       ]
     }
@@ -654,14 +654,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "유수진",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "탐구관지하102",
           "day": "Tue",
           "startTime": 1020,
-          "endTime": 1020
+          "endTime": 1080
         }
       ]
     }
@@ -677,14 +677,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "유수진",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "탐구관지하102",
           "day": "Tue",
           "startTime": 1080,
-          "endTime": 1080
+          "endTime": 1140
         }
       ]
     }
@@ -700,14 +700,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "송미화",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "공학관305",
           "day": "Tue",
           "startTime": 600,
-          "endTime": 600
+          "endTime": 660
         }
       ]
     }
@@ -723,14 +723,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "송미화",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "공학관305",
           "day": "Tue",
           "startTime": 660,
-          "endTime": 660
+          "endTime": 720
         }
       ]
     }
@@ -746,14 +746,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "윤수미",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관201",
           "day": "Wed",
           "startTime": 780,
-          "endTime": 840
+          "endTime": 900
         }
       ]
     }
@@ -769,14 +769,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "윤수미",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관201",
           "day": "Wed",
           "startTime": 720,
-          "endTime": 780
+          "endTime": 840
         }
       ]
     }
@@ -792,14 +792,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "박필준",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "공학관305",
           "day": "Fri",
           "startTime": 840,
-          "endTime": 840
+          "endTime": 900
         }
       ]
     }
@@ -815,14 +815,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "박필준",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "공학관305",
           "day": "Fri",
           "startTime": 900,
-          "endTime": 900
+          "endTime": 960
         }
       ]
     }
@@ -838,14 +838,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "박필준",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관309",
           "day": "Mon",
           "startTime": 1080,
-          "endTime": 1140
+          "endTime": 1200
         }
       ]
     }
@@ -861,14 +861,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "황기태",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 0,
       "offline": [
         {
           "place": "미래관B104",
           "day": "Wed",
           "startTime": 900,
-          "endTime": 1020
+          "endTime": 1080
         }
       ]
     }
@@ -884,14 +884,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "황기태",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "미래관B104",
           "day": "Tue",
           "startTime": 900,
-          "endTime": 900
+          "endTime": 960
         }
       ]
     }
@@ -907,14 +907,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "이찬수",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "탐구관406",
           "day": "Mon",
           "startTime": 960,
-          "endTime": 1020
+          "endTime": 1080
         }
       ]
     }
@@ -930,14 +930,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "황기태",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "미래관B104",
           "day": "Tue",
           "startTime": 600,
-          "endTime": 600
+          "endTime": 660
         }
       ]
     }
@@ -953,14 +953,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "황기태",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "미래관B104",
           "day": "Tue",
           "startTime": 660,
-          "endTime": 660
+          "endTime": 720
         }
       ]
     }
@@ -976,14 +976,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "김진환",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관201",
           "day": "Mon",
           "startTime": 540,
-          "endTime": 600
+          "endTime": 660
         }
       ]
     }
@@ -999,14 +999,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "이찬수",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "탐구관406",
           "day": "Mon",
           "startTime": 1080,
-          "endTime": 1140
+          "endTime": 1200
         }
       ]
     }
@@ -1022,14 +1022,14 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "김성동,김남윤,심규현,유수진",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 0,
       "offline": [
         {
           "place": "공학관202",
           "day": "Sat",
           "startTime": 720,
-          "endTime": 840
+          "endTime": 900
         }
       ]
     }
@@ -1045,14 +1045,14 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "김진환,박승현,송미화,유수진",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 0,
       "offline": [
         {
           "place": "공학관202",
           "day": "Sat",
           "startTime": 900,
-          "endTime": 1020
+          "endTime": 1080
         }
       ]
     }
@@ -1068,14 +1068,14 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "황기태,김남윤,송미화,유수진",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 0,
       "offline": [
         {
           "place": "공학관202",
           "day": "Sat",
           "startTime": 540,
-          "endTime": 660
+          "endTime": 720
         }
       ]
     }
@@ -1091,14 +1091,14 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "김진환,김성동,심규현,송미화,유수진",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 0,
       "offline": [
         {
           "place": "공학관202",
           "day": "Sat",
           "startTime": 1080,
-          "endTime": 1200
+          "endTime": 1260
         }
       ]
     }
@@ -1114,14 +1114,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "전원호",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 0,
       "offline": [
         {
           "place": "공학관202",
           "day": "Mon",
           "startTime": 780,
-          "endTime": 960
+          "endTime": 1020
         }
       ]
     }
@@ -1137,14 +1137,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "심규현",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관202",
           "day": "Wed",
           "startTime": 1080,
-          "endTime": 1140
+          "endTime": 1200
         }
       ]
     }
@@ -1160,14 +1160,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "심규현",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관202",
           "day": "Thu",
           "startTime": 900,
-          "endTime": 960
+          "endTime": 1020
         }
       ]
     }
@@ -1183,14 +1183,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "김진환",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관309",
           "day": "Mon",
           "startTime": 780,
-          "endTime": 840
+          "endTime": 900
         }
       ]
     }
@@ -1206,14 +1206,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "심규현",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관202",
           "day": "Thu",
           "startTime": 1080,
-          "endTime": 1140
+          "endTime": 1200
         }
       ]
     }
@@ -1229,14 +1229,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "전원호",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 0,
       "offline": [
         {
           "place": "공학관202",
           "day": "Mon",
           "startTime": 1080,
-          "endTime": 1200
+          "endTime": 1260
         }
       ]
     }
@@ -1252,14 +1252,14 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "김남윤",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "탐구관504",
           "day": "Tue",
           "startTime": 960,
-          "endTime": 960
+          "endTime": 1020
         }
       ]
     }
@@ -1275,14 +1275,14 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "김남윤",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "탐구관504",
           "day": "Tue",
           "startTime": 600,
-          "endTime": 600
+          "endTime": 660
         }
       ]
     }
@@ -1298,14 +1298,14 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "김남윤",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "탐구관504",
           "day": "Tue",
           "startTime": 660,
-          "endTime": 660
+          "endTime": 720
         }
       ]
     }
@@ -1321,14 +1321,14 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "김남윤",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "탐구관지하101",
           "day": "Tue",
           "startTime": 1080,
-          "endTime": 1080
+          "endTime": 1140
         }
       ]
     }
@@ -1344,14 +1344,14 @@
     "grade": 1,
     "gradeLimit": null,
     "professor": "김민수",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "미래관B107",
           "day": "Mon",
           "startTime": 960,
-          "endTime": 1020
+          "endTime": 1080
         }
       ]
     }
@@ -1367,14 +1367,14 @@
     "grade": 1,
     "gradeLimit": null,
     "professor": "김민수",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "미래관B107",
           "day": "Mon",
           "startTime": 840,
-          "endTime": 900
+          "endTime": 960
         }
       ]
     }
@@ -1390,14 +1390,14 @@
     "grade": 1,
     "gradeLimit": null,
     "professor": "김민수",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "미래관B107",
           "day": "Mon",
           "startTime": 600,
-          "endTime": 660
+          "endTime": 720
         }
       ]
     }
@@ -1413,14 +1413,14 @@
     "grade": 1,
     "gradeLimit": null,
     "professor": "김민수",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "공학관202",
           "day": "Tue",
           "startTime": 600,
-          "endTime": 660
+          "endTime": 720
         }
       ]
     }
@@ -1436,14 +1436,14 @@
     "grade": 1,
     "gradeLimit": null,
     "professor": "심철준",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "탐구관203",
           "day": "Mon",
           "startTime": 960,
-          "endTime": 1020
+          "endTime": 1080
         }
       ]
     }
@@ -1459,14 +1459,14 @@
     "grade": 1,
     "gradeLimit": null,
     "professor": "심철준",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "탐구관203",
           "day": "Mon",
           "startTime": 1080,
-          "endTime": 1140
+          "endTime": 1200
         }
       ]
     }
@@ -1482,14 +1482,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "권영미",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "공학관201",
           "day": "Tue",
           "startTime": 900,
-          "endTime": 900
+          "endTime": 960
         }
       ]
     }
@@ -1505,14 +1505,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "강희중",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관305",
           "day": "Wed",
           "startTime": 780,
-          "endTime": 840
+          "endTime": 900
         }
       ]
     }
@@ -1528,14 +1528,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "권영미",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "공학관201",
           "day": "Tue",
           "startTime": 660,
-          "endTime": 660
+          "endTime": 720
         }
       ]
     }
@@ -1551,14 +1551,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "권영미",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "공학관201",
           "day": "Tue",
           "startTime": 720,
-          "endTime": 720
+          "endTime": 780
         }
       ]
     }
@@ -1574,14 +1574,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "김민수",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "탐구관203",
           "day": "Tue",
           "startTime": 900,
-          "endTime": 900
+          "endTime": 960
         }
       ]
     }
@@ -1597,14 +1597,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "유상미",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1,
       "offline": [
         {
           "place": "공학관202",
           "day": "Tue",
           "startTime": 900,
-          "endTime": 960
+          "endTime": 1020
         }
       ]
     }
@@ -1620,14 +1620,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "강희중",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관305",
           "day": "Wed",
           "startTime": 1080,
-          "endTime": 1140
+          "endTime": 1200
         }
       ]
     }
@@ -1643,14 +1643,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "유상미",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1,
       "offline": [
         {
           "place": "공학관305",
           "day": "Tue",
           "startTime": 1080,
-          "endTime": 1140
+          "endTime": 1200
         }
       ]
     }
@@ -1666,14 +1666,14 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "박승현",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "상상관204",
           "day": "Mon",
           "startTime": 900,
-          "endTime": 960
+          "endTime": 1020
         }
       ]
     }
@@ -1689,14 +1689,14 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "박승현",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "상상관204",
           "day": "Mon",
           "startTime": 960,
-          "endTime": 1020
+          "endTime": 1080
         }
       ]
     }
@@ -1712,14 +1712,14 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "박승현",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "상상관203",
           "day": "Mon",
           "startTime": 1140,
-          "endTime": 1200
+          "endTime": 1260
         }
       ]
     }
@@ -1735,14 +1735,14 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "이동희",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관305",
           "day": "Thu",
           "startTime": 900,
-          "endTime": 960
+          "endTime": 1020
         }
       ]
     }
@@ -1758,14 +1758,14 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "이동희",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관305",
           "day": "Thu",
           "startTime": 1080,
-          "endTime": 1140
+          "endTime": 1200
         }
       ]
     }
@@ -1781,14 +1781,14 @@
     "grade": 4,
     "gradeLimit": null,
     "professor": "김성동",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 0,
       "offline": [
         {
           "place": "탐구관307",
           "day": "Thu",
           "startTime": 900,
-          "endTime": 1020
+          "endTime": 1080
         }
       ]
     }
@@ -1804,14 +1804,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "황호영",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "미래관B104",
           "day": "Fri",
           "startTime": 900,
-          "endTime": 900
+          "endTime": 960
         }
       ]
     }
@@ -1827,14 +1827,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "황호영",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "미래관B104",
           "day": "Fri",
           "startTime": 600,
-          "endTime": 600
+          "endTime": 660
         }
       ]
     }
@@ -1850,14 +1850,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "황호영",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "미래관B104",
           "day": "Fri",
           "startTime": 660,
-          "endTime": 660
+          "endTime": 720
         }
       ]
     }
@@ -1873,14 +1873,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "황호영",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "미래관B104",
           "day": "Fri",
           "startTime": 840,
-          "endTime": 840
+          "endTime": 900
         }
       ]
     }
@@ -1896,14 +1896,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "김동욱",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1,
       "offline": [
         {
           "place": "공학관305",
           "day": "Tue",
           "startTime": 900,
-          "endTime": 960
+          "endTime": 1020
         }
       ]
     }
@@ -1919,14 +1919,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "김동욱",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1,
       "offline": [
         {
           "place": "공학관201",
           "day": "Tue",
           "startTime": 1080,
-          "endTime": 1140
+          "endTime": 1200
         }
       ]
     }
@@ -1942,14 +1942,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "계희원",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1,
       "offline": [
         {
           "place": "상상관304",
           "day": "Tue",
           "startTime": 960,
-          "endTime": 1020
+          "endTime": 1080
         }
       ]
     }
@@ -1965,14 +1965,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "이지은",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관202",
           "day": "Thu",
           "startTime": 780,
-          "endTime": 840
+          "endTime": 900
         }
       ]
     }
@@ -1988,14 +1988,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "계희원",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1,
       "offline": [
         {
           "place": "공학관309",
           "day": "Tue",
           "startTime": 600,
-          "endTime": 660
+          "endTime": 720
         }
       ]
     }
@@ -2011,14 +2011,14 @@
     "grade": 3,
     "gradeLimit": null,
     "professor": "계희원",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1,
       "offline": [
         {
           "place": "공학관202",
           "day": "Tue",
           "startTime": 1140,
-          "endTime": 1200
+          "endTime": 1260
         }
       ]
     }
@@ -2034,14 +2034,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "강희중",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1,
       "offline": [
         {
           "place": "공학관309",
           "day": "Tue",
           "startTime": 900,
-          "endTime": 960
+          "endTime": 1020
         }
       ]
     }
@@ -2057,14 +2057,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "정인환",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 0,
       "offline": [
         {
           "place": "공학관202",
           "day": "Mon",
           "startTime": 540,
-          "endTime": 660
+          "endTime": 720
         }
       ]
     }
@@ -2080,14 +2080,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "강희중",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관305",
           "day": "Wed",
           "startTime": 900,
-          "endTime": 960
+          "endTime": 1020
         }
       ]
     }
@@ -2103,14 +2103,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "강희중",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1,
       "offline": [
         {
           "place": "공학관305",
           "day": "Tue",
           "startTime": 780,
-          "endTime": 840
+          "endTime": 900
         }
       ]
     }
@@ -2126,14 +2126,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "강희중",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1,
       "offline": [
         {
           "place": "공학관309",
           "day": "Tue",
           "startTime": 1080,
-          "endTime": 1140
+          "endTime": 1200
         }
       ]
     }
@@ -2149,14 +2149,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "김성동",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관201",
           "day": "Mon",
           "startTime": 900,
-          "endTime": 960
+          "endTime": 1020
         }
       ]
     }
@@ -2172,14 +2172,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "김인희",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관201",
           "day": "Thu",
           "startTime": 900,
-          "endTime": 960
+          "endTime": 1020
         }
       ]
     }
@@ -2195,14 +2195,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "김인희",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관201",
           "day": "Thu",
           "startTime": 960,
-          "endTime": 1020
+          "endTime": 1080
         }
       ]
     }
@@ -2218,14 +2218,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "김성동",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관201",
           "day": "Mon",
           "startTime": 600,
-          "endTime": 660
+          "endTime": 720
         }
       ]
     }
@@ -2241,14 +2241,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "김성동",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관201",
           "day": "Mon",
           "startTime": 780,
-          "endTime": 840
+          "endTime": 900
         }
       ]
     }
@@ -2264,14 +2264,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "김성동",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관201",
           "day": "Thu",
           "startTime": 600,
-          "endTime": 660
+          "endTime": 720
         }
       ]
     }
@@ -2287,14 +2287,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "김인희",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 1.5,
       "offline": [
         {
           "place": "공학관201",
           "day": "Thu",
           "startTime": 1080,
-          "endTime": 1140
+          "endTime": 1200
         }
       ]
     }
@@ -2310,14 +2310,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "임선집",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 0,
       "offline": [
         {
           "place": "탐구관301",
           "day": "Tue",
           "startTime": 600,
-          "endTime": 720
+          "endTime": 780
         }
       ]
     }
@@ -2333,14 +2333,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "엄종석",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "탐구관205",
           "day": "Tue",
           "startTime": 600,
-          "endTime": 600
+          "endTime": 660
         }
       ]
     }
@@ -2356,14 +2356,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "엄종석",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 2,
       "offline": [
         {
           "place": "탐구관203",
           "day": "Tue",
           "startTime": 660,
-          "endTime": 660
+          "endTime": 720
         }
       ]
     }
@@ -2379,14 +2379,14 @@
     "grade": 2,
     "gradeLimit": null,
     "professor": "임선집",
-    "sessionInfoType": {
+    "sessionInfo": {
       "online": 0,
       "offline": [
         {
           "place": "공학관201",
           "day": "Tue",
           "startTime": 1200,
-          "endTime": 1320
+          "endTime": 1380
         }
       ]
     }

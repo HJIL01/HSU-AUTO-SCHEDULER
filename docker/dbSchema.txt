@@ -2,4 +2,46 @@ semester (
     semester_id varchar primary key,
     year int not null,
     term int not null check (term in (1, 2))
-)
+);
+
+major (
+    major_id varchar primary key,
+    major_name varchar not null
+);
+
+course (
+    course_id varchar primary key,
+    course_code not null,
+    course_name varchar not null,
+    completion_type varchar not null,
+    delivery_method varchar not null,
+    credit int not null,
+    day_or_night enum(day, night, both) not null,
+    class_section varchar not null,
+    grade int not null,
+    grade_limit varchar null,
+    online_min int,
+    plan_code varchar null
+);
+
+professor (
+    professor_id serial primary key,
+    professor_name varchar not null
+);
+
+offline_schedule (
+    offline_schedule_id serial primary key,
+    course_id varchar not null references course(course_id),
+    day varchar not null,
+    start_time int not null,
+    end_time int not null,
+    location varchar not null
+);
+
+course_offering (
+  semester_id VARCHAR NOT NULL REFERENCES semester(semester_id),
+  major_id VARCHAR NOT NULL REFERENCES major(major_id),
+  course_id VARCHAR NOT NULL REFERENCES course(course_id),
+  professor_id VARCHAR NOT NULL REFERENCES professor(professor_id),
+  PRIMARY KEY (semester_id, major_id, course_id, professor_id)
+);

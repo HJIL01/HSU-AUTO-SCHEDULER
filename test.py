@@ -1,18 +1,15 @@
 from collections import defaultdict
 
-c_list = [
-    {"id": 1, "name": "데마", "price": 1000, "ss": "전기"},
-    {"id": 2, "name": "데마", "price": 2000, "ss": "전기"},
-    {"id": 3, "name": "알고리즘", "price": 2000, "ss": "전필"},
-    {"id": 4, "name": "알고리즘", "price": 3000, "ss": "전선"},
-    {"id": 5, "name": "테스트", "price": 31000, "ss": "전선"},
+course = [
+    {"name": "c1", "start": 10 * 60, "end": 11 * 60, "v": 5},
+    {"name": "c2", "start": 10 * 60, "end": 11 * 60 + 30, "v": 2},
+    {"name": "c3", "start": 11 * 60 + 30, "end": 12 * 60, "v": 1},
 ]
 
-test = [0, 1, 1, 0, 0]
+days = ["Mon", "Tue"]
+indices = defaultdict(list)
 
-total = sum(pro["price"] * cur for pro, cur in zip(c_list, test) if pro["ss"] == "전기")
+for day in days:
+    indices[day] = []
 
-tt = {"test": "sadsa"}
-
-if tt.get("test"):
-    print("asdsa")
+print(indices)
