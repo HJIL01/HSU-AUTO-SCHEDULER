@@ -1,0 +1,5 @@
+create table semester (
+    semester_id varchar primary key,
+    year int not null,
+    term int not null check (term in (1, 2))
+);
