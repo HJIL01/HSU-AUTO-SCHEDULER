@@ -21,11 +21,11 @@ export type CourseType = {
   credit: number; // 학점: number
   dayOrNight: string; // 주야구분: string
   classSection: string; //분반: string
-  grade: string; // 학년(1, 2, 3, 4학년 또는 전학년): 그냥 string
+  grade: number; // 학년(1, 2, 3, 4학년 또는 전학년(0으로)): number
   gradeLimit: number | null; // 학년제한: number 또는 null
   professor: string; // 교수: string
   planCode: string | null; //강의 계획서 code string 또는 null
-  sessionInfo: null | SessionInfoType; // 강의실 및 교시: null 또는 위의 sessionInfoType
+  sessionInfo: SessionInfoType | null; // 강의실 및 교시: 위의 sessionInfoType 또는 null
 };
 
 /* 

@@ -51,7 +51,7 @@ export function courseXmlToJson(courseXmlText: string) {
       credit: Number(row.hakjum),
       dayOrNight: parseDayOrNight(row.juya),
       classSection: row.bunban,
-      grade: String(row.haknean),
+      grade: isNaN(Number(row.haknean)) ? 0 : Number(row.haknean),
       gradeLimit: Number(row.haknean_limit) || null,
       professor: row.prof,
       planCode: row.plan || null,
