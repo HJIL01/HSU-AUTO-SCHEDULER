@@ -12,6 +12,7 @@
     "@types/node": "^24.0.10"
   },
   "dependencies": {
+    "dotenv": "^17.0.1",
     "fast-xml-parser": "^5.2.5"
   }
 }

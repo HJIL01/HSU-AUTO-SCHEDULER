@@ -4,6 +4,7 @@ import { CourseType } from "../types/courseType";
 import { MajorType } from "../types/majorType";
 import { randomDelay } from "../utils/randomDelay";
 import { logError } from "utils/logError";
+import { postCourses } from "apis/postCourses";
 
 const TEST_FUNC_TIME_OUT = 1000 * 60 * 5;
 const YEAR_SEMESTER_CODE = "20251";
@@ -72,7 +73,12 @@ test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모�
       const coursesXml = await courses_response.text();
 
       const courses: CourseType[] | null = courseXmlToJson(coursesXml);
-      console.log(JSON.stringify(courses, null, 2));
+      // console.log(JSON.stringify(courses, null, 2));
+
+      const res = await postCourses(courses);
+      console.log(
+        `${index}번째, ${majorName}(${majorCode}) 데이터 전송 완료: ${res}`
+      );
 
       // 너무 빨리 돌면 과부하 걸릴까봐 랜덤 딜레이 주기
       // await randomDelay();
