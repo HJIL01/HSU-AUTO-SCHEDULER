@@ -7,7 +7,7 @@ create table course (
     credit int not null,
     day_or_night day_or_night_enum not null,
     class_section varchar not null,
-    grade varchar not null,
+    grade int not null,
     grade_limit varchar null,
     online_min int default 0,
     plan_code varchar null
