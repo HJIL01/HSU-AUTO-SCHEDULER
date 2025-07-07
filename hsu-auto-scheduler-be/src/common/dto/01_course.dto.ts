@@ -3,6 +3,7 @@ import {
   IsEnum,
   IsNotEmpty,
   IsNumber,
+  IsOptional,
   IsString,
   ValidateNested,
 } from 'class-validator';
@@ -26,7 +27,7 @@ export class CourseDto {
   deliveryMethod: string;
 
   @Type(() => Number)
-  @IsNumber()
+  @IsNumber({ allowNaN: false }, { message: 'credit은 숫자여야 합니다' })
   credit: number;
 
   @IsEnum(['day', 'night', 'both'], {
@@ -38,23 +39,26 @@ export class CourseDto {
   @IsNotEmpty()
   classSection: string;
 
-  @IsString()
-  @IsNotEmpty()
-  grade: string;
+  @Type(() => Number)
+  @IsNumber({ allowNaN: false }, { message: 'grade는 숫자여야 합니다.' })
+  grade: number;
 
-  gradeLimig: number | null;
+  @IsOptional()
+  @Type(() => Number)
+  @IsNumber({ allowNaN: false }, { message: 'gradeLimit은 숫자여야 합니다.' })
+  gradeLimit: number | null;
 
   @IsString()
   @IsNotEmpty()
   professor: string;
 
+  @IsOptional()
+  @IsString()
+  @IsNotEmpty()
   planCode: string | null;
 
-  sessionInfo: null | SessionInfoDto;
-}
-
-export class WrapArrayCourseDto {
-  @ValidateNested({ each: true })
-  @Type(() => CourseDto)
-  courses: CourseDto[];
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => SessionInfoDto)
+  sessionInfo: SessionInfoDto | null;
 }

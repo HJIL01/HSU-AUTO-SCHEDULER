@@ -11,10 +11,10 @@ export class SessionBlockDto {
   day: string;
 
   @Type(() => Number)
-  @IsNumber()
+  @IsNumber({ allowNaN: false }, { message: 'startTime은 숫자여야 합니다.' })
   startTime: number;
 
   @Type(() => Number)
-  @IsNumber()
-  endtTime: number;
+  @IsNumber({ allowNaN: false }, { message: 'endTime은 숫자여야 합니다.' })
+  endTime: number;
 }

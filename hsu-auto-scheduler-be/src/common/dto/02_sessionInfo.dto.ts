@@ -1,9 +1,14 @@
-import { IsNumber } from 'class-validator';
+import { IsNumber, IsOptional, ValidateNested } from 'class-validator';
 import { SessionBlockDto } from './03_sessionBlock.dto';
+import { Type } from 'class-transformer';
 
 export class SessionInfoDto {
-  @IsNumber()
+  @Type(() => Number)
+  @IsNumber({ allowNaN: false }, { message: '온라인 시간은 숫자여야 합니다.' })
   online: number;
 
-  offline: null | SessionBlockDto;
+  @IsOptional()
+  @ValidateNested({ each: true })
+  @Type(() => SessionBlockDto)
+  offline: SessionBlockDto[] | null;
 }
