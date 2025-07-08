@@ -4,9 +4,15 @@ import { LoggerModule } from './modules/logger/logger.module';
 import { APP_FILTER, APP_PIPE } from '@nestjs/core';
 import { AllExceptionFilter } from './all-exception.filter';
 import { DatabaseModule } from './modules/database/database.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [CrawlerModule, LoggerModule, DatabaseModule],
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    CrawlerModule,
+    LoggerModule,
+    DatabaseModule,
+  ],
   controllers: [],
   providers: [
     /* 

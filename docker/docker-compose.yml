@@ -5,7 +5,7 @@ services:
     restart: always
     environment:
       POSTGRES_USER: dba1
-      POSTGRES_PASSWORD: qscz2973@
+      POSTGRES_PASSWORD: "qscz2973@"
       POSTGRES_DB: hsu_auto_scheduler
     ports:
       - "5432:5432"
