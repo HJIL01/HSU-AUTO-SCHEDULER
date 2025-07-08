@@ -1,6 +1,7 @@
 import { ConsoleLogger, Injectable } from '@nestjs/common';
-import fsPromises from 'fs/promises';
-import path from 'path';
+import * as fs from 'fs';
+import { promises as fsPromises } from 'fs';
+import * as path from 'path';
 
 @Injectable()
 export class LoggerService extends ConsoleLogger {
@@ -16,6 +17,7 @@ export class LoggerService extends ConsoleLogger {
       const logDir = path.resolve(process.cwd(), 'logs');
       const logFile = path.join(logDir, isError ? 'errors.log' : 'logs.log');
       const logLine = `${formatTime}\t${entry}\n`;
+      console.log(logLine);
 
       await fsPromises.mkdir(logDir, { recursive: true });
       await fsPromises.appendFile(logFile, logLine);
@@ -25,12 +27,17 @@ export class LoggerService extends ConsoleLogger {
   }
 
   log(message: any, context?: string) {
-    console.log(message, context);
+    const entry = `${context}\t${JSON.stringify(message)}`;
+
+    this.logToFile(false, entry);
+
     super.log(message, context);
   }
 
   error(message: any, stackOrContext?: string) {
-    console.log(message, stackOrContext, '에러');
+    const entry = `${stackOrContext}\t${JSON.stringify(message)}`;
+
+    this.logToFile(true, entry);
 
     super.error(message, stackOrContext);
   }

@@ -13,10 +13,8 @@ export class CrawlerController {
         items: CourseDto,
       }),
     )
-    courses: CourseDto[] | null,
+    courses: CourseDto[] = [],
   ) {
-    console.log(courses);
-    return 'TEst';
-    // return this.crawlerService.postCourses(courses);
+    return this.crawlerService.postCourses(courses);
   }
 }

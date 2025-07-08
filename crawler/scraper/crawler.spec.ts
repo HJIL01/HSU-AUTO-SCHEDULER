@@ -46,11 +46,11 @@ test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모�
   // 모든 전공들을 루프하면서 데이터베이스에 포맷된 정보를 기반으로 저장
   // 지금은 console.log를 찍지만 나중에 데베 연동 시킬거임
 
-  for (const index in [0]) {
+  for (const index in majors) {
     const major = majors[index];
-    // const majorCode = major.majorCode;
+    const majorCode = major.majorCode;
     const majorName = major.majorName;
-    const majorCode = MAJOR_CODE;
+    // const majorCode = MAJOR_CODE;
 
     try {
       // 전공들의 강좌들을 하나하나 받아오는 로직

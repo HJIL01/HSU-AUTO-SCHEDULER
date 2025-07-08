@@ -3,9 +3,10 @@ import { CrawlerModule } from './modules/crawler/crawler.module';
 import { LoggerModule } from './modules/logger/logger.module';
 import { APP_FILTER, APP_PIPE } from '@nestjs/core';
 import { AllExceptionFilter } from './all-exception.filter';
+import { DatabaseModule } from './modules/database/database.module';
 
 @Module({
-  imports: [CrawlerModule, LoggerModule],
+  imports: [CrawlerModule, LoggerModule, DatabaseModule],
   controllers: [],
   providers: [
     /* 

@@ -6,7 +6,7 @@ export async function postCourses(courses: CourseType[] | null) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(courses, null, 2),
+    body: JSON.stringify(courses || [], null, 2),
   });
 
   if (!res.ok) {

@@ -1,2 +1,2 @@
 const s = null;
-console.log(s);
+console.log(typeof JSON.stringify(s, null, 2));
