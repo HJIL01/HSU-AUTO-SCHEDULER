@@ -11,12 +11,12 @@ major (
 
 course (
     course_id varchar primary key,
-    course_code not null,
+    course_code varchar not null,
     course_name varchar not null,
     completion_type varchar not null,
     delivery_method varchar not null,
     credit int not null,
-    day_or_night enum(day, night, both) not null,
+    day_or_night varchar not null check (term in ('day', 'night', 'both'))
     class_section varchar not null,
     grade int not null,
     grade_limit varchar null,

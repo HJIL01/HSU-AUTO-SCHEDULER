@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { CourseDto } from 'src/common/dto/03_course.dto';
+import { crawledDataDto } from './dto/crawlerData.dto';
 
 @Injectable()
 export class CrawlerService {
-  postCourses(courses: CourseDto[] = []) {
-    console.log(courses);
+  handleCrawledData(crawledData: crawledDataDto) {
+    console.log(crawledData);
     return JSON.stringify('okokok', null, 2);
   }
 }

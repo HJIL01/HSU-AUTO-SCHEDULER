@@ -4,7 +4,7 @@ import { SemesterDto } from 'src/common/dto/01_semester.dto';
 import { MajorDto } from 'src/common/dto/02_major.dto';
 import { CourseDto } from 'src/common/dto/03_course.dto';
 
-export class CrawlerDataDto {
+export class crawledDataDto {
   @ValidateNested()
   @Type(() => SemesterDto)
   semester: SemesterDto;
@@ -16,5 +16,5 @@ export class CrawlerDataDto {
   @IsOptional()
   @ValidateNested({ each: true })
   @Type(() => CourseDto)
-  courses: CourseDto[];
+  courses: CourseDto[] | null;
 }

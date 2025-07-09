@@ -5,7 +5,7 @@ CREATE TABLE course (
     completion_type VARCHAR(255) NOT NULL,
     delivery_method VARCHAR(255) NOT NULL,
     credit INT NOT NULL,
-    day_or_night ENUM('day', 'night', 'both') NOT NULL,
+    day_or_night VARCHAR(255) NOT NULL CHECK(day_or_night IN ('day', 'night', 'both')),
     class_section VARCHAR(255) NOT NULL,
     grade INT NOT NULL,
     grade_limit VARCHAR(255),
