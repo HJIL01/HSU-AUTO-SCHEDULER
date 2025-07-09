@@ -4,10 +4,12 @@ import { CourseType } from "../types/courseType";
 import { MajorType } from "../types/majorType";
 import { randomDelay } from "../utils/randomDelay";
 import { logError } from "utils/logError";
-import { postCourses } from "apis/postCourses";
+import { splitSemester } from "utils/splitSemester";
+import { SemesterType } from "types/semesterType";
+import { postData } from "apis/postData";
 
 const TEST_FUNC_TIME_OUT = 1000 * 60 * 5;
-const YEAR_SEMESTER_CODE = "20251";
+const semester: SemesterType = splitSemester("2025-1");
 const MAJOR_CODE = "V024";
 
 test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모든 강좌 가져오기 -> 데베 저장", async ({
@@ -30,27 +32,26 @@ test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모�
           "https://info.hansung.ac.kr/jsp/haksa/siganpyo_aui_data.jsp?gubun=jungonglist" &&
         res.status() === 200 &&
         typeof requestBody === "string" &&
-        requestBody.includes(`syearhakgi=${YEAR_SEMESTER_CODE}`)
+        requestBody.includes(`syearhakgi=${semester.semesterCode}`)
       );
     }),
-    page.locator("#yearhakgi").selectOption(YEAR_SEMESTER_CODE),
+    page.locator("#yearhakgi").selectOption(semester.semesterCode),
   ]);
 
   // 해당 학기의 모든 전공들을 받아옴
   const majorsXml = await majors_response.text();
 
   const majors: MajorType[] = majorXmlToJson(majorsXml);
-
   // const arrayTest = majors.slice(0, 1);
 
   // 모든 전공들을 루프하면서 데이터베이스에 포맷된 정보를 기반으로 저장
   // 지금은 console.log를 찍지만 나중에 데베 연동 시킬거임
 
-  for (const index in majors) {
+  for (const index in [0]) {
     const major = majors[index];
-    const majorCode = major.majorCode;
+    // const majorCode = major.majorCode;
     const majorName = major.majorName;
-    // const majorCode = MAJOR_CODE;
+    const majorCode = MAJOR_CODE;
 
     try {
       // 전공들의 강좌들을 하나하나 받아오는 로직
@@ -63,7 +64,7 @@ test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모�
               "https://info.hansung.ac.kr/jsp/haksa/siganpyo_aui_data.jsp" &&
             res.status() === 200 &&
             typeof requestBody === "string" &&
-            requestBody.includes(`syearhakgi=${YEAR_SEMESTER_CODE}`) &&
+            requestBody.includes(`syearhakgi=${semester.semesterCode}`) &&
             requestBody.includes(`sjungong=${majorCode}`)
           );
         }),
@@ -75,7 +76,7 @@ test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모�
       const courses: CourseType[] | null = courseXmlToJson(coursesXml);
       // console.log(JSON.stringify(courses, null, 2));
 
-      const res = await postCourses(courses);
+      const res = await postData(semester, major, courses);
       console.log(
         `${index}번째, ${majorName}(${majorCode}) 데이터 전송 완료: ${res}`
       );
