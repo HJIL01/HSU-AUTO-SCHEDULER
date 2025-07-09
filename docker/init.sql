@@ -1,32 +1,24 @@
+-- MySQL dump 10.13  Distrib 8.0.37, for Win64 (x86_64)
 --
--- PostgreSQL database dump
---
+-- Host: localhost    Database: hsu_auto_scheduler
+-- ------------------------------------------------------
+-- Server version	8.0.37
 
--- Dumped from database version 16.9 (Debian 16.9-1.pgdg120+1)
--- Dumped by pg_dump version 16.9 (Debian 16.9-1.pgdg120+1)
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
--- SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
 
---
--- PostgreSQL database dump complete
---
-
--- DDL 내의 sql 파일들 실행
-\i sql/ddl/01_create_semester_table.sql
-\i sql/ddl/02_create_major_table.sql
-\i sql/ddl/03_create_enum_types.sql
-\i sql/ddl/04_create_course_table.sql
-\i sql/ddl/05_create_professor_table.sql
-\i sql/ddl/06_create_offline_schedule_table.sql
-\i sql/ddl/07_create_course_offering_table.sql
-
--- DNL 내의 sql 파일들 실행
+source sql/ddl/01_create_semester_table.sql;
+source sql/ddl/02_create_major_table.sql
+source sql/ddl/03_create_course_table.sql
+source sql/ddl/04_create_professor_table.sql;
+source sql/ddl/05_create_offline_schedule_table.sql;
+source sql/ddl/06_create_course_offering_table.sql;

@@ -1,24 +1,24 @@
 services:
-  db:
-    image: postgres:16
-    container_name: hsu_auto_scheduler_postgres
+  mysql:
+    image: mysql:8.4
+    container_name: hsu_auto_scheduler_mysql
     restart: always
     environment:
-      POSTGRES_USER: dba1
-      POSTGRES_PASSWORD: "qscz2973@"
-      POSTGRES_DB: hsu_auto_scheduler
+      MYSQL_ROOT_PASSWORD: 1316
+      MYSQL_DATABASE: hsu_auto_scheduler
+      MYSQL_USER: dba1
+      MYSQL_PASSWORD: qscz2973@
     ports:
-      - "5432:5432"
+      - "3307:3306"
     volumes:
-      # hsu_auto_scheduler_db_data라는 이름으로 /var/lib/postgresql/data에 볼륨 마운트
-      # 볼륨은 기본적으로 /var/lib/postgresql/data에 저장됨. 여기에 데이터들이 모여있음
-      - hsu_auto_scheduler_db_data:/var/lib/postgresql/data
+      # MySQL의 실제 데이터 파일은 여기에 저장됨
+      - hsu_auto_scheduler_mysql_data:/var/lib/mysql
 
-      # 도커의 엔트리 포인트로 init.sql을 지정(볼륨이 없고 docker compose up -d 할 시 최초 한번 실행)
+      # 컨테이너 최초 실행 시 init.sql 자동 실행
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
-      # 현재 디렉토리의 sql이라는 폴더를 /sql이라는 이름의 폴더로 마운트
+      # SQL 파일 접근용
       - ./sql:/sql
+
 volumes:
-  # 위에서 마운트한 볼륨을 여기서 정의
-  hsu_auto_scheduler_db_data:
+  hsu_auto_scheduler_mysql_data:
