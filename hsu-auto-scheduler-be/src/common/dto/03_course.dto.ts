@@ -7,7 +7,7 @@ import {
   IsString,
   ValidateNested,
 } from 'class-validator';
-import { SessionInfoDto } from './02_sessionInfo.dto';
+import { SessionInfoDto } from './04_sessionInfo.dto';
 
 export class CourseDto {
   @IsString()

@@ -1,5 +1,5 @@
 import { IsNumber, IsOptional, ValidateNested } from 'class-validator';
-import { SessionBlockDto } from './03_sessionBlock.dto';
+import { SessionBlockDto } from './05_sessionBlock.dto';
 import { Type } from 'class-transformer';
 
 export class SessionInfoDto {
