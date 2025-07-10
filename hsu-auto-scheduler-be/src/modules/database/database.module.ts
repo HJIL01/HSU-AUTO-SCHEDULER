@@ -5,6 +5,7 @@ import { SemesterEntity } from 'src/common/entities/01_semester.entity';
 import { MajorEntity } from 'src/common/entities/02_major.entity';
 import { CourseEntity } from 'src/common/entities/03_course.entity';
 import { OfflineScheduleEntity } from 'src/common/entities/04_offlineSchedule.entity';
+import { SemesterMajorEntity } from 'src/common/entities/05_semester_major.entity';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { OfflineScheduleEntity } from 'src/common/entities/04_offlineSchedule.en
             MajorEntity,
             CourseEntity,
             OfflineScheduleEntity,
+            SemesterMajorEntity,
           ],
           synchronize: false,
         };

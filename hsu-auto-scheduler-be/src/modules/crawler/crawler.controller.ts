@@ -15,6 +15,6 @@ export class CrawlerController {
 
   @Post('postMajorData')
   handleMajorData(@Body() majorData: MajorDataDto) {
-    return this.crawlerService.findOrCreateMajor(majorData);
+    return this.crawlerService.createSemesterAndMajorTransactional(majorData);
   }
 }

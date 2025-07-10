@@ -12,11 +12,7 @@ CREATE TABLE course (
     grade_limit VARCHAR(255),
     online_min INT DEFAULT 0,
     plan_code VARCHAR(255),
-    ---- FK ----
-
-    --Many to One-- 
     semester_id VARCHAR(255) NOT NULL,
-    --Many to One--
     major_id VARCHAR(255) NOT NULL,
     FOREIGN KEY (semester_id) REFERENCES semester(semester_id),
     FOREIGN KEY (major_id) REFERENCES major(major_id)

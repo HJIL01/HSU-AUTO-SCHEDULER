@@ -7,6 +7,8 @@ import { logError } from "utils/logError";
 import { splitSemester } from "utils/splitSemester";
 import { SemesterType } from "types/semesterType";
 import { postCourseData } from "apis/postCourseData";
+import { postSemesterData } from "apis/postSemesterData";
+import { postMajorData } from "apis/postMajorData";
 
 const TEST_FUNC_TIME_OUT = 1000 * 60 * 5;
 const semester: SemesterType = splitSemester("2025-1");
@@ -43,12 +45,18 @@ test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모�
 
   const majors: MajorType[] = majorXmlToJson(majorsXml);
 
+  const postSemesterRes = await postSemesterData(semester);
+  console.log(postSemesterRes);
+
   // 모든 전공들을 루프하면서 데이터베이스에 포맷된 정보를 기반으로 저장
   for (const index in [0]) {
     const major = majors[index];
     // const majorCode = major.majorCode;
     const majorName = major.majorName;
     const majorCode = MAJOR_CODE;
+
+    const postMajorRes = await postMajorData(semester.semesterCode, major);
+    console.log(postMajorRes);
 
     try {
       // 전공들의 강좌들을 하나하나 받아오는 로직
