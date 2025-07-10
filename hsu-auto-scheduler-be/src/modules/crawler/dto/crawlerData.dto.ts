@@ -4,7 +4,7 @@ import { SemesterDto } from 'src/common/dto/01_semester.dto';
 import { MajorDto } from 'src/common/dto/02_major.dto';
 import { CourseDto } from 'src/common/dto/03_course.dto';
 
-export class crawledDataDto {
+export class CrawledDataDto {
   @ValidateNested()
   @Type(() => SemesterDto)
   semester: SemesterDto;

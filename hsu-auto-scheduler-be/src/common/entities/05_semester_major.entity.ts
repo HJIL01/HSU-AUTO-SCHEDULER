@@ -1,0 +1,20 @@
+import { Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
+import { SemesterEntity } from './01_semester.entity';
+import { MajorEntity } from './02_major.entity';
+
+@Entity('semester_major')
+export class SemesterMajorEntity {
+  @PrimaryColumn()
+  semester_id: string;
+
+  @PrimaryColumn()
+  major_id: string;
+
+  @ManyToOne(() => SemesterEntity, (semester) => semester.semesterMajors)
+  @JoinColumn({ name: 'semester_id' })
+  semester: SemesterEntity;
+
+  @ManyToOne(() => MajorEntity, (major) => major.semesterMajors)
+  @JoinColumn({ name: 'major_id' })
+  major: MajorEntity;
+}

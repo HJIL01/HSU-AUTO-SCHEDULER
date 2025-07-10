@@ -12,12 +12,6 @@ export class OfflineScheduleEntity {
   @PrimaryGeneratedColumn()
   offline_schedule_id: number;
 
-  @ManyToOne(() => CourseEntity, (course) => course.offlineSchedules, {
-    onDelete: 'CASCADE',
-  })
-  @JoinColumn({ name: 'course_id' })
-  course: CourseEntity;
-
   @Column()
   day: string;
 
@@ -29,4 +23,11 @@ export class OfflineScheduleEntity {
 
   @Column()
   location: string;
+
+  @Column()
+  course_id: string;
+
+  @ManyToOne(() => CourseEntity, (course) => course.offlineSchedules)
+  @JoinColumn({ name: 'course_id' })
+  course: CourseEntity;
 }

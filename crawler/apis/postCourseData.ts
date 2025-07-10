@@ -2,7 +2,7 @@ import { CourseType } from "types/courseType";
 import { MajorType } from "types/majorType";
 import { SemesterType } from "types/semesterType";
 
-export async function postData(
+export async function postCourseData(
   semester: SemesterType,
   major: MajorType,
   courses: CourseType[] | null

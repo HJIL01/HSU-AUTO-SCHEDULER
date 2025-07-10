@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
+import { CourseEntity } from './03_course.entity';
+import { SemesterMajorEntity } from './05_semester_major.entity';
 
 enum SemesterTermEnum {
   First = 1,
@@ -15,4 +17,13 @@ export class SemesterEntity {
 
   @Column({ type: 'enum', enum: SemesterTermEnum })
   term: SemesterTermEnum;
+
+  @OneToMany(() => CourseEntity, (course) => course.semester)
+  courses: CourseEntity[];
+
+  @OneToMany(
+    () => SemesterMajorEntity,
+    (semesterMajors) => semesterMajors.semester,
+  )
+  semesterMajors: SemesterMajorEntity[];
 }
