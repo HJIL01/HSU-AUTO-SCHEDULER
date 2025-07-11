@@ -14,8 +14,8 @@ export async function postCourseData(
     },
     body: JSON.stringify(
       {
-        semester,
-        major,
+        semester_id: semester.semesterCode,
+        major_id: major.majorCode,
         courses,
       },
       null,
@@ -24,7 +24,9 @@ export async function postCourseData(
   });
 
   if (!res.ok) {
-    throw new Error("HTTP ERROR!");
+    throw new Error(
+      `Post Course: ${semester.semesterCode}-${major.majorName} HTTP ERROR!`
+    );
   }
 
   return res.json();

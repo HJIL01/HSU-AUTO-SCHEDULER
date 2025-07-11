@@ -44,6 +44,7 @@ export function courseXmlToJson(courseXmlText: string) {
 
   const courses: CourseType[] = toArrayRows.map(
     (row: Record<string, string>) => ({
+      courseId: `${row.kwamokcode}-${row.bunban}`,
       courseCode: row.kwamokcode,
       courseName: row.kwamokname,
       completionType: row.isugubun,

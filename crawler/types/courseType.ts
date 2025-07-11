@@ -14,6 +14,7 @@ export type SessionInfoType = {
 
 // 강좌 타입
 export type CourseType = {
+  courseId: string;
   courseCode: string; // 과목코드: string
   courseName: string; // 과목명: string
   completionType: string; // 이수 구분(전필, 전선, 복전선, 일선): string
