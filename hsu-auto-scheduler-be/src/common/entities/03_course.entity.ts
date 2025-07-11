@@ -49,13 +49,13 @@ export class CourseEntity {
   grade: number;
 
   @Column({ nullable: true })
-  grade_limit: string;
+  grade_limit: string | null;
 
   @Column({ default: 0 })
   online_min: number;
 
   @Column({ nullable: true })
-  plan_code: string;
+  plan_code: string | null;
 
   @Column()
   semester_id: string;

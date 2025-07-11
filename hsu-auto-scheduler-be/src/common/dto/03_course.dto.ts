@@ -12,6 +12,10 @@ import { SessionInfoDto } from './04_sessionInfo.dto';
 export class CourseDto {
   @IsString()
   @IsNotEmpty()
+  courseId: string;
+
+  @IsString()
+  @IsNotEmpty()
   courseCode: string;
 
   @IsString()
@@ -44,9 +48,9 @@ export class CourseDto {
   grade: number;
 
   @IsOptional()
-  @Type(() => Number)
-  @IsNumber({ allowNaN: false }, { message: 'gradeLimit은 숫자여야 합니다.' })
-  gradeLimit: number | null;
+  @IsString()
+  @IsNotEmpty()
+  gradeLimit: string | null;
 
   @IsString()
   @IsNotEmpty()

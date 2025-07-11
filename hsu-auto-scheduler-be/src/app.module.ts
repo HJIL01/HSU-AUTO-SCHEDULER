@@ -1,10 +1,11 @@
 import { Module, ValidationPipe } from '@nestjs/common';
 import { CrawlerModule } from './modules/crawler/crawler.module';
 import { LoggerModule } from './modules/logger/logger.module';
-import { APP_FILTER, APP_PIPE } from '@nestjs/core';
-import { AllExceptionFilter } from './all-exception.filter';
+import { APP_FILTER, APP_INTERCEPTOR, APP_PIPE } from '@nestjs/core';
 import { DatabaseModule } from './modules/database/database.module';
 import { ConfigModule } from '@nestjs/config';
+import { AllExceptionFilter } from './common/filters/all-exception.filter';
+import { ResponseInterceptor } from './common/interceptors/response.interceptors';
 
 @Module({
   imports: [
@@ -35,6 +36,13 @@ import { ConfigModule } from '@nestjs/config';
     {
       provide: APP_FILTER,
       useClass: AllExceptionFilter,
+    },
+    /* 
+      response 인터셉터
+    */
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: ResponseInterceptor,
     },
   ],
 })

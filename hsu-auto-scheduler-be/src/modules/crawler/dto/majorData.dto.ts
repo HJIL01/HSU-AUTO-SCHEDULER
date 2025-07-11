@@ -7,7 +7,7 @@ export class MajorDataDto {
   @IsNotEmpty()
   semester_id: string;
 
-  @ValidateNested()
+  @ValidateNested({ each: true })
   @Type(() => MajorDto)
-  major: MajorDto;
+  majors: MajorDto[];
 }

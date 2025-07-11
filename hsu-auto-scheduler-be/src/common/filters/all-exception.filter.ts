@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 import { BaseExceptionFilter } from '@nestjs/core';
 import { Request, Response } from 'express';
-import { LoggerService } from './modules/logger/logger.service';
+import { LoggerService } from 'src/modules/logger/logger.service';
 
 type ResponseObjType = {
   statusCode: number;
