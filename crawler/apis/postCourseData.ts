@@ -1,6 +1,6 @@
-import { CourseType } from "types/courseType";
-import { MajorType } from "types/majorType";
-import { SemesterType } from "types/semesterType";
+import { CourseType } from "types/course.type";
+import { MajorType } from "types/major.type";
+import { SemesterType } from "types/semester.type";
 
 export async function postCourseData(
   semester: SemesterType,
@@ -14,8 +14,8 @@ export async function postCourseData(
     },
     body: JSON.stringify(
       {
-        semester_id: semester.semesterCode,
-        major_id: major.majorCode,
+        semester_id: semester.semester_id,
+        major_code: major.major_code,
         courses,
       },
       null,
@@ -25,7 +25,7 @@ export async function postCourseData(
 
   if (!res.ok) {
     throw new Error(
-      `Post Course: ${semester.semesterCode}-${major.majorName} HTTP ERROR!`
+      `Post Course: ${semester.semester_id}-${major.major_name} HTTP ERROR!`
     );
   }
 

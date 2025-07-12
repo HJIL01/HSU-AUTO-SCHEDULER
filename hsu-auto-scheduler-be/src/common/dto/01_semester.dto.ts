@@ -4,7 +4,7 @@ import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 export class SemesterDto {
   @IsString()
   @IsNotEmpty()
-  semester_code: string;
+  semester_id: string;
 
   @Type(() => Number)
   @IsNumber({ allowNaN: false }, { message: 'year는 숫자여야 합니다.' })

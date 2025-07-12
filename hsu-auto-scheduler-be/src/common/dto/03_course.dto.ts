@@ -7,8 +7,8 @@ import {
   IsString,
   ValidateNested,
 } from 'class-validator';
-import { SessionInfoDto } from './04_sessionInfo.dto';
 import { DayOrNightEnum } from '../enums/dayOrNight.enum';
+import { OfflineScheduleDto } from './04_offline-schedule.dto';
 
 export class CourseDto {
   @IsString()
@@ -22,6 +22,10 @@ export class CourseDto {
   @IsString()
   @IsNotEmpty()
   course_name: string;
+
+  @IsString()
+  @IsNotEmpty()
+  professor_name: string;
 
   @IsString()
   @IsNotEmpty()
@@ -53,17 +57,17 @@ export class CourseDto {
   @IsNotEmpty()
   grade_limit: string | null;
 
-  @IsString()
-  @IsNotEmpty()
-  professor: string;
+  @Type(() => Number)
+  @IsNumber({ allowNaN: false }, { message: '온라인 시간은 숫자여야 합니다.' })
+  online_min: number;
+
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => OfflineScheduleDto)
+  offline_schedules: OfflineScheduleDto[] | null;
 
   @IsOptional()
   @IsString()
   @IsNotEmpty()
   plan_code: string | null;
-
-  @IsOptional()
-  @ValidateNested()
-  @Type(() => SessionInfoDto)
-  session_info: SessionInfoDto | null;
 }

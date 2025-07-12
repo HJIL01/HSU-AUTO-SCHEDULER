@@ -25,7 +25,7 @@ export class OfflineScheduleEntity {
   end_time: number;
 
   @Column()
-  location: string;
+  place: string;
 
   @Column()
   course_id: string;

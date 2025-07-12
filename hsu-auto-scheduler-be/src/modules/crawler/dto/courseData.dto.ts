@@ -14,7 +14,7 @@ export class CourseDataDto {
 
   @IsString()
   @IsNotEmpty()
-  major_id: string;
+  major_code: string;
 
   @IsOptional()
   @ValidateNested({ each: true })

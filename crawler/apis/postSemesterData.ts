@@ -1,4 +1,4 @@
-import { SemesterType } from "types/semesterType";
+import { SemesterType } from "types/semester.type";
 
 export async function postSemesterData(semester: SemesterType) {
   console.log(semester);
@@ -11,7 +11,7 @@ export async function postSemesterData(semester: SemesterType) {
   });
 
   if (!res.ok) {
-    throw new Error(`Post Semester: ${semester.semesterCode} HTTP ERROR!`);
+    throw new Error(`Post Semester: ${semester.semester_id} HTTP ERROR!`);
   }
 
   return res.json();

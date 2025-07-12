@@ -1,8 +1,10 @@
-export function splitSemester(semester: string) {
+import { SemesterType } from "types/semester.type";
+
+export function splitSemester(semester: string): SemesterType {
   const [year, term] = semester.split("-");
 
   return {
-    semesterCode: `${year}${term}`,
+    semester_id: `${year}${term}`,
     year: +year,
     term: +term,
   };

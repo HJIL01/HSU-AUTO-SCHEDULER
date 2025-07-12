@@ -1,6 +1,6 @@
 import path from "path";
 import fs from "fs/promises";
-import { MajorType } from "types/majorType";
+import { MajorType } from "types/major.type";
 
 export async function logError(
   index: number,
@@ -8,7 +8,7 @@ export async function logError(
   message: string
 ): Promise<void> {
   const timestemp = new Date().toISOString();
-  const logLine = `${timestemp} [index=${index}] [majorCode=${major.majorCode}] [majorName=${major.majorName}] [major] ${message}\n`;
+  const logLine = `${timestemp} [index=${index}] [majorCode=${major.major_code}] [majorName=${major.major_name}] [major] ${message}\n`;
 
   const logDir = path.resolve(__dirname, "../logs");
   const logFile = path.join(logDir, "errors.log");

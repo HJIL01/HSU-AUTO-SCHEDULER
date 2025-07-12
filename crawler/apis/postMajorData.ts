@@ -1,19 +1,19 @@
-import { MajorType } from "types/majorType";
+import { MajorType } from "types/major.type";
 
-export async function postMajorData(semesterCode: string, majors: MajorType[]) {
+export async function postMajorData(semester_id: string, majors: MajorType[]) {
   const res = await fetch(`${process.env.BASE_URL}/crawler/major-data`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      semester_id: semesterCode,
+      semester_id,
       majors,
     }),
   });
 
   if (!res.ok) {
-    throw new Error(`Post Major: ${semesterCode}-Majors HTTP ERROR!`);
+    throw new Error(`Post Major: ${semester_id}-Majors HTTP ERROR!`);
   }
 
   return res.json();

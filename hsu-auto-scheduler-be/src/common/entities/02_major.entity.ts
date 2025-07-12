@@ -5,7 +5,7 @@ import { SemesterMajorEntity } from './05_semester_major.entity';
 @Entity('major')
 export class MajorEntity {
   @PrimaryColumn()
-  major_id: string;
+  major_code: string;
 
   @Column()
   major_name: string;

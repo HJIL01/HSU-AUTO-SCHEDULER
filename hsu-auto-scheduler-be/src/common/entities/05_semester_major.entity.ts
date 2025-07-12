@@ -8,13 +8,13 @@ export class SemesterMajorEntity {
   semester_id: string;
 
   @PrimaryColumn()
-  major_id: string;
+  major_code: string;
 
   @ManyToOne(() => SemesterEntity, (semester) => semester.semester_majors)
   @JoinColumn({ name: 'semester_id' })
   semester: SemesterEntity;
 
   @ManyToOne(() => MajorEntity, (major) => major.semester_majors)
-  @JoinColumn({ name: 'major_id' })
+  @JoinColumn({ name: 'major_code' })
   major: MajorEntity;
 }

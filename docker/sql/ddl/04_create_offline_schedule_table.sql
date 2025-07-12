@@ -3,7 +3,7 @@ CREATE TABLE offline_schedule (
     day VARCHAR(255) NOT NULL,
     start_time INT NOT NULL,
     end_time INT NOT NULL,
-    location VARCHAR(255) NOT NULL,
+    place VARCHAR(255) NOT NULL,
     semester_id VARCHAR(255) NOT NULL,
     course_id VARCHAR(255) NOT NULL,
     FOREIGN KEY (semester_id) REFERENCES semester(semester_id),

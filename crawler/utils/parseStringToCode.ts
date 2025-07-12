@@ -1,25 +1,28 @@
+import { DayOrNightEnum } from "types/day-or-night.enum";
+import { WeekdayEnum } from "types/weekday.enum";
+
 // 요일을 요일 코드로 변환하는 함수
-export function parseDays(day: string): string {
-  const days: Record<string, string> = {
-    월: "Mon",
-    화: "Tue",
-    수: "Wed",
-    목: "Thu",
-    금: "Fri",
-    토: "Sat",
-    일: "Sun",
+export function parseDays(day: string): WeekdayEnum {
+  const days: Record<string, WeekdayEnum> = {
+    월: WeekdayEnum.MON,
+    화: WeekdayEnum.TUE,
+    수: WeekdayEnum.WED,
+    목: WeekdayEnum.THU,
+    금: WeekdayEnum.FRI,
+    토: WeekdayEnum.SAT,
+    일: WeekdayEnum.SUN,
   };
 
   return days[day];
 }
 
-// 주간 야간을 주야 코드로 변환하는 함수
-export function parseDayOrNight(dayOrNight: string): string {
-  const dayOrNightCode: Record<string, string> = {
-    주: "day",
-    야: "night",
-    합: "both",
+// 주간 야간을 DayOrNightEnum 코드로 변환하는 함수
+export function parseDayOrNight(koreanCode: string): DayOrNightEnum {
+  const map: Record<string, DayOrNightEnum> = {
+    주: DayOrNightEnum.DAY,
+    야: DayOrNightEnum.NIGHT,
+    합: DayOrNightEnum.BOTH,
   };
 
-  return dayOrNightCode[dayOrNight];
+  return map[koreanCode];
 }

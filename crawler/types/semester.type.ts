@@ -1,5 +1,5 @@
 export type SemesterType = {
-  semesterCode: string;
+  semester_id: string;
   year: number;
   term: number;
 };

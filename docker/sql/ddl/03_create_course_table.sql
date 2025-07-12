@@ -13,7 +13,7 @@ CREATE TABLE course (
     online_min DECIMAL(2,1) DEFAULT 0,
     plan_code VARCHAR(255),
     semester_id VARCHAR(255) NOT NULL,
-    major_id VARCHAR(255) NOT NULL,
+    major_code VARCHAR(255) NOT NULL,
     FOREIGN KEY (semester_id) REFERENCES semester(semester_id),
-    FOREIGN KEY (major_id) REFERENCES major(major_id)
+    FOREIGN KEY (major_code) REFERENCES major(major_code)
 );

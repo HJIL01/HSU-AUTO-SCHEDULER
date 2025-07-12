@@ -1,5 +1,6 @@
-import { SessionBlockType, SessionInfoType } from "../types/courseType";
+import { OfflineScheduleType } from "types/offline-schedule.type";
 import { parseDays } from "./parseStringToCode";
+import { SessionInfoType } from "types/session-info.type";
 
 /* 
       요일과 시간의 문자열을 넣으면 분리하여 배열 형태로 return 하는 함수
@@ -27,7 +28,9 @@ function getDayAndTime(dayAndTime: string) {
   ex) ["낙산관102 월8M~9M"] -> [["낙산관102", "월", "8", "9"]]
   4. 위에서 포맷한 배열의 모든 요소를 돌면서 offline 타입의 객체로 반환 
 */
-function extractInPersonSchedule(inPersonSchedule: string): SessionBlockType[] {
+function extractInPersonSchedule(
+  inPersonSchedule: string
+): OfflineScheduleType[] {
   const splitSchedules = inPersonSchedule.split("/").map((e) => e.trim());
 
   const matchSchedules = splitSchedules.flatMap((schedule) => {
@@ -67,8 +70,8 @@ function extractInPersonSchedule(inPersonSchedule: string): SessionBlockType[] {
     return {
       place,
       day,
-      startTime,
-      endTime,
+      start_time: startTime,
+      end_time: endTime,
     };
   });
 }
@@ -90,13 +93,13 @@ export function formatClassInfo(
     case "온라인100%": {
       return {
         online: credit,
-        offline: null,
+        offline_schedules: null,
       };
     }
     case "대면수업": {
       const formattedSessionInfo = {
         online: 0,
-        offline: extractInPersonSchedule(classRoom),
+        offline_schedules: extractInPersonSchedule(classRoom),
       };
 
       return formattedSessionInfo;
@@ -109,13 +112,13 @@ export function formatClassInfo(
 
       return {
         online,
-        offline: extractInPersonSchedule(offlineString),
+        offline_schedules: extractInPersonSchedule(offlineString),
       };
     }
     default: {
       return {
         online: 0,
-        offline: null,
+        offline_schedules: null,
       };
     }
   }
