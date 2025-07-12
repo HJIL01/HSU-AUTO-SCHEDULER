@@ -1,5 +1,6 @@
 [
   {
+    "courseId": "V020024-N",
     "courseCode": "V020024",
     "courseName": "SW 통합구현(IPP)",
     "completionType": "전선",
@@ -8,7 +9,7 @@
     "dayOrNight": "night",
     "classSection": "N",
     "grade": 4,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "한충구",
     "planCode": "20251516054V020024N",
     "sessionInfo": {
@@ -24,6 +25,7 @@
     }
   },
   {
+    "courseId": "V020026-A",
     "courseCode": "V020026",
     "courseName": "SW설계 및 테스트(IPP)",
     "completionType": "전필",
@@ -32,7 +34,7 @@
     "dayOrNight": "day",
     "classSection": "A",
     "grade": 4,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "신성",
     "planCode": "20251110732V020026A",
     "sessionInfo": {
@@ -48,15 +50,16 @@
     }
   },
   {
+    "courseId": "V020001-7",
     "courseCode": "V020001",
     "courseName": "객체지향언어1",
     "completionType": "전선",
     "deliveryMethod": "대면수업",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 7,
+    "classSection": "7",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "황기태",
     "planCode": "20251110108V0200017",
     "sessionInfo": {
@@ -72,15 +75,16 @@
     }
   },
   {
+    "courseId": "V020001-8",
     "courseCode": "V020001",
     "courseName": "객체지향언어1",
     "completionType": "전선",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 8,
+    "classSection": "8",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "유상미",
     "planCode": "20251110689V0200018",
     "sessionInfo": {
@@ -96,6 +100,7 @@
     }
   },
   {
+    "courseId": "V020001-A",
     "courseCode": "V020001",
     "courseName": "객체지향언어1",
     "completionType": "전선",
@@ -104,7 +109,7 @@
     "dayOrNight": "day",
     "classSection": "A",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "황기태",
     "planCode": "20251110108V020001A",
     "sessionInfo": {
@@ -120,6 +125,7 @@
     }
   },
   {
+    "courseId": "V020001-B",
     "courseCode": "V020001",
     "courseName": "객체지향언어1",
     "completionType": "전선",
@@ -128,7 +134,7 @@
     "dayOrNight": "day",
     "classSection": "B",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "유상미",
     "planCode": "20251110689V020001B",
     "sessionInfo": {
@@ -144,6 +150,7 @@
     }
   },
   {
+    "courseId": "V020001-C",
     "courseCode": "V020001",
     "courseName": "객체지향언어1",
     "completionType": "전선",
@@ -152,7 +159,7 @@
     "dayOrNight": "day",
     "classSection": "C",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "이찬수",
     "planCode": "20251511323V020001C",
     "sessionInfo": {
@@ -168,6 +175,7 @@
     }
   },
   {
+    "courseId": "V020001-D",
     "courseCode": "V020001",
     "courseName": "객체지향언어1",
     "completionType": "전선",
@@ -176,7 +184,7 @@
     "dayOrNight": "day",
     "classSection": "D",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "안영아",
     "planCode": "20251510817V020001D",
     "sessionInfo": {
@@ -192,6 +200,7 @@
     }
   },
   {
+    "courseId": "V020001-N",
     "courseCode": "V020001",
     "courseName": "객체지향언어1",
     "completionType": "전선",
@@ -200,7 +209,7 @@
     "dayOrNight": "night",
     "classSection": "N",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "유상미",
     "planCode": "20251110689V020001N",
     "sessionInfo": {
@@ -216,6 +225,7 @@
     }
   },
   {
+    "courseId": "V020001-O",
     "courseCode": "V020001",
     "courseName": "객체지향언어1",
     "completionType": "전선",
@@ -224,7 +234,7 @@
     "dayOrNight": "night",
     "classSection": "O",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "안영아",
     "planCode": "20251510817V020001O",
     "sessionInfo": {
@@ -240,15 +250,16 @@
     }
   },
   {
+    "courseId": "M020040-7",
     "courseCode": "M020040",
     "courseName": "논리적 사고와 프로그래밍",
     "completionType": "전선",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 7,
-    "grade": "전학년",
-    "gradeLimit": null,
+    "classSection": "7",
+    "grade": 0,
+    "gradeLimit": "0",
     "professor": "이신희",
     "planCode": "20251110874M0200407",
     "sessionInfo": {
@@ -264,6 +275,7 @@
     }
   },
   {
+    "courseId": "V022003-A",
     "courseCode": "V022003",
     "courseName": "데이터마이닝",
     "completionType": "전선",
@@ -272,7 +284,7 @@
     "dayOrNight": "day",
     "classSection": "A",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "이청용",
     "planCode": "20251110920V022003A",
     "sessionInfo": {
@@ -288,6 +300,7 @@
     }
   },
   {
+    "courseId": "V022003-B",
     "courseCode": "V022003",
     "courseName": "데이터마이닝",
     "completionType": "전선",
@@ -296,7 +309,7 @@
     "dayOrNight": "day",
     "classSection": "B",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "이청용",
     "planCode": "20251110920V022003B",
     "sessionInfo": {
@@ -312,6 +325,7 @@
     }
   },
   {
+    "courseId": "V022003-C",
     "courseCode": "V022003",
     "courseName": "데이터마이닝",
     "completionType": "전선",
@@ -320,7 +334,7 @@
     "dayOrNight": "day",
     "classSection": "C",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "신성",
     "planCode": "20251110732V022003C",
     "sessionInfo": {
@@ -336,6 +350,7 @@
     }
   },
   {
+    "courseId": "V022003-N",
     "courseCode": "V022003",
     "courseName": "데이터마이닝",
     "completionType": "전선",
@@ -344,7 +359,7 @@
     "dayOrNight": "night",
     "classSection": "N",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "신성",
     "planCode": "20251110732V022003N",
     "sessionInfo": {
@@ -360,15 +375,16 @@
     }
   },
   {
+    "courseId": "V020012-7",
     "courseCode": "V020012",
     "courseName": "데이터베이스",
     "completionType": "전선",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 7,
+    "classSection": "7",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "신성",
     "planCode": "20251110732V0200127",
     "sessionInfo": {
@@ -384,15 +400,16 @@
     }
   },
   {
+    "courseId": "V020012-8",
     "courseCode": "V020012",
     "courseName": "데이터베이스",
     "completionType": "전선",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 8,
+    "classSection": "8",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김영웅",
     "planCode": "20251516136V0200128",
     "sessionInfo": {
@@ -408,15 +425,16 @@
     }
   },
   {
+    "courseId": "V020012-9",
     "courseCode": "V020012",
     "courseName": "데이터베이스",
     "completionType": "전선",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 9,
+    "classSection": "9",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "장재영",
     "planCode": "20251110517V0200129",
     "sessionInfo": {
@@ -432,6 +450,7 @@
     }
   },
   {
+    "courseId": "V020012-A",
     "courseCode": "V020012",
     "courseName": "데이터베이스",
     "completionType": "전선",
@@ -440,7 +459,7 @@
     "dayOrNight": "day",
     "classSection": "A",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "장재영",
     "planCode": "20251110517V020012A",
     "sessionInfo": {
@@ -456,6 +475,7 @@
     }
   },
   {
+    "courseId": "V020012-B",
     "courseCode": "V020012",
     "courseName": "데이터베이스",
     "completionType": "전선",
@@ -464,7 +484,7 @@
     "dayOrNight": "day",
     "classSection": "B",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "장재영",
     "planCode": "20251110517V020012B",
     "sessionInfo": {
@@ -480,6 +500,7 @@
     }
   },
   {
+    "courseId": "V020012-C",
     "courseCode": "V020012",
     "courseName": "데이터베이스",
     "completionType": "전선",
@@ -488,7 +509,7 @@
     "dayOrNight": "day",
     "classSection": "C",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "장재영",
     "planCode": "20251110517V020012C",
     "sessionInfo": {
@@ -504,6 +525,7 @@
     }
   },
   {
+    "courseId": "V020012-D",
     "courseCode": "V020012",
     "courseName": "데이터베이스",
     "completionType": "전선",
@@ -512,7 +534,7 @@
     "dayOrNight": "day",
     "classSection": "D",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김영웅",
     "planCode": "20251516136V020012D",
     "sessionInfo": {
@@ -528,6 +550,7 @@
     }
   },
   {
+    "courseId": "V020012-N",
     "courseCode": "V020012",
     "courseName": "데이터베이스",
     "completionType": "전선",
@@ -536,7 +559,7 @@
     "dayOrNight": "night",
     "classSection": "N",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "신성",
     "planCode": "20251110732V020012N",
     "sessionInfo": {
@@ -552,6 +575,7 @@
     }
   },
   {
+    "courseId": "V020025-A",
     "courseCode": "V020025",
     "courseName": "사용자인터페이스와 서버구현(IPP)",
     "completionType": "전선",
@@ -560,7 +584,7 @@
     "dayOrNight": "day",
     "classSection": "A",
     "grade": 4,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "심규현,박선영",
     "planCode": "20251110878V020025A",
     "sessionInfo": {
@@ -576,15 +600,16 @@
     }
   },
   {
+    "courseId": "V020013-7",
     "courseCode": "V020013",
     "courseName": "소프트웨어공학",
     "completionType": "전선",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 7,
+    "classSection": "7",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "신성",
     "planCode": "20251110732V0200137",
     "sessionInfo": {
@@ -600,15 +625,16 @@
     }
   },
   {
+    "courseId": "V020013-8",
     "courseCode": "V020013",
     "courseName": "소프트웨어공학",
     "completionType": "전선",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 8,
+    "classSection": "8",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "송미화",
     "planCode": "20251110890V0200138",
     "sessionInfo": {
@@ -624,6 +650,7 @@
     }
   },
   {
+    "courseId": "V020013-A",
     "courseCode": "V020013",
     "courseName": "소프트웨어공학",
     "completionType": "전선",
@@ -632,7 +659,7 @@
     "dayOrNight": "day",
     "classSection": "A",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "유수진",
     "planCode": "20251110901V020013A",
     "sessionInfo": {
@@ -648,6 +675,7 @@
     }
   },
   {
+    "courseId": "V020013-B",
     "courseCode": "V020013",
     "courseName": "소프트웨어공학",
     "completionType": "전선",
@@ -656,7 +684,7 @@
     "dayOrNight": "day",
     "classSection": "B",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "유수진",
     "planCode": "20251110901V020013B",
     "sessionInfo": {
@@ -672,6 +700,7 @@
     }
   },
   {
+    "courseId": "V020013-C",
     "courseCode": "V020013",
     "courseName": "소프트웨어공학",
     "completionType": "전선",
@@ -680,7 +709,7 @@
     "dayOrNight": "day",
     "classSection": "C",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "유수진",
     "planCode": "20251110901V020013C",
     "sessionInfo": {
@@ -696,6 +725,7 @@
     }
   },
   {
+    "courseId": "V020013-N",
     "courseCode": "V020013",
     "courseName": "소프트웨어공학",
     "completionType": "전선",
@@ -704,7 +734,7 @@
     "dayOrNight": "night",
     "classSection": "N",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "유수진",
     "planCode": "20251110901V020013N",
     "sessionInfo": {
@@ -720,15 +750,16 @@
     }
   },
   {
+    "courseId": "V021004-7",
     "courseCode": "V021004",
     "courseName": "안드로이드프로그래밍",
     "completionType": "전선",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 7,
+    "classSection": "7",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "송미화",
     "planCode": "20251110890V0210047",
     "sessionInfo": {
@@ -744,15 +775,16 @@
     }
   },
   {
+    "courseId": "V021004-8",
     "courseCode": "V021004",
     "courseName": "안드로이드프로그래밍",
     "completionType": "전선",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 8,
+    "classSection": "8",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "송미화",
     "planCode": "20251110890V0210048",
     "sessionInfo": {
@@ -768,15 +800,16 @@
     }
   },
   {
+    "courseId": "V021004-9",
     "courseCode": "V021004",
     "courseName": "안드로이드프로그래밍",
     "completionType": "전선",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 9,
+    "classSection": "9",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "윤수미",
     "planCode": "20251516236V0210049",
     "sessionInfo": {
@@ -792,6 +825,7 @@
     }
   },
   {
+    "courseId": "V021004-A",
     "courseCode": "V021004",
     "courseName": "안드로이드프로그래밍",
     "completionType": "전선",
@@ -800,7 +834,7 @@
     "dayOrNight": "day",
     "classSection": "A",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "윤수미",
     "planCode": "20251516236V021004A",
     "sessionInfo": {
@@ -816,6 +850,7 @@
     }
   },
   {
+    "courseId": "V021004-B",
     "courseCode": "V021004",
     "courseName": "안드로이드프로그래밍",
     "completionType": "전선",
@@ -824,7 +859,7 @@
     "dayOrNight": "day",
     "classSection": "B",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "박필준",
     "planCode": "20251110909V021004B",
     "sessionInfo": {
@@ -840,6 +875,7 @@
     }
   },
   {
+    "courseId": "V021004-C",
     "courseCode": "V021004",
     "courseName": "안드로이드프로그래밍",
     "completionType": "전선",
@@ -848,7 +884,7 @@
     "dayOrNight": "day",
     "classSection": "C",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "박필준",
     "planCode": "20251110909V021004C",
     "sessionInfo": {
@@ -864,6 +900,7 @@
     }
   },
   {
+    "courseId": "V021004-N",
     "courseCode": "V021004",
     "courseName": "안드로이드프로그래밍",
     "completionType": "전선",
@@ -872,7 +909,7 @@
     "dayOrNight": "night",
     "classSection": "N",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "박필준",
     "planCode": "20251110909V021004N",
     "sessionInfo": {
@@ -888,15 +925,16 @@
     }
   },
   {
+    "courseId": "V020014-7",
     "courseCode": "V020014",
     "courseName": "운영체제",
     "completionType": "전선",
     "deliveryMethod": "대면수업",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 7,
+    "classSection": "7",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "황기태",
     "planCode": "20251110108V0200147",
     "sessionInfo": {
@@ -912,15 +950,16 @@
     }
   },
   {
+    "courseId": "V020014-8",
     "courseCode": "V020014",
     "courseName": "운영체제",
     "completionType": "전선",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 8,
+    "classSection": "8",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "황기태",
     "planCode": "20251110108V0200148",
     "sessionInfo": {
@@ -936,15 +975,16 @@
     }
   },
   {
+    "courseId": "V020014-9",
     "courseCode": "V020014",
     "courseName": "운영체제",
     "completionType": "전선",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 9,
+    "classSection": "9",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "이찬수",
     "planCode": "20251511323V0200149",
     "sessionInfo": {
@@ -960,6 +1000,7 @@
     }
   },
   {
+    "courseId": "V020014-A",
     "courseCode": "V020014",
     "courseName": "운영체제",
     "completionType": "전선",
@@ -968,7 +1009,7 @@
     "dayOrNight": "day",
     "classSection": "A",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "황기태",
     "planCode": "20251110108V020014A",
     "sessionInfo": {
@@ -984,6 +1025,7 @@
     }
   },
   {
+    "courseId": "V020014-B",
     "courseCode": "V020014",
     "courseName": "운영체제",
     "completionType": "전선",
@@ -992,7 +1034,7 @@
     "dayOrNight": "day",
     "classSection": "B",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "황기태",
     "planCode": "20251110108V020014B",
     "sessionInfo": {
@@ -1008,6 +1050,7 @@
     }
   },
   {
+    "courseId": "V020014-C",
     "courseCode": "V020014",
     "courseName": "운영체제",
     "completionType": "전선",
@@ -1016,7 +1059,7 @@
     "dayOrNight": "day",
     "classSection": "C",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김진환",
     "planCode": "20251110114V020014C",
     "sessionInfo": {
@@ -1032,6 +1075,7 @@
     }
   },
   {
+    "courseId": "V020014-N",
     "courseCode": "V020014",
     "courseName": "운영체제",
     "completionType": "전선",
@@ -1040,7 +1084,7 @@
     "dayOrNight": "night",
     "classSection": "N",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "이찬수",
     "planCode": "20251511323V020014N",
     "sessionInfo": {
@@ -1056,15 +1100,16 @@
     }
   },
   {
+    "courseId": "V024008-7",
     "courseCode": "V024008",
     "courseName": "웹공학 캡스톤디자인",
     "completionType": "전필",
     "deliveryMethod": "대면수업",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 7,
+    "classSection": "7",
     "grade": 4,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김성동,김남윤,심규현,유수진",
     "planCode": "20251110901V0240087",
     "sessionInfo": {
@@ -1080,15 +1125,16 @@
     }
   },
   {
+    "courseId": "V024008-8",
     "courseCode": "V024008",
     "courseName": "웹공학 캡스톤디자인",
     "completionType": "전필",
     "deliveryMethod": "대면수업",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 8,
+    "classSection": "8",
     "grade": 4,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김진환,박승현,송미화,유수진",
     "planCode": "20251110901V0240088",
     "sessionInfo": {
@@ -1104,6 +1150,7 @@
     }
   },
   {
+    "courseId": "V024008-A",
     "courseCode": "V024008",
     "courseName": "웹공학 캡스톤디자인",
     "completionType": "전필",
@@ -1112,7 +1159,7 @@
     "dayOrNight": "day",
     "classSection": "A",
     "grade": 4,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "황기태,김남윤,송미화,유수진",
     "planCode": "20251110901V024008A",
     "sessionInfo": {
@@ -1128,6 +1175,7 @@
     }
   },
   {
+    "courseId": "V024008-N",
     "courseCode": "V024008",
     "courseName": "웹공학 캡스톤디자인",
     "completionType": "전필",
@@ -1136,7 +1184,7 @@
     "dayOrNight": "night",
     "classSection": "N",
     "grade": 4,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김진환,김성동,심규현,송미화,유수진",
     "planCode": "20251110901V024008N",
     "sessionInfo": {
@@ -1152,15 +1200,16 @@
     }
   },
   {
+    "courseId": "V024004-7",
     "courseCode": "V024004",
     "courseName": "웹서버프로그래밍",
     "completionType": "전필",
     "deliveryMethod": "대면수업",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 7,
+    "classSection": "7",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "전원호",
     "planCode": "20251516127V0240047",
     "sessionInfo": {
@@ -1176,15 +1225,16 @@
     }
   },
   {
+    "courseId": "V024004-8",
     "courseCode": "V024004",
     "courseName": "웹서버프로그래밍",
     "completionType": "전필",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 8,
+    "classSection": "8",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "심규현",
     "planCode": "20251110878V0240048",
     "sessionInfo": {
@@ -1200,6 +1250,7 @@
     }
   },
   {
+    "courseId": "V024004-A",
     "courseCode": "V024004",
     "courseName": "웹서버프로그래밍",
     "completionType": "전필",
@@ -1208,7 +1259,7 @@
     "dayOrNight": "day",
     "classSection": "A",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "심규현",
     "planCode": "20251110878V024004A",
     "sessionInfo": {
@@ -1224,6 +1275,7 @@
     }
   },
   {
+    "courseId": "V024004-B",
     "courseCode": "V024004",
     "courseName": "웹서버프로그래밍",
     "completionType": "전필",
@@ -1232,7 +1284,7 @@
     "dayOrNight": "day",
     "classSection": "B",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김진환",
     "planCode": "20251110114V024004B",
     "sessionInfo": {
@@ -1248,6 +1300,7 @@
     }
   },
   {
+    "courseId": "V024004-N",
     "courseCode": "V024004",
     "courseName": "웹서버프로그래밍",
     "completionType": "전필",
@@ -1256,7 +1309,7 @@
     "dayOrNight": "night",
     "classSection": "N",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "심규현",
     "planCode": "20251110878V024004N",
     "sessionInfo": {
@@ -1272,6 +1325,7 @@
     }
   },
   {
+    "courseId": "V024004-O",
     "courseCode": "V024004",
     "courseName": "웹서버프로그래밍",
     "completionType": "전필",
@@ -1280,7 +1334,7 @@
     "dayOrNight": "night",
     "classSection": "O",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "전원호",
     "planCode": "20251516127V024004O",
     "sessionInfo": {
@@ -1296,15 +1350,16 @@
     }
   },
   {
+    "courseId": "V024006-7",
     "courseCode": "V024006",
     "courseName": "웹프레임워크2",
     "completionType": "전필",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 7,
+    "classSection": "7",
     "grade": 4,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김남윤",
     "planCode": "20251110541V0240067",
     "sessionInfo": {
@@ -1320,6 +1375,7 @@
     }
   },
   {
+    "courseId": "V024006-A",
     "courseCode": "V024006",
     "courseName": "웹프레임워크2",
     "completionType": "전필",
@@ -1328,7 +1384,7 @@
     "dayOrNight": "day",
     "classSection": "A",
     "grade": 4,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김남윤",
     "planCode": "20251110541V024006A",
     "sessionInfo": {
@@ -1344,6 +1400,7 @@
     }
   },
   {
+    "courseId": "V024006-B",
     "courseCode": "V024006",
     "courseName": "웹프레임워크2",
     "completionType": "전필",
@@ -1352,7 +1409,7 @@
     "dayOrNight": "day",
     "classSection": "B",
     "grade": 4,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김남윤",
     "planCode": "20251110541V024006B",
     "sessionInfo": {
@@ -1368,6 +1425,7 @@
     }
   },
   {
+    "courseId": "V024006-N",
     "courseCode": "V024006",
     "courseName": "웹프레임워크2",
     "completionType": "전필",
@@ -1376,7 +1434,7 @@
     "dayOrNight": "night",
     "classSection": "N",
     "grade": 4,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김남윤",
     "planCode": "20251110541V024006N",
     "sessionInfo": {
@@ -1392,15 +1450,16 @@
     }
   },
   {
+    "courseId": "CTE0002-7",
     "courseCode": "CTE0002",
     "courseName": "웹프로그래밍기초",
     "completionType": "전기",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 7,
+    "classSection": "7",
     "grade": 1,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김민수",
     "planCode": "20251110908CTE00027",
     "sessionInfo": {
@@ -1416,15 +1475,16 @@
     }
   },
   {
+    "courseId": "CTE0002-8",
     "courseCode": "CTE0002",
     "courseName": "웹프로그래밍기초",
     "completionType": "전기",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 8,
+    "classSection": "8",
     "grade": 1,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김민수",
     "planCode": "20251110908CTE00028",
     "sessionInfo": {
@@ -1440,6 +1500,7 @@
     }
   },
   {
+    "courseId": "CTE0002-A",
     "courseCode": "CTE0002",
     "courseName": "웹프로그래밍기초",
     "completionType": "전기",
@@ -1448,7 +1509,7 @@
     "dayOrNight": "day",
     "classSection": "A",
     "grade": 1,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김민수",
     "planCode": "20251110908CTE0002A",
     "sessionInfo": {
@@ -1464,6 +1525,7 @@
     }
   },
   {
+    "courseId": "CTE0002-B",
     "courseCode": "CTE0002",
     "courseName": "웹프로그래밍기초",
     "completionType": "전기",
@@ -1472,7 +1534,7 @@
     "dayOrNight": "day",
     "classSection": "B",
     "grade": 1,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김민수",
     "planCode": "20251110908CTE0002B",
     "sessionInfo": {
@@ -1488,6 +1550,7 @@
     }
   },
   {
+    "courseId": "CTE0002-C",
     "courseCode": "CTE0002",
     "courseName": "웹프로그래밍기초",
     "completionType": "전기",
@@ -1496,7 +1559,7 @@
     "dayOrNight": "day",
     "classSection": "C",
     "grade": 1,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "심철준",
     "planCode": "20251516094CTE0002C",
     "sessionInfo": {
@@ -1512,6 +1575,7 @@
     }
   },
   {
+    "courseId": "CTE0002-N",
     "courseCode": "CTE0002",
     "courseName": "웹프로그래밍기초",
     "completionType": "전기",
@@ -1520,7 +1584,7 @@
     "dayOrNight": "night",
     "classSection": "N",
     "grade": 1,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "심철준",
     "planCode": "20251516094CTE0002N",
     "sessionInfo": {
@@ -1536,15 +1600,16 @@
     }
   },
   {
+    "courseId": "V020002-7",
     "courseCode": "V020002",
     "courseName": "자료구조",
     "completionType": "전선",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 7,
+    "classSection": "7",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "권영미",
     "planCode": "20251110089V0200027",
     "sessionInfo": {
@@ -1560,6 +1625,7 @@
     }
   },
   {
+    "courseId": "V020002-A",
     "courseCode": "V020002",
     "courseName": "자료구조",
     "completionType": "전선",
@@ -1568,7 +1634,7 @@
     "dayOrNight": "day",
     "classSection": "A",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "강희중",
     "planCode": "20251110518V020002A",
     "sessionInfo": {
@@ -1584,6 +1650,7 @@
     }
   },
   {
+    "courseId": "V020002-B",
     "courseCode": "V020002",
     "courseName": "자료구조",
     "completionType": "전선",
@@ -1592,7 +1659,7 @@
     "dayOrNight": "day",
     "classSection": "B",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "권영미",
     "planCode": "20251110089V020002B",
     "sessionInfo": {
@@ -1608,6 +1675,7 @@
     }
   },
   {
+    "courseId": "V020002-C",
     "courseCode": "V020002",
     "courseName": "자료구조",
     "completionType": "전선",
@@ -1616,7 +1684,7 @@
     "dayOrNight": "day",
     "classSection": "C",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "권영미",
     "planCode": "20251110089V020002C",
     "sessionInfo": {
@@ -1632,6 +1700,7 @@
     }
   },
   {
+    "courseId": "V020002-D",
     "courseCode": "V020002",
     "courseName": "자료구조",
     "completionType": "전선",
@@ -1640,7 +1709,7 @@
     "dayOrNight": "day",
     "classSection": "D",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김민수",
     "planCode": "20251110908V020002D",
     "sessionInfo": {
@@ -1656,6 +1725,7 @@
     }
   },
   {
+    "courseId": "V020002-E",
     "courseCode": "V020002",
     "courseName": "자료구조",
     "completionType": "전선",
@@ -1664,7 +1734,7 @@
     "dayOrNight": "day",
     "classSection": "E",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "유상미",
     "planCode": "20251110689V020002E",
     "sessionInfo": {
@@ -1680,6 +1750,7 @@
     }
   },
   {
+    "courseId": "V020002-N",
     "courseCode": "V020002",
     "courseName": "자료구조",
     "completionType": "전선",
@@ -1688,7 +1759,7 @@
     "dayOrNight": "night",
     "classSection": "N",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "강희중",
     "planCode": "20251110518V020002N",
     "sessionInfo": {
@@ -1704,6 +1775,7 @@
     }
   },
   {
+    "courseId": "V020002-P",
     "courseCode": "V020002",
     "courseName": "자료구조",
     "completionType": "전선",
@@ -1712,7 +1784,7 @@
     "dayOrNight": "night",
     "classSection": "P",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "유상미",
     "planCode": "20251110689V020002P",
     "sessionInfo": {
@@ -1728,6 +1800,7 @@
     }
   },
   {
+    "courseId": "V020020-A",
     "courseCode": "V020020",
     "courseName": "정보보안",
     "completionType": "전선",
@@ -1736,7 +1809,7 @@
     "dayOrNight": "day",
     "classSection": "A",
     "grade": 4,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "박승현",
     "planCode": "20251110858V020020A",
     "sessionInfo": {
@@ -1752,6 +1825,7 @@
     }
   },
   {
+    "courseId": "V020020-B",
     "courseCode": "V020020",
     "courseName": "정보보안",
     "completionType": "전선",
@@ -1760,7 +1834,7 @@
     "dayOrNight": "day",
     "classSection": "B",
     "grade": 4,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "박승현",
     "planCode": "20251110858V020020B",
     "sessionInfo": {
@@ -1776,6 +1850,7 @@
     }
   },
   {
+    "courseId": "V020020-N",
     "courseCode": "V020020",
     "courseName": "정보보안",
     "completionType": "전선",
@@ -1784,7 +1859,7 @@
     "dayOrNight": "night",
     "classSection": "N",
     "grade": 4,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "박승현",
     "planCode": "20251110858V020020N",
     "sessionInfo": {
@@ -1800,6 +1875,7 @@
     }
   },
   {
+    "courseId": "V020028-A",
     "courseCode": "V020028",
     "courseName": "취창업 세미나",
     "completionType": "전선",
@@ -1808,7 +1884,7 @@
     "dayOrNight": "day",
     "classSection": "A",
     "grade": 4,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "이동희",
     "planCode": "20251110759V020028A",
     "sessionInfo": {
@@ -1824,6 +1900,7 @@
     }
   },
   {
+    "courseId": "V020028-N",
     "courseCode": "V020028",
     "courseName": "취창업 세미나",
     "completionType": "전선",
@@ -1832,7 +1909,7 @@
     "dayOrNight": "night",
     "classSection": "N",
     "grade": 4,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "이동희",
     "planCode": "20251110759V020028N",
     "sessionInfo": {
@@ -1848,15 +1925,16 @@
     }
   },
   {
+    "courseId": "V020022-7",
     "courseCode": "V020022",
     "courseName": "컴파일러",
     "completionType": "전선",
     "deliveryMethod": "대면수업",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 7,
+    "classSection": "7",
     "grade": 4,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김성동",
     "planCode": "20251110528V0200227",
     "sessionInfo": {
@@ -1872,15 +1950,16 @@
     }
   },
   {
+    "courseId": "V020003-7",
     "courseCode": "V020003",
     "courseName": "컴퓨터구조",
     "completionType": "전선",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 7,
+    "classSection": "7",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "황호영",
     "planCode": "20251110590V0200037",
     "sessionInfo": {
@@ -1896,6 +1975,7 @@
     }
   },
   {
+    "courseId": "V020003-A",
     "courseCode": "V020003",
     "courseName": "컴퓨터구조",
     "completionType": "전선",
@@ -1904,7 +1984,7 @@
     "dayOrNight": "day",
     "classSection": "A",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "황호영",
     "planCode": "20251110590V020003A",
     "sessionInfo": {
@@ -1920,6 +2000,7 @@
     }
   },
   {
+    "courseId": "V020003-B",
     "courseCode": "V020003",
     "courseName": "컴퓨터구조",
     "completionType": "전선",
@@ -1928,7 +2009,7 @@
     "dayOrNight": "day",
     "classSection": "B",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "황호영",
     "planCode": "20251110590V020003B",
     "sessionInfo": {
@@ -1944,6 +2025,7 @@
     }
   },
   {
+    "courseId": "V020003-C",
     "courseCode": "V020003",
     "courseName": "컴퓨터구조",
     "completionType": "전선",
@@ -1952,7 +2034,7 @@
     "dayOrNight": "day",
     "classSection": "C",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "황호영",
     "planCode": "20251110590V020003C",
     "sessionInfo": {
@@ -1968,6 +2050,7 @@
     }
   },
   {
+    "courseId": "V020003-D",
     "courseCode": "V020003",
     "courseName": "컴퓨터구조",
     "completionType": "전선",
@@ -1976,7 +2059,7 @@
     "dayOrNight": "day",
     "classSection": "D",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김동욱",
     "planCode": "20251516112V020003D",
     "sessionInfo": {
@@ -1992,6 +2075,7 @@
     }
   },
   {
+    "courseId": "V020003-N",
     "courseCode": "V020003",
     "courseName": "컴퓨터구조",
     "completionType": "전선",
@@ -2000,7 +2084,7 @@
     "dayOrNight": "night",
     "classSection": "N",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김동욱",
     "planCode": "20251516112V020003N",
     "sessionInfo": {
@@ -2016,15 +2100,16 @@
     }
   },
   {
+    "courseId": "V020015-7",
     "courseCode": "V020015",
     "courseName": "컴퓨터그래픽스",
     "completionType": "전선",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 7,
+    "classSection": "7",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "계희원",
     "planCode": "20251110595V0200157",
     "sessionInfo": {
@@ -2040,6 +2125,7 @@
     }
   },
   {
+    "courseId": "V020015-A",
     "courseCode": "V020015",
     "courseName": "컴퓨터그래픽스",
     "completionType": "전선",
@@ -2048,7 +2134,7 @@
     "dayOrNight": "day",
     "classSection": "A",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "이지은",
     "planCode": "20251110790V020015A",
     "sessionInfo": {
@@ -2064,6 +2150,7 @@
     }
   },
   {
+    "courseId": "V020015-B",
     "courseCode": "V020015",
     "courseName": "컴퓨터그래픽스",
     "completionType": "전선",
@@ -2072,7 +2159,7 @@
     "dayOrNight": "day",
     "classSection": "B",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "계희원",
     "planCode": "20251110595V020015B",
     "sessionInfo": {
@@ -2088,6 +2175,7 @@
     }
   },
   {
+    "courseId": "V020015-N",
     "courseCode": "V020015",
     "courseName": "컴퓨터그래픽스",
     "completionType": "전선",
@@ -2096,7 +2184,7 @@
     "dayOrNight": "night",
     "classSection": "N",
     "grade": 3,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "계희원",
     "planCode": "20251110595V020015N",
     "sessionInfo": {
@@ -2112,15 +2200,16 @@
     }
   },
   {
+    "courseId": "V020004-7",
     "courseCode": "V020004",
     "courseName": "프로그래밍랩",
     "completionType": "전선",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 7,
+    "classSection": "7",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "강희중",
     "planCode": "20251110518V0200047",
     "sessionInfo": {
@@ -2136,6 +2225,7 @@
     }
   },
   {
+    "courseId": "V020004-A",
     "courseCode": "V020004",
     "courseName": "프로그래밍랩",
     "completionType": "전선",
@@ -2144,7 +2234,7 @@
     "dayOrNight": "day",
     "classSection": "A",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "정인환",
     "planCode": "20251110527V020004A",
     "sessionInfo": {
@@ -2160,6 +2250,7 @@
     }
   },
   {
+    "courseId": "V020004-B",
     "courseCode": "V020004",
     "courseName": "프로그래밍랩",
     "completionType": "전선",
@@ -2168,7 +2259,7 @@
     "dayOrNight": "day",
     "classSection": "B",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "강희중",
     "planCode": "20251110518V020004B",
     "sessionInfo": {
@@ -2184,6 +2275,7 @@
     }
   },
   {
+    "courseId": "V020004-C",
     "courseCode": "V020004",
     "courseName": "프로그래밍랩",
     "completionType": "전선",
@@ -2192,7 +2284,7 @@
     "dayOrNight": "day",
     "classSection": "C",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "강희중",
     "planCode": "20251110518V020004C",
     "sessionInfo": {
@@ -2208,6 +2300,7 @@
     }
   },
   {
+    "courseId": "V020004-N",
     "courseCode": "V020004",
     "courseName": "프로그래밍랩",
     "completionType": "전선",
@@ -2216,7 +2309,7 @@
     "dayOrNight": "night",
     "classSection": "N",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "강희중",
     "planCode": "20251110518V020004N",
     "sessionInfo": {
@@ -2232,15 +2325,16 @@
     }
   },
   {
+    "courseId": "V020005-7",
     "courseCode": "V020005",
     "courseName": "프로그래밍언어론",
     "completionType": "전선",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 7,
+    "classSection": "7",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김성동",
     "planCode": "20251110528V0200057",
     "sessionInfo": {
@@ -2256,15 +2350,16 @@
     }
   },
   {
+    "courseId": "V020005-8",
     "courseCode": "V020005",
     "courseName": "프로그래밍언어론",
     "completionType": "전선",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 8,
+    "classSection": "8",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김인희",
     "planCode": "20251514333V0200058",
     "sessionInfo": {
@@ -2280,15 +2375,16 @@
     }
   },
   {
+    "courseId": "V020005-9",
     "courseCode": "V020005",
     "courseName": "프로그래밍언어론",
     "completionType": "전선",
     "deliveryMethod": "BL",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 9,
+    "classSection": "9",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김인희",
     "planCode": "20251514333V0200059",
     "sessionInfo": {
@@ -2304,6 +2400,7 @@
     }
   },
   {
+    "courseId": "V020005-A",
     "courseCode": "V020005",
     "courseName": "프로그래밍언어론",
     "completionType": "전선",
@@ -2312,7 +2409,7 @@
     "dayOrNight": "day",
     "classSection": "A",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김성동",
     "planCode": "20251110528V020005A",
     "sessionInfo": {
@@ -2328,6 +2425,7 @@
     }
   },
   {
+    "courseId": "V020005-B",
     "courseCode": "V020005",
     "courseName": "프로그래밍언어론",
     "completionType": "전선",
@@ -2336,7 +2434,7 @@
     "dayOrNight": "day",
     "classSection": "B",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김성동",
     "planCode": "20251110528V020005B",
     "sessionInfo": {
@@ -2352,6 +2450,7 @@
     }
   },
   {
+    "courseId": "V020005-C",
     "courseCode": "V020005",
     "courseName": "프로그래밍언어론",
     "completionType": "전선",
@@ -2360,7 +2459,7 @@
     "dayOrNight": "day",
     "classSection": "C",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김성동",
     "planCode": "20251110528V020005C",
     "sessionInfo": {
@@ -2376,6 +2475,7 @@
     }
   },
   {
+    "courseId": "V020005-N",
     "courseCode": "V020005",
     "courseName": "프로그래밍언어론",
     "completionType": "전선",
@@ -2384,7 +2484,7 @@
     "dayOrNight": "night",
     "classSection": "N",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "김인희",
     "planCode": "20251514333V020005N",
     "sessionInfo": {
@@ -2400,15 +2500,16 @@
     }
   },
   {
+    "courseId": "V020006-7",
     "courseCode": "V020006",
     "courseName": "확률및통계",
     "completionType": "전선",
     "deliveryMethod": "대면수업",
     "credit": 3,
     "dayOrNight": "both",
-    "classSection": 7,
+    "classSection": "7",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "임선집",
     "planCode": "20251516043V0200067",
     "sessionInfo": {
@@ -2424,6 +2525,7 @@
     }
   },
   {
+    "courseId": "V020006-A",
     "courseCode": "V020006",
     "courseName": "확률및통계",
     "completionType": "전선",
@@ -2432,7 +2534,7 @@
     "dayOrNight": "day",
     "classSection": "A",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "엄종석",
     "planCode": "20251516185V020006A",
     "sessionInfo": {
@@ -2448,6 +2550,7 @@
     }
   },
   {
+    "courseId": "V020006-B",
     "courseCode": "V020006",
     "courseName": "확률및통계",
     "completionType": "전선",
@@ -2456,7 +2559,7 @@
     "dayOrNight": "day",
     "classSection": "B",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "엄종석",
     "planCode": "20251516185V020006B",
     "sessionInfo": {
@@ -2472,6 +2575,7 @@
     }
   },
   {
+    "courseId": "V020006-N",
     "courseCode": "V020006",
     "courseName": "확률및통계",
     "completionType": "전선",
@@ -2480,7 +2584,7 @@
     "dayOrNight": "night",
     "classSection": "N",
     "grade": 2,
-    "gradeLimit": null,
+    "gradeLimit": "0",
     "professor": "임선집",
     "planCode": "20251516043V020006N",
     "sessionInfo": {

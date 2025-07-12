@@ -9,19 +9,19 @@ export class CrawlerController {
   constructor(private readonly crawlerService: CrawlerService) {}
 
   // 학기 저장(학기 테이블)
-  @Post('postSemesterData')
+  @Post('semester-data')
   handleSemesterData(@Body() semesterData: SemesterDto) {
     return this.crawlerService.findOrCreateSemester(semesterData);
   }
 
   // 전공 저장 로직(전공 테이블, 학기-전공 관계 테이블)
-  @Post('postMajorData')
+  @Post('major-data')
   handleMajorData(@Body() majorData: MajorDataDto) {
     return this.crawlerService.createSemesterAndMajorTransactional(majorData);
   }
 
   // 강의 저장 로직(강의 테이블, 오프라인 스케줄 테이블)
-  @Post('postCourseData')
+  @Post('course-data')
   handleCourseData(@Body() courseData: CourseDataDto) {
     return this.crawlerService.createCourseAndOfflineScheduleTransactional(
       courseData,

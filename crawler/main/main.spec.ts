@@ -12,7 +12,7 @@ import { postMajorData } from "apis/postMajorData";
 
 const TEST_FUNC_TIME_OUT = 1000 * 60 * 5;
 const semester: SemesterType = splitSemester("2025-1");
-// const MAJOR_CODE = "V024";
+const MAJOR_CODE = "V024";
 
 test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모든 강좌 가져오기 -> 데베 저장", async ({
   page,
@@ -52,11 +52,11 @@ test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모�
   console.log(postMajorRes);
 
   // 모든 전공들을 루프하면서 데이터베이스에 포맷된 정보를 기반으로 저장
-  for (const index in majors) {
+  for (const index in [0]) {
     const major = majors[index];
-    const majorCode = major.majorCode;
+    // const majorCode = major.majorCode;
     const majorName = major.majorName;
-    // const majorCode = MAJOR_CODE;
+    const majorCode = MAJOR_CODE;
 
     try {
       // 전공들의 강좌들을 하나하나 받아오는 로직
@@ -79,10 +79,13 @@ test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모�
       const coursesXml = await courses_response.text();
 
       const courses: CourseType[] | null = courseXmlToJson(coursesXml);
-      // console.log(JSON.stringify(courses, null, 2));
+      console.log(JSON.stringify(courses, null, 2));
 
-      // const res = await postCourseData(semester, major, courses);
-      console.log(`${index}번째, ${majorName}(${majorCode}) 데이터 전송 완료`);
+      const res = await postCourseData(semester, major, courses);
+      console.log(
+        `${index}번째, ${majorName}(${majorCode}) 데이터 전송 완료`,
+        res
+      );
 
       // 너무 빨리 돌면 과부하 걸릴까봐 랜덤 딜레이 주기
       // await randomDelay();

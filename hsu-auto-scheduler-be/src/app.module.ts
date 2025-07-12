@@ -6,6 +6,7 @@ import { DatabaseModule } from './modules/database/database.module';
 import { ConfigModule } from '@nestjs/config';
 import { AllExceptionFilter } from './common/filters/all-exception.filter';
 import { ResponseInterceptor } from './common/interceptors/response.interceptors';
+import { ScheduleConstraintsModule } from './modules/schedule-constraints/schedule-constraints.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { ResponseInterceptor } from './common/interceptors/response.interceptors
     CrawlerModule,
     LoggerModule,
     DatabaseModule,
+    ScheduleConstraintsModule,
   ],
   controllers: [],
   providers: [

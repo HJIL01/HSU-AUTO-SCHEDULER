@@ -10,7 +10,7 @@ CREATE TABLE course (
     class_section VARCHAR(255) NOT NULL,
     grade INT NOT NULL,
     grade_limit VARCHAR(255),
-    online_min INT DEFAULT 0,
+    online_min DECIMAL(2,1) DEFAULT 0,
     plan_code VARCHAR(255),
     semester_id VARCHAR(255) NOT NULL,
     major_id VARCHAR(255) NOT NULL,

@@ -24,13 +24,13 @@ export class SemesterEntity {
 
   @OneToMany(
     () => SemesterMajorEntity,
-    (semesterMajors) => semesterMajors.semester,
+    (semester_majors) => semester_majors.semester,
   )
-  semesterMajors: SemesterMajorEntity[];
+  semester_majors: SemesterMajorEntity[];
 
   @OneToMany(
     () => OfflineScheduleEntity,
-    (offlineSchedules) => offlineSchedules.course,
+    (offline_schedules) => offline_schedules.course,
   )
-  offlineSchedules: OfflineScheduleEntity[];
+  offline_schedules: OfflineScheduleEntity[];
 }

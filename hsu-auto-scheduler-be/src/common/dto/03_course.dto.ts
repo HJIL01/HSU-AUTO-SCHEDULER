@@ -8,40 +8,41 @@ import {
   ValidateNested,
 } from 'class-validator';
 import { SessionInfoDto } from './04_sessionInfo.dto';
+import { DayOrNightEnum } from '../enums/dayOrNight.enum';
 
 export class CourseDto {
   @IsString()
   @IsNotEmpty()
-  courseId: string;
+  course_id: string;
 
   @IsString()
   @IsNotEmpty()
-  courseCode: string;
+  course_code: string;
 
   @IsString()
   @IsNotEmpty()
-  courseName: string;
+  course_name: string;
 
   @IsString()
   @IsNotEmpty()
-  completionType: string;
+  completion_type: string;
 
   @IsString()
   @IsNotEmpty()
-  deliveryMethod: string;
+  delivery_method: string;
 
   @Type(() => Number)
   @IsNumber({ allowNaN: false }, { message: 'credit은 숫자여야 합니다' })
   credit: number;
 
-  @IsEnum(['day', 'night', 'both'], {
+  @IsEnum(DayOrNightEnum, {
     message: '유효한 주야 구분이 필요합니다',
   })
-  dayOrNight: 'day' | 'night' | 'both';
+  day_or_night: DayOrNightEnum;
 
   @IsString()
   @IsNotEmpty()
-  classSection: string;
+  class_section: string;
 
   @Type(() => Number)
   @IsNumber({ allowNaN: false }, { message: 'grade는 숫자여야 합니다.' })
@@ -50,7 +51,7 @@ export class CourseDto {
   @IsOptional()
   @IsString()
   @IsNotEmpty()
-  gradeLimit: string | null;
+  grade_limit: string | null;
 
   @IsString()
   @IsNotEmpty()
@@ -59,10 +60,10 @@ export class CourseDto {
   @IsOptional()
   @IsString()
   @IsNotEmpty()
-  planCode: string | null;
+  plan_code: string | null;
 
   @IsOptional()
   @ValidateNested()
   @Type(() => SessionInfoDto)
-  sessionInfo: SessionInfoDto | null;
+  session_info: SessionInfoDto | null;
 }

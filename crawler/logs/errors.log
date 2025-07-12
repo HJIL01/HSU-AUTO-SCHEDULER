@@ -37,3 +37,395 @@
 2025-07-10T12:31:13.659Z [index=0] [majorCode=P011] [majorName=영미문학문화트랙] [major] HTTP ERROR!
 2025-07-10T12:40:07.883Z [index=0] [majorCode=P011] [majorName=영미문학문화트랙] [major] HTTP ERROR!
 2025-07-10T14:43:03.846Z [index=0] [majorCode=P011] [majorName=영미문학문화트랙] [major] HTTP ERROR!
+2025-07-11T15:59:15.216Z [index=0] [majorCode=P011] [majorName=영미문학문화트랙] [major] Post Course: 20251-영미문학문화트랙 HTTP ERROR!
+2025-07-11T15:59:15.310Z [index=1] [majorCode=P012] [majorName=영미언어정보트랙] [major] Post Course: 20251-영미언어정보트랙 HTTP ERROR!
+2025-07-11T15:59:15.410Z [index=2] [majorCode=P013] [majorName=한국어교육트랙] [major] Post Course: 20251-한국어교육트랙 HTTP ERROR!
+2025-07-11T15:59:15.503Z [index=3] [majorCode=P018] [majorName=디지털인문정보학트랙] [major] Post Course: 20251-디지털인문정보학트랙 HTTP ERROR!
+2025-07-11T15:59:15.609Z [index=4] [majorCode=P019] [majorName=역사문화큐레이션트랙] [major] Post Course: 20251-역사문화큐레이션트랙 HTTP ERROR!
+2025-07-11T15:59:15.706Z [index=5] [majorCode=P01A] [majorName=역사콘텐츠트랙] [major] Post Course: 20251-역사콘텐츠트랙 HTTP ERROR!
+2025-07-11T15:59:15.790Z [index=6] [majorCode=P01B] [majorName=영미문화콘텐츠트랙] [major] Post Course: 20251-영미문화콘텐츠트랙 HTTP ERROR!
+2025-07-11T15:59:15.878Z [index=7] [majorCode=P01C] [majorName=지식정보문화트랙] [major] Post Course: 20251-지식정보문화트랙 HTTP ERROR!
+2025-07-11T15:59:15.976Z [index=8] [majorCode=P021] [majorName=동양화전공] [major] Post Course: 20251-동양화전공 HTTP ERROR!
+2025-07-11T15:59:16.077Z [index=9] [majorCode=P022] [majorName=서양화전공] [major] Post Course: 20251-서양화전공 HTTP ERROR!
+2025-07-11T15:59:16.171Z [index=10] [majorCode=P023] [majorName=한국무용전공] [major] Post Course: 20251-한국무용전공 HTTP ERROR!
+2025-07-11T15:59:16.264Z [index=11] [majorCode=P024] [majorName=현대무용전공] [major] Post Course: 20251-현대무용전공 HTTP ERROR!
+2025-07-11T15:59:16.356Z [index=12] [majorCode=P025] [majorName=발레전공] [major] Post Course: 20251-발레전공 HTTP ERROR!
+2025-07-11T15:59:16.455Z [index=13] [majorCode=R011] [majorName=국제무역트랙] [major] Post Course: 20251-국제무역트랙 HTTP ERROR!
+2025-07-11T15:59:16.553Z [index=14] [majorCode=R012] [majorName=글로벌비즈니스트랙] [major] Post Course: 20251-글로벌비즈니스트랙 HTTP ERROR!
+2025-07-11T15:59:16.639Z [index=15] [majorCode=R013] [majorName=기업·경제분석트랙] [major] Post Course: 20251-기업·경제분석트랙 HTTP ERROR!
+2025-07-11T15:59:16.748Z [index=16] [majorCode=R014] [majorName=금융·데이터분석트랙] [major] Post Course: 20251-금융·데이터분석트랙 HTTP ERROR!
+2025-07-11T15:59:16.847Z [index=17] [majorCode=R016] [majorName=법&정책트랙] [major] Post Course: 20251-법&정책트랙 HTTP ERROR!
+2025-07-11T15:59:16.955Z [index=18] [majorCode=R019] [majorName=기업경영트랙] [major] Post Course: 20251-기업경영트랙 HTTP ERROR!
+2025-07-11T15:59:17.079Z [index=19] [majorCode=R01B] [majorName=회계·재무경영트랙] [major] Post Course: 20251-회계·재무경영트랙 HTTP ERROR!
+2025-07-11T15:59:17.191Z [index=20] [majorCode=R01C] [majorName=공공행정트랙] [major] Post Course: 20251-공공행정트랙 HTTP ERROR!
+2025-07-11T15:59:17.299Z [index=21] [majorCode=R01D] [majorName=부동산트랙] [major] Post Course: 20251-부동산트랙 HTTP ERROR!
+2025-07-11T15:59:17.382Z [index=22] [majorCode=R01E] [majorName=스마트도시·교통계획트랙] [major] Post Course: 20251-스마트도시·교통계획트랙 HTTP ERROR!
+2025-07-11T15:59:17.471Z [index=23] [majorCode=R01F] [majorName=경제금융투자트랙] [major] Post Course: 20251-경제금융투자트랙 HTTP ERROR!
+2025-07-11T15:59:17.600Z [index=24] [majorCode=R01G] [majorName=비즈니스애널리틱스트랙] [major] Post Course: 20251-비즈니스애널리틱스트랙 HTTP ERROR!
+2025-07-11T15:59:17.709Z [index=25] [majorCode=T011] [majorName=패션마케팅트랙] [major] Post Course: 20251-패션마케팅트랙 HTTP ERROR!
+2025-07-11T15:59:17.813Z [index=26] [majorCode=T012] [majorName=패션디자인트랙] [major] Post Course: 20251-패션디자인트랙 HTTP ERROR!
+2025-07-11T15:59:17.910Z [index=27] [majorCode=T013] [majorName=패션크리에이티브디렉션트랙] [major] Post Course: 20251-패션크리에이티브디렉션트랙 HTTP ERROR!
+2025-07-11T15:59:18.023Z [index=28] [majorCode=T022] [majorName=영상·애니메이션디자인트랙] [major] Post Course: 20251-영상·애니메이션디자인트랙 HTTP ERROR!
+2025-07-11T15:59:18.113Z [index=29] [majorCode=T023] [majorName=제품·서비스디자인트랙] [major] Post Course: 20251-제품·서비스디자인트랙 HTTP ERROR!
+2025-07-11T15:59:18.218Z [index=30] [majorCode=T026] [majorName=VMD·전시디자인트랙] [major] Post Course: 20251-VMD·전시디자인트랙 HTTP ERROR!
+2025-07-11T15:59:18.338Z [index=31] [majorCode=T028] [majorName=인테리어디자인트랙] [major] Post Course: 20251-인테리어디자인트랙 HTTP ERROR!
+2025-07-11T15:59:18.442Z [index=32] [majorCode=T029] [majorName=게임그래픽디자인트랙] [major] Post Course: 20251-게임그래픽디자인트랙 HTTP ERROR!
+2025-07-11T15:59:18.527Z [index=33] [majorCode=T02A] [majorName=UX/UI디자인트랙] [major] Post Course: 20251-UX/UI디자인트랙 HTTP ERROR!
+2025-07-11T15:59:18.630Z [index=34] [majorCode=T02B] [majorName=미디어디자인트랙] [major] Post Course: 20251-미디어디자인트랙 HTTP ERROR!
+2025-07-11T15:59:18.737Z [index=35] [majorCode=T02C] [majorName=시각디자인트랙] [major] Post Course: 20251-시각디자인트랙 HTTP ERROR!
+2025-07-11T15:59:18.847Z [index=36] [majorCode=T030] [majorName=뷰티디자인매니지먼트학과] [major] Post Course: 20251-뷰티디자인매니지먼트학과 HTTP ERROR!
+2025-07-11T15:59:18.933Z [index=37] [majorCode=T040] [majorName=뷰티매니지먼트학과] [major] Post Course: 20251-뷰티매니지먼트학과 HTTP ERROR!
+2025-07-11T15:59:19.007Z [index=38] [majorCode=T050] [majorName=영상애니메이션콘텐츠학과] [major] Post Course: 20251-영상애니메이션콘텐츠학과 HTTP ERROR!
+2025-07-11T15:59:19.100Z [index=39] [majorCode=U121] [majorName=한양사이버] [major] Post Course: 20251-한양사이버 HTTP ERROR!
+2025-07-11T15:59:19.187Z [index=40] [majorCode=U122] [majorName=KCU] [major] Post Course: 20251-KCU HTTP ERROR!
+2025-07-11T15:59:19.350Z [index=41] [majorCode=V021] [majorName=모바일소프트웨어트랙] [major] Post Course: 20251-모바일소프트웨어트랙 HTTP ERROR!
+2025-07-11T15:59:19.495Z [index=42] [majorCode=V022] [majorName=빅데이터트랙] [major] Post Course: 20251-빅데이터트랙 HTTP ERROR!
+2025-07-11T15:59:19.633Z [index=43] [majorCode=V023] [majorName=디지털콘텐츠·가상현실트랙] [major] Post Course: 20251-디지털콘텐츠·가상현실트랙 HTTP ERROR!
+2025-07-11T15:59:19.774Z [index=44] [majorCode=V024] [majorName=웹공학트랙] [major] Post Course: 20251-웹공학트랙 HTTP ERROR!
+2025-07-11T15:59:19.899Z [index=45] [majorCode=V031] [majorName=전자트랙] [major] Post Course: 20251-전자트랙 HTTP ERROR!
+2025-07-11T15:59:20.002Z [index=46] [majorCode=V032] [majorName=정보시스템트랙] [major] Post Course: 20251-정보시스템트랙 HTTP ERROR!
+2025-07-11T15:59:20.103Z [index=47] [majorCode=V035] [majorName=시스템반도체트랙] [major] Post Course: 20251-시스템반도체트랙 HTTP ERROR!
+2025-07-11T15:59:20.206Z [index=48] [majorCode=V036] [majorName=기계시스템디자인트랙] [major] Post Course: 20251-기계시스템디자인트랙 HTTP ERROR!
+2025-07-11T15:59:20.304Z [index=49] [majorCode=V037] [majorName=AI로봇융합트랙] [major] Post Course: 20251-AI로봇융합트랙 HTTP ERROR!
+2025-07-11T15:59:20.421Z [index=50] [majorCode=V041] [majorName=지능시스템트랙] [major] Post Course: 20251-지능시스템트랙 HTTP ERROR!
+2025-07-11T15:59:20.521Z [index=51] [majorCode=V042] [majorName=사물인터넷트랙] [major] Post Course: 20251-사물인터넷트랙 HTTP ERROR!
+2025-07-11T15:59:20.613Z [index=52] [majorCode=V043] [majorName=사이버보안트랙] [major] Post Course: 20251-사이버보안트랙 HTTP ERROR!
+2025-07-11T15:59:20.726Z [index=53] [majorCode=V044] [majorName=ICT융합엔터테인먼트트랙] [major] Post Course: 20251-ICT융합엔터테인먼트트랙 HTTP ERROR!
+2025-07-11T15:59:20.802Z [index=54] [majorCode=V070] [majorName=산업시스템공학부] [major] Post Course: 20251-산업시스템공학부 HTTP ERROR!
+2025-07-11T15:59:20.884Z [index=55] [majorCode=V071] [majorName=시스템경영공학트랙] [major] Post Course: 20251-시스템경영공학트랙 HTTP ERROR!
+2025-07-11T15:59:20.972Z [index=56] [majorCode=V072] [majorName=생산물류시스템트랙] [major] Post Course: 20251-생산물류시스템트랙 HTTP ERROR!
+2025-07-11T15:59:21.069Z [index=57] [majorCode=V073] [majorName=컨설팅트랙] [major] Post Course: 20251-컨설팅트랙 HTTP ERROR!
+2025-07-11T15:59:21.154Z [index=58] [majorCode=V074] [majorName=산업공학트랙] [major] Post Course: 20251-산업공학트랙 HTTP ERROR!
+2025-07-11T15:59:21.242Z [index=59] [majorCode=V076] [majorName=응용산업데이터공학트랙] [major] Post Course: 20251-응용산업데이터공학트랙 HTTP ERROR!
+2025-07-11T15:59:21.331Z [index=60] [majorCode=V080] [majorName=스마트제조혁신컨설팅학과] [major] Post Course: 20251-스마트제조혁신컨설팅학과 HTTP ERROR!
+2025-07-11T15:59:21.435Z [index=61] [majorCode=W020] [majorName=호텔외식경영학과] [major] Post Course: 20251-호텔외식경영학과 HTTP ERROR!
+2025-07-11T15:59:21.522Z [index=62] [majorCode=W030] [majorName=뷰티디자인학과] [major] Post Course: 20251-뷰티디자인학과 HTTP ERROR!
+2025-07-11T15:59:21.636Z [index=63] [majorCode=W040] [majorName=비즈니스컨설팅학과] [major] Post Course: 20251-비즈니스컨설팅학과 HTTP ERROR!
+2025-07-11T15:59:21.721Z [index=64] [majorCode=W050] [majorName=ICT융합디자인학과] [major] Post Course: 20251-ICT융합디자인학과 HTTP ERROR!
+2025-07-11T15:59:21.808Z [index=65] [majorCode=W060] [majorName=융합행정학과] [major] Post Course: 20251-융합행정학과 HTTP ERROR!
+2025-07-11T15:59:21.901Z [index=66] [majorCode=W070] [majorName=미래인재학부] [major] Post Course: 20251-미래인재학부 HTTP ERROR!
+2025-07-11T15:59:21.997Z [index=67] [majorCode=X111] [majorName=IPP] [major] Post Course: 20251-IPP HTTP ERROR!
+2025-07-11T15:59:22.107Z [index=68] [majorCode=Y020] [majorName=문학문화콘텐츠학과] [major] Post Course: 20251-문학문화콘텐츠학과 HTTP ERROR!
+2025-07-11T15:59:22.215Z [index=69] [majorCode=Y030] [majorName=AI응용학과] [major] Post Course: 20251-AI응용학과 HTTP ERROR!
+2025-07-11T15:59:22.296Z [index=70] [majorCode=Y040] [majorName=융합보안학과] [major] Post Course: 20251-융합보안학과 HTTP ERROR!
+2025-07-11T15:59:22.389Z [index=71] [majorCode=Y050] [majorName=미래모빌리티학과] [major] Post Course: 20251-미래모빌리티학과 HTTP ERROR!
+2025-07-11T15:59:22.477Z [index=72] [majorCode=Y060] [majorName=SW연계전공] [major] Post Course: 20251-SW연계전공 HTTP ERROR!
+2025-07-11T15:59:22.569Z [index=73] [majorCode=A040] [majorName=영어영문학부] [major] Post Course: 20251-영어영문학부 HTTP ERROR!
+2025-07-11T15:59:22.664Z [index=74] [majorCode=A050] [majorName=역사문화학부] [major] Post Course: 20251-역사문화학부 HTTP ERROR!
+2025-07-11T15:59:22.771Z [index=75] [majorCode=A071] [majorName=국어국문전공] [major] Post Course: 20251-국어국문전공 HTTP ERROR!
+2025-07-11T15:59:22.879Z [index=76] [majorCode=A072] [majorName=문헌정보전공] [major] Post Course: 20251-문헌정보전공 HTTP ERROR!
+2025-07-11T15:59:22.998Z [index=77] [majorCode=D040] [majorName=경영학부] [major] Post Course: 20251-경영학부 HTTP ERROR!
+2025-07-11T15:59:23.095Z [index=78] [majorCode=D121] [majorName=무역학과] [major] Post Course: 20251-무역학과 HTTP ERROR!
+2025-07-11T15:59:23.193Z [index=79] [majorCode=D132] [majorName=경제학과] [major] Post Course: 20251-경제학과 HTTP ERROR!
+2025-07-11T15:59:23.306Z [index=80] [majorCode=D142] [majorName=행정학과] [major] Post Course: 20251-행정학과 HTTP ERROR!
+2025-07-11T15:59:23.421Z [index=81] [majorCode=D172] [majorName=부동산학과] [major] Post Course: 20251-부동산학과 HTTP ERROR!
+2025-07-11T15:59:23.519Z [index=82] [majorCode=D201] [majorName=부동산세무경영학과] [major] Post Course: 20251-부동산세무경영학과 HTTP ERROR!
+2025-07-11T15:59:23.600Z [index=83] [majorCode=D301] [majorName=벤처창업연계전공] [major] Post Course: 20251-벤처창업연계전공 HTTP ERROR!
+2025-07-11T15:59:23.686Z [index=84] [majorCode=G038] [majorName=인터랙티브엔터테인먼트] [major] Post Course: 20251-인터랙티브엔터테인먼트 HTTP ERROR!
+2025-07-11T15:59:23.807Z [index=85] [majorCode=G040] [majorName=패션학부] [major] Post Course: 20251-패션학부 HTTP ERROR!
+2025-07-11T15:59:23.927Z [index=86] [majorCode=G050] [majorName=융복합디자인학부] [major] Post Course: 20251-융복합디자인학부 HTTP ERROR!
+2025-07-11T15:59:24.031Z [index=87] [majorCode=G060] [majorName=인테리어디자인학과] [major] Post Course: 20251-인테리어디자인학과 HTTP ERROR!
+2025-07-11T15:59:24.131Z [index=88] [majorCode=G111] [majorName=무용학과] [major] Post Course: 20251-무용학과 HTTP ERROR!
+2025-07-11T15:59:24.214Z [index=89] [majorCode=G161] [majorName=회화과] [major] Post Course: 20251-회화과 HTTP ERROR!
+2025-07-11T15:59:24.315Z [index=90] [majorCode=K151] [majorName=기계시스템공학과] [major] Post Course: 20251-기계시스템공학과 HTTP ERROR!
+2025-07-11T15:59:24.418Z [index=91] [majorCode=K161] [majorName=산업경영공학과] [major] Post Course: 20251-산업경영공학과 HTTP ERROR!
+2025-07-11T15:59:24.567Z [index=92] [majorCode=K170] [majorName=컴퓨터공학부] [major] Post Course: 20251-컴퓨터공학부 HTTP ERROR!
+2025-07-11T15:59:24.661Z [index=93] [majorCode=K181] [majorName=전자정보공학과] [major] Post Course: 20251-전자정보공학과 HTTP ERROR!
+2025-07-11T15:59:24.772Z [index=94] [majorCode=K191] [majorName=IT응용시스템공학과] [major] Post Course: 20251-IT응용시스템공학과 HTTP ERROR!
+2025-07-11T15:59:24.861Z [index=95] [majorCode=K511] [majorName=지식서비스&컨설팅연계전공] [major] Post Course: 20251-지식서비스&컨설팅연계전공 HTTP ERROR!
+2025-07-11T15:59:25.025Z [index=96] [majorCode=L11E] [majorName=교양필수] [major] Post Course: 20251-교양필수 HTTP ERROR!
+2025-07-11T15:59:25.185Z [index=97] [majorCode=L11F] [majorName=선택필수교양] [major] Post Course: 20251-선택필수교양 HTTP ERROR!
+2025-07-11T15:59:25.299Z [index=98] [majorCode=L11G] [majorName=일반교양] [major] Post Course: 20251-일반교양 HTTP ERROR!
+2025-07-11T15:59:25.402Z [index=99] [majorCode=L11H] [majorName=일반선택] [major] Post Course: 20251-일반선택 HTTP ERROR!
+2025-07-11T15:59:25.485Z [index=100] [majorCode=L330] [majorName=학점인정] [major] Post Course: 20251-학점인정 HTTP ERROR!
+2025-07-11T15:59:25.570Z [index=101] [majorCode=M020] [majorName=C&C School] [major] Post Course: 20251-C&C School HTTP ERROR!
+2025-07-11T15:59:25.652Z [index=102] [majorCode=M033] [majorName=SAP 비즈니스 아카데미] [major] Post Course: 20251-SAP 비즈니스 아카데미 HTTP ERROR!
+2025-07-11T15:59:25.736Z [index=103] [majorCode=M034] [majorName=인공지능(AI) 전문과정] [major] Post Course: 20251-인공지능(AI) 전문과정 HTTP ERROR!
+2025-07-11T15:59:25.823Z [index=104] [majorCode=M037] [majorName=만화/웹툰 전문가과정] [major] Post Course: 20251-만화/웹툰 전문가과정 HTTP ERROR!
+2025-07-11T15:59:25.901Z [index=105] [majorCode=M039] [majorName=디지털 사진 영상촬영 아카데미] [major] Post Course: 20251-디지털 사진 영상촬영 아카데미 HTTP ERROR!
+2025-07-11T15:59:25.983Z [index=106] [majorCode=M03A] [majorName=영상CG&시각효과 전문가과정] [major] Post Course: 20251-영상CG&시각효과 전문가과정 HTTP ERROR!
+2025-07-11T15:59:26.058Z [index=107] [majorCode=M03C] [majorName=심리상담 전문가 과정] [major] Post Course: 20251-심리상담 전문가 과정 HTTP ERROR!
+2025-07-11T15:59:26.131Z [index=108] [majorCode=M03D] [majorName=진로·취업 컨설턴트 양성 과정] [major] Post Course: 20251-진로·취업 컨설턴트 양성 과정 HTTP ERROR!
+2025-07-11T15:59:26.208Z [index=109] [majorCode=M03E] [majorName=대기업 특허엔지니어 직무양성 프로그램] [major] Post Course: 20251-대기업 특허엔지니어 직무양성 프로그램 HTTP ERROR!
+2025-07-11T15:59:26.290Z [index=110] [majorCode=M041] [majorName=한국언어문화교육전공] [major] Post Course: 20251-한국언어문화교육전공 HTTP ERROR!
+2025-07-11T15:59:26.372Z [index=111] [majorCode=M042] [majorName=글로벌K비즈니스전공] [major] Post Course: 20251-글로벌K비즈니스전공 HTTP ERROR!
+2025-07-11T15:59:26.458Z [index=112] [majorCode=M043] [majorName=영상엔터테인먼트전공] [major] Post Course: 20251-영상엔터테인먼트전공 HTTP ERROR!
+2025-07-11T15:59:26.535Z [index=113] [majorCode=M044] [majorName=패션뷰티크리에이션전공] [major] Post Course: 20251-패션뷰티크리에이션전공 HTTP ERROR!
+2025-07-11T15:59:26.612Z [index=114] [majorCode=M050] [majorName=학점인정] [major] Post Course: 20251-학점인정 HTTP ERROR!
+2025-07-11T15:59:26.715Z [index=115] [majorCode=M111] [majorName=단과대학구분없음] [major] Post Course: 20251-단과대학구분없음 HTTP ERROR!
+2025-07-11T16:00:05.752Z [index=0] [majorCode=P011] [majorName=영미문학문화트랙] [major] Post Course: 20251-영미문학문화트랙 HTTP ERROR!
+2025-07-11T16:00:05.858Z [index=1] [majorCode=P012] [majorName=영미언어정보트랙] [major] Post Course: 20251-영미언어정보트랙 HTTP ERROR!
+2025-07-11T16:00:05.950Z [index=2] [majorCode=P013] [majorName=한국어교육트랙] [major] Post Course: 20251-한국어교육트랙 HTTP ERROR!
+2025-07-11T16:00:06.051Z [index=3] [majorCode=P018] [majorName=디지털인문정보학트랙] [major] Post Course: 20251-디지털인문정보학트랙 HTTP ERROR!
+2025-07-11T16:00:06.166Z [index=4] [majorCode=P019] [majorName=역사문화큐레이션트랙] [major] Post Course: 20251-역사문화큐레이션트랙 HTTP ERROR!
+2025-07-11T16:00:06.282Z [index=5] [majorCode=P01A] [majorName=역사콘텐츠트랙] [major] Post Course: 20251-역사콘텐츠트랙 HTTP ERROR!
+2025-07-11T16:00:06.384Z [index=6] [majorCode=P01B] [majorName=영미문화콘텐츠트랙] [major] Post Course: 20251-영미문화콘텐츠트랙 HTTP ERROR!
+2025-07-11T16:00:06.487Z [index=7] [majorCode=P01C] [majorName=지식정보문화트랙] [major] Post Course: 20251-지식정보문화트랙 HTTP ERROR!
+2025-07-11T16:00:06.604Z [index=8] [majorCode=P021] [majorName=동양화전공] [major] Post Course: 20251-동양화전공 HTTP ERROR!
+2025-07-11T16:00:06.708Z [index=9] [majorCode=P022] [majorName=서양화전공] [major] Post Course: 20251-서양화전공 HTTP ERROR!
+2025-07-11T16:00:06.815Z [index=10] [majorCode=P023] [majorName=한국무용전공] [major] Post Course: 20251-한국무용전공 HTTP ERROR!
+2025-07-11T16:00:06.922Z [index=11] [majorCode=P024] [majorName=현대무용전공] [major] Post Course: 20251-현대무용전공 HTTP ERROR!
+2025-07-11T16:00:07.031Z [index=12] [majorCode=P025] [majorName=발레전공] [major] Post Course: 20251-발레전공 HTTP ERROR!
+2025-07-11T16:00:07.121Z [index=13] [majorCode=R011] [majorName=국제무역트랙] [major] Post Course: 20251-국제무역트랙 HTTP ERROR!
+2025-07-11T16:00:07.224Z [index=14] [majorCode=R012] [majorName=글로벌비즈니스트랙] [major] Post Course: 20251-글로벌비즈니스트랙 HTTP ERROR!
+2025-07-11T16:00:07.342Z [index=15] [majorCode=R013] [majorName=기업·경제분석트랙] [major] Post Course: 20251-기업·경제분석트랙 HTTP ERROR!
+2025-07-11T16:00:07.440Z [index=16] [majorCode=R014] [majorName=금융·데이터분석트랙] [major] Post Course: 20251-금융·데이터분석트랙 HTTP ERROR!
+2025-07-11T16:00:07.542Z [index=17] [majorCode=R016] [majorName=법&정책트랙] [major] Post Course: 20251-법&정책트랙 HTTP ERROR!
+2025-07-11T16:00:07.668Z [index=18] [majorCode=R019] [majorName=기업경영트랙] [major] Post Course: 20251-기업경영트랙 HTTP ERROR!
+2025-07-11T16:00:07.798Z [index=19] [majorCode=R01B] [majorName=회계·재무경영트랙] [major] Post Course: 20251-회계·재무경영트랙 HTTP ERROR!
+2025-07-11T16:00:07.919Z [index=20] [majorCode=R01C] [majorName=공공행정트랙] [major] Post Course: 20251-공공행정트랙 HTTP ERROR!
+2025-07-11T16:00:08.030Z [index=21] [majorCode=R01D] [majorName=부동산트랙] [major] Post Course: 20251-부동산트랙 HTTP ERROR!
+2025-07-11T16:00:08.137Z [index=22] [majorCode=R01E] [majorName=스마트도시·교통계획트랙] [major] Post Course: 20251-스마트도시·교통계획트랙 HTTP ERROR!
+2025-07-11T16:00:08.241Z [index=23] [majorCode=R01F] [majorName=경제금융투자트랙] [major] Post Course: 20251-경제금융투자트랙 HTTP ERROR!
+2025-07-11T16:00:08.346Z [index=24] [majorCode=R01G] [majorName=비즈니스애널리틱스트랙] [major] Post Course: 20251-비즈니스애널리틱스트랙 HTTP ERROR!
+2025-07-11T16:00:08.477Z [index=25] [majorCode=T011] [majorName=패션마케팅트랙] [major] Post Course: 20251-패션마케팅트랙 HTTP ERROR!
+2025-07-11T16:00:08.588Z [index=26] [majorCode=T012] [majorName=패션디자인트랙] [major] Post Course: 20251-패션디자인트랙 HTTP ERROR!
+2025-07-11T16:00:08.689Z [index=27] [majorCode=T013] [majorName=패션크리에이티브디렉션트랙] [major] Post Course: 20251-패션크리에이티브디렉션트랙 HTTP ERROR!
+2025-07-11T16:00:08.806Z [index=28] [majorCode=T022] [majorName=영상·애니메이션디자인트랙] [major] Post Course: 20251-영상·애니메이션디자인트랙 HTTP ERROR!
+2025-07-11T16:00:08.907Z [index=29] [majorCode=T023] [majorName=제품·서비스디자인트랙] [major] Post Course: 20251-제품·서비스디자인트랙 HTTP ERROR!
+2025-07-11T16:00:09.027Z [index=30] [majorCode=T026] [majorName=VMD·전시디자인트랙] [major] Post Course: 20251-VMD·전시디자인트랙 HTTP ERROR!
+2025-07-11T16:00:09.131Z [index=31] [majorCode=T028] [majorName=인테리어디자인트랙] [major] Post Course: 20251-인테리어디자인트랙 HTTP ERROR!
+2025-07-11T16:00:09.242Z [index=32] [majorCode=T029] [majorName=게임그래픽디자인트랙] [major] Post Course: 20251-게임그래픽디자인트랙 HTTP ERROR!
+2025-07-11T16:00:09.353Z [index=33] [majorCode=T02A] [majorName=UX/UI디자인트랙] [major] Post Course: 20251-UX/UI디자인트랙 HTTP ERROR!
+2025-07-11T16:00:09.453Z [index=34] [majorCode=T02B] [majorName=미디어디자인트랙] [major] Post Course: 20251-미디어디자인트랙 HTTP ERROR!
+2025-07-11T16:00:09.569Z [index=35] [majorCode=T02C] [majorName=시각디자인트랙] [major] Post Course: 20251-시각디자인트랙 HTTP ERROR!
+2025-07-11T16:00:09.675Z [index=36] [majorCode=T030] [majorName=뷰티디자인매니지먼트학과] [major] Post Course: 20251-뷰티디자인매니지먼트학과 HTTP ERROR!
+2025-07-11T16:00:09.771Z [index=37] [majorCode=T040] [majorName=뷰티매니지먼트학과] [major] Post Course: 20251-뷰티매니지먼트학과 HTTP ERROR!
+2025-07-11T16:00:09.935Z [index=39] [majorCode=U121] [majorName=한양사이버] [major] Post Course: 20251-한양사이버 HTTP ERROR!
+2025-07-11T16:00:10.021Z [index=40] [majorCode=U122] [majorName=KCU] [major] Post Course: 20251-KCU HTTP ERROR!
+2025-07-11T16:00:10.172Z [index=41] [majorCode=V021] [majorName=모바일소프트웨어트랙] [major] Post Course: 20251-모바일소프트웨어트랙 HTTP ERROR!
+2025-07-11T16:00:10.322Z [index=42] [majorCode=V022] [majorName=빅데이터트랙] [major] Post Course: 20251-빅데이터트랙 HTTP ERROR!
+2025-07-11T16:00:10.465Z [index=43] [majorCode=V023] [majorName=디지털콘텐츠·가상현실트랙] [major] Post Course: 20251-디지털콘텐츠·가상현실트랙 HTTP ERROR!
+2025-07-11T16:00:10.615Z [index=44] [majorCode=V024] [majorName=웹공학트랙] [major] Post Course: 20251-웹공학트랙 HTTP ERROR!
+2025-07-11T16:00:10.740Z [index=45] [majorCode=V031] [majorName=전자트랙] [major] Post Course: 20251-전자트랙 HTTP ERROR!
+2025-07-11T16:00:10.861Z [index=46] [majorCode=V032] [majorName=정보시스템트랙] [major] Post Course: 20251-정보시스템트랙 HTTP ERROR!
+2025-07-11T16:00:10.963Z [index=47] [majorCode=V035] [majorName=시스템반도체트랙] [major] Post Course: 20251-시스템반도체트랙 HTTP ERROR!
+2025-07-11T16:00:11.085Z [index=48] [majorCode=V036] [majorName=기계시스템디자인트랙] [major] Post Course: 20251-기계시스템디자인트랙 HTTP ERROR!
+2025-07-11T16:00:11.207Z [index=49] [majorCode=V037] [majorName=AI로봇융합트랙] [major] Post Course: 20251-AI로봇융합트랙 HTTP ERROR!
+2025-07-11T16:00:11.318Z [index=50] [majorCode=V041] [majorName=지능시스템트랙] [major] Post Course: 20251-지능시스템트랙 HTTP ERROR!
+2025-07-11T16:00:11.448Z [index=51] [majorCode=V042] [majorName=사물인터넷트랙] [major] Post Course: 20251-사물인터넷트랙 HTTP ERROR!
+2025-07-11T16:00:11.546Z [index=52] [majorCode=V043] [majorName=사이버보안트랙] [major] Post Course: 20251-사이버보안트랙 HTTP ERROR!
+2025-07-11T16:00:11.659Z [index=53] [majorCode=V044] [majorName=ICT융합엔터테인먼트트랙] [major] Post Course: 20251-ICT융합엔터테인먼트트랙 HTTP ERROR!
+2025-07-11T16:00:11.751Z [index=54] [majorCode=V070] [majorName=산업시스템공학부] [major] Post Course: 20251-산업시스템공학부 HTTP ERROR!
+2025-07-11T16:00:11.846Z [index=55] [majorCode=V071] [majorName=시스템경영공학트랙] [major] Post Course: 20251-시스템경영공학트랙 HTTP ERROR!
+2025-07-11T16:00:11.952Z [index=56] [majorCode=V072] [majorName=생산물류시스템트랙] [major] Post Course: 20251-생산물류시스템트랙 HTTP ERROR!
+2025-07-11T16:00:12.043Z [index=57] [majorCode=V073] [majorName=컨설팅트랙] [major] Post Course: 20251-컨설팅트랙 HTTP ERROR!
+2025-07-11T16:00:12.136Z [index=58] [majorCode=V074] [majorName=산업공학트랙] [major] Post Course: 20251-산업공학트랙 HTTP ERROR!
+2025-07-11T16:00:12.232Z [index=59] [majorCode=V076] [majorName=응용산업데이터공학트랙] [major] Post Course: 20251-응용산업데이터공학트랙 HTTP ERROR!
+2025-07-11T16:00:12.333Z [index=60] [majorCode=V080] [majorName=스마트제조혁신컨설팅학과] [major] Post Course: 20251-스마트제조혁신컨설팅학과 HTTP ERROR!
+2025-07-11T16:00:12.449Z [index=61] [majorCode=W020] [majorName=호텔외식경영학과] [major] Post Course: 20251-호텔외식경영학과 HTTP ERROR!
+2025-07-11T16:00:12.546Z [index=62] [majorCode=W030] [majorName=뷰티디자인학과] [major] Post Course: 20251-뷰티디자인학과 HTTP ERROR!
+2025-07-11T16:00:12.654Z [index=63] [majorCode=W040] [majorName=비즈니스컨설팅학과] [major] Post Course: 20251-비즈니스컨설팅학과 HTTP ERROR!
+2025-07-11T16:00:12.767Z [index=64] [majorCode=W050] [majorName=ICT융합디자인학과] [major] Post Course: 20251-ICT융합디자인학과 HTTP ERROR!
+2025-07-11T16:00:12.864Z [index=65] [majorCode=W060] [majorName=융합행정학과] [major] Post Course: 20251-융합행정학과 HTTP ERROR!
+2025-07-11T16:00:12.978Z [index=66] [majorCode=W070] [majorName=미래인재학부] [major] Post Course: 20251-미래인재학부 HTTP ERROR!
+2025-07-11T16:00:13.086Z [index=67] [majorCode=X111] [majorName=IPP] [major] Post Course: 20251-IPP HTTP ERROR!
+2025-07-11T16:00:13.207Z [index=68] [majorCode=Y020] [majorName=문학문화콘텐츠학과] [major] Post Course: 20251-문학문화콘텐츠학과 HTTP ERROR!
+2025-07-11T16:00:13.328Z [index=69] [majorCode=Y030] [majorName=AI응용학과] [major] Post Course: 20251-AI응용학과 HTTP ERROR!
+2025-07-11T16:00:13.438Z [index=70] [majorCode=Y040] [majorName=융합보안학과] [major] Post Course: 20251-융합보안학과 HTTP ERROR!
+2025-07-11T16:00:13.528Z [index=71] [majorCode=Y050] [majorName=미래모빌리티학과] [major] Post Course: 20251-미래모빌리티학과 HTTP ERROR!
+2025-07-11T16:00:13.628Z [index=72] [majorCode=Y060] [majorName=SW연계전공] [major] Post Course: 20251-SW연계전공 HTTP ERROR!
+2025-07-11T16:00:13.729Z [index=73] [majorCode=A040] [majorName=영어영문학부] [major] Post Course: 20251-영어영문학부 HTTP ERROR!
+2025-07-11T16:00:13.850Z [index=74] [majorCode=A050] [majorName=역사문화학부] [major] Post Course: 20251-역사문화학부 HTTP ERROR!
+2025-07-11T16:00:13.978Z [index=75] [majorCode=A071] [majorName=국어국문전공] [major] Post Course: 20251-국어국문전공 HTTP ERROR!
+2025-07-11T16:00:14.092Z [index=76] [majorCode=A072] [majorName=문헌정보전공] [major] Post Course: 20251-문헌정보전공 HTTP ERROR!
+2025-07-11T16:00:14.215Z [index=77] [majorCode=D040] [majorName=경영학부] [major] Post Course: 20251-경영학부 HTTP ERROR!
+2025-07-11T16:00:14.339Z [index=78] [majorCode=D121] [majorName=무역학과] [major] Post Course: 20251-무역학과 HTTP ERROR!
+2025-07-11T16:00:14.450Z [index=79] [majorCode=D132] [majorName=경제학과] [major] Post Course: 20251-경제학과 HTTP ERROR!
+2025-07-11T16:00:14.573Z [index=80] [majorCode=D142] [majorName=행정학과] [major] Post Course: 20251-행정학과 HTTP ERROR!
+2025-07-11T16:00:14.688Z [index=81] [majorCode=D172] [majorName=부동산학과] [major] Post Course: 20251-부동산학과 HTTP ERROR!
+2025-07-11T16:00:14.798Z [index=82] [majorCode=D201] [majorName=부동산세무경영학과] [major] Post Course: 20251-부동산세무경영학과 HTTP ERROR!
+2025-07-11T16:00:14.899Z [index=83] [majorCode=D301] [majorName=벤처창업연계전공] [major] Post Course: 20251-벤처창업연계전공 HTTP ERROR!
+2025-07-11T16:00:14.986Z [index=84] [majorCode=G038] [majorName=인터랙티브엔터테인먼트] [major] Post Course: 20251-인터랙티브엔터테인먼트 HTTP ERROR!
+2025-07-11T16:00:15.104Z [index=85] [majorCode=G040] [majorName=패션학부] [major] Post Course: 20251-패션학부 HTTP ERROR!
+2025-07-11T16:00:15.233Z [index=86] [majorCode=G050] [majorName=융복합디자인학부] [major] Post Course: 20251-융복합디자인학부 HTTP ERROR!
+2025-07-11T16:00:15.367Z [index=87] [majorCode=G060] [majorName=인테리어디자인학과] [major] Post Course: 20251-인테리어디자인학과 HTTP ERROR!
+2025-07-11T16:00:15.480Z [index=88] [majorCode=G111] [majorName=무용학과] [major] Post Course: 20251-무용학과 HTTP ERROR!
+2025-07-11T16:00:15.576Z [index=89] [majorCode=G161] [majorName=회화과] [major] Post Course: 20251-회화과 HTTP ERROR!
+2025-07-11T16:00:15.694Z [index=90] [majorCode=K151] [majorName=기계시스템공학과] [major] Post Course: 20251-기계시스템공학과 HTTP ERROR!
+2025-07-11T16:00:15.788Z [index=91] [majorCode=K161] [majorName=산업경영공학과] [major] Post Course: 20251-산업경영공학과 HTTP ERROR!
+2025-07-11T16:00:15.954Z [index=92] [majorCode=K170] [majorName=컴퓨터공학부] [major] Post Course: 20251-컴퓨터공학부 HTTP ERROR!
+2025-07-11T16:00:16.077Z [index=93] [majorCode=K181] [majorName=전자정보공학과] [major] Post Course: 20251-전자정보공학과 HTTP ERROR!
+2025-07-11T16:00:16.184Z [index=94] [majorCode=K191] [majorName=IT응용시스템공학과] [major] Post Course: 20251-IT응용시스템공학과 HTTP ERROR!
+2025-07-11T16:00:16.282Z [index=95] [majorCode=K511] [majorName=지식서비스&컨설팅연계전공] [major] Post Course: 20251-지식서비스&컨설팅연계전공 HTTP ERROR!
+2025-07-11T16:00:16.451Z [index=96] [majorCode=L11E] [majorName=교양필수] [major] Post Course: 20251-교양필수 HTTP ERROR!
+2025-07-11T16:00:16.623Z [index=97] [majorCode=L11F] [majorName=선택필수교양] [major] Post Course: 20251-선택필수교양 HTTP ERROR!
+2025-07-11T16:00:16.750Z [index=98] [majorCode=L11G] [majorName=일반교양] [major] Post Course: 20251-일반교양 HTTP ERROR!
+2025-07-11T16:00:16.842Z [index=99] [majorCode=L11H] [majorName=일반선택] [major] Post Course: 20251-일반선택 HTTP ERROR!
+2025-07-11T16:00:16.925Z [index=100] [majorCode=L330] [majorName=학점인정] [major] Post Course: 20251-학점인정 HTTP ERROR!
+2025-07-11T16:00:17.017Z [index=101] [majorCode=M020] [majorName=C&C School] [major] Post Course: 20251-C&C School HTTP ERROR!
+2025-07-11T16:00:17.111Z [index=102] [majorCode=M033] [majorName=SAP 비즈니스 아카데미] [major] Post Course: 20251-SAP 비즈니스 아카데미 HTTP ERROR!
+2025-07-11T16:00:17.196Z [index=103] [majorCode=M034] [majorName=인공지능(AI) 전문과정] [major] Post Course: 20251-인공지능(AI) 전문과정 HTTP ERROR!
+2025-07-11T16:00:17.283Z [index=104] [majorCode=M037] [majorName=만화/웹툰 전문가과정] [major] Post Course: 20251-만화/웹툰 전문가과정 HTTP ERROR!
+2025-07-11T16:00:17.368Z [index=105] [majorCode=M039] [majorName=디지털 사진 영상촬영 아카데미] [major] Post Course: 20251-디지털 사진 영상촬영 아카데미 HTTP ERROR!
+2025-07-11T16:00:17.465Z [index=106] [majorCode=M03A] [majorName=영상CG&시각효과 전문가과정] [major] Post Course: 20251-영상CG&시각효과 전문가과정 HTTP ERROR!
+2025-07-11T16:00:17.547Z [index=107] [majorCode=M03C] [majorName=심리상담 전문가 과정] [major] Post Course: 20251-심리상담 전문가 과정 HTTP ERROR!
+2025-07-11T16:00:17.791Z [index=110] [majorCode=M041] [majorName=한국언어문화교육전공] [major] Post Course: 20251-한국언어문화교육전공 HTTP ERROR!
+2025-07-11T16:00:17.876Z [index=111] [majorCode=M042] [majorName=글로벌K비즈니스전공] [major] Post Course: 20251-글로벌K비즈니스전공 HTTP ERROR!
+2025-07-11T16:00:17.956Z [index=112] [majorCode=M043] [majorName=영상엔터테인먼트전공] [major] Post Course: 20251-영상엔터테인먼트전공 HTTP ERROR!
+2025-07-11T16:00:18.049Z [index=113] [majorCode=M044] [majorName=패션뷰티크리에이션전공] [major] Post Course: 20251-패션뷰티크리에이션전공 HTTP ERROR!
+2025-07-11T16:00:18.145Z [index=114] [majorCode=M050] [majorName=학점인정] [major] Post Course: 20251-학점인정 HTTP ERROR!
+2025-07-11T16:00:18.260Z [index=115] [majorCode=M111] [majorName=단과대학구분없음] [major] Post Course: 20251-단과대학구분없음 HTTP ERROR!
+2025-07-11T16:05:14.490Z [index=0] [majorCode=P011] [majorName=영미문학문화트랙] [major] Post Course: 20251-영미문학문화트랙 HTTP ERROR!
+2025-07-11T16:06:04.822Z [index=0] [majorCode=P011] [majorName=영미문학문화트랙] [major] Post Course: 20251-영미문학문화트랙 HTTP ERROR!
+2025-07-11T16:19:32.168Z [index=96] [majorCode=L11E] [majorName=교양필수] [major] Post Course: 20251-교양필수 HTTP ERROR!
+2025-07-11T16:24:01.513Z [index=96] [majorCode=L11E] [majorName=교양필수] [major] Post Course: 20251-교양필수 HTTP ERROR!
+2025-07-12T13:09:11.820Z [index=96] [majorCode=L11E] [majorName=교양필수] [major] Post Course: 20251-교양필수 HTTP ERROR!
+2025-07-12T13:10:39.019Z [index=96] [majorCode=L11E] [majorName=교양필수] [major] Post Course: 20251-교양필수 HTTP ERROR!
+2025-07-12T13:11:16.950Z [index=96] [majorCode=L11E] [majorName=교양필수] [major] Post Course: 20251-교양필수 HTTP ERROR!
+2025-07-12T13:11:34.856Z [index=15] [majorCode=R013] [majorName=기업·경제분석트랙] [major] page.waitForResponse: Test ended.
+2025-07-12T13:11:34.866Z [index=16] [majorCode=R014] [majorName=금융·데이터분석트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.873Z [index=17] [majorCode=R016] [majorName=법&정책트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.877Z [index=18] [majorCode=R019] [majorName=기업경영트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.878Z [index=19] [majorCode=R01B] [majorName=회계·재무경영트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.880Z [index=20] [majorCode=R01C] [majorName=공공행정트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.881Z [index=21] [majorCode=R01D] [majorName=부동산트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.883Z [index=22] [majorCode=R01E] [majorName=스마트도시·교통계획트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.885Z [index=23] [majorCode=R01F] [majorName=경제금융투자트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.887Z [index=24] [majorCode=R01G] [majorName=비즈니스애널리틱스트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.888Z [index=25] [majorCode=T011] [majorName=패션마케팅트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.890Z [index=26] [majorCode=T012] [majorName=패션디자인트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.891Z [index=27] [majorCode=T013] [majorName=패션크리에이티브디렉션트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.916Z [index=28] [majorCode=T022] [majorName=영상·애니메이션디자인트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.920Z [index=29] [majorCode=T023] [majorName=제품·서비스디자인트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.926Z [index=30] [majorCode=T026] [majorName=VMD·전시디자인트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.929Z [index=31] [majorCode=T028] [majorName=인테리어디자인트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.930Z [index=32] [majorCode=T029] [majorName=게임그래픽디자인트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.936Z [index=33] [majorCode=T02A] [majorName=UX/UI디자인트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.938Z [index=34] [majorCode=T02B] [majorName=미디어디자인트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.945Z [index=35] [majorCode=T02C] [majorName=시각디자인트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.946Z [index=36] [majorCode=T030] [majorName=뷰티디자인매니지먼트학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.948Z [index=37] [majorCode=T040] [majorName=뷰티매니지먼트학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.949Z [index=38] [majorCode=T050] [majorName=영상애니메이션콘텐츠학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.951Z [index=39] [majorCode=U121] [majorName=한양사이버] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.952Z [index=40] [majorCode=U122] [majorName=KCU] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.953Z [index=41] [majorCode=V021] [majorName=모바일소프트웨어트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.954Z [index=42] [majorCode=V022] [majorName=빅데이터트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.956Z [index=43] [majorCode=V023] [majorName=디지털콘텐츠·가상현실트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.959Z [index=44] [majorCode=V024] [majorName=웹공학트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.961Z [index=45] [majorCode=V031] [majorName=전자트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.962Z [index=46] [majorCode=V032] [majorName=정보시스템트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.964Z [index=47] [majorCode=V035] [majorName=시스템반도체트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.966Z [index=48] [majorCode=V036] [majorName=기계시스템디자인트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.968Z [index=49] [majorCode=V037] [majorName=AI로봇융합트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.970Z [index=50] [majorCode=V041] [majorName=지능시스템트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.972Z [index=51] [majorCode=V042] [majorName=사물인터넷트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.974Z [index=52] [majorCode=V043] [majorName=사이버보안트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.976Z [index=53] [majorCode=V044] [majorName=ICT융합엔터테인먼트트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.977Z [index=54] [majorCode=V070] [majorName=산업시스템공학부] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.979Z [index=55] [majorCode=V071] [majorName=시스템경영공학트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.981Z [index=56] [majorCode=V072] [majorName=생산물류시스템트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.982Z [index=57] [majorCode=V073] [majorName=컨설팅트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.983Z [index=58] [majorCode=V074] [majorName=산업공학트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.985Z [index=59] [majorCode=V076] [majorName=응용산업데이터공학트랙] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.986Z [index=60] [majorCode=V080] [majorName=스마트제조혁신컨설팅학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.987Z [index=61] [majorCode=W020] [majorName=호텔외식경영학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.988Z [index=62] [majorCode=W030] [majorName=뷰티디자인학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.990Z [index=63] [majorCode=W040] [majorName=비즈니스컨설팅학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.991Z [index=64] [majorCode=W050] [majorName=ICT융합디자인학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.992Z [index=65] [majorCode=W060] [majorName=융합행정학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.993Z [index=66] [majorCode=W070] [majorName=미래인재학부] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.994Z [index=67] [majorCode=X111] [majorName=IPP] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.995Z [index=68] [majorCode=Y020] [majorName=문학문화콘텐츠학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.997Z [index=69] [majorCode=Y030] [majorName=AI응용학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.998Z [index=70] [majorCode=Y040] [majorName=융합보안학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:34.999Z [index=71] [majorCode=Y050] [majorName=미래모빌리티학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.000Z [index=72] [majorCode=Y060] [majorName=SW연계전공] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.001Z [index=73] [majorCode=A040] [majorName=영어영문학부] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.003Z [index=74] [majorCode=A050] [majorName=역사문화학부] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.004Z [index=75] [majorCode=A071] [majorName=국어국문전공] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.005Z [index=76] [majorCode=A072] [majorName=문헌정보전공] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.007Z [index=77] [majorCode=D040] [majorName=경영학부] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.008Z [index=78] [majorCode=D121] [majorName=무역학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.009Z [index=79] [majorCode=D132] [majorName=경제학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.010Z [index=80] [majorCode=D142] [majorName=행정학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.012Z [index=81] [majorCode=D172] [majorName=부동산학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.013Z [index=82] [majorCode=D201] [majorName=부동산세무경영학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.015Z [index=83] [majorCode=D301] [majorName=벤처창업연계전공] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.017Z [index=84] [majorCode=G038] [majorName=인터랙티브엔터테인먼트] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.018Z [index=85] [majorCode=G040] [majorName=패션학부] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.019Z [index=86] [majorCode=G050] [majorName=융복합디자인학부] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.021Z [index=87] [majorCode=G060] [majorName=인테리어디자인학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.022Z [index=88] [majorCode=G111] [majorName=무용학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.023Z [index=89] [majorCode=G161] [majorName=회화과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.024Z [index=90] [majorCode=K151] [majorName=기계시스템공학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.025Z [index=91] [majorCode=K161] [majorName=산업경영공학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.027Z [index=92] [majorCode=K170] [majorName=컴퓨터공학부] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.029Z [index=93] [majorCode=K181] [majorName=전자정보공학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.030Z [index=94] [majorCode=K191] [majorName=IT응용시스템공학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.032Z [index=95] [majorCode=K511] [majorName=지식서비스&컨설팅연계전공] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.033Z [index=96] [majorCode=L11E] [majorName=교양필수] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.035Z [index=97] [majorCode=L11F] [majorName=선택필수교양] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.036Z [index=98] [majorCode=L11G] [majorName=일반교양] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.037Z [index=99] [majorCode=L11H] [majorName=일반선택] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.038Z [index=100] [majorCode=L330] [majorName=학점인정] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.039Z [index=101] [majorCode=M020] [majorName=C&C School] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.040Z [index=102] [majorCode=M033] [majorName=SAP 비즈니스 아카데미] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.042Z [index=103] [majorCode=M034] [majorName=인공지능(AI) 전문과정] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.043Z [index=104] [majorCode=M037] [majorName=만화/웹툰 전문가과정] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.044Z [index=105] [majorCode=M039] [majorName=디지털 사진 영상촬영 아카데미] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.045Z [index=106] [majorCode=M03A] [majorName=영상CG&시각효과 전문가과정] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.046Z [index=107] [majorCode=M03C] [majorName=심리상담 전문가 과정] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.048Z [index=108] [majorCode=M03D] [majorName=진로·취업 컨설턴트 양성 과정] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.050Z [index=109] [majorCode=M03E] [majorName=대기업 특허엔지니어 직무양성 프로그램] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.051Z [index=110] [majorCode=M041] [majorName=한국언어문화교육전공] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.052Z [index=111] [majorCode=M042] [majorName=글로벌K비즈니스전공] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.053Z [index=112] [majorCode=M043] [majorName=영상엔터테인먼트전공] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.054Z [index=113] [majorCode=M044] [majorName=패션뷰티크리에이션전공] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.055Z [index=114] [majorCode=M050] [majorName=학점인정] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:11:35.057Z [index=115] [majorCode=M111] [majorName=단과대학구분없음] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.926Z [index=62] [majorCode=W030] [majorName=뷰티디자인학과] [major] page.waitForResponse: Test ended.
+2025-07-12T13:20:49.935Z [index=63] [majorCode=W040] [majorName=비즈니스컨설팅학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.936Z [index=64] [majorCode=W050] [majorName=ICT융합디자인학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.937Z [index=65] [majorCode=W060] [majorName=융합행정학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.939Z [index=66] [majorCode=W070] [majorName=미래인재학부] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.942Z [index=67] [majorCode=X111] [majorName=IPP] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.944Z [index=68] [majorCode=Y020] [majorName=문학문화콘텐츠학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.945Z [index=69] [majorCode=Y030] [majorName=AI응용학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.946Z [index=70] [majorCode=Y040] [majorName=융합보안학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.948Z [index=71] [majorCode=Y050] [majorName=미래모빌리티학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.950Z [index=72] [majorCode=Y060] [majorName=SW연계전공] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.951Z [index=73] [majorCode=A040] [majorName=영어영문학부] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.952Z [index=74] [majorCode=A050] [majorName=역사문화학부] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.953Z [index=75] [majorCode=A071] [majorName=국어국문전공] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.954Z [index=76] [majorCode=A072] [majorName=문헌정보전공] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.955Z [index=77] [majorCode=D040] [majorName=경영학부] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.956Z [index=78] [majorCode=D121] [majorName=무역학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.957Z [index=79] [majorCode=D132] [majorName=경제학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.958Z [index=80] [majorCode=D142] [majorName=행정학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.959Z [index=81] [majorCode=D172] [majorName=부동산학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.960Z [index=82] [majorCode=D201] [majorName=부동산세무경영학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.961Z [index=83] [majorCode=D301] [majorName=벤처창업연계전공] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.963Z [index=84] [majorCode=G038] [majorName=인터랙티브엔터테인먼트] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.965Z [index=85] [majorCode=G040] [majorName=패션학부] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.967Z [index=86] [majorCode=G050] [majorName=융복합디자인학부] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.969Z [index=87] [majorCode=G060] [majorName=인테리어디자인학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.970Z [index=88] [majorCode=G111] [majorName=무용학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.971Z [index=89] [majorCode=G161] [majorName=회화과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.983Z [index=90] [majorCode=K151] [majorName=기계시스템공학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.984Z [index=91] [majorCode=K161] [majorName=산업경영공학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.985Z [index=92] [majorCode=K170] [majorName=컴퓨터공학부] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.986Z [index=93] [majorCode=K181] [majorName=전자정보공학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.988Z [index=94] [majorCode=K191] [majorName=IT응용시스템공학과] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.989Z [index=95] [majorCode=K511] [majorName=지식서비스&컨설팅연계전공] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.990Z [index=96] [majorCode=L11E] [majorName=교양필수] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.992Z [index=97] [majorCode=L11F] [majorName=선택필수교양] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.994Z [index=98] [majorCode=L11G] [majorName=일반교양] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.995Z [index=99] [majorCode=L11H] [majorName=일반선택] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.996Z [index=100] [majorCode=L330] [majorName=학점인정] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.997Z [index=101] [majorCode=M020] [majorName=C&C School] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.998Z [index=102] [majorCode=M033] [majorName=SAP 비즈니스 아카데미] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:49.999Z [index=103] [majorCode=M034] [majorName=인공지능(AI) 전문과정] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:50.000Z [index=104] [majorCode=M037] [majorName=만화/웹툰 전문가과정] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:50.001Z [index=105] [majorCode=M039] [majorName=디지털 사진 영상촬영 아카데미] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:50.002Z [index=106] [majorCode=M03A] [majorName=영상CG&시각효과 전문가과정] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:50.002Z [index=107] [majorCode=M03C] [majorName=심리상담 전문가 과정] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:50.005Z [index=108] [majorCode=M03D] [majorName=진로·취업 컨설턴트 양성 과정] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:50.007Z [index=109] [majorCode=M03E] [majorName=대기업 특허엔지니어 직무양성 프로그램] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:50.009Z [index=110] [majorCode=M041] [majorName=한국언어문화교육전공] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:50.011Z [index=111] [majorCode=M042] [majorName=글로벌K비즈니스전공] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:50.013Z [index=112] [majorCode=M043] [majorName=영상엔터테인먼트전공] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:50.014Z [index=113] [majorCode=M044] [majorName=패션뷰티크리에이션전공] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:50.016Z [index=114] [majorCode=M050] [majorName=학점인정] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:20:50.017Z [index=115] [majorCode=M111] [majorName=단과대학구분없음] [major] locator.selectOption: Target page, context or browser has been closed
+2025-07-12T13:23:37.200Z [index=0] [majorCode=P011] [majorName=영미문학문화트랙] [major] row.haknean_limit.trim is not a function

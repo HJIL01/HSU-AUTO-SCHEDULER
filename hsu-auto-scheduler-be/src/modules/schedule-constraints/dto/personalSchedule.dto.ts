@@ -1,14 +1,15 @@
 import { Type } from 'class-transformer';
-import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsEnum, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { WeekdayEnum } from 'src/common/enums/weekday.enum';
 
-export class SessionBlockDto {
-  @IsNotEmpty()
+export class PersonalScheduleDto {
   @IsString()
-  place: string;
+  @IsNotEmpty()
+  schedule_name: string;
 
+  @IsEnum(WeekdayEnum)
   @IsNotEmpty()
-  @IsString()
-  day: string;
+  day: WeekdayEnum;
 
   @Type(() => Number)
   @IsNumber({ allowNaN: false }, { message: 'startTime은 숫자여야 합니다.' })

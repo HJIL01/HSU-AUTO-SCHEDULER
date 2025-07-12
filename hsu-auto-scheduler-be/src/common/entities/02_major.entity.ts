@@ -15,7 +15,7 @@ export class MajorEntity {
 
   @OneToMany(
     () => SemesterMajorEntity,
-    (semesterMajors) => semesterMajors.major,
+    (semester_majors) => semester_majors.major,
   )
-  semesterMajors: SemesterMajorEntity[];
+  semester_majors: SemesterMajorEntity[];
 }

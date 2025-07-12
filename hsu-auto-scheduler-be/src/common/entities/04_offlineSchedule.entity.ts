@@ -33,11 +33,11 @@ export class OfflineScheduleEntity {
   @Column()
   semester_id: string;
 
-  @ManyToOne(() => SemesterEntity, (semester) => semester.offlineSchedules)
+  @ManyToOne(() => SemesterEntity, (semester) => semester.offline_schedules)
   @JoinColumn({ name: 'semester_id' })
   semester: SemesterEntity;
 
-  @ManyToOne(() => CourseEntity, (course) => course.offlineSchedules)
+  @ManyToOne(() => CourseEntity, (course) => course.offline_schedules)
   @JoinColumn({ name: 'course_id' })
   course: CourseEntity;
 }

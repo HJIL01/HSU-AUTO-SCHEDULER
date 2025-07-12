@@ -3,17 +3,13 @@ import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
 import { SemesterEntity } from 'src/common/entities/01_semester.entity';
 import { DataSource, In, Repository } from 'typeorm';
 import { MajorEntity } from 'src/common/entities/02_major.entity';
-// import { CourseEntity } from 'src/common/entities/03_course.entity';
-// import { OfflineScheduleEntity } from 'src/common/entities/04_offlineSchedule.entity';
+import { CourseEntity } from 'src/common/entities/03_course.entity';
+import { OfflineScheduleEntity } from 'src/common/entities/04_offlineSchedule.entity';
 import { SemesterDto } from 'src/common/dto/01_semester.dto';
 import { MajorDataDto } from './dto/majorData.dto';
 import { SemesterMajorEntity } from 'src/common/entities/05_semester_major.entity';
 import { CourseDataDto } from './dto/courseData.dto';
-import {
-  CourseEntity,
-  DayOrNightEnum,
-} from 'src/common/entities/03_course.entity';
-import { OfflineScheduleEntity } from 'src/common/entities/04_offlineSchedule.entity';
+import { DayOrNightEnum } from 'src/common/enums/dayOrNight.enum';
 
 @Injectable()
 export class CrawlerService {
@@ -22,26 +18,25 @@ export class CrawlerService {
     private readonly dataSource: DataSource,
 
     @InjectRepository(SemesterEntity)
-    private semesterRepo: Repository<SemesterEntity>,
+    private readonly semesterRepo: Repository<SemesterEntity>,
 
     @InjectRepository(MajorEntity)
-    private majorRepo: Repository<MajorEntity>,
+    private readonly majorRepo: Repository<MajorEntity>,
 
     // @InjectRepository(CourseEntity)
-    // private courseRepo: Repository<CourseEntity>,
+    // private readonly courseRepo: Repository<CourseEntity>,
 
     // @InjectRepository(OfflineScheduleEntity)
-    // private offlineScheduleRepo: Repository<OfflineScheduleEntity>,
+    // private readonly offlineScheduleRepo: Repository<OfflineScheduleEntity>,
 
     @InjectRepository(SemesterMajorEntity)
-    private semesterMajorRepo: Repository<SemesterMajorEntity>,
+    private readonly semesterMajorRepo: Repository<SemesterMajorEntity>,
   ) {}
 
   // 학기 테이블 서비스 메서드
   async findOrCreateSemester(semesterData: SemesterDto) {
-    console.log(semesterData);
     let semester = await this.semesterRepo.findOne({
-      where: { semester_id: semesterData.semesterCode },
+      where: { semester_id: semesterData.semester_code },
     });
 
     if (semester) {
@@ -51,7 +46,7 @@ export class CrawlerService {
     }
 
     semester = this.semesterRepo.create({
-      semester_id: semesterData.semesterCode,
+      semester_id: semesterData.semester_code,
       year: semesterData.year,
       term: semesterData.term,
     });
@@ -80,10 +75,10 @@ export class CrawlerService {
       for (const major of majors) {
         const [existingMajor, existingSemesterMajor] = await Promise.all([
           queryRunner.manager.findOne(MajorEntity, {
-            where: { major_id: major.majorCode },
+            where: { major_id: major.major_code },
           }),
           queryRunner.manager.findOne(SemesterMajorEntity, {
-            where: { semester_id, major_id: major.majorCode },
+            where: { semester_id, major_id: major.major_code },
           }),
         ]);
 
@@ -92,8 +87,8 @@ export class CrawlerService {
 
         if (!existingMajor) {
           majorEntity = queryRunner.manager.create(MajorEntity, {
-            major_id: major.majorCode,
-            major_name: major.majorName,
+            major_id: major.major_code,
+            major_name: major.major_name,
           });
           await queryRunner.manager.save(majorEntity);
           messageParts.push('전공 저장');
@@ -116,7 +111,7 @@ export class CrawlerService {
         }
 
         results.push({
-          majorName: major.majorName,
+          majorName: major.major_name,
           message: messageParts.join(', '),
         });
       }
@@ -180,7 +175,7 @@ export class CrawlerService {
         course_id가 없다면 관련된 오프라인 정보도 없음
         따라서 course_id만 존재하는지 확인 후, 있다면 message를 남기고 넘기기
       */
-      const courseIds = courses.map((course) => course.courseId);
+      const courseIds = courses.map((course) => course.course_id);
       const existingCourses = await queryRunner.manager.find(CourseEntity, {
         where: { course_id: In(courseIds) },
       });
@@ -189,28 +184,54 @@ export class CrawlerService {
         existingCourses.map((existingCourse) => existingCourse.course_id),
       );
       for (const course of courses) {
-        const { sessionInfo, ...rest } = course;
+        const { session_info, ...rest } = course;
 
         // 강의가 테이블에 이미 존재한다면 넘김
-        if (existingSet.has(rest.courseId)) {
+        if (existingSet.has(rest.course_id)) {
           results.push({
-            courseName: rest.courseName,
-            classSection: rest.classSection,
-            message: `${rest.courseName} ${rest.classSection}반은 이미 존재`,
+            courseName: rest.course_name,
+            classSection: rest.class_section,
+            message: `${rest.course_name} ${rest.class_section}반은 이미 존재`,
           });
 
           continue;
         }
 
-        // 강의 스케줄 정보가 있을 시
-        if (sessionInfo?.offline) {
-          const offlineScheduleEntities = sessionInfo.offline.map((off) => {
+        console.log(rest.grade_limit);
+        const courseEntity = queryRunner.manager.create(CourseEntity, {
+          course_id: rest.course_id,
+          course_code: rest.course_code,
+          course_name: rest.course_name,
+          professor_name: rest.professor,
+          completion_type: rest.completion_type,
+          delivery_method: rest.delivery_method,
+          credit: rest.credit,
+          day_or_night: rest.day_or_night as DayOrNightEnum,
+          class_section: rest.class_section,
+          grade: rest.grade,
+          grade_limit: rest.grade_limit,
+          online_min: session_info?.online,
+          plan_code: rest.plan_code,
+          semester_id,
+          major_id,
+          semester,
+          major,
+        });
+
+        await queryRunner.manager.save(courseEntity);
+
+        /*  
+          강의 스케줄 정보가 있을 시
+          오프라인 스케줄 테이블은 course 테이블의 course_id를 참조하여 외래 키로 두고 있기 때문에 반드시 course를 먼저 생성한 후 오프라인 테이블 생성하기
+        */
+        if (session_info?.offline) {
+          const offlineScheduleEntities = session_info.offline.map((off) => {
             const entity = new OfflineScheduleEntity();
             entity.day = off.day;
-            entity.start_time = off.startTime;
-            entity.end_time = off.endTime;
+            entity.start_time = off.start_time;
+            entity.end_time = off.end_time;
             entity.location = off.place;
-            entity.course_id = rest.courseId;
+            entity.course_id = rest.course_id;
             entity.semester_id = semester_id;
 
             return entity;
@@ -221,27 +242,6 @@ export class CrawlerService {
             offlineScheduleEntities,
           );
         }
-
-        const courseEntity = queryRunner.manager.create(CourseEntity, {
-          course_id: rest.courseId,
-          course_code: rest.courseCode,
-          course_name: rest.courseName,
-          completion_type: rest.completionType,
-          delivery_method: rest.deliveryMethod,
-          credit: rest.credit,
-          day_or_night: rest.dayOrNight as DayOrNightEnum,
-          class_section: rest.classSection,
-          grade: rest.grade,
-          grade_limit: rest.gradeLimit,
-          online_min: sessionInfo?.online,
-          plan_code: rest.planCode,
-          semester_id,
-          major_id,
-          semester,
-          major,
-        });
-
-        await queryRunner.manager.save(courseEntity);
       }
 
       await queryRunner.commitTransaction();

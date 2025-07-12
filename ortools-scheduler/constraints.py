@@ -132,7 +132,7 @@ def add_daily_lecture_limit_constraint(courses, model, selected, daily_lecture_l
 
 
 # 연강을 지향할 제약조건 추가 함수
-def add_class_gap_constraint(courses, model, is_selected, allowed_gap_minutes):
+def add_class_gap_constraint(courses, model, is_selected, allowed_gap_mins):
     course_day_indices = defaultdict(list)
 
     for idx, course in enumerate(courses):
@@ -170,7 +170,7 @@ def add_class_gap_constraint(courses, model, is_selected, allowed_gap_minutes):
                 # 다음 강의의 시작 시간이 현재 강의의 끝나는 시간보다 빠르거나(시간이 겹친다면) 강의 사이의 공강 시간이 선호 공강 시간보다 크다면
                 if (
                     next_start_time < cur_end_time
-                    or (next_start_time - cur_end_time) > allowed_gap_minutes
+                    or (next_start_time - cur_end_time) > allowed_gap_mins
                 ):
                     model.AddBoolOr(
                         [is_selected[cur_index].Not(), is_selected[next_index].Not()]

@@ -6,7 +6,7 @@ CREATE TABLE offline_schedule (
     location VARCHAR(255) NOT NULL,
     semester_id VARCHAR(255) NOT NULL,
     course_id VARCHAR(255) NOT NULL,
-    FOREIGN KEY (semester_id) REFERENCES course(semester_id),
+    FOREIGN KEY (semester_id) REFERENCES semester(semester_id),
     FOREIGN KEY (course_id) REFERENCES course(course_id) ON DELETE CASCADE,
     UNIQUE(semester_id, course_id, day, start_time, end_time)
 );

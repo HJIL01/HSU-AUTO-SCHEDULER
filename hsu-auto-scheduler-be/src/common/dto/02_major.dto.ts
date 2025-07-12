@@ -3,9 +3,9 @@ import { IsNotEmpty, IsString } from 'class-validator';
 export class MajorDto {
   @IsString()
   @IsNotEmpty()
-  majorCode: string;
+  major_code: string;
 
   @IsString()
   @IsNotEmpty()
-  majorName: string;
+  major_name: string;
 }

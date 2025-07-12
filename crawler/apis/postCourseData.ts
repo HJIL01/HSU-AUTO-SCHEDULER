@@ -7,7 +7,7 @@ export async function postCourseData(
   major: MajorType,
   courses: CourseType[] | null
 ) {
-  const res = await fetch(`${process.env.BASE_URL}/crawler/postCrawledData`, {
+  const res = await fetch(`${process.env.BASE_URL}/crawler/course-data`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

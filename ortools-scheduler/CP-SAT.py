@@ -30,7 +30,7 @@ CONSTRAINTS = {
     "major_required": 0,
     "major_elective": 9,
     "daily_lecture_limit": 2,
-    "allowed_gap_minutes": 0,
+    "allowed_gap_mins": 0,
     "has_lunch_break": True,
 }
 

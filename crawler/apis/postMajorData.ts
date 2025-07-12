@@ -1,7 +1,7 @@
 import { MajorType } from "types/majorType";
 
 export async function postMajorData(semesterCode: string, majors: MajorType[]) {
-  const res = await fetch(`${process.env.BASE_URL}/crawler/postMajorData`, {
+  const res = await fetch(`${process.env.BASE_URL}/crawler/major-data`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

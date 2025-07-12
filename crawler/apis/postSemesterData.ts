@@ -2,7 +2,7 @@ import { SemesterType } from "types/semesterType";
 
 export async function postSemesterData(semester: SemesterType) {
   console.log(semester);
-  const res = await fetch(`${process.env.BASE_URL}/crawler/postSemesterData`, {
+  const res = await fetch(`${process.env.BASE_URL}/crawler/semester-data`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

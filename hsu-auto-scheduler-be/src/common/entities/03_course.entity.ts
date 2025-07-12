@@ -9,12 +9,7 @@ import {
 import { OfflineScheduleEntity } from './04_offlineSchedule.entity';
 import { SemesterEntity } from './01_semester.entity';
 import { MajorEntity } from './02_major.entity';
-
-export enum DayOrNightEnum {
-  Day = 'day',
-  Night = 'night',
-  Both = 'both',
-}
+import { DayOrNightEnum } from '../enums/dayOrNight.enum';
 
 @Entity('course')
 export class CourseEntity {
@@ -26,6 +21,9 @@ export class CourseEntity {
 
   @Column()
   course_name: string;
+
+  @Column()
+  professor_name: string;
 
   @Column()
   completion_type: string;
@@ -48,13 +46,13 @@ export class CourseEntity {
   @Column()
   grade: number;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 255, nullable: true })
   grade_limit: string | null;
 
   @Column({ default: 0 })
   online_min: number;
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', length: 255, nullable: true })
   plan_code: string | null;
 
   @Column()
@@ -73,7 +71,7 @@ export class CourseEntity {
 
   @OneToMany(
     () => OfflineScheduleEntity,
-    (offlineSchedule) => offlineSchedule.course,
+    (offline_schedule) => offline_schedule.course,
   )
-  offlineSchedules: OfflineScheduleEntity[];
+  offline_schedules: OfflineScheduleEntity[];
 }

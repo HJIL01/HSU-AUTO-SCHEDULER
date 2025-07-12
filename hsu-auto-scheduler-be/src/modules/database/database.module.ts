@@ -31,6 +31,14 @@ import { SemesterMajorEntity } from 'src/common/entities/05_semester_major.entit
       },
       inject: [ConfigService],
     }),
+    TypeOrmModule.forFeature([
+      SemesterEntity,
+      MajorEntity,
+      CourseEntity,
+      OfflineScheduleEntity,
+      SemesterMajorEntity,
+    ]),
   ],
+  exports: [TypeOrmModule],
 })
 export class DatabaseModule {}
