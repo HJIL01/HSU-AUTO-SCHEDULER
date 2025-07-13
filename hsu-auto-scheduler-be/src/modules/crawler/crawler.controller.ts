@@ -20,7 +20,7 @@ export class CrawlerController {
     return this.crawlerService.createMajorTransactional(majorData);
   }
 
-  // 강의 저장 로직(강의 테이블, 오프라인 스케줄 테이블)
+  // 강의 저장 로직(강의 테이블, 오프라인 스케줄 테이블, 전공-강의 관계 테이블)
   @Post('course-data')
   handleCourseData(@Body() courseData: CourseDataDto) {
     return this.crawlerService.createCourseTransactional(courseData);

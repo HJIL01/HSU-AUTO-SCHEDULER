@@ -9,7 +9,6 @@ import { SemesterDto } from 'src/common/dto/01_semester.dto';
 import { MajorDataDto } from './dto/majorData.dto';
 import { SemesterMajorEntity } from 'src/common/entities/03_semester_major.entity';
 import { CourseDataDto } from './dto/courseData.dto';
-import { DayOrNightEnum } from 'src/common/enums/dayOrNight.enum';
 import { MajorCourseEntity } from 'src/common/entities/06_major_course.entity';
 
 @Injectable()
@@ -30,8 +29,8 @@ export class CrawlerService {
     // @InjectRepository(OfflineScheduleEntity)
     // private readonly offlineScheduleRepo: Repository<OfflineScheduleEntity>,
 
-    @InjectRepository(SemesterMajorEntity)
-    private readonly semesterMajorRepo: Repository<SemesterMajorEntity>,
+    // @InjectRepository(SemesterMajorEntity)
+    // private readonly semesterMajorRepo: Repository<SemesterMajorEntity>,
   ) {}
 
   // 학기 테이블 서비스 메서드
@@ -168,6 +167,7 @@ export class CrawlerService {
 
     const results: string[] = [];
     try {
+      // 강의 테이블의 아이디를 먼저 Set의 집합으로 만든 후, course가 이미 있다면 저장 패스
       const courseIds = courses.map((course) => course.course_id);
       const existingCourses = await queryRunner.manager.find(CourseEntity, {
         where: { course_id: In(courseIds) },
@@ -229,6 +229,7 @@ export class CrawlerService {
           );
         }
 
+        // 강의와 전공 테이블이 있는지 먼저 찾기
         const [courseEntity, majorCourseEntity] = await Promise.all([
           queryRunner.manager.findOne(CourseEntity, {
             where: { course_id: course.course_id },
@@ -249,7 +250,7 @@ export class CrawlerService {
           );
         }
 
-        // 이미 동일한 전공-강좌 데이터가 존재할 경우 continue
+        // 이미 동일한 전공-강의 데이터가 존재할 경우 continue
         if (majorCourseEntity) {
           results.push(
             `Create major_course Table Error: ${majorCourseEntity.major_code}-${majorCourseEntity.course_id}가 이미 존재함.`,
@@ -258,6 +259,7 @@ export class CrawlerService {
           continue;
         }
 
+        // 전공-강의 데이터가 존재하지 않는다면 엔티티 create 후 save
         const createdMajorCourseEntity = queryRunner.manager.create(
           MajorCourseEntity,
           {

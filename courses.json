@@ -1,9 +1,10 @@
 [
   {
-    "course_id": "V020024-N",
+    "semester_id": "20251",
+    "course_id": "20251-V020024-N",
     "course_code": "V020024",
     "course_name": "SW 통합구현(IPP)",
-    "professor_name": "한충구",
+    "professor_names": ["한충구"],
     "completion_type": "전선",
     "delivery_method": "대면수업",
     "credit": 3,
@@ -23,10 +24,11 @@
     "plan_code": "20251516054V020024N"
   },
   {
-    "course_id": "V020026-A",
+    "semester_id": "20251",
+    "course_id": "20251-V020026-A",
     "course_code": "V020026",
     "course_name": "SW설계 및 테스트(IPP)",
-    "professor_name": "신성",
+    "professor_names": ["신성"],
     "completion_type": "전필",
     "delivery_method": "대면수업",
     "credit": 3,
@@ -46,10 +48,11 @@
     "plan_code": "20251110732V020026A"
   },
   {
-    "course_id": "V020001-7",
+    "semester_id": "20251",
+    "course_id": "20251-V020001-7",
     "course_code": "V020001",
     "course_name": "객체지향언어1",
-    "professor_name": "황기태",
+    "professor_names": ["황기태"],
     "completion_type": "전선",
     "delivery_method": "대면수업",
     "credit": 3,
@@ -69,10 +72,11 @@
     "plan_code": "20251110108V0200017"
   },
   {
-    "course_id": "V020001-8",
+    "semester_id": "20251",
+    "course_id": "20251-V020001-8",
     "course_code": "V020001",
     "course_name": "객체지향언어1",
-    "professor_name": "유상미",
+    "professor_names": ["유상미"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -92,10 +96,11 @@
     "plan_code": "20251110689V0200018"
   },
   {
-    "course_id": "V020001-A",
+    "semester_id": "20251",
+    "course_id": "20251-V020001-A",
     "course_code": "V020001",
     "course_name": "객체지향언어1",
-    "professor_name": "황기태",
+    "professor_names": ["황기태"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -115,10 +120,11 @@
     "plan_code": "20251110108V020001A"
   },
   {
-    "course_id": "V020001-B",
+    "semester_id": "20251",
+    "course_id": "20251-V020001-B",
     "course_code": "V020001",
     "course_name": "객체지향언어1",
-    "professor_name": "유상미",
+    "professor_names": ["유상미"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -138,10 +144,11 @@
     "plan_code": "20251110689V020001B"
   },
   {
-    "course_id": "V020001-C",
+    "semester_id": "20251",
+    "course_id": "20251-V020001-C",
     "course_code": "V020001",
     "course_name": "객체지향언어1",
-    "professor_name": "이찬수",
+    "professor_names": ["이찬수"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -161,10 +168,11 @@
     "plan_code": "20251511323V020001C"
   },
   {
-    "course_id": "V020001-D",
+    "semester_id": "20251",
+    "course_id": "20251-V020001-D",
     "course_code": "V020001",
     "course_name": "객체지향언어1",
-    "professor_name": "안영아",
+    "professor_names": ["안영아"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -184,10 +192,11 @@
     "plan_code": "20251510817V020001D"
   },
   {
-    "course_id": "V020001-N",
+    "semester_id": "20251",
+    "course_id": "20251-V020001-N",
     "course_code": "V020001",
     "course_name": "객체지향언어1",
-    "professor_name": "유상미",
+    "professor_names": ["유상미"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -207,10 +216,11 @@
     "plan_code": "20251110689V020001N"
   },
   {
-    "course_id": "V020001-O",
+    "semester_id": "20251",
+    "course_id": "20251-V020001-O",
     "course_code": "V020001",
     "course_name": "객체지향언어1",
-    "professor_name": "안영아",
+    "professor_names": ["안영아"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -230,10 +240,11 @@
     "plan_code": "20251510817V020001O"
   },
   {
-    "course_id": "M020040-7",
+    "semester_id": "20251",
+    "course_id": "20251-M020040-7",
     "course_code": "M020040",
     "course_name": "논리적 사고와 프로그래밍",
-    "professor_name": "이신희",
+    "professor_names": ["이신희"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -253,10 +264,11 @@
     "plan_code": "20251110874M0200407"
   },
   {
-    "course_id": "V022003-A",
+    "semester_id": "20251",
+    "course_id": "20251-V022003-A",
     "course_code": "V022003",
     "course_name": "데이터마이닝",
-    "professor_name": "이청용",
+    "professor_names": ["이청용"],
     "completion_type": "전선",
     "delivery_method": "대면수업",
     "credit": 3,
@@ -276,10 +288,11 @@
     "plan_code": "20251110920V022003A"
   },
   {
-    "course_id": "V022003-B",
+    "semester_id": "20251",
+    "course_id": "20251-V022003-B",
     "course_code": "V022003",
     "course_name": "데이터마이닝",
-    "professor_name": "이청용",
+    "professor_names": ["이청용"],
     "completion_type": "전선",
     "delivery_method": "대면수업",
     "credit": 3,
@@ -299,10 +312,11 @@
     "plan_code": "20251110920V022003B"
   },
   {
-    "course_id": "V022003-C",
+    "semester_id": "20251",
+    "course_id": "20251-V022003-C",
     "course_code": "V022003",
     "course_name": "데이터마이닝",
-    "professor_name": "신성",
+    "professor_names": ["신성"],
     "completion_type": "전선",
     "delivery_method": "대면수업",
     "credit": 3,
@@ -322,10 +336,11 @@
     "plan_code": "20251110732V022003C"
   },
   {
-    "course_id": "V022003-N",
+    "semester_id": "20251",
+    "course_id": "20251-V022003-N",
     "course_code": "V022003",
     "course_name": "데이터마이닝",
-    "professor_name": "신성",
+    "professor_names": ["신성"],
     "completion_type": "전선",
     "delivery_method": "대면수업",
     "credit": 3,
@@ -345,10 +360,11 @@
     "plan_code": "20251110732V022003N"
   },
   {
-    "course_id": "V020012-7",
+    "semester_id": "20251",
+    "course_id": "20251-V020012-7",
     "course_code": "V020012",
     "course_name": "데이터베이스",
-    "professor_name": "신성",
+    "professor_names": ["신성"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -368,10 +384,11 @@
     "plan_code": "20251110732V0200127"
   },
   {
-    "course_id": "V020012-8",
+    "semester_id": "20251",
+    "course_id": "20251-V020012-8",
     "course_code": "V020012",
     "course_name": "데이터베이스",
-    "professor_name": "김영웅",
+    "professor_names": ["김영웅"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -391,10 +408,11 @@
     "plan_code": "20251516136V0200128"
   },
   {
-    "course_id": "V020012-9",
+    "semester_id": "20251",
+    "course_id": "20251-V020012-9",
     "course_code": "V020012",
     "course_name": "데이터베이스",
-    "professor_name": "장재영",
+    "professor_names": ["장재영"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -414,10 +432,11 @@
     "plan_code": "20251110517V0200129"
   },
   {
-    "course_id": "V020012-A",
+    "semester_id": "20251",
+    "course_id": "20251-V020012-A",
     "course_code": "V020012",
     "course_name": "데이터베이스",
-    "professor_name": "장재영",
+    "professor_names": ["장재영"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -437,10 +456,11 @@
     "plan_code": "20251110517V020012A"
   },
   {
-    "course_id": "V020012-B",
+    "semester_id": "20251",
+    "course_id": "20251-V020012-B",
     "course_code": "V020012",
     "course_name": "데이터베이스",
-    "professor_name": "장재영",
+    "professor_names": ["장재영"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -460,10 +480,11 @@
     "plan_code": "20251110517V020012B"
   },
   {
-    "course_id": "V020012-C",
+    "semester_id": "20251",
+    "course_id": "20251-V020012-C",
     "course_code": "V020012",
     "course_name": "데이터베이스",
-    "professor_name": "장재영",
+    "professor_names": ["장재영"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -483,10 +504,11 @@
     "plan_code": "20251110517V020012C"
   },
   {
-    "course_id": "V020012-D",
+    "semester_id": "20251",
+    "course_id": "20251-V020012-D",
     "course_code": "V020012",
     "course_name": "데이터베이스",
-    "professor_name": "김영웅",
+    "professor_names": ["김영웅"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -506,10 +528,11 @@
     "plan_code": "20251516136V020012D"
   },
   {
-    "course_id": "V020012-N",
+    "semester_id": "20251",
+    "course_id": "20251-V020012-N",
     "course_code": "V020012",
     "course_name": "데이터베이스",
-    "professor_name": "신성",
+    "professor_names": ["신성"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -529,10 +552,11 @@
     "plan_code": "20251110732V020012N"
   },
   {
-    "course_id": "V020025-A",
+    "semester_id": "20251",
+    "course_id": "20251-V020025-A",
     "course_code": "V020025",
     "course_name": "사용자인터페이스와 서버구현(IPP)",
-    "professor_name": "심규현,박선영",
+    "professor_names": ["심규현", "박선영"],
     "completion_type": "전선",
     "delivery_method": "대면수업",
     "credit": 3,
@@ -552,10 +576,11 @@
     "plan_code": "20251110878V020025A"
   },
   {
-    "course_id": "V020013-7",
+    "semester_id": "20251",
+    "course_id": "20251-V020013-7",
     "course_code": "V020013",
     "course_name": "소프트웨어공학",
-    "professor_name": "신성",
+    "professor_names": ["신성"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -575,10 +600,11 @@
     "plan_code": "20251110732V0200137"
   },
   {
-    "course_id": "V020013-8",
+    "semester_id": "20251",
+    "course_id": "20251-V020013-8",
     "course_code": "V020013",
     "course_name": "소프트웨어공학",
-    "professor_name": "송미화",
+    "professor_names": ["송미화"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -598,10 +624,11 @@
     "plan_code": "20251110890V0200138"
   },
   {
-    "course_id": "V020013-A",
+    "semester_id": "20251",
+    "course_id": "20251-V020013-A",
     "course_code": "V020013",
     "course_name": "소프트웨어공학",
-    "professor_name": "유수진",
+    "professor_names": ["유수진"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -621,10 +648,11 @@
     "plan_code": "20251110901V020013A"
   },
   {
-    "course_id": "V020013-B",
+    "semester_id": "20251",
+    "course_id": "20251-V020013-B",
     "course_code": "V020013",
     "course_name": "소프트웨어공학",
-    "professor_name": "유수진",
+    "professor_names": ["유수진"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -644,10 +672,11 @@
     "plan_code": "20251110901V020013B"
   },
   {
-    "course_id": "V020013-C",
+    "semester_id": "20251",
+    "course_id": "20251-V020013-C",
     "course_code": "V020013",
     "course_name": "소프트웨어공학",
-    "professor_name": "유수진",
+    "professor_names": ["유수진"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -667,10 +696,11 @@
     "plan_code": "20251110901V020013C"
   },
   {
-    "course_id": "V020013-N",
+    "semester_id": "20251",
+    "course_id": "20251-V020013-N",
     "course_code": "V020013",
     "course_name": "소프트웨어공학",
-    "professor_name": "유수진",
+    "professor_names": ["유수진"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -690,10 +720,11 @@
     "plan_code": "20251110901V020013N"
   },
   {
-    "course_id": "V021004-7",
+    "semester_id": "20251",
+    "course_id": "20251-V021004-7",
     "course_code": "V021004",
     "course_name": "안드로이드프로그래밍",
-    "professor_name": "송미화",
+    "professor_names": ["송미화"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -713,10 +744,11 @@
     "plan_code": "20251110890V0210047"
   },
   {
-    "course_id": "V021004-8",
+    "semester_id": "20251",
+    "course_id": "20251-V021004-8",
     "course_code": "V021004",
     "course_name": "안드로이드프로그래밍",
-    "professor_name": "송미화",
+    "professor_names": ["송미화"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -736,10 +768,11 @@
     "plan_code": "20251110890V0210048"
   },
   {
-    "course_id": "V021004-9",
+    "semester_id": "20251",
+    "course_id": "20251-V021004-9",
     "course_code": "V021004",
     "course_name": "안드로이드프로그래밍",
-    "professor_name": "윤수미",
+    "professor_names": ["윤수미"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -759,10 +792,11 @@
     "plan_code": "20251516236V0210049"
   },
   {
-    "course_id": "V021004-A",
+    "semester_id": "20251",
+    "course_id": "20251-V021004-A",
     "course_code": "V021004",
     "course_name": "안드로이드프로그래밍",
-    "professor_name": "윤수미",
+    "professor_names": ["윤수미"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -782,10 +816,11 @@
     "plan_code": "20251516236V021004A"
   },
   {
-    "course_id": "V021004-B",
+    "semester_id": "20251",
+    "course_id": "20251-V021004-B",
     "course_code": "V021004",
     "course_name": "안드로이드프로그래밍",
-    "professor_name": "박필준",
+    "professor_names": ["박필준"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -805,10 +840,11 @@
     "plan_code": "20251110909V021004B"
   },
   {
-    "course_id": "V021004-C",
+    "semester_id": "20251",
+    "course_id": "20251-V021004-C",
     "course_code": "V021004",
     "course_name": "안드로이드프로그래밍",
-    "professor_name": "박필준",
+    "professor_names": ["박필준"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -828,10 +864,11 @@
     "plan_code": "20251110909V021004C"
   },
   {
-    "course_id": "V021004-N",
+    "semester_id": "20251",
+    "course_id": "20251-V021004-N",
     "course_code": "V021004",
     "course_name": "안드로이드프로그래밍",
-    "professor_name": "박필준",
+    "professor_names": ["박필준"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -851,10 +888,11 @@
     "plan_code": "20251110909V021004N"
   },
   {
-    "course_id": "V020014-7",
+    "semester_id": "20251",
+    "course_id": "20251-V020014-7",
     "course_code": "V020014",
     "course_name": "운영체제",
-    "professor_name": "황기태",
+    "professor_names": ["황기태"],
     "completion_type": "전선",
     "delivery_method": "대면수업",
     "credit": 3,
@@ -874,10 +912,11 @@
     "plan_code": "20251110108V0200147"
   },
   {
-    "course_id": "V020014-8",
+    "semester_id": "20251",
+    "course_id": "20251-V020014-8",
     "course_code": "V020014",
     "course_name": "운영체제",
-    "professor_name": "황기태",
+    "professor_names": ["황기태"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -897,10 +936,11 @@
     "plan_code": "20251110108V0200148"
   },
   {
-    "course_id": "V020014-9",
+    "semester_id": "20251",
+    "course_id": "20251-V020014-9",
     "course_code": "V020014",
     "course_name": "운영체제",
-    "professor_name": "이찬수",
+    "professor_names": ["이찬수"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -920,10 +960,11 @@
     "plan_code": "20251511323V0200149"
   },
   {
-    "course_id": "V020014-A",
+    "semester_id": "20251",
+    "course_id": "20251-V020014-A",
     "course_code": "V020014",
     "course_name": "운영체제",
-    "professor_name": "황기태",
+    "professor_names": ["황기태"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -943,10 +984,11 @@
     "plan_code": "20251110108V020014A"
   },
   {
-    "course_id": "V020014-B",
+    "semester_id": "20251",
+    "course_id": "20251-V020014-B",
     "course_code": "V020014",
     "course_name": "운영체제",
-    "professor_name": "황기태",
+    "professor_names": ["황기태"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -966,10 +1008,11 @@
     "plan_code": "20251110108V020014B"
   },
   {
-    "course_id": "V020014-C",
+    "semester_id": "20251",
+    "course_id": "20251-V020014-C",
     "course_code": "V020014",
     "course_name": "운영체제",
-    "professor_name": "김진환",
+    "professor_names": ["김진환"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -989,10 +1032,11 @@
     "plan_code": "20251110114V020014C"
   },
   {
-    "course_id": "V020014-N",
+    "semester_id": "20251",
+    "course_id": "20251-V020014-N",
     "course_code": "V020014",
     "course_name": "운영체제",
-    "professor_name": "이찬수",
+    "professor_names": ["이찬수"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1012,10 +1056,11 @@
     "plan_code": "20251511323V020014N"
   },
   {
-    "course_id": "V024008-7",
+    "semester_id": "20251",
+    "course_id": "20251-V024008-7",
     "course_code": "V024008",
     "course_name": "웹공학 캡스톤디자인",
-    "professor_name": "김성동,김남윤,심규현,유수진",
+    "professor_names": ["김성동", "김남윤", "심규현", "유수진"],
     "completion_type": "전필",
     "delivery_method": "대면수업",
     "credit": 3,
@@ -1035,10 +1080,11 @@
     "plan_code": "20251110901V0240087"
   },
   {
-    "course_id": "V024008-8",
+    "semester_id": "20251",
+    "course_id": "20251-V024008-8",
     "course_code": "V024008",
     "course_name": "웹공학 캡스톤디자인",
-    "professor_name": "김진환,박승현,송미화,유수진",
+    "professor_names": ["김진환", "박승현", "송미화", "유수진"],
     "completion_type": "전필",
     "delivery_method": "대면수업",
     "credit": 3,
@@ -1058,10 +1104,11 @@
     "plan_code": "20251110901V0240088"
   },
   {
-    "course_id": "V024008-A",
+    "semester_id": "20251",
+    "course_id": "20251-V024008-A",
     "course_code": "V024008",
     "course_name": "웹공학 캡스톤디자인",
-    "professor_name": "황기태,김남윤,송미화,유수진",
+    "professor_names": ["황기태", "김남윤", "송미화", "유수진"],
     "completion_type": "전필",
     "delivery_method": "대면수업",
     "credit": 3,
@@ -1081,10 +1128,11 @@
     "plan_code": "20251110901V024008A"
   },
   {
-    "course_id": "V024008-N",
+    "semester_id": "20251",
+    "course_id": "20251-V024008-N",
     "course_code": "V024008",
     "course_name": "웹공학 캡스톤디자인",
-    "professor_name": "김진환,김성동,심규현,송미화,유수진",
+    "professor_names": ["김진환", "김성동", "심규현", "송미화", "유수진"],
     "completion_type": "전필",
     "delivery_method": "대면수업",
     "credit": 3,
@@ -1104,10 +1152,11 @@
     "plan_code": "20251110901V024008N"
   },
   {
-    "course_id": "V024004-7",
+    "semester_id": "20251",
+    "course_id": "20251-V024004-7",
     "course_code": "V024004",
     "course_name": "웹서버프로그래밍",
-    "professor_name": "전원호",
+    "professor_names": ["전원호"],
     "completion_type": "전필",
     "delivery_method": "대면수업",
     "credit": 3,
@@ -1127,10 +1176,11 @@
     "plan_code": "20251516127V0240047"
   },
   {
-    "course_id": "V024004-8",
+    "semester_id": "20251",
+    "course_id": "20251-V024004-8",
     "course_code": "V024004",
     "course_name": "웹서버프로그래밍",
-    "professor_name": "심규현",
+    "professor_names": ["심규현"],
     "completion_type": "전필",
     "delivery_method": "BL",
     "credit": 3,
@@ -1150,10 +1200,11 @@
     "plan_code": "20251110878V0240048"
   },
   {
-    "course_id": "V024004-A",
+    "semester_id": "20251",
+    "course_id": "20251-V024004-A",
     "course_code": "V024004",
     "course_name": "웹서버프로그래밍",
-    "professor_name": "심규현",
+    "professor_names": ["심규현"],
     "completion_type": "전필",
     "delivery_method": "BL",
     "credit": 3,
@@ -1173,10 +1224,11 @@
     "plan_code": "20251110878V024004A"
   },
   {
-    "course_id": "V024004-B",
+    "semester_id": "20251",
+    "course_id": "20251-V024004-B",
     "course_code": "V024004",
     "course_name": "웹서버프로그래밍",
-    "professor_name": "김진환",
+    "professor_names": ["김진환"],
     "completion_type": "전필",
     "delivery_method": "BL",
     "credit": 3,
@@ -1196,10 +1248,11 @@
     "plan_code": "20251110114V024004B"
   },
   {
-    "course_id": "V024004-N",
+    "semester_id": "20251",
+    "course_id": "20251-V024004-N",
     "course_code": "V024004",
     "course_name": "웹서버프로그래밍",
-    "professor_name": "심규현",
+    "professor_names": ["심규현"],
     "completion_type": "전필",
     "delivery_method": "BL",
     "credit": 3,
@@ -1219,10 +1272,11 @@
     "plan_code": "20251110878V024004N"
   },
   {
-    "course_id": "V024004-O",
+    "semester_id": "20251",
+    "course_id": "20251-V024004-O",
     "course_code": "V024004",
     "course_name": "웹서버프로그래밍",
-    "professor_name": "전원호",
+    "professor_names": ["전원호"],
     "completion_type": "전필",
     "delivery_method": "대면수업",
     "credit": 3,
@@ -1242,10 +1296,11 @@
     "plan_code": "20251516127V024004O"
   },
   {
-    "course_id": "V024006-7",
+    "semester_id": "20251",
+    "course_id": "20251-V024006-7",
     "course_code": "V024006",
     "course_name": "웹프레임워크2",
-    "professor_name": "김남윤",
+    "professor_names": ["김남윤"],
     "completion_type": "전필",
     "delivery_method": "BL",
     "credit": 3,
@@ -1265,10 +1320,11 @@
     "plan_code": "20251110541V0240067"
   },
   {
-    "course_id": "V024006-A",
+    "semester_id": "20251",
+    "course_id": "20251-V024006-A",
     "course_code": "V024006",
     "course_name": "웹프레임워크2",
-    "professor_name": "김남윤",
+    "professor_names": ["김남윤"],
     "completion_type": "전필",
     "delivery_method": "BL",
     "credit": 3,
@@ -1288,10 +1344,11 @@
     "plan_code": "20251110541V024006A"
   },
   {
-    "course_id": "V024006-B",
+    "semester_id": "20251",
+    "course_id": "20251-V024006-B",
     "course_code": "V024006",
     "course_name": "웹프레임워크2",
-    "professor_name": "김남윤",
+    "professor_names": ["김남윤"],
     "completion_type": "전필",
     "delivery_method": "BL",
     "credit": 3,
@@ -1311,10 +1368,11 @@
     "plan_code": "20251110541V024006B"
   },
   {
-    "course_id": "V024006-N",
+    "semester_id": "20251",
+    "course_id": "20251-V024006-N",
     "course_code": "V024006",
     "course_name": "웹프레임워크2",
-    "professor_name": "김남윤",
+    "professor_names": ["김남윤"],
     "completion_type": "전필",
     "delivery_method": "BL",
     "credit": 3,
@@ -1334,10 +1392,11 @@
     "plan_code": "20251110541V024006N"
   },
   {
-    "course_id": "CTE0002-7",
+    "semester_id": "20251",
+    "course_id": "20251-CTE0002-7",
     "course_code": "CTE0002",
     "course_name": "웹프로그래밍기초",
-    "professor_name": "김민수",
+    "professor_names": ["김민수"],
     "completion_type": "전기",
     "delivery_method": "BL",
     "credit": 3,
@@ -1357,10 +1416,11 @@
     "plan_code": "20251110908CTE00027"
   },
   {
-    "course_id": "CTE0002-8",
+    "semester_id": "20251",
+    "course_id": "20251-CTE0002-8",
     "course_code": "CTE0002",
     "course_name": "웹프로그래밍기초",
-    "professor_name": "김민수",
+    "professor_names": ["김민수"],
     "completion_type": "전기",
     "delivery_method": "BL",
     "credit": 3,
@@ -1380,10 +1440,11 @@
     "plan_code": "20251110908CTE00028"
   },
   {
-    "course_id": "CTE0002-A",
+    "semester_id": "20251",
+    "course_id": "20251-CTE0002-A",
     "course_code": "CTE0002",
     "course_name": "웹프로그래밍기초",
-    "professor_name": "김민수",
+    "professor_names": ["김민수"],
     "completion_type": "전기",
     "delivery_method": "BL",
     "credit": 3,
@@ -1403,10 +1464,11 @@
     "plan_code": "20251110908CTE0002A"
   },
   {
-    "course_id": "CTE0002-B",
+    "semester_id": "20251",
+    "course_id": "20251-CTE0002-B",
     "course_code": "CTE0002",
     "course_name": "웹프로그래밍기초",
-    "professor_name": "김민수",
+    "professor_names": ["김민수"],
     "completion_type": "전기",
     "delivery_method": "BL",
     "credit": 3,
@@ -1426,10 +1488,11 @@
     "plan_code": "20251110908CTE0002B"
   },
   {
-    "course_id": "CTE0002-C",
+    "semester_id": "20251",
+    "course_id": "20251-CTE0002-C",
     "course_code": "CTE0002",
     "course_name": "웹프로그래밍기초",
-    "professor_name": "심철준",
+    "professor_names": ["심철준"],
     "completion_type": "전기",
     "delivery_method": "BL",
     "credit": 3,
@@ -1449,10 +1512,11 @@
     "plan_code": "20251516094CTE0002C"
   },
   {
-    "course_id": "CTE0002-N",
+    "semester_id": "20251",
+    "course_id": "20251-CTE0002-N",
     "course_code": "CTE0002",
     "course_name": "웹프로그래밍기초",
-    "professor_name": "심철준",
+    "professor_names": ["심철준"],
     "completion_type": "전기",
     "delivery_method": "BL",
     "credit": 3,
@@ -1472,10 +1536,11 @@
     "plan_code": "20251516094CTE0002N"
   },
   {
-    "course_id": "V020002-7",
+    "semester_id": "20251",
+    "course_id": "20251-V020002-7",
     "course_code": "V020002",
     "course_name": "자료구조",
-    "professor_name": "권영미",
+    "professor_names": ["권영미"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1495,10 +1560,11 @@
     "plan_code": "20251110089V0200027"
   },
   {
-    "course_id": "V020002-A",
+    "semester_id": "20251",
+    "course_id": "20251-V020002-A",
     "course_code": "V020002",
     "course_name": "자료구조",
-    "professor_name": "강희중",
+    "professor_names": ["강희중"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1518,10 +1584,11 @@
     "plan_code": "20251110518V020002A"
   },
   {
-    "course_id": "V020002-B",
+    "semester_id": "20251",
+    "course_id": "20251-V020002-B",
     "course_code": "V020002",
     "course_name": "자료구조",
-    "professor_name": "권영미",
+    "professor_names": ["권영미"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1541,10 +1608,11 @@
     "plan_code": "20251110089V020002B"
   },
   {
-    "course_id": "V020002-C",
+    "semester_id": "20251",
+    "course_id": "20251-V020002-C",
     "course_code": "V020002",
     "course_name": "자료구조",
-    "professor_name": "권영미",
+    "professor_names": ["권영미"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1564,10 +1632,11 @@
     "plan_code": "20251110089V020002C"
   },
   {
-    "course_id": "V020002-D",
+    "semester_id": "20251",
+    "course_id": "20251-V020002-D",
     "course_code": "V020002",
     "course_name": "자료구조",
-    "professor_name": "김민수",
+    "professor_names": ["김민수"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1587,10 +1656,11 @@
     "plan_code": "20251110908V020002D"
   },
   {
-    "course_id": "V020002-E",
+    "semester_id": "20251",
+    "course_id": "20251-V020002-E",
     "course_code": "V020002",
     "course_name": "자료구조",
-    "professor_name": "유상미",
+    "professor_names": ["유상미"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1610,10 +1680,11 @@
     "plan_code": "20251110689V020002E"
   },
   {
-    "course_id": "V020002-N",
+    "semester_id": "20251",
+    "course_id": "20251-V020002-N",
     "course_code": "V020002",
     "course_name": "자료구조",
-    "professor_name": "강희중",
+    "professor_names": ["강희중"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1633,10 +1704,11 @@
     "plan_code": "20251110518V020002N"
   },
   {
-    "course_id": "V020002-P",
+    "semester_id": "20251",
+    "course_id": "20251-V020002-P",
     "course_code": "V020002",
     "course_name": "자료구조",
-    "professor_name": "유상미",
+    "professor_names": ["유상미"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1656,10 +1728,11 @@
     "plan_code": "20251110689V020002P"
   },
   {
-    "course_id": "V020020-A",
+    "semester_id": "20251",
+    "course_id": "20251-V020020-A",
     "course_code": "V020020",
     "course_name": "정보보안",
-    "professor_name": "박승현",
+    "professor_names": ["박승현"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1679,10 +1752,11 @@
     "plan_code": "20251110858V020020A"
   },
   {
-    "course_id": "V020020-B",
+    "semester_id": "20251",
+    "course_id": "20251-V020020-B",
     "course_code": "V020020",
     "course_name": "정보보안",
-    "professor_name": "박승현",
+    "professor_names": ["박승현"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1702,10 +1776,11 @@
     "plan_code": "20251110858V020020B"
   },
   {
-    "course_id": "V020020-N",
+    "semester_id": "20251",
+    "course_id": "20251-V020020-N",
     "course_code": "V020020",
     "course_name": "정보보안",
-    "professor_name": "박승현",
+    "professor_names": ["박승현"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1725,10 +1800,11 @@
     "plan_code": "20251110858V020020N"
   },
   {
-    "course_id": "V020028-A",
+    "semester_id": "20251",
+    "course_id": "20251-V020028-A",
     "course_code": "V020028",
     "course_name": "취창업 세미나",
-    "professor_name": "이동희",
+    "professor_names": ["이동희"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1748,10 +1824,11 @@
     "plan_code": "20251110759V020028A"
   },
   {
-    "course_id": "V020028-N",
+    "semester_id": "20251",
+    "course_id": "20251-V020028-N",
     "course_code": "V020028",
     "course_name": "취창업 세미나",
-    "professor_name": "이동희",
+    "professor_names": ["이동희"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1771,10 +1848,11 @@
     "plan_code": "20251110759V020028N"
   },
   {
-    "course_id": "V020022-7",
+    "semester_id": "20251",
+    "course_id": "20251-V020022-7",
     "course_code": "V020022",
     "course_name": "컴파일러",
-    "professor_name": "김성동",
+    "professor_names": ["김성동"],
     "completion_type": "전선",
     "delivery_method": "대면수업",
     "credit": 3,
@@ -1794,10 +1872,11 @@
     "plan_code": "20251110528V0200227"
   },
   {
-    "course_id": "V020003-7",
+    "semester_id": "20251",
+    "course_id": "20251-V020003-7",
     "course_code": "V020003",
     "course_name": "컴퓨터구조",
-    "professor_name": "황호영",
+    "professor_names": ["황호영"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1817,10 +1896,11 @@
     "plan_code": "20251110590V0200037"
   },
   {
-    "course_id": "V020003-A",
+    "semester_id": "20251",
+    "course_id": "20251-V020003-A",
     "course_code": "V020003",
     "course_name": "컴퓨터구조",
-    "professor_name": "황호영",
+    "professor_names": ["황호영"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1840,10 +1920,11 @@
     "plan_code": "20251110590V020003A"
   },
   {
-    "course_id": "V020003-B",
+    "semester_id": "20251",
+    "course_id": "20251-V020003-B",
     "course_code": "V020003",
     "course_name": "컴퓨터구조",
-    "professor_name": "황호영",
+    "professor_names": ["황호영"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1863,10 +1944,11 @@
     "plan_code": "20251110590V020003B"
   },
   {
-    "course_id": "V020003-C",
+    "semester_id": "20251",
+    "course_id": "20251-V020003-C",
     "course_code": "V020003",
     "course_name": "컴퓨터구조",
-    "professor_name": "황호영",
+    "professor_names": ["황호영"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1886,10 +1968,11 @@
     "plan_code": "20251110590V020003C"
   },
   {
-    "course_id": "V020003-D",
+    "semester_id": "20251",
+    "course_id": "20251-V020003-D",
     "course_code": "V020003",
     "course_name": "컴퓨터구조",
-    "professor_name": "김동욱",
+    "professor_names": ["김동욱"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1909,10 +1992,11 @@
     "plan_code": "20251516112V020003D"
   },
   {
-    "course_id": "V020003-N",
+    "semester_id": "20251",
+    "course_id": "20251-V020003-N",
     "course_code": "V020003",
     "course_name": "컴퓨터구조",
-    "professor_name": "김동욱",
+    "professor_names": ["김동욱"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1932,10 +2016,11 @@
     "plan_code": "20251516112V020003N"
   },
   {
-    "course_id": "V020015-7",
+    "semester_id": "20251",
+    "course_id": "20251-V020015-7",
     "course_code": "V020015",
     "course_name": "컴퓨터그래픽스",
-    "professor_name": "계희원",
+    "professor_names": ["계희원"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1955,10 +2040,11 @@
     "plan_code": "20251110595V0200157"
   },
   {
-    "course_id": "V020015-A",
+    "semester_id": "20251",
+    "course_id": "20251-V020015-A",
     "course_code": "V020015",
     "course_name": "컴퓨터그래픽스",
-    "professor_name": "이지은",
+    "professor_names": ["이지은"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -1978,10 +2064,11 @@
     "plan_code": "20251110790V020015A"
   },
   {
-    "course_id": "V020015-B",
+    "semester_id": "20251",
+    "course_id": "20251-V020015-B",
     "course_code": "V020015",
     "course_name": "컴퓨터그래픽스",
-    "professor_name": "계희원",
+    "professor_names": ["계희원"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -2001,10 +2088,11 @@
     "plan_code": "20251110595V020015B"
   },
   {
-    "course_id": "V020015-N",
+    "semester_id": "20251",
+    "course_id": "20251-V020015-N",
     "course_code": "V020015",
     "course_name": "컴퓨터그래픽스",
-    "professor_name": "계희원",
+    "professor_names": ["계희원"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -2024,10 +2112,11 @@
     "plan_code": "20251110595V020015N"
   },
   {
-    "course_id": "V020004-7",
+    "semester_id": "20251",
+    "course_id": "20251-V020004-7",
     "course_code": "V020004",
     "course_name": "프로그래밍랩",
-    "professor_name": "강희중",
+    "professor_names": ["강희중"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -2047,10 +2136,11 @@
     "plan_code": "20251110518V0200047"
   },
   {
-    "course_id": "V020004-A",
+    "semester_id": "20251",
+    "course_id": "20251-V020004-A",
     "course_code": "V020004",
     "course_name": "프로그래밍랩",
-    "professor_name": "정인환",
+    "professor_names": ["정인환"],
     "completion_type": "전선",
     "delivery_method": "대면수업",
     "credit": 3,
@@ -2070,10 +2160,11 @@
     "plan_code": "20251110527V020004A"
   },
   {
-    "course_id": "V020004-B",
+    "semester_id": "20251",
+    "course_id": "20251-V020004-B",
     "course_code": "V020004",
     "course_name": "프로그래밍랩",
-    "professor_name": "강희중",
+    "professor_names": ["강희중"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -2093,10 +2184,11 @@
     "plan_code": "20251110518V020004B"
   },
   {
-    "course_id": "V020004-C",
+    "semester_id": "20251",
+    "course_id": "20251-V020004-C",
     "course_code": "V020004",
     "course_name": "프로그래밍랩",
-    "professor_name": "강희중",
+    "professor_names": ["강희중"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -2116,10 +2208,11 @@
     "plan_code": "20251110518V020004C"
   },
   {
-    "course_id": "V020004-N",
+    "semester_id": "20251",
+    "course_id": "20251-V020004-N",
     "course_code": "V020004",
     "course_name": "프로그래밍랩",
-    "professor_name": "강희중",
+    "professor_names": ["강희중"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -2139,10 +2232,11 @@
     "plan_code": "20251110518V020004N"
   },
   {
-    "course_id": "V020005-7",
+    "semester_id": "20251",
+    "course_id": "20251-V020005-7",
     "course_code": "V020005",
     "course_name": "프로그래밍언어론",
-    "professor_name": "김성동",
+    "professor_names": ["김성동"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -2162,10 +2256,11 @@
     "plan_code": "20251110528V0200057"
   },
   {
-    "course_id": "V020005-8",
+    "semester_id": "20251",
+    "course_id": "20251-V020005-8",
     "course_code": "V020005",
     "course_name": "프로그래밍언어론",
-    "professor_name": "김인희",
+    "professor_names": ["김인희"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -2185,10 +2280,11 @@
     "plan_code": "20251514333V0200058"
   },
   {
-    "course_id": "V020005-9",
+    "semester_id": "20251",
+    "course_id": "20251-V020005-9",
     "course_code": "V020005",
     "course_name": "프로그래밍언어론",
-    "professor_name": "김인희",
+    "professor_names": ["김인희"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -2208,10 +2304,11 @@
     "plan_code": "20251514333V0200059"
   },
   {
-    "course_id": "V020005-A",
+    "semester_id": "20251",
+    "course_id": "20251-V020005-A",
     "course_code": "V020005",
     "course_name": "프로그래밍언어론",
-    "professor_name": "김성동",
+    "professor_names": ["김성동"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -2231,10 +2328,11 @@
     "plan_code": "20251110528V020005A"
   },
   {
-    "course_id": "V020005-B",
+    "semester_id": "20251",
+    "course_id": "20251-V020005-B",
     "course_code": "V020005",
     "course_name": "프로그래밍언어론",
-    "professor_name": "김성동",
+    "professor_names": ["김성동"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -2254,10 +2352,11 @@
     "plan_code": "20251110528V020005B"
   },
   {
-    "course_id": "V020005-C",
+    "semester_id": "20251",
+    "course_id": "20251-V020005-C",
     "course_code": "V020005",
     "course_name": "프로그래밍언어론",
-    "professor_name": "김성동",
+    "professor_names": ["김성동"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -2277,10 +2376,11 @@
     "plan_code": "20251110528V020005C"
   },
   {
-    "course_id": "V020005-N",
+    "semester_id": "20251",
+    "course_id": "20251-V020005-N",
     "course_code": "V020005",
     "course_name": "프로그래밍언어론",
-    "professor_name": "김인희",
+    "professor_names": ["김인희"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -2300,10 +2400,11 @@
     "plan_code": "20251514333V020005N"
   },
   {
-    "course_id": "V020006-7",
+    "semester_id": "20251",
+    "course_id": "20251-V020006-7",
     "course_code": "V020006",
     "course_name": "확률및통계",
-    "professor_name": "임선집",
+    "professor_names": ["임선집"],
     "completion_type": "전선",
     "delivery_method": "대면수업",
     "credit": 3,
@@ -2323,10 +2424,11 @@
     "plan_code": "20251516043V0200067"
   },
   {
-    "course_id": "V020006-A",
+    "semester_id": "20251",
+    "course_id": "20251-V020006-A",
     "course_code": "V020006",
     "course_name": "확률및통계",
-    "professor_name": "엄종석",
+    "professor_names": ["엄종석"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -2346,10 +2448,11 @@
     "plan_code": "20251516185V020006A"
   },
   {
-    "course_id": "V020006-B",
+    "semester_id": "20251",
+    "course_id": "20251-V020006-B",
     "course_code": "V020006",
     "course_name": "확률및통계",
-    "professor_name": "엄종석",
+    "professor_names": ["엄종석"],
     "completion_type": "전선",
     "delivery_method": "BL",
     "credit": 3,
@@ -2369,10 +2472,11 @@
     "plan_code": "20251516185V020006B"
   },
   {
-    "course_id": "V020006-N",
+    "semester_id": "20251",
+    "course_id": "20251-V020006-N",
     "course_code": "V020006",
     "course_name": "확률및통계",
-    "professor_name": "임선집",
+    "professor_names": ["임선집"],
     "completion_type": "전선",
     "delivery_method": "대면수업",
     "credit": 3,
