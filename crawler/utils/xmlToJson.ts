@@ -25,7 +25,10 @@ export function majorXmlToJson(majorMxlText: string): MajorType[] {
 }
 
 // 과목 정보들의 xml을 json으로 파싱해주는 함수
-export function courseXmlToJson(courseXmlText: string): CourseType[] | null {
+export function courseXmlToJson(
+  semester_id: string,
+  courseXmlText: string
+): CourseType[] | null {
   const parser = new XMLParser({
     ignoreAttributes: false,
     trimValues: true,
@@ -51,10 +54,11 @@ export function courseXmlToJson(courseXmlText: string): CourseType[] | null {
     );
 
     return {
-      course_id: `${row.kwamokcode}-${row.bunban}`,
+      semester_id,
+      course_id: `${semester_id}-${row.kwamokcode}-${String(row.bunban)}`,
       course_code: row.kwamokcode,
       course_name: row.kwamokname,
-      professor_name: row.prof,
+      professor_names: row.prof.split(","),
       completion_type: row.isugubun,
       delivery_method: row.kwamok_gubun,
       credit: +row.hakjum,

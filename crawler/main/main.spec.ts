@@ -78,8 +78,11 @@ test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모�
 
       const coursesXml = await courses_response.text();
 
-      const courses: CourseType[] | null = courseXmlToJson(coursesXml);
-      // console.log(JSON.stringify(courses, null, 2));
+      const courses: CourseType[] | null = courseXmlToJson(
+        semester.semester_id,
+        coursesXml
+      );
+      console.log(JSON.stringify(courses, null, 2));
 
       const res = await postCourseData(semester, major, courses);
       console.log(

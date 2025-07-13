@@ -19,7 +19,7 @@ export async function postCourseData(
         courses,
       },
       null,
-      2
+      0
     ),
   });
 

@@ -4,12 +4,12 @@ import { In, Repository } from 'typeorm';
 import { SemesterEntity } from 'src/common/entities/01_semester.entity';
 import { MajorEntity } from 'src/common/entities/02_major.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CourseEntity } from 'src/common/entities/03_course.entity';
-import { OfflineScheduleEntity } from 'src/common/entities/04_offlineSchedule.entity';
-import { SemesterMajorEntity } from 'src/common/entities/05_semester_major.entity';
+import { CourseEntity } from 'src/common/entities/04_course.entity';
+import { OfflineScheduleEntity } from 'src/common/entities/05_offlineSchedule.entity';
+import { SemesterMajorEntity } from 'src/common/entities/03_semester_major.entity';
 
 @Injectable()
-export class ScheduleConstraintsService {
+export class ScheduleService {
   constructor(
     @InjectRepository(SemesterEntity)
     private readonly semesterRepo: Repository<SemesterEntity>,
@@ -40,30 +40,29 @@ export class ScheduleConstraintsService {
       .where('c.semester_id = :semester_id', {
         semester_id: constaraints.semester_id,
       })
-      .andWhere('c.major_id = :major_id', {
-        major_id: constaraints.major_id,
+      .andWhere('c.major_code = :major_code', {
+        major_code: constaraints.major_code,
       })
-      .andWhere('c.grade In (:...grade)', { grade: [constaraints.grade, 0] })
-      .andWhere('c.day_or_night In (:...day_or_night)', {
-        day_or_night: [constaraints.day_or_night, 'both'],
-      })
-      .andWhere((qb) => {
-        const subQuery = qb
-          .subQuery()
-          .select('1')
-          .from('offline_schedule', 'os')
-          .where('os.course_id = c.course_id')
-          .andWhere('os.day IN (:...excludeDays)', {
-            excludeDays: constaraints.no_class_days,
-          })
-          .getQuery();
-        console.log(subQuery);
-        return `NOT EXISTS ${subQuery}`;
-      })
+      // .andWhere('c.grade In (:...grade)', { grade: [constaraints.grade, 0] })
+      // .andWhere('c.day_or_night In (:...day_or_night)', {
+      //   day_or_night: [constaraints.day_or_night, 'both'],
+      // })
+      // .andWhere((qb) => {
+      //   const subQuery = qb
+      //     .subQuery()
+      //     .select('1')
+      //     .from('offline_schedule', 'os')
+      //     .where('os.course_id = c.course_id')
+      //     .andWhere('os.day IN (:...excludeDays)', {
+      //       excludeDays: constaraints.no_class_days,
+      //     })
+      //     .getQuery();
+      //   return `NOT EXISTS ${subQuery}`;
+      // })
       .getMany();
 
     // console.log(filteredData);
-    console.log(JSON.stringify(filteredData, null, 2));
+    console.log(JSON.stringify(filteredData, null, 2), filteredData.length);
     return '성공';
   }
 }

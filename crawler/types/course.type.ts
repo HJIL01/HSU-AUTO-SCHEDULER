@@ -3,10 +3,11 @@ import { OfflineScheduleType } from "./offline-schedule.type";
 
 // 강좌 타입
 export type CourseType = {
-  course_id: string;
+  semester_id: string; // 학기 아이디: string
+  course_id: string; // 과목 식별자: 학기 아이디, 과목코드, 분반으로 이루어진 식별자
   course_code: string; // 과목코드: string
   course_name: string; // 과목명: string
-  professor_name: string; // 교수 이름: string
+  professor_names: string[]; // 교수 이름: string 배열
   completion_type: string; // 이수 구분(전필, 전선, 복전선, 일선): string
   delivery_method: string; // 과목 구분(온라인100%, BL, 대면수업): string
   credit: number; // 학점: number

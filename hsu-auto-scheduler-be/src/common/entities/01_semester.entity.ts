@@ -1,7 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
-import { CourseEntity } from './03_course.entity';
-import { SemesterMajorEntity } from './05_semester_major.entity';
-import { OfflineScheduleEntity } from './04_offlineSchedule.entity';
+import { CourseEntity } from './04_course.entity';
+import { SemesterMajorEntity } from './03_semester_major.entity';
+import { MajorCourseEntity } from './06_major_course.entity';
 
 enum SemesterTermEnum {
   First = 1,
@@ -28,9 +28,6 @@ export class SemesterEntity {
   )
   semester_majors: SemesterMajorEntity[];
 
-  @OneToMany(
-    () => OfflineScheduleEntity,
-    (offline_schedules) => offline_schedules.course,
-  )
-  offline_schedules: OfflineScheduleEntity[];
+  @OneToMany(() => MajorCourseEntity, (major_course) => major_course.semester)
+  major_courses: MajorCourseEntity[];
 }

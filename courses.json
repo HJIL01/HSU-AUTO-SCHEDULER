@@ -1,2602 +1,2394 @@
 [
   {
-    "courseId": "V020024-N",
-    "courseCode": "V020024",
-    "courseName": "SW 통합구현(IPP)",
-    "completionType": "전선",
-    "deliveryMethod": "대면수업",
+    "course_id": "V020024-N",
+    "course_code": "V020024",
+    "course_name": "SW 통합구현(IPP)",
+    "professor_name": "한충구",
+    "completion_type": "전선",
+    "delivery_method": "대면수업",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "N",
+    "day_or_night": "night",
+    "class_section": "N",
     "grade": 4,
-    "gradeLimit": "0",
-    "professor": "한충구",
-    "planCode": "20251516054V020024N",
-    "sessionInfo": {
-      "online": 0,
-      "offline": [
-        {
-          "place": "상상관406",
-          "day": "Thu",
-          "startTime": 1080,
-          "endTime": 1260
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 0,
+    "offline_schedules": [
+      {
+        "place": "상상관406",
+        "day": "Thu",
+        "start_time": 1080,
+        "end_time": 1260
+      }
+    ],
+    "plan_code": "20251516054V020024N"
   },
   {
-    "courseId": "V020026-A",
-    "courseCode": "V020026",
-    "courseName": "SW설계 및 테스트(IPP)",
-    "completionType": "전필",
-    "deliveryMethod": "대면수업",
+    "course_id": "V020026-A",
+    "course_code": "V020026",
+    "course_name": "SW설계 및 테스트(IPP)",
+    "professor_name": "신성",
+    "completion_type": "전필",
+    "delivery_method": "대면수업",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "A",
+    "day_or_night": "day",
+    "class_section": "A",
     "grade": 4,
-    "gradeLimit": "0",
-    "professor": "신성",
-    "planCode": "20251110732V020026A",
-    "sessionInfo": {
-      "online": 0,
-      "offline": [
-        {
-          "place": "상상관406",
-          "day": "Tue",
-          "startTime": 720,
-          "endTime": 900
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 0,
+    "offline_schedules": [
+      {
+        "place": "상상관406",
+        "day": "Tue",
+        "start_time": 720,
+        "end_time": 900
+      }
+    ],
+    "plan_code": "20251110732V020026A"
   },
   {
-    "courseId": "V020001-7",
-    "courseCode": "V020001",
-    "courseName": "객체지향언어1",
-    "completionType": "전선",
-    "deliveryMethod": "대면수업",
+    "course_id": "V020001-7",
+    "course_code": "V020001",
+    "course_name": "객체지향언어1",
+    "professor_name": "황기태",
+    "completion_type": "전선",
+    "delivery_method": "대면수업",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "7",
+    "day_or_night": "both",
+    "class_section": "7",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "황기태",
-    "planCode": "20251110108V0200017",
-    "sessionInfo": {
-      "online": 0,
-      "offline": [
-        {
-          "place": "미래관B104",
-          "day": "Mon",
-          "startTime": 780,
-          "endTime": 1020
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 0,
+    "offline_schedules": [
+      {
+        "place": "미래관B104",
+        "day": "Mon",
+        "start_time": 780,
+        "end_time": 1020
+      }
+    ],
+    "plan_code": "20251110108V0200017"
   },
   {
-    "courseId": "V020001-8",
-    "courseCode": "V020001",
-    "courseName": "객체지향언어1",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020001-8",
+    "course_code": "V020001",
+    "course_name": "객체지향언어1",
+    "professor_name": "유상미",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "8",
+    "day_or_night": "both",
+    "class_section": "8",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "유상미",
-    "planCode": "20251110689V0200018",
-    "sessionInfo": {
-      "online": 1,
-      "offline": [
-        {
-          "place": "공학관309",
-          "day": "Fri",
-          "startTime": 780,
-          "endTime": 900
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1,
+    "offline_schedules": [
+      {
+        "place": "공학관309",
+        "day": "Fri",
+        "start_time": 780,
+        "end_time": 900
+      }
+    ],
+    "plan_code": "20251110689V0200018"
   },
   {
-    "courseId": "V020001-A",
-    "courseCode": "V020001",
-    "courseName": "객체지향언어1",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020001-A",
+    "course_code": "V020001",
+    "course_name": "객체지향언어1",
+    "professor_name": "황기태",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "A",
+    "day_or_night": "day",
+    "class_section": "A",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "황기태",
-    "planCode": "20251110108V020001A",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "미래관B104",
-          "day": "Mon",
-          "startTime": 600,
-          "endTime": 720
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "미래관B104",
+        "day": "Mon",
+        "start_time": 600,
+        "end_time": 720
+      }
+    ],
+    "plan_code": "20251110108V020001A"
   },
   {
-    "courseId": "V020001-B",
-    "courseCode": "V020001",
-    "courseName": "객체지향언어1",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020001-B",
+    "course_code": "V020001",
+    "course_name": "객체지향언어1",
+    "professor_name": "유상미",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "B",
+    "day_or_night": "day",
+    "class_section": "B",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "유상미",
-    "planCode": "20251110689V020001B",
-    "sessionInfo": {
-      "online": 1,
-      "offline": [
-        {
-          "place": "공학관309",
-          "day": "Fri",
-          "startTime": 600,
-          "endTime": 720
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1,
+    "offline_schedules": [
+      {
+        "place": "공학관309",
+        "day": "Fri",
+        "start_time": 600,
+        "end_time": 720
+      }
+    ],
+    "plan_code": "20251110689V020001B"
   },
   {
-    "courseId": "V020001-C",
-    "courseCode": "V020001",
-    "courseName": "객체지향언어1",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020001-C",
+    "course_code": "V020001",
+    "course_name": "객체지향언어1",
+    "professor_name": "이찬수",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "C",
+    "day_or_night": "day",
+    "class_section": "C",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "이찬수",
-    "planCode": "20251511323V020001C",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "상상관304",
-          "day": "Mon",
-          "startTime": 900,
-          "endTime": 1020
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "상상관304",
+        "day": "Mon",
+        "start_time": 900,
+        "end_time": 1020
+      }
+    ],
+    "plan_code": "20251511323V020001C"
   },
   {
-    "courseId": "V020001-D",
-    "courseCode": "V020001",
-    "courseName": "객체지향언어1",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020001-D",
+    "course_code": "V020001",
+    "course_name": "객체지향언어1",
+    "professor_name": "안영아",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "D",
+    "day_or_night": "day",
+    "class_section": "D",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "안영아",
-    "planCode": "20251510817V020001D",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관201",
-          "day": "Mon",
-          "startTime": 960,
-          "endTime": 1080
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관201",
+        "day": "Mon",
+        "start_time": 960,
+        "end_time": 1080
+      }
+    ],
+    "plan_code": "20251510817V020001D"
   },
   {
-    "courseId": "V020001-N",
-    "courseCode": "V020001",
-    "courseName": "객체지향언어1",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020001-N",
+    "course_code": "V020001",
+    "course_name": "객체지향언어1",
+    "professor_name": "유상미",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "N",
+    "day_or_night": "night",
+    "class_section": "N",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "유상미",
-    "planCode": "20251110689V020001N",
-    "sessionInfo": {
-      "online": 1,
-      "offline": [
-        {
-          "place": "공학관305",
-          "day": "Tue",
-          "startTime": 1200,
-          "endTime": 1320
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1,
+    "offline_schedules": [
+      {
+        "place": "공학관305",
+        "day": "Tue",
+        "start_time": 1200,
+        "end_time": 1320
+      }
+    ],
+    "plan_code": "20251110689V020001N"
   },
   {
-    "courseId": "V020001-O",
-    "courseCode": "V020001",
-    "courseName": "객체지향언어1",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020001-O",
+    "course_code": "V020001",
+    "course_name": "객체지향언어1",
+    "professor_name": "안영아",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "O",
+    "day_or_night": "night",
+    "class_section": "O",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "안영아",
-    "planCode": "20251510817V020001O",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관201",
-          "day": "Mon",
-          "startTime": 1080,
-          "endTime": 1200
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관201",
+        "day": "Mon",
+        "start_time": 1080,
+        "end_time": 1200
+      }
+    ],
+    "plan_code": "20251510817V020001O"
   },
   {
-    "courseId": "M020040-7",
-    "courseCode": "M020040",
-    "courseName": "논리적 사고와 프로그래밍",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "M020040-7",
+    "course_code": "M020040",
+    "course_name": "논리적 사고와 프로그래밍",
+    "professor_name": "이신희",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "7",
+    "day_or_night": "both",
+    "class_section": "7",
     "grade": 0,
-    "gradeLimit": "0",
-    "professor": "이신희",
-    "planCode": "20251110874M0200407",
-    "sessionInfo": {
-      "online": 1,
-      "offline": [
-        {
-          "place": "탐구관205",
-          "day": "Tue",
-          "startTime": 900,
-          "endTime": 1020
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1,
+    "offline_schedules": [
+      {
+        "place": "탐구관205",
+        "day": "Tue",
+        "start_time": 900,
+        "end_time": 1020
+      }
+    ],
+    "plan_code": "20251110874M0200407"
   },
   {
-    "courseId": "V022003-A",
-    "courseCode": "V022003",
-    "courseName": "데이터마이닝",
-    "completionType": "전선",
-    "deliveryMethod": "대면수업",
+    "course_id": "V022003-A",
+    "course_code": "V022003",
+    "course_name": "데이터마이닝",
+    "professor_name": "이청용",
+    "completion_type": "전선",
+    "delivery_method": "대면수업",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "A",
+    "day_or_night": "day",
+    "class_section": "A",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "이청용",
-    "planCode": "20251110920V022003A",
-    "sessionInfo": {
-      "online": 0,
-      "offline": [
-        {
-          "place": "공학관202",
-          "day": "Wed",
-          "startTime": 540,
-          "endTime": 720
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 0,
+    "offline_schedules": [
+      {
+        "place": "공학관202",
+        "day": "Wed",
+        "start_time": 540,
+        "end_time": 720
+      }
+    ],
+    "plan_code": "20251110920V022003A"
   },
   {
-    "courseId": "V022003-B",
-    "courseCode": "V022003",
-    "courseName": "데이터마이닝",
-    "completionType": "전선",
-    "deliveryMethod": "대면수업",
+    "course_id": "V022003-B",
+    "course_code": "V022003",
+    "course_name": "데이터마이닝",
+    "professor_name": "이청용",
+    "completion_type": "전선",
+    "delivery_method": "대면수업",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "B",
+    "day_or_night": "day",
+    "class_section": "B",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "이청용",
-    "planCode": "20251110920V022003B",
-    "sessionInfo": {
-      "online": 0,
-      "offline": [
-        {
-          "place": "공학관202",
-          "day": "Fri",
-          "startTime": 540,
-          "endTime": 720
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 0,
+    "offline_schedules": [
+      {
+        "place": "공학관202",
+        "day": "Fri",
+        "start_time": 540,
+        "end_time": 720
+      }
+    ],
+    "plan_code": "20251110920V022003B"
   },
   {
-    "courseId": "V022003-C",
-    "courseCode": "V022003",
-    "courseName": "데이터마이닝",
-    "completionType": "전선",
-    "deliveryMethod": "대면수업",
+    "course_id": "V022003-C",
+    "course_code": "V022003",
+    "course_name": "데이터마이닝",
+    "professor_name": "신성",
+    "completion_type": "전선",
+    "delivery_method": "대면수업",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "C",
+    "day_or_night": "day",
+    "class_section": "C",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "신성",
-    "planCode": "20251110732V022003C",
-    "sessionInfo": {
-      "online": 0,
-      "offline": [
-        {
-          "place": "탐구관503",
-          "day": "Wed",
-          "startTime": 900,
-          "endTime": 1080
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 0,
+    "offline_schedules": [
+      {
+        "place": "탐구관503",
+        "day": "Wed",
+        "start_time": 900,
+        "end_time": 1080
+      }
+    ],
+    "plan_code": "20251110732V022003C"
   },
   {
-    "courseId": "V022003-N",
-    "courseCode": "V022003",
-    "courseName": "데이터마이닝",
-    "completionType": "전선",
-    "deliveryMethod": "대면수업",
+    "course_id": "V022003-N",
+    "course_code": "V022003",
+    "course_name": "데이터마이닝",
+    "professor_name": "신성",
+    "completion_type": "전선",
+    "delivery_method": "대면수업",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "N",
+    "day_or_night": "night",
+    "class_section": "N",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "신성",
-    "planCode": "20251110732V022003N",
-    "sessionInfo": {
-      "online": 0,
-      "offline": [
-        {
-          "place": "탐구관503",
-          "day": "Wed",
-          "startTime": 1080,
-          "endTime": 1260
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 0,
+    "offline_schedules": [
+      {
+        "place": "탐구관503",
+        "day": "Wed",
+        "start_time": 1080,
+        "end_time": 1260
+      }
+    ],
+    "plan_code": "20251110732V022003N"
   },
   {
-    "courseId": "V020012-7",
-    "courseCode": "V020012",
-    "courseName": "데이터베이스",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020012-7",
+    "course_code": "V020012",
+    "course_name": "데이터베이스",
+    "professor_name": "신성",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "7",
+    "day_or_night": "both",
+    "class_section": "7",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "신성",
-    "planCode": "20251110732V0200127",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "탐구관506",
-          "day": "Mon",
-          "startTime": 900,
-          "endTime": 1020
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "탐구관506",
+        "day": "Mon",
+        "start_time": 900,
+        "end_time": 1020
+      }
+    ],
+    "plan_code": "20251110732V0200127"
   },
   {
-    "courseId": "V020012-8",
-    "courseCode": "V020012",
-    "courseName": "데이터베이스",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020012-8",
+    "course_code": "V020012",
+    "course_name": "데이터베이스",
+    "professor_name": "김영웅",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "8",
+    "day_or_night": "both",
+    "class_section": "8",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "김영웅",
-    "planCode": "20251516136V0200128",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "상상관506",
-          "day": "Fri",
-          "startTime": 960,
-          "endTime": 1020
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "상상관506",
+        "day": "Fri",
+        "start_time": 960,
+        "end_time": 1020
+      }
+    ],
+    "plan_code": "20251516136V0200128"
   },
   {
-    "courseId": "V020012-9",
-    "courseCode": "V020012",
-    "courseName": "데이터베이스",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020012-9",
+    "course_code": "V020012",
+    "course_name": "데이터베이스",
+    "professor_name": "장재영",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "9",
+    "day_or_night": "both",
+    "class_section": "9",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "장재영",
-    "planCode": "20251110517V0200129",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "탐구관401",
-          "day": "Thu",
-          "startTime": 900,
-          "endTime": 1020
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "탐구관401",
+        "day": "Thu",
+        "start_time": 900,
+        "end_time": 1020
+      }
+    ],
+    "plan_code": "20251110517V0200129"
   },
   {
-    "courseId": "V020012-A",
-    "courseCode": "V020012",
-    "courseName": "데이터베이스",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020012-A",
+    "course_code": "V020012",
+    "course_name": "데이터베이스",
+    "professor_name": "장재영",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "A",
+    "day_or_night": "day",
+    "class_section": "A",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "장재영",
-    "planCode": "20251110517V020012A",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "탐구관507",
-          "day": "Mon",
-          "startTime": 720,
-          "endTime": 840
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "탐구관507",
+        "day": "Mon",
+        "start_time": 720,
+        "end_time": 840
+      }
+    ],
+    "plan_code": "20251110517V020012A"
   },
   {
-    "courseId": "V020012-B",
-    "courseCode": "V020012",
-    "courseName": "데이터베이스",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020012-B",
+    "course_code": "V020012",
+    "course_name": "데이터베이스",
+    "professor_name": "장재영",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "B",
+    "day_or_night": "day",
+    "class_section": "B",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "장재영",
-    "planCode": "20251110517V020012B",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "탐구관507",
-          "day": "Mon",
-          "startTime": 900,
-          "endTime": 1020
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "탐구관507",
+        "day": "Mon",
+        "start_time": 900,
+        "end_time": 1020
+      }
+    ],
+    "plan_code": "20251110517V020012B"
   },
   {
-    "courseId": "V020012-C",
-    "courseCode": "V020012",
-    "courseName": "데이터베이스",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020012-C",
+    "course_code": "V020012",
+    "course_name": "데이터베이스",
+    "professor_name": "장재영",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "C",
+    "day_or_night": "day",
+    "class_section": "C",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "장재영",
-    "planCode": "20251110517V020012C",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "탐구관401",
-          "day": "Thu",
-          "startTime": 600,
-          "endTime": 720
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "탐구관401",
+        "day": "Thu",
+        "start_time": 600,
+        "end_time": 720
+      }
+    ],
+    "plan_code": "20251110517V020012C"
   },
   {
-    "courseId": "V020012-D",
-    "courseCode": "V020012",
-    "courseName": "데이터베이스",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020012-D",
+    "course_code": "V020012",
+    "course_name": "데이터베이스",
+    "professor_name": "김영웅",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "D",
+    "day_or_night": "day",
+    "class_section": "D",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "김영웅",
-    "planCode": "20251516136V020012D",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "상상관506",
-          "day": "Fri",
-          "startTime": 900,
-          "endTime": 960
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "상상관506",
+        "day": "Fri",
+        "start_time": 900,
+        "end_time": 960
+      }
+    ],
+    "plan_code": "20251516136V020012D"
   },
   {
-    "courseId": "V020012-N",
-    "courseCode": "V020012",
-    "courseName": "데이터베이스",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020012-N",
+    "course_code": "V020012",
+    "course_name": "데이터베이스",
+    "professor_name": "신성",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "N",
+    "day_or_night": "night",
+    "class_section": "N",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "신성",
-    "planCode": "20251110732V020012N",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "탐구관506",
-          "day": "Mon",
-          "startTime": 1080,
-          "endTime": 1200
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "탐구관506",
+        "day": "Mon",
+        "start_time": 1080,
+        "end_time": 1200
+      }
+    ],
+    "plan_code": "20251110732V020012N"
   },
   {
-    "courseId": "V020025-A",
-    "courseCode": "V020025",
-    "courseName": "사용자인터페이스와 서버구현(IPP)",
-    "completionType": "전선",
-    "deliveryMethod": "대면수업",
+    "course_id": "V020025-A",
+    "course_code": "V020025",
+    "course_name": "사용자인터페이스와 서버구현(IPP)",
+    "professor_name": "심규현,박선영",
+    "completion_type": "전선",
+    "delivery_method": "대면수업",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "A",
+    "day_or_night": "day",
+    "class_section": "A",
     "grade": 4,
-    "gradeLimit": "0",
-    "professor": "심규현,박선영",
-    "planCode": "20251110878V020025A",
-    "sessionInfo": {
-      "online": 0,
-      "offline": [
-        {
-          "place": "상상관406",
-          "day": "Wed",
-          "startTime": 720,
-          "endTime": 1020
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 0,
+    "offline_schedules": [
+      {
+        "place": "상상관406",
+        "day": "Wed",
+        "start_time": 720,
+        "end_time": 1020
+      }
+    ],
+    "plan_code": "20251110878V020025A"
   },
   {
-    "courseId": "V020013-7",
-    "courseCode": "V020013",
-    "courseName": "소프트웨어공학",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020013-7",
+    "course_code": "V020013",
+    "course_name": "소프트웨어공학",
+    "professor_name": "신성",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "7",
+    "day_or_night": "both",
+    "class_section": "7",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "신성",
-    "planCode": "20251110732V0200137",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "탐구관501",
-          "day": "Tue",
-          "startTime": 660,
-          "endTime": 720
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "탐구관501",
+        "day": "Tue",
+        "start_time": 660,
+        "end_time": 720
+      }
+    ],
+    "plan_code": "20251110732V0200137"
   },
   {
-    "courseId": "V020013-8",
-    "courseCode": "V020013",
-    "courseName": "소프트웨어공학",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020013-8",
+    "course_code": "V020013",
+    "course_name": "소프트웨어공학",
+    "professor_name": "송미화",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "8",
+    "day_or_night": "both",
+    "class_section": "8",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "송미화",
-    "planCode": "20251110890V0200138",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "탐구관504",
-          "day": "Tue",
-          "startTime": 900,
-          "endTime": 960
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "탐구관504",
+        "day": "Tue",
+        "start_time": 900,
+        "end_time": 960
+      }
+    ],
+    "plan_code": "20251110890V0200138"
   },
   {
-    "courseId": "V020013-A",
-    "courseCode": "V020013",
-    "courseName": "소프트웨어공학",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020013-A",
+    "course_code": "V020013",
+    "course_name": "소프트웨어공학",
+    "professor_name": "유수진",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "A",
+    "day_or_night": "day",
+    "class_section": "A",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "유수진",
-    "planCode": "20251110901V020013A",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "탐구관지하102",
-          "day": "Tue",
-          "startTime": 900,
-          "endTime": 960
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "탐구관지하102",
+        "day": "Tue",
+        "start_time": 900,
+        "end_time": 960
+      }
+    ],
+    "plan_code": "20251110901V020013A"
   },
   {
-    "courseId": "V020013-B",
-    "courseCode": "V020013",
-    "courseName": "소프트웨어공학",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020013-B",
+    "course_code": "V020013",
+    "course_name": "소프트웨어공학",
+    "professor_name": "유수진",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "B",
+    "day_or_night": "day",
+    "class_section": "B",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "유수진",
-    "planCode": "20251110901V020013B",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "탐구관지하102",
-          "day": "Tue",
-          "startTime": 960,
-          "endTime": 1020
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "탐구관지하102",
+        "day": "Tue",
+        "start_time": 960,
+        "end_time": 1020
+      }
+    ],
+    "plan_code": "20251110901V020013B"
   },
   {
-    "courseId": "V020013-C",
-    "courseCode": "V020013",
-    "courseName": "소프트웨어공학",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020013-C",
+    "course_code": "V020013",
+    "course_name": "소프트웨어공학",
+    "professor_name": "유수진",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "C",
+    "day_or_night": "day",
+    "class_section": "C",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "유수진",
-    "planCode": "20251110901V020013C",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "탐구관지하102",
-          "day": "Tue",
-          "startTime": 1020,
-          "endTime": 1080
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "탐구관지하102",
+        "day": "Tue",
+        "start_time": 1020,
+        "end_time": 1080
+      }
+    ],
+    "plan_code": "20251110901V020013C"
   },
   {
-    "courseId": "V020013-N",
-    "courseCode": "V020013",
-    "courseName": "소프트웨어공학",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020013-N",
+    "course_code": "V020013",
+    "course_name": "소프트웨어공학",
+    "professor_name": "유수진",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "N",
+    "day_or_night": "night",
+    "class_section": "N",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "유수진",
-    "planCode": "20251110901V020013N",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "탐구관지하102",
-          "day": "Tue",
-          "startTime": 1080,
-          "endTime": 1140
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "탐구관지하102",
+        "day": "Tue",
+        "start_time": 1080,
+        "end_time": 1140
+      }
+    ],
+    "plan_code": "20251110901V020013N"
   },
   {
-    "courseId": "V021004-7",
-    "courseCode": "V021004",
-    "courseName": "안드로이드프로그래밍",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V021004-7",
+    "course_code": "V021004",
+    "course_name": "안드로이드프로그래밍",
+    "professor_name": "송미화",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "7",
+    "day_or_night": "both",
+    "class_section": "7",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "송미화",
-    "planCode": "20251110890V0210047",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "공학관305",
-          "day": "Tue",
-          "startTime": 600,
-          "endTime": 660
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "공학관305",
+        "day": "Tue",
+        "start_time": 600,
+        "end_time": 660
+      }
+    ],
+    "plan_code": "20251110890V0210047"
   },
   {
-    "courseId": "V021004-8",
-    "courseCode": "V021004",
-    "courseName": "안드로이드프로그래밍",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V021004-8",
+    "course_code": "V021004",
+    "course_name": "안드로이드프로그래밍",
+    "professor_name": "송미화",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "8",
+    "day_or_night": "both",
+    "class_section": "8",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "송미화",
-    "planCode": "20251110890V0210048",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "공학관305",
-          "day": "Tue",
-          "startTime": 660,
-          "endTime": 720
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "공학관305",
+        "day": "Tue",
+        "start_time": 660,
+        "end_time": 720
+      }
+    ],
+    "plan_code": "20251110890V0210048"
   },
   {
-    "courseId": "V021004-9",
-    "courseCode": "V021004",
-    "courseName": "안드로이드프로그래밍",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V021004-9",
+    "course_code": "V021004",
+    "course_name": "안드로이드프로그래밍",
+    "professor_name": "윤수미",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "9",
+    "day_or_night": "both",
+    "class_section": "9",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "윤수미",
-    "planCode": "20251516236V0210049",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관201",
-          "day": "Wed",
-          "startTime": 780,
-          "endTime": 900
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관201",
+        "day": "Wed",
+        "start_time": 780,
+        "end_time": 900
+      }
+    ],
+    "plan_code": "20251516236V0210049"
   },
   {
-    "courseId": "V021004-A",
-    "courseCode": "V021004",
-    "courseName": "안드로이드프로그래밍",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V021004-A",
+    "course_code": "V021004",
+    "course_name": "안드로이드프로그래밍",
+    "professor_name": "윤수미",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "A",
+    "day_or_night": "day",
+    "class_section": "A",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "윤수미",
-    "planCode": "20251516236V021004A",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관201",
-          "day": "Wed",
-          "startTime": 720,
-          "endTime": 840
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관201",
+        "day": "Wed",
+        "start_time": 720,
+        "end_time": 840
+      }
+    ],
+    "plan_code": "20251516236V021004A"
   },
   {
-    "courseId": "V021004-B",
-    "courseCode": "V021004",
-    "courseName": "안드로이드프로그래밍",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V021004-B",
+    "course_code": "V021004",
+    "course_name": "안드로이드프로그래밍",
+    "professor_name": "박필준",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "B",
+    "day_or_night": "day",
+    "class_section": "B",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "박필준",
-    "planCode": "20251110909V021004B",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "공학관305",
-          "day": "Fri",
-          "startTime": 840,
-          "endTime": 900
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "공학관305",
+        "day": "Fri",
+        "start_time": 840,
+        "end_time": 900
+      }
+    ],
+    "plan_code": "20251110909V021004B"
   },
   {
-    "courseId": "V021004-C",
-    "courseCode": "V021004",
-    "courseName": "안드로이드프로그래밍",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V021004-C",
+    "course_code": "V021004",
+    "course_name": "안드로이드프로그래밍",
+    "professor_name": "박필준",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "C",
+    "day_or_night": "day",
+    "class_section": "C",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "박필준",
-    "planCode": "20251110909V021004C",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "공학관305",
-          "day": "Fri",
-          "startTime": 900,
-          "endTime": 960
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "공학관305",
+        "day": "Fri",
+        "start_time": 900,
+        "end_time": 960
+      }
+    ],
+    "plan_code": "20251110909V021004C"
   },
   {
-    "courseId": "V021004-N",
-    "courseCode": "V021004",
-    "courseName": "안드로이드프로그래밍",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V021004-N",
+    "course_code": "V021004",
+    "course_name": "안드로이드프로그래밍",
+    "professor_name": "박필준",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "N",
+    "day_or_night": "night",
+    "class_section": "N",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "박필준",
-    "planCode": "20251110909V021004N",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관309",
-          "day": "Mon",
-          "startTime": 1080,
-          "endTime": 1200
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관309",
+        "day": "Mon",
+        "start_time": 1080,
+        "end_time": 1200
+      }
+    ],
+    "plan_code": "20251110909V021004N"
   },
   {
-    "courseId": "V020014-7",
-    "courseCode": "V020014",
-    "courseName": "운영체제",
-    "completionType": "전선",
-    "deliveryMethod": "대면수업",
+    "course_id": "V020014-7",
+    "course_code": "V020014",
+    "course_name": "운영체제",
+    "professor_name": "황기태",
+    "completion_type": "전선",
+    "delivery_method": "대면수업",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "7",
+    "day_or_night": "both",
+    "class_section": "7",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "황기태",
-    "planCode": "20251110108V0200147",
-    "sessionInfo": {
-      "online": 0,
-      "offline": [
-        {
-          "place": "미래관B104",
-          "day": "Wed",
-          "startTime": 900,
-          "endTime": 1080
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 0,
+    "offline_schedules": [
+      {
+        "place": "미래관B104",
+        "day": "Wed",
+        "start_time": 900,
+        "end_time": 1080
+      }
+    ],
+    "plan_code": "20251110108V0200147"
   },
   {
-    "courseId": "V020014-8",
-    "courseCode": "V020014",
-    "courseName": "운영체제",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020014-8",
+    "course_code": "V020014",
+    "course_name": "운영체제",
+    "professor_name": "황기태",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "8",
+    "day_or_night": "both",
+    "class_section": "8",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "황기태",
-    "planCode": "20251110108V0200148",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "미래관B104",
-          "day": "Tue",
-          "startTime": 900,
-          "endTime": 960
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "미래관B104",
+        "day": "Tue",
+        "start_time": 900,
+        "end_time": 960
+      }
+    ],
+    "plan_code": "20251110108V0200148"
   },
   {
-    "courseId": "V020014-9",
-    "courseCode": "V020014",
-    "courseName": "운영체제",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020014-9",
+    "course_code": "V020014",
+    "course_name": "운영체제",
+    "professor_name": "이찬수",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "9",
+    "day_or_night": "both",
+    "class_section": "9",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "이찬수",
-    "planCode": "20251511323V0200149",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "탐구관406",
-          "day": "Mon",
-          "startTime": 960,
-          "endTime": 1080
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "탐구관406",
+        "day": "Mon",
+        "start_time": 960,
+        "end_time": 1080
+      }
+    ],
+    "plan_code": "20251511323V0200149"
   },
   {
-    "courseId": "V020014-A",
-    "courseCode": "V020014",
-    "courseName": "운영체제",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020014-A",
+    "course_code": "V020014",
+    "course_name": "운영체제",
+    "professor_name": "황기태",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "A",
+    "day_or_night": "day",
+    "class_section": "A",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "황기태",
-    "planCode": "20251110108V020014A",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "미래관B104",
-          "day": "Tue",
-          "startTime": 600,
-          "endTime": 660
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "미래관B104",
+        "day": "Tue",
+        "start_time": 600,
+        "end_time": 660
+      }
+    ],
+    "plan_code": "20251110108V020014A"
   },
   {
-    "courseId": "V020014-B",
-    "courseCode": "V020014",
-    "courseName": "운영체제",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020014-B",
+    "course_code": "V020014",
+    "course_name": "운영체제",
+    "professor_name": "황기태",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "B",
+    "day_or_night": "day",
+    "class_section": "B",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "황기태",
-    "planCode": "20251110108V020014B",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "미래관B104",
-          "day": "Tue",
-          "startTime": 660,
-          "endTime": 720
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "미래관B104",
+        "day": "Tue",
+        "start_time": 660,
+        "end_time": 720
+      }
+    ],
+    "plan_code": "20251110108V020014B"
   },
   {
-    "courseId": "V020014-C",
-    "courseCode": "V020014",
-    "courseName": "운영체제",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020014-C",
+    "course_code": "V020014",
+    "course_name": "운영체제",
+    "professor_name": "김진환",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "C",
+    "day_or_night": "day",
+    "class_section": "C",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "김진환",
-    "planCode": "20251110114V020014C",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관201",
-          "day": "Mon",
-          "startTime": 540,
-          "endTime": 660
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관201",
+        "day": "Mon",
+        "start_time": 540,
+        "end_time": 660
+      }
+    ],
+    "plan_code": "20251110114V020014C"
   },
   {
-    "courseId": "V020014-N",
-    "courseCode": "V020014",
-    "courseName": "운영체제",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020014-N",
+    "course_code": "V020014",
+    "course_name": "운영체제",
+    "professor_name": "이찬수",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "N",
+    "day_or_night": "night",
+    "class_section": "N",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "이찬수",
-    "planCode": "20251511323V020014N",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "탐구관406",
-          "day": "Mon",
-          "startTime": 1080,
-          "endTime": 1200
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "탐구관406",
+        "day": "Mon",
+        "start_time": 1080,
+        "end_time": 1200
+      }
+    ],
+    "plan_code": "20251511323V020014N"
   },
   {
-    "courseId": "V024008-7",
-    "courseCode": "V024008",
-    "courseName": "웹공학 캡스톤디자인",
-    "completionType": "전필",
-    "deliveryMethod": "대면수업",
+    "course_id": "V024008-7",
+    "course_code": "V024008",
+    "course_name": "웹공학 캡스톤디자인",
+    "professor_name": "김성동,김남윤,심규현,유수진",
+    "completion_type": "전필",
+    "delivery_method": "대면수업",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "7",
+    "day_or_night": "both",
+    "class_section": "7",
     "grade": 4,
-    "gradeLimit": "0",
-    "professor": "김성동,김남윤,심규현,유수진",
-    "planCode": "20251110901V0240087",
-    "sessionInfo": {
-      "online": 0,
-      "offline": [
-        {
-          "place": "공학관202",
-          "day": "Sat",
-          "startTime": 720,
-          "endTime": 900
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 0,
+    "offline_schedules": [
+      {
+        "place": "공학관202",
+        "day": "Sat",
+        "start_time": 720,
+        "end_time": 900
+      }
+    ],
+    "plan_code": "20251110901V0240087"
   },
   {
-    "courseId": "V024008-8",
-    "courseCode": "V024008",
-    "courseName": "웹공학 캡스톤디자인",
-    "completionType": "전필",
-    "deliveryMethod": "대면수업",
+    "course_id": "V024008-8",
+    "course_code": "V024008",
+    "course_name": "웹공학 캡스톤디자인",
+    "professor_name": "김진환,박승현,송미화,유수진",
+    "completion_type": "전필",
+    "delivery_method": "대면수업",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "8",
+    "day_or_night": "both",
+    "class_section": "8",
     "grade": 4,
-    "gradeLimit": "0",
-    "professor": "김진환,박승현,송미화,유수진",
-    "planCode": "20251110901V0240088",
-    "sessionInfo": {
-      "online": 0,
-      "offline": [
-        {
-          "place": "공학관202",
-          "day": "Sat",
-          "startTime": 900,
-          "endTime": 1080
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 0,
+    "offline_schedules": [
+      {
+        "place": "공학관202",
+        "day": "Sat",
+        "start_time": 900,
+        "end_time": 1080
+      }
+    ],
+    "plan_code": "20251110901V0240088"
   },
   {
-    "courseId": "V024008-A",
-    "courseCode": "V024008",
-    "courseName": "웹공학 캡스톤디자인",
-    "completionType": "전필",
-    "deliveryMethod": "대면수업",
+    "course_id": "V024008-A",
+    "course_code": "V024008",
+    "course_name": "웹공학 캡스톤디자인",
+    "professor_name": "황기태,김남윤,송미화,유수진",
+    "completion_type": "전필",
+    "delivery_method": "대면수업",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "A",
+    "day_or_night": "day",
+    "class_section": "A",
     "grade": 4,
-    "gradeLimit": "0",
-    "professor": "황기태,김남윤,송미화,유수진",
-    "planCode": "20251110901V024008A",
-    "sessionInfo": {
-      "online": 0,
-      "offline": [
-        {
-          "place": "공학관202",
-          "day": "Sat",
-          "startTime": 540,
-          "endTime": 720
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 0,
+    "offline_schedules": [
+      {
+        "place": "공학관202",
+        "day": "Sat",
+        "start_time": 540,
+        "end_time": 720
+      }
+    ],
+    "plan_code": "20251110901V024008A"
   },
   {
-    "courseId": "V024008-N",
-    "courseCode": "V024008",
-    "courseName": "웹공학 캡스톤디자인",
-    "completionType": "전필",
-    "deliveryMethod": "대면수업",
+    "course_id": "V024008-N",
+    "course_code": "V024008",
+    "course_name": "웹공학 캡스톤디자인",
+    "professor_name": "김진환,김성동,심규현,송미화,유수진",
+    "completion_type": "전필",
+    "delivery_method": "대면수업",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "N",
+    "day_or_night": "night",
+    "class_section": "N",
     "grade": 4,
-    "gradeLimit": "0",
-    "professor": "김진환,김성동,심규현,송미화,유수진",
-    "planCode": "20251110901V024008N",
-    "sessionInfo": {
-      "online": 0,
-      "offline": [
-        {
-          "place": "공학관202",
-          "day": "Sat",
-          "startTime": 1080,
-          "endTime": 1260
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 0,
+    "offline_schedules": [
+      {
+        "place": "공학관202",
+        "day": "Sat",
+        "start_time": 1080,
+        "end_time": 1260
+      }
+    ],
+    "plan_code": "20251110901V024008N"
   },
   {
-    "courseId": "V024004-7",
-    "courseCode": "V024004",
-    "courseName": "웹서버프로그래밍",
-    "completionType": "전필",
-    "deliveryMethod": "대면수업",
+    "course_id": "V024004-7",
+    "course_code": "V024004",
+    "course_name": "웹서버프로그래밍",
+    "professor_name": "전원호",
+    "completion_type": "전필",
+    "delivery_method": "대면수업",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "7",
+    "day_or_night": "both",
+    "class_section": "7",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "전원호",
-    "planCode": "20251516127V0240047",
-    "sessionInfo": {
-      "online": 0,
-      "offline": [
-        {
-          "place": "공학관202",
-          "day": "Mon",
-          "startTime": 780,
-          "endTime": 1020
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 0,
+    "offline_schedules": [
+      {
+        "place": "공학관202",
+        "day": "Mon",
+        "start_time": 780,
+        "end_time": 1020
+      }
+    ],
+    "plan_code": "20251516127V0240047"
   },
   {
-    "courseId": "V024004-8",
-    "courseCode": "V024004",
-    "courseName": "웹서버프로그래밍",
-    "completionType": "전필",
-    "deliveryMethod": "BL",
+    "course_id": "V024004-8",
+    "course_code": "V024004",
+    "course_name": "웹서버프로그래밍",
+    "professor_name": "심규현",
+    "completion_type": "전필",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "8",
+    "day_or_night": "both",
+    "class_section": "8",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "심규현",
-    "planCode": "20251110878V0240048",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관202",
-          "day": "Wed",
-          "startTime": 1080,
-          "endTime": 1200
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관202",
+        "day": "Wed",
+        "start_time": 1080,
+        "end_time": 1200
+      }
+    ],
+    "plan_code": "20251110878V0240048"
   },
   {
-    "courseId": "V024004-A",
-    "courseCode": "V024004",
-    "courseName": "웹서버프로그래밍",
-    "completionType": "전필",
-    "deliveryMethod": "BL",
+    "course_id": "V024004-A",
+    "course_code": "V024004",
+    "course_name": "웹서버프로그래밍",
+    "professor_name": "심규현",
+    "completion_type": "전필",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "A",
+    "day_or_night": "day",
+    "class_section": "A",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "심규현",
-    "planCode": "20251110878V024004A",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관202",
-          "day": "Thu",
-          "startTime": 900,
-          "endTime": 1020
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관202",
+        "day": "Thu",
+        "start_time": 900,
+        "end_time": 1020
+      }
+    ],
+    "plan_code": "20251110878V024004A"
   },
   {
-    "courseId": "V024004-B",
-    "courseCode": "V024004",
-    "courseName": "웹서버프로그래밍",
-    "completionType": "전필",
-    "deliveryMethod": "BL",
+    "course_id": "V024004-B",
+    "course_code": "V024004",
+    "course_name": "웹서버프로그래밍",
+    "professor_name": "김진환",
+    "completion_type": "전필",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "B",
+    "day_or_night": "day",
+    "class_section": "B",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "김진환",
-    "planCode": "20251110114V024004B",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관309",
-          "day": "Mon",
-          "startTime": 780,
-          "endTime": 900
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관309",
+        "day": "Mon",
+        "start_time": 780,
+        "end_time": 900
+      }
+    ],
+    "plan_code": "20251110114V024004B"
   },
   {
-    "courseId": "V024004-N",
-    "courseCode": "V024004",
-    "courseName": "웹서버프로그래밍",
-    "completionType": "전필",
-    "deliveryMethod": "BL",
+    "course_id": "V024004-N",
+    "course_code": "V024004",
+    "course_name": "웹서버프로그래밍",
+    "professor_name": "심규현",
+    "completion_type": "전필",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "N",
+    "day_or_night": "night",
+    "class_section": "N",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "심규현",
-    "planCode": "20251110878V024004N",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관202",
-          "day": "Thu",
-          "startTime": 1080,
-          "endTime": 1200
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관202",
+        "day": "Thu",
+        "start_time": 1080,
+        "end_time": 1200
+      }
+    ],
+    "plan_code": "20251110878V024004N"
   },
   {
-    "courseId": "V024004-O",
-    "courseCode": "V024004",
-    "courseName": "웹서버프로그래밍",
-    "completionType": "전필",
-    "deliveryMethod": "대면수업",
+    "course_id": "V024004-O",
+    "course_code": "V024004",
+    "course_name": "웹서버프로그래밍",
+    "professor_name": "전원호",
+    "completion_type": "전필",
+    "delivery_method": "대면수업",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "O",
+    "day_or_night": "night",
+    "class_section": "O",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "전원호",
-    "planCode": "20251516127V024004O",
-    "sessionInfo": {
-      "online": 0,
-      "offline": [
-        {
-          "place": "공학관202",
-          "day": "Mon",
-          "startTime": 1080,
-          "endTime": 1260
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 0,
+    "offline_schedules": [
+      {
+        "place": "공학관202",
+        "day": "Mon",
+        "start_time": 1080,
+        "end_time": 1260
+      }
+    ],
+    "plan_code": "20251516127V024004O"
   },
   {
-    "courseId": "V024006-7",
-    "courseCode": "V024006",
-    "courseName": "웹프레임워크2",
-    "completionType": "전필",
-    "deliveryMethod": "BL",
+    "course_id": "V024006-7",
+    "course_code": "V024006",
+    "course_name": "웹프레임워크2",
+    "professor_name": "김남윤",
+    "completion_type": "전필",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "7",
+    "day_or_night": "both",
+    "class_section": "7",
     "grade": 4,
-    "gradeLimit": "0",
-    "professor": "김남윤",
-    "planCode": "20251110541V0240067",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "탐구관504",
-          "day": "Tue",
-          "startTime": 960,
-          "endTime": 1020
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "탐구관504",
+        "day": "Tue",
+        "start_time": 960,
+        "end_time": 1020
+      }
+    ],
+    "plan_code": "20251110541V0240067"
   },
   {
-    "courseId": "V024006-A",
-    "courseCode": "V024006",
-    "courseName": "웹프레임워크2",
-    "completionType": "전필",
-    "deliveryMethod": "BL",
+    "course_id": "V024006-A",
+    "course_code": "V024006",
+    "course_name": "웹프레임워크2",
+    "professor_name": "김남윤",
+    "completion_type": "전필",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "A",
+    "day_or_night": "day",
+    "class_section": "A",
     "grade": 4,
-    "gradeLimit": "0",
-    "professor": "김남윤",
-    "planCode": "20251110541V024006A",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "탐구관504",
-          "day": "Tue",
-          "startTime": 600,
-          "endTime": 660
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "탐구관504",
+        "day": "Tue",
+        "start_time": 600,
+        "end_time": 660
+      }
+    ],
+    "plan_code": "20251110541V024006A"
   },
   {
-    "courseId": "V024006-B",
-    "courseCode": "V024006",
-    "courseName": "웹프레임워크2",
-    "completionType": "전필",
-    "deliveryMethod": "BL",
+    "course_id": "V024006-B",
+    "course_code": "V024006",
+    "course_name": "웹프레임워크2",
+    "professor_name": "김남윤",
+    "completion_type": "전필",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "B",
+    "day_or_night": "day",
+    "class_section": "B",
     "grade": 4,
-    "gradeLimit": "0",
-    "professor": "김남윤",
-    "planCode": "20251110541V024006B",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "탐구관504",
-          "day": "Tue",
-          "startTime": 660,
-          "endTime": 720
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "탐구관504",
+        "day": "Tue",
+        "start_time": 660,
+        "end_time": 720
+      }
+    ],
+    "plan_code": "20251110541V024006B"
   },
   {
-    "courseId": "V024006-N",
-    "courseCode": "V024006",
-    "courseName": "웹프레임워크2",
-    "completionType": "전필",
-    "deliveryMethod": "BL",
+    "course_id": "V024006-N",
+    "course_code": "V024006",
+    "course_name": "웹프레임워크2",
+    "professor_name": "김남윤",
+    "completion_type": "전필",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "N",
+    "day_or_night": "night",
+    "class_section": "N",
     "grade": 4,
-    "gradeLimit": "0",
-    "professor": "김남윤",
-    "planCode": "20251110541V024006N",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "탐구관지하101",
-          "day": "Tue",
-          "startTime": 1080,
-          "endTime": 1140
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "탐구관지하101",
+        "day": "Tue",
+        "start_time": 1080,
+        "end_time": 1140
+      }
+    ],
+    "plan_code": "20251110541V024006N"
   },
   {
-    "courseId": "CTE0002-7",
-    "courseCode": "CTE0002",
-    "courseName": "웹프로그래밍기초",
-    "completionType": "전기",
-    "deliveryMethod": "BL",
+    "course_id": "CTE0002-7",
+    "course_code": "CTE0002",
+    "course_name": "웹프로그래밍기초",
+    "professor_name": "김민수",
+    "completion_type": "전기",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "7",
+    "day_or_night": "both",
+    "class_section": "7",
     "grade": 1,
-    "gradeLimit": "0",
-    "professor": "김민수",
-    "planCode": "20251110908CTE00027",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "미래관B107",
-          "day": "Mon",
-          "startTime": 960,
-          "endTime": 1080
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "미래관B107",
+        "day": "Mon",
+        "start_time": 960,
+        "end_time": 1080
+      }
+    ],
+    "plan_code": "20251110908CTE00027"
   },
   {
-    "courseId": "CTE0002-8",
-    "courseCode": "CTE0002",
-    "courseName": "웹프로그래밍기초",
-    "completionType": "전기",
-    "deliveryMethod": "BL",
+    "course_id": "CTE0002-8",
+    "course_code": "CTE0002",
+    "course_name": "웹프로그래밍기초",
+    "professor_name": "김민수",
+    "completion_type": "전기",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "8",
+    "day_or_night": "both",
+    "class_section": "8",
     "grade": 1,
-    "gradeLimit": "0",
-    "professor": "김민수",
-    "planCode": "20251110908CTE00028",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "미래관B107",
-          "day": "Mon",
-          "startTime": 840,
-          "endTime": 960
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "미래관B107",
+        "day": "Mon",
+        "start_time": 840,
+        "end_time": 960
+      }
+    ],
+    "plan_code": "20251110908CTE00028"
   },
   {
-    "courseId": "CTE0002-A",
-    "courseCode": "CTE0002",
-    "courseName": "웹프로그래밍기초",
-    "completionType": "전기",
-    "deliveryMethod": "BL",
+    "course_id": "CTE0002-A",
+    "course_code": "CTE0002",
+    "course_name": "웹프로그래밍기초",
+    "professor_name": "김민수",
+    "completion_type": "전기",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "A",
+    "day_or_night": "day",
+    "class_section": "A",
     "grade": 1,
-    "gradeLimit": "0",
-    "professor": "김민수",
-    "planCode": "20251110908CTE0002A",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "미래관B107",
-          "day": "Mon",
-          "startTime": 600,
-          "endTime": 720
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "미래관B107",
+        "day": "Mon",
+        "start_time": 600,
+        "end_time": 720
+      }
+    ],
+    "plan_code": "20251110908CTE0002A"
   },
   {
-    "courseId": "CTE0002-B",
-    "courseCode": "CTE0002",
-    "courseName": "웹프로그래밍기초",
-    "completionType": "전기",
-    "deliveryMethod": "BL",
+    "course_id": "CTE0002-B",
+    "course_code": "CTE0002",
+    "course_name": "웹프로그래밍기초",
+    "professor_name": "김민수",
+    "completion_type": "전기",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "B",
+    "day_or_night": "day",
+    "class_section": "B",
     "grade": 1,
-    "gradeLimit": "0",
-    "professor": "김민수",
-    "planCode": "20251110908CTE0002B",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "공학관202",
-          "day": "Tue",
-          "startTime": 600,
-          "endTime": 720
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "공학관202",
+        "day": "Tue",
+        "start_time": 600,
+        "end_time": 720
+      }
+    ],
+    "plan_code": "20251110908CTE0002B"
   },
   {
-    "courseId": "CTE0002-C",
-    "courseCode": "CTE0002",
-    "courseName": "웹프로그래밍기초",
-    "completionType": "전기",
-    "deliveryMethod": "BL",
+    "course_id": "CTE0002-C",
+    "course_code": "CTE0002",
+    "course_name": "웹프로그래밍기초",
+    "professor_name": "심철준",
+    "completion_type": "전기",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "C",
+    "day_or_night": "day",
+    "class_section": "C",
     "grade": 1,
-    "gradeLimit": "0",
-    "professor": "심철준",
-    "planCode": "20251516094CTE0002C",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "탐구관203",
-          "day": "Mon",
-          "startTime": 960,
-          "endTime": 1080
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "탐구관203",
+        "day": "Mon",
+        "start_time": 960,
+        "end_time": 1080
+      }
+    ],
+    "plan_code": "20251516094CTE0002C"
   },
   {
-    "courseId": "CTE0002-N",
-    "courseCode": "CTE0002",
-    "courseName": "웹프로그래밍기초",
-    "completionType": "전기",
-    "deliveryMethod": "BL",
+    "course_id": "CTE0002-N",
+    "course_code": "CTE0002",
+    "course_name": "웹프로그래밍기초",
+    "professor_name": "심철준",
+    "completion_type": "전기",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "N",
+    "day_or_night": "night",
+    "class_section": "N",
     "grade": 1,
-    "gradeLimit": "0",
-    "professor": "심철준",
-    "planCode": "20251516094CTE0002N",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "탐구관203",
-          "day": "Mon",
-          "startTime": 1080,
-          "endTime": 1200
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "탐구관203",
+        "day": "Mon",
+        "start_time": 1080,
+        "end_time": 1200
+      }
+    ],
+    "plan_code": "20251516094CTE0002N"
   },
   {
-    "courseId": "V020002-7",
-    "courseCode": "V020002",
-    "courseName": "자료구조",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020002-7",
+    "course_code": "V020002",
+    "course_name": "자료구조",
+    "professor_name": "권영미",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "7",
+    "day_or_night": "both",
+    "class_section": "7",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "권영미",
-    "planCode": "20251110089V0200027",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "공학관201",
-          "day": "Tue",
-          "startTime": 900,
-          "endTime": 960
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "공학관201",
+        "day": "Tue",
+        "start_time": 900,
+        "end_time": 960
+      }
+    ],
+    "plan_code": "20251110089V0200027"
   },
   {
-    "courseId": "V020002-A",
-    "courseCode": "V020002",
-    "courseName": "자료구조",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020002-A",
+    "course_code": "V020002",
+    "course_name": "자료구조",
+    "professor_name": "강희중",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "A",
+    "day_or_night": "day",
+    "class_section": "A",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "강희중",
-    "planCode": "20251110518V020002A",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관305",
-          "day": "Wed",
-          "startTime": 780,
-          "endTime": 900
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관305",
+        "day": "Wed",
+        "start_time": 780,
+        "end_time": 900
+      }
+    ],
+    "plan_code": "20251110518V020002A"
   },
   {
-    "courseId": "V020002-B",
-    "courseCode": "V020002",
-    "courseName": "자료구조",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020002-B",
+    "course_code": "V020002",
+    "course_name": "자료구조",
+    "professor_name": "권영미",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "B",
+    "day_or_night": "day",
+    "class_section": "B",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "권영미",
-    "planCode": "20251110089V020002B",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "공학관201",
-          "day": "Tue",
-          "startTime": 660,
-          "endTime": 720
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "공학관201",
+        "day": "Tue",
+        "start_time": 660,
+        "end_time": 720
+      }
+    ],
+    "plan_code": "20251110089V020002B"
   },
   {
-    "courseId": "V020002-C",
-    "courseCode": "V020002",
-    "courseName": "자료구조",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020002-C",
+    "course_code": "V020002",
+    "course_name": "자료구조",
+    "professor_name": "권영미",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "C",
+    "day_or_night": "day",
+    "class_section": "C",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "권영미",
-    "planCode": "20251110089V020002C",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "공학관201",
-          "day": "Tue",
-          "startTime": 720,
-          "endTime": 780
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "공학관201",
+        "day": "Tue",
+        "start_time": 720,
+        "end_time": 780
+      }
+    ],
+    "plan_code": "20251110089V020002C"
   },
   {
-    "courseId": "V020002-D",
-    "courseCode": "V020002",
-    "courseName": "자료구조",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020002-D",
+    "course_code": "V020002",
+    "course_name": "자료구조",
+    "professor_name": "김민수",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "D",
+    "day_or_night": "day",
+    "class_section": "D",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "김민수",
-    "planCode": "20251110908V020002D",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "탐구관203",
-          "day": "Tue",
-          "startTime": 900,
-          "endTime": 960
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "탐구관203",
+        "day": "Tue",
+        "start_time": 900,
+        "end_time": 960
+      }
+    ],
+    "plan_code": "20251110908V020002D"
   },
   {
-    "courseId": "V020002-E",
-    "courseCode": "V020002",
-    "courseName": "자료구조",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020002-E",
+    "course_code": "V020002",
+    "course_name": "자료구조",
+    "professor_name": "유상미",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "E",
+    "day_or_night": "day",
+    "class_section": "E",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "유상미",
-    "planCode": "20251110689V020002E",
-    "sessionInfo": {
-      "online": 1,
-      "offline": [
-        {
-          "place": "공학관202",
-          "day": "Tue",
-          "startTime": 900,
-          "endTime": 1020
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1,
+    "offline_schedules": [
+      {
+        "place": "공학관202",
+        "day": "Tue",
+        "start_time": 900,
+        "end_time": 1020
+      }
+    ],
+    "plan_code": "20251110689V020002E"
   },
   {
-    "courseId": "V020002-N",
-    "courseCode": "V020002",
-    "courseName": "자료구조",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020002-N",
+    "course_code": "V020002",
+    "course_name": "자료구조",
+    "professor_name": "강희중",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "N",
+    "day_or_night": "night",
+    "class_section": "N",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "강희중",
-    "planCode": "20251110518V020002N",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관305",
-          "day": "Wed",
-          "startTime": 1080,
-          "endTime": 1200
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관305",
+        "day": "Wed",
+        "start_time": 1080,
+        "end_time": 1200
+      }
+    ],
+    "plan_code": "20251110518V020002N"
   },
   {
-    "courseId": "V020002-P",
-    "courseCode": "V020002",
-    "courseName": "자료구조",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020002-P",
+    "course_code": "V020002",
+    "course_name": "자료구조",
+    "professor_name": "유상미",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "P",
+    "day_or_night": "night",
+    "class_section": "P",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "유상미",
-    "planCode": "20251110689V020002P",
-    "sessionInfo": {
-      "online": 1,
-      "offline": [
-        {
-          "place": "공학관305",
-          "day": "Tue",
-          "startTime": 1080,
-          "endTime": 1200
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1,
+    "offline_schedules": [
+      {
+        "place": "공학관305",
+        "day": "Tue",
+        "start_time": 1080,
+        "end_time": 1200
+      }
+    ],
+    "plan_code": "20251110689V020002P"
   },
   {
-    "courseId": "V020020-A",
-    "courseCode": "V020020",
-    "courseName": "정보보안",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020020-A",
+    "course_code": "V020020",
+    "course_name": "정보보안",
+    "professor_name": "박승현",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "A",
+    "day_or_night": "day",
+    "class_section": "A",
     "grade": 4,
-    "gradeLimit": "0",
-    "professor": "박승현",
-    "planCode": "20251110858V020020A",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "상상관204",
-          "day": "Mon",
-          "startTime": 900,
-          "endTime": 1020
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "상상관204",
+        "day": "Mon",
+        "start_time": 900,
+        "end_time": 1020
+      }
+    ],
+    "plan_code": "20251110858V020020A"
   },
   {
-    "courseId": "V020020-B",
-    "courseCode": "V020020",
-    "courseName": "정보보안",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020020-B",
+    "course_code": "V020020",
+    "course_name": "정보보안",
+    "professor_name": "박승현",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "B",
+    "day_or_night": "day",
+    "class_section": "B",
     "grade": 4,
-    "gradeLimit": "0",
-    "professor": "박승현",
-    "planCode": "20251110858V020020B",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "상상관204",
-          "day": "Mon",
-          "startTime": 960,
-          "endTime": 1080
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "상상관204",
+        "day": "Mon",
+        "start_time": 960,
+        "end_time": 1080
+      }
+    ],
+    "plan_code": "20251110858V020020B"
   },
   {
-    "courseId": "V020020-N",
-    "courseCode": "V020020",
-    "courseName": "정보보안",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020020-N",
+    "course_code": "V020020",
+    "course_name": "정보보안",
+    "professor_name": "박승현",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "N",
+    "day_or_night": "night",
+    "class_section": "N",
     "grade": 4,
-    "gradeLimit": "0",
-    "professor": "박승현",
-    "planCode": "20251110858V020020N",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "상상관203",
-          "day": "Mon",
-          "startTime": 1140,
-          "endTime": 1260
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "상상관203",
+        "day": "Mon",
+        "start_time": 1140,
+        "end_time": 1260
+      }
+    ],
+    "plan_code": "20251110858V020020N"
   },
   {
-    "courseId": "V020028-A",
-    "courseCode": "V020028",
-    "courseName": "취창업 세미나",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020028-A",
+    "course_code": "V020028",
+    "course_name": "취창업 세미나",
+    "professor_name": "이동희",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "A",
+    "day_or_night": "day",
+    "class_section": "A",
     "grade": 4,
-    "gradeLimit": "0",
-    "professor": "이동희",
-    "planCode": "20251110759V020028A",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관305",
-          "day": "Thu",
-          "startTime": 900,
-          "endTime": 1020
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관305",
+        "day": "Thu",
+        "start_time": 900,
+        "end_time": 1020
+      }
+    ],
+    "plan_code": "20251110759V020028A"
   },
   {
-    "courseId": "V020028-N",
-    "courseCode": "V020028",
-    "courseName": "취창업 세미나",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020028-N",
+    "course_code": "V020028",
+    "course_name": "취창업 세미나",
+    "professor_name": "이동희",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "N",
+    "day_or_night": "night",
+    "class_section": "N",
     "grade": 4,
-    "gradeLimit": "0",
-    "professor": "이동희",
-    "planCode": "20251110759V020028N",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관305",
-          "day": "Thu",
-          "startTime": 1080,
-          "endTime": 1200
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관305",
+        "day": "Thu",
+        "start_time": 1080,
+        "end_time": 1200
+      }
+    ],
+    "plan_code": "20251110759V020028N"
   },
   {
-    "courseId": "V020022-7",
-    "courseCode": "V020022",
-    "courseName": "컴파일러",
-    "completionType": "전선",
-    "deliveryMethod": "대면수업",
+    "course_id": "V020022-7",
+    "course_code": "V020022",
+    "course_name": "컴파일러",
+    "professor_name": "김성동",
+    "completion_type": "전선",
+    "delivery_method": "대면수업",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "7",
+    "day_or_night": "both",
+    "class_section": "7",
     "grade": 4,
-    "gradeLimit": "0",
-    "professor": "김성동",
-    "planCode": "20251110528V0200227",
-    "sessionInfo": {
-      "online": 0,
-      "offline": [
-        {
-          "place": "탐구관307",
-          "day": "Thu",
-          "startTime": 900,
-          "endTime": 1080
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 0,
+    "offline_schedules": [
+      {
+        "place": "탐구관307",
+        "day": "Thu",
+        "start_time": 900,
+        "end_time": 1080
+      }
+    ],
+    "plan_code": "20251110528V0200227"
   },
   {
-    "courseId": "V020003-7",
-    "courseCode": "V020003",
-    "courseName": "컴퓨터구조",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020003-7",
+    "course_code": "V020003",
+    "course_name": "컴퓨터구조",
+    "professor_name": "황호영",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "7",
+    "day_or_night": "both",
+    "class_section": "7",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "황호영",
-    "planCode": "20251110590V0200037",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "미래관B104",
-          "day": "Fri",
-          "startTime": 900,
-          "endTime": 960
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "미래관B104",
+        "day": "Fri",
+        "start_time": 900,
+        "end_time": 960
+      }
+    ],
+    "plan_code": "20251110590V0200037"
   },
   {
-    "courseId": "V020003-A",
-    "courseCode": "V020003",
-    "courseName": "컴퓨터구조",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020003-A",
+    "course_code": "V020003",
+    "course_name": "컴퓨터구조",
+    "professor_name": "황호영",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "A",
+    "day_or_night": "day",
+    "class_section": "A",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "황호영",
-    "planCode": "20251110590V020003A",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "미래관B104",
-          "day": "Fri",
-          "startTime": 600,
-          "endTime": 660
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "미래관B104",
+        "day": "Fri",
+        "start_time": 600,
+        "end_time": 660
+      }
+    ],
+    "plan_code": "20251110590V020003A"
   },
   {
-    "courseId": "V020003-B",
-    "courseCode": "V020003",
-    "courseName": "컴퓨터구조",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020003-B",
+    "course_code": "V020003",
+    "course_name": "컴퓨터구조",
+    "professor_name": "황호영",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "B",
+    "day_or_night": "day",
+    "class_section": "B",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "황호영",
-    "planCode": "20251110590V020003B",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "미래관B104",
-          "day": "Fri",
-          "startTime": 660,
-          "endTime": 720
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "미래관B104",
+        "day": "Fri",
+        "start_time": 660,
+        "end_time": 720
+      }
+    ],
+    "plan_code": "20251110590V020003B"
   },
   {
-    "courseId": "V020003-C",
-    "courseCode": "V020003",
-    "courseName": "컴퓨터구조",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020003-C",
+    "course_code": "V020003",
+    "course_name": "컴퓨터구조",
+    "professor_name": "황호영",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "C",
+    "day_or_night": "day",
+    "class_section": "C",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "황호영",
-    "planCode": "20251110590V020003C",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "미래관B104",
-          "day": "Fri",
-          "startTime": 840,
-          "endTime": 900
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "미래관B104",
+        "day": "Fri",
+        "start_time": 840,
+        "end_time": 900
+      }
+    ],
+    "plan_code": "20251110590V020003C"
   },
   {
-    "courseId": "V020003-D",
-    "courseCode": "V020003",
-    "courseName": "컴퓨터구조",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020003-D",
+    "course_code": "V020003",
+    "course_name": "컴퓨터구조",
+    "professor_name": "김동욱",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "D",
+    "day_or_night": "day",
+    "class_section": "D",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "김동욱",
-    "planCode": "20251516112V020003D",
-    "sessionInfo": {
-      "online": 1,
-      "offline": [
-        {
-          "place": "공학관305",
-          "day": "Tue",
-          "startTime": 900,
-          "endTime": 1020
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1,
+    "offline_schedules": [
+      {
+        "place": "공학관305",
+        "day": "Tue",
+        "start_time": 900,
+        "end_time": 1020
+      }
+    ],
+    "plan_code": "20251516112V020003D"
   },
   {
-    "courseId": "V020003-N",
-    "courseCode": "V020003",
-    "courseName": "컴퓨터구조",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020003-N",
+    "course_code": "V020003",
+    "course_name": "컴퓨터구조",
+    "professor_name": "김동욱",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "N",
+    "day_or_night": "night",
+    "class_section": "N",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "김동욱",
-    "planCode": "20251516112V020003N",
-    "sessionInfo": {
-      "online": 1,
-      "offline": [
-        {
-          "place": "공학관201",
-          "day": "Tue",
-          "startTime": 1080,
-          "endTime": 1200
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1,
+    "offline_schedules": [
+      {
+        "place": "공학관201",
+        "day": "Tue",
+        "start_time": 1080,
+        "end_time": 1200
+      }
+    ],
+    "plan_code": "20251516112V020003N"
   },
   {
-    "courseId": "V020015-7",
-    "courseCode": "V020015",
-    "courseName": "컴퓨터그래픽스",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020015-7",
+    "course_code": "V020015",
+    "course_name": "컴퓨터그래픽스",
+    "professor_name": "계희원",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "7",
+    "day_or_night": "both",
+    "class_section": "7",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "계희원",
-    "planCode": "20251110595V0200157",
-    "sessionInfo": {
-      "online": 1,
-      "offline": [
-        {
-          "place": "상상관304",
-          "day": "Tue",
-          "startTime": 960,
-          "endTime": 1080
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1,
+    "offline_schedules": [
+      {
+        "place": "상상관304",
+        "day": "Tue",
+        "start_time": 960,
+        "end_time": 1080
+      }
+    ],
+    "plan_code": "20251110595V0200157"
   },
   {
-    "courseId": "V020015-A",
-    "courseCode": "V020015",
-    "courseName": "컴퓨터그래픽스",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020015-A",
+    "course_code": "V020015",
+    "course_name": "컴퓨터그래픽스",
+    "professor_name": "이지은",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "A",
+    "day_or_night": "day",
+    "class_section": "A",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "이지은",
-    "planCode": "20251110790V020015A",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관202",
-          "day": "Thu",
-          "startTime": 780,
-          "endTime": 900
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관202",
+        "day": "Thu",
+        "start_time": 780,
+        "end_time": 900
+      }
+    ],
+    "plan_code": "20251110790V020015A"
   },
   {
-    "courseId": "V020015-B",
-    "courseCode": "V020015",
-    "courseName": "컴퓨터그래픽스",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020015-B",
+    "course_code": "V020015",
+    "course_name": "컴퓨터그래픽스",
+    "professor_name": "계희원",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "B",
+    "day_or_night": "day",
+    "class_section": "B",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "계희원",
-    "planCode": "20251110595V020015B",
-    "sessionInfo": {
-      "online": 1,
-      "offline": [
-        {
-          "place": "공학관309",
-          "day": "Tue",
-          "startTime": 600,
-          "endTime": 720
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1,
+    "offline_schedules": [
+      {
+        "place": "공학관309",
+        "day": "Tue",
+        "start_time": 600,
+        "end_time": 720
+      }
+    ],
+    "plan_code": "20251110595V020015B"
   },
   {
-    "courseId": "V020015-N",
-    "courseCode": "V020015",
-    "courseName": "컴퓨터그래픽스",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020015-N",
+    "course_code": "V020015",
+    "course_name": "컴퓨터그래픽스",
+    "professor_name": "계희원",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "N",
+    "day_or_night": "night",
+    "class_section": "N",
     "grade": 3,
-    "gradeLimit": "0",
-    "professor": "계희원",
-    "planCode": "20251110595V020015N",
-    "sessionInfo": {
-      "online": 1,
-      "offline": [
-        {
-          "place": "공학관202",
-          "day": "Tue",
-          "startTime": 1140,
-          "endTime": 1260
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1,
+    "offline_schedules": [
+      {
+        "place": "공학관202",
+        "day": "Tue",
+        "start_time": 1140,
+        "end_time": 1260
+      }
+    ],
+    "plan_code": "20251110595V020015N"
   },
   {
-    "courseId": "V020004-7",
-    "courseCode": "V020004",
-    "courseName": "프로그래밍랩",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020004-7",
+    "course_code": "V020004",
+    "course_name": "프로그래밍랩",
+    "professor_name": "강희중",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "7",
+    "day_or_night": "both",
+    "class_section": "7",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "강희중",
-    "planCode": "20251110518V0200047",
-    "sessionInfo": {
-      "online": 1,
-      "offline": [
-        {
-          "place": "공학관309",
-          "day": "Tue",
-          "startTime": 900,
-          "endTime": 1020
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1,
+    "offline_schedules": [
+      {
+        "place": "공학관309",
+        "day": "Tue",
+        "start_time": 900,
+        "end_time": 1020
+      }
+    ],
+    "plan_code": "20251110518V0200047"
   },
   {
-    "courseId": "V020004-A",
-    "courseCode": "V020004",
-    "courseName": "프로그래밍랩",
-    "completionType": "전선",
-    "deliveryMethod": "대면수업",
+    "course_id": "V020004-A",
+    "course_code": "V020004",
+    "course_name": "프로그래밍랩",
+    "professor_name": "정인환",
+    "completion_type": "전선",
+    "delivery_method": "대면수업",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "A",
+    "day_or_night": "day",
+    "class_section": "A",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "정인환",
-    "planCode": "20251110527V020004A",
-    "sessionInfo": {
-      "online": 0,
-      "offline": [
-        {
-          "place": "공학관202",
-          "day": "Mon",
-          "startTime": 540,
-          "endTime": 720
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 0,
+    "offline_schedules": [
+      {
+        "place": "공학관202",
+        "day": "Mon",
+        "start_time": 540,
+        "end_time": 720
+      }
+    ],
+    "plan_code": "20251110527V020004A"
   },
   {
-    "courseId": "V020004-B",
-    "courseCode": "V020004",
-    "courseName": "프로그래밍랩",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020004-B",
+    "course_code": "V020004",
+    "course_name": "프로그래밍랩",
+    "professor_name": "강희중",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "B",
+    "day_or_night": "day",
+    "class_section": "B",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "강희중",
-    "planCode": "20251110518V020004B",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관305",
-          "day": "Wed",
-          "startTime": 900,
-          "endTime": 1020
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관305",
+        "day": "Wed",
+        "start_time": 900,
+        "end_time": 1020
+      }
+    ],
+    "plan_code": "20251110518V020004B"
   },
   {
-    "courseId": "V020004-C",
-    "courseCode": "V020004",
-    "courseName": "프로그래밍랩",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020004-C",
+    "course_code": "V020004",
+    "course_name": "프로그래밍랩",
+    "professor_name": "강희중",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "C",
+    "day_or_night": "day",
+    "class_section": "C",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "강희중",
-    "planCode": "20251110518V020004C",
-    "sessionInfo": {
-      "online": 1,
-      "offline": [
-        {
-          "place": "공학관305",
-          "day": "Tue",
-          "startTime": 780,
-          "endTime": 900
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1,
+    "offline_schedules": [
+      {
+        "place": "공학관305",
+        "day": "Tue",
+        "start_time": 780,
+        "end_time": 900
+      }
+    ],
+    "plan_code": "20251110518V020004C"
   },
   {
-    "courseId": "V020004-N",
-    "courseCode": "V020004",
-    "courseName": "프로그래밍랩",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020004-N",
+    "course_code": "V020004",
+    "course_name": "프로그래밍랩",
+    "professor_name": "강희중",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "N",
+    "day_or_night": "night",
+    "class_section": "N",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "강희중",
-    "planCode": "20251110518V020004N",
-    "sessionInfo": {
-      "online": 1,
-      "offline": [
-        {
-          "place": "공학관309",
-          "day": "Tue",
-          "startTime": 1080,
-          "endTime": 1200
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1,
+    "offline_schedules": [
+      {
+        "place": "공학관309",
+        "day": "Tue",
+        "start_time": 1080,
+        "end_time": 1200
+      }
+    ],
+    "plan_code": "20251110518V020004N"
   },
   {
-    "courseId": "V020005-7",
-    "courseCode": "V020005",
-    "courseName": "프로그래밍언어론",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020005-7",
+    "course_code": "V020005",
+    "course_name": "프로그래밍언어론",
+    "professor_name": "김성동",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "7",
+    "day_or_night": "both",
+    "class_section": "7",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "김성동",
-    "planCode": "20251110528V0200057",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관201",
-          "day": "Mon",
-          "startTime": 900,
-          "endTime": 1020
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관201",
+        "day": "Mon",
+        "start_time": 900,
+        "end_time": 1020
+      }
+    ],
+    "plan_code": "20251110528V0200057"
   },
   {
-    "courseId": "V020005-8",
-    "courseCode": "V020005",
-    "courseName": "프로그래밍언어론",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020005-8",
+    "course_code": "V020005",
+    "course_name": "프로그래밍언어론",
+    "professor_name": "김인희",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "8",
+    "day_or_night": "both",
+    "class_section": "8",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "김인희",
-    "planCode": "20251514333V0200058",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관201",
-          "day": "Thu",
-          "startTime": 900,
-          "endTime": 1020
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관201",
+        "day": "Thu",
+        "start_time": 900,
+        "end_time": 1020
+      }
+    ],
+    "plan_code": "20251514333V0200058"
   },
   {
-    "courseId": "V020005-9",
-    "courseCode": "V020005",
-    "courseName": "프로그래밍언어론",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020005-9",
+    "course_code": "V020005",
+    "course_name": "프로그래밍언어론",
+    "professor_name": "김인희",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "9",
+    "day_or_night": "both",
+    "class_section": "9",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "김인희",
-    "planCode": "20251514333V0200059",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관201",
-          "day": "Thu",
-          "startTime": 960,
-          "endTime": 1080
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관201",
+        "day": "Thu",
+        "start_time": 960,
+        "end_time": 1080
+      }
+    ],
+    "plan_code": "20251514333V0200059"
   },
   {
-    "courseId": "V020005-A",
-    "courseCode": "V020005",
-    "courseName": "프로그래밍언어론",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020005-A",
+    "course_code": "V020005",
+    "course_name": "프로그래밍언어론",
+    "professor_name": "김성동",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "A",
+    "day_or_night": "day",
+    "class_section": "A",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "김성동",
-    "planCode": "20251110528V020005A",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관201",
-          "day": "Mon",
-          "startTime": 600,
-          "endTime": 720
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관201",
+        "day": "Mon",
+        "start_time": 600,
+        "end_time": 720
+      }
+    ],
+    "plan_code": "20251110528V020005A"
   },
   {
-    "courseId": "V020005-B",
-    "courseCode": "V020005",
-    "courseName": "프로그래밍언어론",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020005-B",
+    "course_code": "V020005",
+    "course_name": "프로그래밍언어론",
+    "professor_name": "김성동",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "B",
+    "day_or_night": "day",
+    "class_section": "B",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "김성동",
-    "planCode": "20251110528V020005B",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관201",
-          "day": "Mon",
-          "startTime": 780,
-          "endTime": 900
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관201",
+        "day": "Mon",
+        "start_time": 780,
+        "end_time": 900
+      }
+    ],
+    "plan_code": "20251110528V020005B"
   },
   {
-    "courseId": "V020005-C",
-    "courseCode": "V020005",
-    "courseName": "프로그래밍언어론",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020005-C",
+    "course_code": "V020005",
+    "course_name": "프로그래밍언어론",
+    "professor_name": "김성동",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "C",
+    "day_or_night": "day",
+    "class_section": "C",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "김성동",
-    "planCode": "20251110528V020005C",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관201",
-          "day": "Thu",
-          "startTime": 600,
-          "endTime": 720
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관201",
+        "day": "Thu",
+        "start_time": 600,
+        "end_time": 720
+      }
+    ],
+    "plan_code": "20251110528V020005C"
   },
   {
-    "courseId": "V020005-N",
-    "courseCode": "V020005",
-    "courseName": "프로그래밍언어론",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020005-N",
+    "course_code": "V020005",
+    "course_name": "프로그래밍언어론",
+    "professor_name": "김인희",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "N",
+    "day_or_night": "night",
+    "class_section": "N",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "김인희",
-    "planCode": "20251514333V020005N",
-    "sessionInfo": {
-      "online": 1.5,
-      "offline": [
-        {
-          "place": "공학관201",
-          "day": "Thu",
-          "startTime": 1080,
-          "endTime": 1200
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 1.5,
+    "offline_schedules": [
+      {
+        "place": "공학관201",
+        "day": "Thu",
+        "start_time": 1080,
+        "end_time": 1200
+      }
+    ],
+    "plan_code": "20251514333V020005N"
   },
   {
-    "courseId": "V020006-7",
-    "courseCode": "V020006",
-    "courseName": "확률및통계",
-    "completionType": "전선",
-    "deliveryMethod": "대면수업",
+    "course_id": "V020006-7",
+    "course_code": "V020006",
+    "course_name": "확률및통계",
+    "professor_name": "임선집",
+    "completion_type": "전선",
+    "delivery_method": "대면수업",
     "credit": 3,
-    "dayOrNight": "both",
-    "classSection": "7",
+    "day_or_night": "both",
+    "class_section": "7",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "임선집",
-    "planCode": "20251516043V0200067",
-    "sessionInfo": {
-      "online": 0,
-      "offline": [
-        {
-          "place": "탐구관301",
-          "day": "Tue",
-          "startTime": 600,
-          "endTime": 780
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 0,
+    "offline_schedules": [
+      {
+        "place": "탐구관301",
+        "day": "Tue",
+        "start_time": 600,
+        "end_time": 780
+      }
+    ],
+    "plan_code": "20251516043V0200067"
   },
   {
-    "courseId": "V020006-A",
-    "courseCode": "V020006",
-    "courseName": "확률및통계",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020006-A",
+    "course_code": "V020006",
+    "course_name": "확률및통계",
+    "professor_name": "엄종석",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "A",
+    "day_or_night": "day",
+    "class_section": "A",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "엄종석",
-    "planCode": "20251516185V020006A",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "탐구관205",
-          "day": "Tue",
-          "startTime": 600,
-          "endTime": 660
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "탐구관205",
+        "day": "Tue",
+        "start_time": 600,
+        "end_time": 660
+      }
+    ],
+    "plan_code": "20251516185V020006A"
   },
   {
-    "courseId": "V020006-B",
-    "courseCode": "V020006",
-    "courseName": "확률및통계",
-    "completionType": "전선",
-    "deliveryMethod": "BL",
+    "course_id": "V020006-B",
+    "course_code": "V020006",
+    "course_name": "확률및통계",
+    "professor_name": "엄종석",
+    "completion_type": "전선",
+    "delivery_method": "BL",
     "credit": 3,
-    "dayOrNight": "day",
-    "classSection": "B",
+    "day_or_night": "day",
+    "class_section": "B",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "엄종석",
-    "planCode": "20251516185V020006B",
-    "sessionInfo": {
-      "online": 2,
-      "offline": [
-        {
-          "place": "탐구관203",
-          "day": "Tue",
-          "startTime": 660,
-          "endTime": 720
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 2,
+    "offline_schedules": [
+      {
+        "place": "탐구관203",
+        "day": "Tue",
+        "start_time": 660,
+        "end_time": 720
+      }
+    ],
+    "plan_code": "20251516185V020006B"
   },
   {
-    "courseId": "V020006-N",
-    "courseCode": "V020006",
-    "courseName": "확률및통계",
-    "completionType": "전선",
-    "deliveryMethod": "대면수업",
+    "course_id": "V020006-N",
+    "course_code": "V020006",
+    "course_name": "확률및통계",
+    "professor_name": "임선집",
+    "completion_type": "전선",
+    "delivery_method": "대면수업",
     "credit": 3,
-    "dayOrNight": "night",
-    "classSection": "N",
+    "day_or_night": "night",
+    "class_section": "N",
     "grade": 2,
-    "gradeLimit": "0",
-    "professor": "임선집",
-    "planCode": "20251516043V020006N",
-    "sessionInfo": {
-      "online": 0,
-      "offline": [
-        {
-          "place": "공학관201",
-          "day": "Tue",
-          "startTime": 1200,
-          "endTime": 1380
-        }
-      ]
-    }
+    "grade_limit": null,
+    "online_min": 0,
+    "offline_schedules": [
+      {
+        "place": "공학관201",
+        "day": "Tue",
+        "start_time": 1200,
+        "end_time": 1380
+      }
+    ],
+    "plan_code": "20251516043V020006N"
   }
 ]

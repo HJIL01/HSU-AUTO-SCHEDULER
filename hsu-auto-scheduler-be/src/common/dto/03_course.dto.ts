@@ -1,5 +1,7 @@
 import { Type } from 'class-transformer';
 import {
+  ArrayNotEmpty,
+  IsArray,
   IsEnum,
   IsNotEmpty,
   IsNumber,
@@ -13,6 +15,10 @@ import { OfflineScheduleDto } from './04_offline-schedule.dto';
 export class CourseDto {
   @IsString()
   @IsNotEmpty()
+  semester_id: string;
+
+  @IsString()
+  @IsNotEmpty()
   course_id: string;
 
   @IsString()
@@ -23,9 +29,11 @@ export class CourseDto {
   @IsNotEmpty()
   course_name: string;
 
-  @IsString()
-  @IsNotEmpty()
-  professor_name: string;
+  @IsArray()
+  @ArrayNotEmpty()
+  @IsString({ each: true })
+  @IsNotEmpty({ each: true })
+  professor_names: string[];
 
   @IsString()
   @IsNotEmpty()

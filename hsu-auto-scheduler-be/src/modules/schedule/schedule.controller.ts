@@ -1,17 +1,13 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { ScheduleConstraintsService } from './schedule-constraints.service';
 import { ConstraintsDto } from './dto/constraints.dto';
+import { ScheduleService } from './schedule.service';
 
 @Controller('schedule-constraints')
-export class ScheduleConstraintsController {
-  constructor(
-    private readonly scheduleConstraintsService: ScheduleConstraintsService,
-  ) {}
+export class ScheduleController {
+  constructor(private readonly scheduleService: ScheduleService) {}
 
   @Post()
   handleScheduleConstaraints(@Body() constaraints: ConstraintsDto) {
-    return this.scheduleConstraintsService.filterDataAndPostConstraints(
-      constaraints,
-    );
+    return this.scheduleService.filterDataAndPostConstraints(constaraints);
   }
 }

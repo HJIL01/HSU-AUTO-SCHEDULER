@@ -6,13 +6,16 @@ import {
   OneToMany,
   PrimaryColumn,
 } from 'typeorm';
-import { OfflineScheduleEntity } from './04_offlineSchedule.entity';
+import { OfflineScheduleEntity } from './05_offlineSchedule.entity';
 import { SemesterEntity } from './01_semester.entity';
-import { MajorEntity } from './02_major.entity';
 import { DayOrNightEnum } from '../enums/dayOrNight.enum';
+import { MajorCourseEntity } from './06_major_course.entity';
 
 @Entity('course')
 export class CourseEntity {
+  @Column()
+  semester_id: string;
+
   @PrimaryColumn()
   course_id: string;
 
@@ -22,8 +25,8 @@ export class CourseEntity {
   @Column()
   course_name: string;
 
-  @Column()
-  professor_name: string;
+  @Column('json')
+  professor_names: string[];
 
   @Column()
   completion_type: string;
@@ -55,23 +58,16 @@ export class CourseEntity {
   @Column({ type: 'varchar', length: 255, nullable: true })
   plan_code: string | null;
 
-  @Column()
-  semester_id: string;
-
-  @Column()
-  major_code: string;
-
   @ManyToOne(() => SemesterEntity, (semester) => semester.courses)
   @JoinColumn({ name: 'semester_id' })
   semester: SemesterEntity;
-
-  @ManyToOne(() => MajorEntity, (major) => major.courses)
-  @JoinColumn({ name: 'major_code' })
-  major: MajorEntity;
 
   @OneToMany(
     () => OfflineScheduleEntity,
     (offline_schedule) => offline_schedule.course,
   )
   offline_schedules: OfflineScheduleEntity[];
+
+  @OneToMany(() => MajorCourseEntity, (major_course) => major_course.course)
+  major_courses: MajorCourseEntity[];
 }

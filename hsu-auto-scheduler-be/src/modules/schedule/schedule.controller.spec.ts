@@ -1,17 +1,17 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ScheduleConstraintsController } from './schedule-constraints.controller';
-import { ScheduleConstraintsService } from './schedule-constraints.service';
+import { ScheduleController } from './schedule.controller';
+import { ScheduleService } from './schedule.service';
 
 describe('ScheduleConstraintsController', () => {
-  let controller: ScheduleConstraintsController;
+  let controller: ScheduleController;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [ScheduleConstraintsController],
-      providers: [ScheduleConstraintsService],
+      controllers: [ScheduleController],
+      providers: [ScheduleService],
     }).compile();
 
-    controller = module.get<ScheduleConstraintsController>(ScheduleConstraintsController);
+    controller = module.get<ScheduleController>(ScheduleController);
   });
 
   it('should be defined', () => {

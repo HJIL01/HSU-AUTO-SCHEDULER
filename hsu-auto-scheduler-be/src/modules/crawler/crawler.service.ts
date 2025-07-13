@@ -3,13 +3,14 @@ import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
 import { SemesterEntity } from 'src/common/entities/01_semester.entity';
 import { DataSource, In, Repository } from 'typeorm';
 import { MajorEntity } from 'src/common/entities/02_major.entity';
-import { CourseEntity } from 'src/common/entities/03_course.entity';
-import { OfflineScheduleEntity } from 'src/common/entities/04_offlineSchedule.entity';
+import { CourseEntity } from 'src/common/entities/04_course.entity';
+import { OfflineScheduleEntity } from 'src/common/entities/05_offlineSchedule.entity';
 import { SemesterDto } from 'src/common/dto/01_semester.dto';
 import { MajorDataDto } from './dto/majorData.dto';
-import { SemesterMajorEntity } from 'src/common/entities/05_semester_major.entity';
+import { SemesterMajorEntity } from 'src/common/entities/03_semester_major.entity';
 import { CourseDataDto } from './dto/courseData.dto';
 import { DayOrNightEnum } from 'src/common/enums/dayOrNight.enum';
+import { MajorCourseEntity } from 'src/common/entities/06_major_course.entity';
 
 @Injectable()
 export class CrawlerService {
@@ -56,14 +57,16 @@ export class CrawlerService {
   }
 
   // 전공, 학기-전공 테이블 트랜잭션 서비스 메서드
-  async createSemesterAndMajorTransactional(majorData: MajorDataDto) {
+  async createMajorTransactional(majorData: MajorDataDto) {
     const { semester_id, majors } = majorData;
 
     const semester = await this.semesterRepo.findOne({
       where: { semester_id },
     });
     if (!semester)
-      throw new NotFoundException(`Semester ${semester_id} not found`);
+      throw new NotFoundException(
+        `create Major:Semester ${semester_id} Not Found`,
+      );
 
     const queryRunner = this.dataSource.createQueryRunner();
     await queryRunner.connect();
@@ -129,110 +132,153 @@ export class CrawlerService {
     }
   }
 
-  // 강의, 오프라인 스케줄 테이블 서비스 메서드
-  async createCourseAndOfflineScheduleTransactional(courseData: CourseDataDto) {
+  // 강의, 오프라인 스케줄, 전공-강의 테이블 서비스 메서드
+  async createCourseTransactional(courseData: CourseDataDto) {
     const { semester_id, major_code, courses } = courseData;
 
+    // courses가 존재하지 않으면 그대로 종료
     if (!courses) {
       return {
         message: `${semester_id}-${major_code}의 강의는 없습니다`,
       };
     }
 
-    const [semester, major, semesterMajor] = await Promise.all([
-      this.semesterRepo.findOne({ where: { semester_id } }),
-      this.majorRepo.findOne({ where: { major_code } }),
-      this.semesterMajorRepo.findOne({ where: { semester_id, major_code } }),
+    const [semesterEntity, majorEntity] = await Promise.all([
+      this.semesterRepo.findOne({
+        where: { semester_id },
+      }),
+      this.majorRepo.findOne({
+        where: { major_code },
+      }),
     ]);
 
-    if (!semester) {
-      throw new NotFoundException(`Semester ${semester_id} not found`);
+    // 학기 테이블이 존재하지 않을 시 오류
+    if (!semesterEntity) {
+      throw new NotFoundException(`Create Course: ${semester_id} Not Found`);
     }
 
-    if (!major) {
-      throw new NotFoundException(`Major ${major_code} not found`);
-    }
-
-    if (!semesterMajor) {
-      throw new NotFoundException(
-        `Semester-Major ${semester_id}-${major_code} not found`,
-      );
+    // 강의 테이블이 존재하지 않을 시 오류
+    if (!majorEntity) {
+      throw new NotFoundException(`Create Course: ${major_code} Not Found`);
     }
 
     const queryRunner = this.dataSource.createQueryRunner();
     await queryRunner.connect();
     await queryRunner.startTransaction();
 
+    const results: string[] = [];
     try {
-      const results: {
-        courseName: string;
-        classSection: string;
-        message: string;
-      }[] = [];
-      /* 
-        오프라인 강의 테이블은 course_id를 외래 키로 가지고 있으며, 
-        course가 delete 시 연쇄적으로 삭제되는 cascade 제약을 적용하였으므로, 
-        course_id가 없다면 관련된 오프라인 정보도 없음
-        따라서 course_id만 존재하는지 확인 후, 있다면 message를 남기고 넘기기
-      */
       const courseIds = courses.map((course) => course.course_id);
       const existingCourses = await queryRunner.manager.find(CourseEntity, {
         where: { course_id: In(courseIds) },
       });
 
       const existingSet = new Set(
-        existingCourses.map((existingCourse) => existingCourse.course_id),
+        existingCourses.map((course) => course.course_id),
       );
+
       for (const course of courses) {
         const { offline_schedules, ...rest } = course;
 
-        // 강의가 테이블에 이미 존재한다면 넘김
-        if (existingSet.has(rest.course_id)) {
-          results.push({
-            courseName: rest.course_name,
-            classSection: rest.class_section,
-            message: `${rest.course_name} ${rest.class_section}반은 이미 존재`,
+        // 현재 강의가 강의 테이블에 존재하지 않는다면 오프라인 테이블도 존재하지 않으므로, 둘 다 save
+        if (!existingSet.has(rest.course_id)) {
+          const createdCourseEntity = queryRunner.manager.create(CourseEntity, {
+            semester_id: rest.semester_id,
+            course_id: rest.course_id,
+            course_code: rest.course_code,
+            course_name: rest.course_name,
+            professor_names: rest.professor_names,
+            completion_type: rest.completion_type,
+            delivery_method: rest.delivery_method,
+            credit: rest.credit,
+            day_or_night: rest.day_or_night,
+            class_section: rest.class_section,
+            grade: rest.grade,
+            grade_limit: rest.grade_limit,
+            online_min: rest.online_min,
+            plan_code: rest.plan_code,
+            semester: semesterEntity,
           });
+
+          await queryRunner.manager.save(CourseEntity, createdCourseEntity);
+
+          // 오프라인 스케줄이 있다면 오프라인 스케줄 테이블에 저장
+          if (offline_schedules) {
+            const createdOfflineScheduleEntities = offline_schedules.map(
+              (off_schedule) => {
+                const entity = new OfflineScheduleEntity();
+
+                entity['day'] = off_schedule.day;
+                entity['start_time'] = off_schedule.start_time;
+                entity['end_time'] = off_schedule.end_time;
+                entity['place'] = off_schedule.place;
+                entity['course_id'] = createdCourseEntity.course_id;
+                entity['course'] = createdCourseEntity;
+                return entity;
+              },
+            );
+
+            await queryRunner.manager.insert(
+              OfflineScheduleEntity,
+              createdOfflineScheduleEntities,
+            );
+          }
+        } else {
+          results.push(
+            `Save Course Table Error: ${semesterEntity.year}-${semesterEntity.term}학기의 ${course.course_name}은 이미 존재함.`,
+          );
+        }
+
+        const [courseEntity, majorCourseEntity] = await Promise.all([
+          queryRunner.manager.findOne(CourseEntity, {
+            where: { course_id: course.course_id },
+          }),
+          queryRunner.manager.findOne(MajorCourseEntity, {
+            where: {
+              major_code: major_code,
+              course_id: course.course_id,
+              semester_id: semester_id,
+            },
+          }),
+        ]);
+
+        // 강의가 존재하지 않는다면 에러
+        if (!courseEntity) {
+          throw new NotFoundException(
+            `Create major_course Table Error: course${course.course_id} Not Found`,
+          );
+        }
+
+        // 이미 동일한 전공-강좌 데이터가 존재할 경우 continue
+        if (majorCourseEntity) {
+          results.push(
+            `Create major_course Table Error: ${majorCourseEntity.major_code}-${majorCourseEntity.course_id}가 이미 존재함.`,
+          );
 
           continue;
         }
 
-        const courseEntity = queryRunner.manager.create(CourseEntity, {
-          ...rest,
-          semester,
-          major,
-        });
+        const createdMajorCourseEntity = queryRunner.manager.create(
+          MajorCourseEntity,
+          {
+            major_code: major_code,
+            course_id: course.course_id,
+            semester_id: semester_id,
+            major: majorEntity,
+            course: courseEntity,
+            semester: semesterEntity,
+          },
+        );
 
-        await queryRunner.manager.save(courseEntity);
-
-        /*  
-          강의 스케줄 정보가 있을 시
-          오프라인 스케줄 테이블은 course 테이블의 course_id를 참조하여 외래 키로 두고 있기 때문에 반드시 course를 먼저 생성한 후 오프라인 테이블 생성하기
-        */
-        if (offline_schedules && Array.isArray(offline_schedules)) {
-          const offlineScheduleEntities = offline_schedules.map((schedule) => {
-            const entity = new OfflineScheduleEntity();
-
-            entity.day = schedule.day;
-            entity.start_time = schedule.start_time;
-            entity.end_time = schedule.end_time;
-            entity.place = schedule.place;
-            entity.course_id = rest.course_id;
-            entity.semester_id = semester_id;
-
-            return entity;
-          });
-
-          await queryRunner.manager.save(
-            OfflineScheduleEntity,
-            offlineScheduleEntities,
-          );
-        }
+        await queryRunner.manager.save(
+          MajorCourseEntity,
+          createdMajorCourseEntity,
+        );
       }
 
       await queryRunner.commitTransaction();
       return {
-        message: `${semester.year}년도 ${semester.term}학기의 ${major.major_name} 강의 목록 저장 성공`,
+        message: `${semesterEntity.year}년 ${semesterEntity.term}학기 ${majorEntity.major_name} 강의 목록 저장 성공`,
         data: results,
       };
     } catch (error) {

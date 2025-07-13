@@ -20,7 +20,7 @@ export class ConstraintsDto {
 
   @IsString()
   @IsNotEmpty()
-  major_id: string;
+  major_code: string;
 
   @Type(() => Number)
   @IsNumber({ allowNaN: false }, { message: '학년은 숫자여야 합니다.' })

@@ -1,6 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
-import { CourseEntity } from './03_course.entity';
-import { SemesterMajorEntity } from './05_semester_major.entity';
+import { SemesterMajorEntity } from './03_semester_major.entity';
+import { MajorCourseEntity } from './06_major_course.entity';
 
 @Entity('major')
 export class MajorEntity {
@@ -10,12 +10,12 @@ export class MajorEntity {
   @Column()
   major_name: string;
 
-  @OneToMany(() => CourseEntity, (course) => course.major)
-  courses: CourseEntity[];
-
   @OneToMany(
     () => SemesterMajorEntity,
-    (semester_majors) => semester_majors.major,
+    (semester_major) => semester_major.major,
   )
   semester_majors: SemesterMajorEntity[];
+
+  @OneToMany(() => MajorCourseEntity, (major_course) => major_course.major)
+  major_courses: MajorCourseEntity[];
 }
