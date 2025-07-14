@@ -8,6 +8,13 @@ import { CourseEntity } from 'src/common/entities/04_course.entity';
 import { OfflineScheduleEntity } from 'src/common/entities/05_offlineSchedule.entity';
 import { SemesterMajorEntity } from 'src/common/entities/03_semester_major.entity';
 import { PersonalScheduleDto } from './dto/personalSchedule.dto';
+import { WeekdayEnum } from 'src/common/enums/weekday.enum';
+
+type WeeklyScheduleType = {
+  schedule_name: string;
+  start_time: number;
+  end_time: number;
+};
 
 @Injectable()
 export class ScheduleService {
@@ -34,8 +41,13 @@ export class ScheduleService {
       학기, 전공, 학년, 주야, 공강 요일, 미리 선택된 강의,
 
       JS로 필터링 할 것들
-      스케줄 시간대, 점심 true라면 점심 시간에 포함된 강의들
+      선택된 강의와 같은 시간의 강의,
+      스케줄 시간대, 
+      점심 true라면 점심 시간에 포함된 강의들
     */
+
+    // 선택된 강의와 개인 스케줄을 요일 별로 묶을 Map
+    const weeklyScheduleMap = new Map<WeekdayEnum, WeeklyScheduleType[]>();
 
     // SQL문으로 필터링
     const SQLFilteredData = await this.courseRepo
@@ -70,16 +82,31 @@ export class ScheduleService {
 
         return `NOT EXISTS ${subQuery}`;
       })
-      // 6. 미리 선택된 강의들 필터링
+      // 6. 미리 선택된 강의들 필터링, 해당 시간대의 다른 강의를 거르기 위해 선택된 강의의 시간대를 weeklyScheduleMap에 저장
       .andWhere('c.course_id NOT IN (:...selected_course_ids)', {
-        selected_course_ids: constaraints.selected_courses.map(
-          (selected) => selected.course_id,
-        ),
+        selected_course_ids: constaraints.selected_courses.map((selected) => {
+          const selected_course_schedule = selected.offline_schedules;
+
+          selected_course_schedule?.map((cur_schedule) => {
+            const cur_course_day = cur_schedule.day;
+            const cur_course_start_time = cur_schedule.start_time;
+            const cur_course_end_time = cur_schedule.end_time;
+
+            const newWeeklySchedule: WeeklyScheduleType = {
+              schedule_name: selected.course_name,
+              start_time: cur_course_start_time,
+              end_time: cur_course_end_time,
+            };
+
+            weeklyScheduleMap.has(cur_course_day)
+              ? weeklyScheduleMap.get(cur_course_day)!.push(newWeeklySchedule)
+              : weeklyScheduleMap.set(cur_course_day, [newWeeklySchedule]);
+          });
+
+          return selected.course_id;
+        }),
       })
       .getMany();
-
-    // 개인 스케줄을 요일 별로 묶을 Map
-    const personalScheduleMap = new Map();
 
     // 공강 요일들을 묶어놓은 Set
     const noClassDaysSet = new Set(constaraints.no_class_days);
@@ -91,57 +118,44 @@ export class ScheduleService {
       // 해당 강의가 공강 요일에 포함되지 않는다면
       if (!noClassDaysSet.has(day)) {
         // 해당 요일에 추가된 강의가 이미 있다면 리스트에 추가, 아니면 리스트를 만들기
-        personalScheduleMap.has(day)
-          ? personalScheduleMap.get(day).push(rest)
-          : personalScheduleMap.set(day, [rest]);
+        weeklyScheduleMap.has(day)
+          ? weeklyScheduleMap.get(day)!.push(rest)
+          : weeklyScheduleMap.set(day, [rest]);
       }
     });
 
-    const JSFilteredData = SQLFilteredData.filter((data) => {
+    // 개인 스케줄, 미리 선택된 강의의 시간과 후보 강의의 시간이 겹치는지 확인하는 로직
+    let JSFilteredData = SQLFilteredData.filter((data) => {
       return data.offline_schedules.every((cur_course_schedule) => {
-        if (!personalScheduleMap.has(cur_course_schedule.day)) {
+        // 해당 강의가 위클리 스케줄의 요일과 겹치지 않는다면 검사할 필요가 없으므로 pass
+        if (!weeklyScheduleMap.has(cur_course_schedule.day)) {
           return true;
         }
 
-        const cur_course_schedule_start_time = cur_course_schedule.start_time;
-        const cur_course_schedule_end_time = cur_course_schedule.end_time;
-
-        if (constaraints.has_lunch_break) {
-          const lunchStart = 720; // 12:00
-          const lunchEnd = 780; // 13:00
-
-          /* 
-            현재 강의의 시작 시간이 항상 점심시간의 끝나는 시간보다 작고
-            현재 강의의 끝나는 시간이 항상 점심시간의 시작 시간보다 크다면 -> 겹침 
-          */
-          const overlapsLunch =
-            cur_course_schedule_start_time < lunchEnd &&
-            cur_course_schedule_end_time > lunchStart;
-
-          if (overlapsLunch) return false;
-        }
-
-        return personalScheduleMap
-          .get(cur_course_schedule.day)
-          .every((personal_schedule: PersonalScheduleDto) => {
+        return weeklyScheduleMap
+          .get(cur_course_schedule.day)!
+          .every((weekly_schedule: WeeklyScheduleType) => {
             /*  
               겹치지 않는 경우의 반대의 경우 -> 겹치는 경우 false 
               겹치지 않는 경우
-              1. 현재 강의의 end_time이 개인 스케줄의 start_time보다 작거나 같은 경우
-              2. 현재 강의의 start_time이 개인 스케줄의 end_time보다 크거나 같은 경우
+              1. 현재 강의의 end_time이 위클리 스케줄의 start_time보다 작거나 같은 경우
+              2. 현재 강의의 start_time이 위클리 스케줄의 end_time보다 크거나 같은 경우
 
               위 두 강의 중 하나(||)를 부정하면(!) false
             */
 
-            const cur_personal_schedule_start_time =
-              personal_schedule.start_time;
-            const cur_personal_schedule_end_time = personal_schedule.end_time;
+            const cur_course_schedule_start_time =
+              cur_course_schedule.start_time;
+            const cur_course_schedule_end_time = cur_course_schedule.end_time;
+
+            const cur_weekly_schedule_start_time = weekly_schedule.start_time;
+            const cur_weekly_schedule_end_time = weekly_schedule.end_time;
 
             if (
               !(
                 cur_course_schedule_end_time <=
-                  cur_personal_schedule_start_time ||
-                cur_personal_schedule_end_time <= cur_course_schedule_start_time
+                  cur_weekly_schedule_start_time ||
+                cur_weekly_schedule_end_time <= cur_course_schedule_start_time
               )
             ) {
               // console.log(
@@ -155,14 +169,42 @@ export class ScheduleService {
       });
     });
 
-    // 아니 짐깐만 미리 선택된 강의들에 포함된 시간의 강의들도 빼야하지 않나?
-    // return {
-    //   message: "필터링 및 제약 조건 추출 성공",
-    //   data: {
-    //     filtered_data: JSFilteredData,
-    //     max_credit: constaraints.max_credit,
+    // 점심 시간 보장 제약이 true일 경우 강의의 시간이 점심 시간과 겹치는지 확인하는 로직
+    if (constaraints.has_lunch_break) {
+      JSFilteredData = JSFilteredData.filter((data) => {
+        return data.offline_schedules.every((cur_course_schedule) => {
+          const lunchStart = 720; // 12:00
+          const lunchEnd = 780; // 13:00
 
-    //   }
-    // };
+          const cur_course_schedule_start_time = cur_course_schedule.start_time;
+          const cur_course_schedule_end_time = cur_course_schedule.end_time;
+
+          /*
+            현재 강의의 시작 시간이 항상 점심 시간의 끝나는 시간보다 작고
+            현재 강의의 끝나는 시간이 항상 점심 시간의 시작 시간보다 크다면 -> 겹침 
+          */
+          const overlapsLunch =
+            cur_course_schedule_start_time < lunchEnd &&
+            cur_course_schedule_end_time > lunchStart;
+
+          if (overlapsLunch) {
+            return false;
+          }
+
+          return true;
+        });
+      });
+    }
+
+    console.log(JSFilteredData.length);
+    console.log(JSON.stringify(JSFilteredData, null, 2));
+
+    return {
+      message: '필터링 및 제약 조건 추출 성공',
+      data: {
+        filtered_data: JSFilteredData,
+        constaraints,
+      },
+    };
   }
 }

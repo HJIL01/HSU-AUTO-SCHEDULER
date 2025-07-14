@@ -7,7 +7,7 @@ import {
   Unique,
 } from 'typeorm';
 import { CourseEntity } from './04_course.entity';
-import { SemesterEntity } from './01_semester.entity';
+import { WeekdayEnum } from '../enums/weekday.enum';
 
 @Entity('offline_schedule')
 export class OfflineScheduleEntity {
@@ -15,7 +15,7 @@ export class OfflineScheduleEntity {
   offline_schedule_id: number;
 
   @Column()
-  day: string;
+  day: WeekdayEnum;
 
   @Column()
   start_time: number;
