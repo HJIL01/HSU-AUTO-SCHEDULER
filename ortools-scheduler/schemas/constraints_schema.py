@@ -1,0 +1,49 @@
+from typing import List, Optional
+from pydantic import BaseModel, Field
+from enum import Enum
+
+
+class WeekdayEnum(str, Enum):
+    MON = "Mon"
+    TUE = "Tue"
+    WED = "Wed"
+    THU = "Thu"
+    FRI = "Fri"
+    SAT = "Sat"
+    SUN = "Sun"
+
+
+class DayOrNightEnum(str, Enum):
+    DAY = "day"
+    NIGHT = "night"
+    BOTH = "both"
+
+
+class OfflineScheduleDto(BaseModel):
+    day: WeekdayEnum
+    start_time: int
+    end_time: int
+    place: str
+
+
+class ConstraintsInputDataSchema(BaseModel):
+    semester_id: str = Field(..., description="학기 ID")
+    course_id: str = Field(..., description="강의 ID")
+    course_code: str = Field(..., description="강의 코드")
+    course_name: str = Field(..., description="강의 이름")
+    professor_names: List[str] = Field(..., min_items=1, description="교수 이름 리스트")
+    completion_type: str = Field(..., description="이수 구분")
+    delivery_method: str = Field(..., description="수업 방식")
+
+    credit: int = Field(..., description="학점", ge=0)
+    day_or_night: DayOrNightEnum = Field(..., description="주간/야간 여부")
+
+    class_section: str = Field(..., description="분반")
+    grade: int = Field(..., description="대상 학년", ge=0)
+
+    grade_limit: Optional[str] = Field(None, description="학년 제한")
+    online_min: int = Field(..., description="온라인 수업 시간", ge=0)
+    offline_schedules: Optional[List[OfflineScheduleDto]] = Field(
+        None, description="오프라인 시간표"
+    )
+    plan_code: Optional[str] = Field(None, description="계획 코드")

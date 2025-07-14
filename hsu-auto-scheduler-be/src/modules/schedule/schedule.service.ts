@@ -1,14 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { ConstraintsDto } from './dto/constraints.dto';
 import { Repository } from 'typeorm';
-import { SemesterEntity } from 'src/common/entities/01_semester.entity';
-import { MajorEntity } from 'src/common/entities/02_major.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CourseEntity } from 'src/common/entities/04_course.entity';
-import { OfflineScheduleEntity } from 'src/common/entities/05_offlineSchedule.entity';
-import { SemesterMajorEntity } from 'src/common/entities/03_semester_major.entity';
-import { PersonalScheduleDto } from './dto/personalSchedule.dto';
 import { WeekdayEnum } from 'src/common/enums/weekday.enum';
+import { firstValueFrom } from 'rxjs';
+import { HttpService } from '@nestjs/axios';
 
 type WeeklyScheduleType = {
   schedule_name: string;
@@ -19,20 +16,9 @@ type WeeklyScheduleType = {
 @Injectable()
 export class ScheduleService {
   constructor(
-    @InjectRepository(SemesterEntity)
-    private readonly semesterRepo: Repository<SemesterEntity>,
-
-    @InjectRepository(MajorEntity)
-    private readonly majorRepo: Repository<MajorEntity>,
-
     @InjectRepository(CourseEntity)
     private readonly courseRepo: Repository<CourseEntity>,
-
-    @InjectRepository(OfflineScheduleEntity)
-    private readonly offlineScheduleRepo: Repository<OfflineScheduleEntity>,
-
-    @InjectRepository(SemesterMajorEntity)
-    private readonly semesterMajorRepo: Repository<SemesterMajorEntity>,
+    private readonly httpService: HttpService,
   ) {}
 
   async filterDataAndPostConstraints(constaraints: ConstraintsDto) {
@@ -196,15 +182,17 @@ export class ScheduleService {
       });
     }
 
-    console.log(JSFilteredData.length);
-    console.log(JSON.stringify(JSFilteredData, null, 2));
+    // console.log(JSFilteredData.length);
+    // console.log(JSON.stringify(JSFilteredData, null, 2));
+
+    const response = await firstValueFrom(
+      this.httpService.post(`${process.env.FAST_API_BASE_URL}/constraints`, {
+        filtered_data: JSFilteredData,
+      }),
+    );
 
     return {
       message: '필터링 및 제약 조건 추출 성공',
-      data: {
-        filtered_data: JSFilteredData,
-        constaraints,
-      },
     };
   }
 }
