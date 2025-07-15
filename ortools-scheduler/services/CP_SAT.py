@@ -10,7 +10,7 @@ from utils.constraints import (
     add_major_required_min_constraint,
     add_major_elective_min_constraint,
     add_daily_lecture_limit_constraint,
-    add_class_gap_constraint,
+    add_non_overlapping_schedule_constraint,
 )
 from utils.solution_collector import AllSolutionCollector
 
@@ -40,9 +40,7 @@ def HSU_AUTO_SCHEDULER_CP_SAT(
     add_daily_lecture_limit_constraint(
         filtered_data, model, is_selected, constraints.daily_lecture_limit
     )
-    add_class_gap_constraint(
-        filtered_data, model, is_selected, constraints.allowed_gap_mins
-    )
+    add_non_overlapping_schedule_constraint(filtered_data, model, is_selected)
 
     solver = cp_model.CpSolver()
     solution_collector = AllSolutionCollector(is_selected, filtered_data)

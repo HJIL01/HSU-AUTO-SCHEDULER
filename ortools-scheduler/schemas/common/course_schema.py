@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import List, Optional
+from typing import Optional
 from .enums import DayOrNightEnum
 from .offline_schedule_schema import OfflineScheduleSchema
 
@@ -9,7 +9,7 @@ class CourseSchema(BaseModel):
     course_id: str = Field(..., description="강의 ID")
     course_code: str = Field(..., description="강의 코드")
     course_name: str = Field(..., description="강의 이름")
-    professor_names: List[str] = Field(..., min_items=1, description="교수 이름 리스트")
+    professor_names: list[str] = Field(..., min_items=1, description="교수 이름 리스트")
     completion_type: str = Field(..., description="이수 구분")
     delivery_method: str = Field(..., description="수업 방식")
 
@@ -21,7 +21,7 @@ class CourseSchema(BaseModel):
 
     grade_limit: Optional[str] = Field(None, description="학년 제한")
     online_min: int = Field(..., description="온라인 수업 시간", ge=0)
-    offline_schedules: Optional[List[OfflineScheduleSchema]] = Field(
+    offline_schedules: Optional[list[OfflineScheduleSchema]] = Field(
         None, description="오프라인 시간표"
     )
     plan_code: Optional[str] = Field(None, description="계획 코드")

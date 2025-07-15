@@ -94,6 +94,9 @@ export class ScheduleService {
       })
       .getMany();
 
+    console.log(SQLFilteredData);
+    return '성공';
+
     // 공강 요일들을 묶어놓은 Set
     const noClassDaysSet = new Set(constaraints.no_class_days);
 
