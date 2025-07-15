@@ -8,10 +8,10 @@ app = FastAPI()
 @app.post("/cp-sat")
 def cp_sat(cp_sat_request: CPSATRequestSchema):
     filtered_data = cp_sat_request.filtered_data
-    pre_selected_courses_by_day = cp_sat_request.pre_selected_courses_by_day
+    pre_selected_courses = cp_sat_request.pre_selected_courses
     constraints = cp_sat_request.constraints
 
     reseponse_data = HSU_AUTO_SCHEDULER_CP_SAT(
-        filtered_data, pre_selected_courses_by_day, constraints
+        filtered_data, pre_selected_courses, constraints
     )
     return reseponse_data

@@ -46,6 +46,22 @@ def set_objective_maximize_credit(courses: list[CourseSchema], model, is_selecte
     )
 
 
+# 미리 선택한 강의들을 해의 선택된 강의에 추가하는 제약조건 함수
+def add_pre_selected_course_constraint(
+    courses: list[CourseSchema],
+    model,
+    is_selected,
+    pre_selected_courses: list[CourseSchema],
+):
+    pre_selected_courses_ids_set = set(
+        [pre_selected_course.course_id for pre_selected_course in pre_selected_courses]
+    )
+
+    for idx, course in enumerate(courses):
+        if course.course_id in pre_selected_courses_ids_set:
+            model.Add(is_selected[idx] == 1)
+
+
 # 최대 학점 제한하는 제약조건 추가 함수
 def add_max_credit_constraint(
     courses: list[CourseSchema], model, is_selected, max_credit: int
@@ -56,6 +72,11 @@ def add_max_credit_constraint(
         <= max_credit
     )
 
+    # 0학점 안나오게 제한
+    not_zero_credit = (
+        sum(course.credit * cur for course, cur in zip(courses, is_selected)) != 0
+    )
+
     # 최소 학점 제한 최대 학점에서 6뺀 학점. 최대 학점이 6미만이라면 0으로 처리
     # min_credit = max_credit - 6 if max_credit - 6 > 0 else 0
     # limit_min = (
@@ -64,6 +85,7 @@ def add_max_credit_constraint(
     # )
 
     model.Add(limit_max)
+    model.Add(not_zero_credit)
     # model.Add(limit_min)
 
 

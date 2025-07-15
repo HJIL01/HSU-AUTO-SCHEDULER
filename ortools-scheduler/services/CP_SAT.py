@@ -1,9 +1,9 @@
 from ortools.sat.python import cp_model
 from schemas.common.course_schema import CourseSchema
-from schemas.common.enums import WeekdayEnum
 from schemas.common.constraints_schema import ConstraintsSchema
 from utils.constraints import (
     # set_objective_maximize_credit,
+    add_pre_selected_course_constraint,
     add_max_credit_constraint,
     add_deduplicated_course_constraint,
     add_major_foundation_min_constraint,
@@ -17,7 +17,7 @@ from utils.solution_collector import AllSolutionCollector
 
 def HSU_AUTO_SCHEDULER_CP_SAT(
     filtered_data: list[CourseSchema],
-    pre_selected_courses_by_day: dict[WeekdayEnum, int],
+    pre_selected_courses: list[CourseSchema],
     constraints: ConstraintsSchema,
 ):
     data_len = len(filtered_data)
@@ -27,7 +27,9 @@ def HSU_AUTO_SCHEDULER_CP_SAT(
     is_selected = [model.NewBoolVar(f"course{i}_is_selected") for i in range(data_len)]
 
     # set_objective_maximize_credit(filtered_data, model, is_selected)
-
+    add_pre_selected_course_constraint(
+        filtered_data, model, is_selected, pre_selected_courses
+    )
     add_max_credit_constraint(filtered_data, model, is_selected, constraints.max_credit)
     add_deduplicated_course_constraint(filtered_data, model, is_selected)
     add_major_foundation_min_constraint(
@@ -64,6 +66,8 @@ def HSU_AUTO_SCHEDULER_CP_SAT(
         solution_collector.sort_by_total_course_gap_ascending()
 
         # 디버깅용
+        # 정렬 후 해를 print 하므로 n번째 해 << 이것이 뒤죽박죽일 수 있음
         solution_collector.solution_print()
+        print(solution_collector.solution_count)
 
     return solution_collector.solution_count
