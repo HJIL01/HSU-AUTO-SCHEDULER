@@ -6,6 +6,7 @@ import { CourseEntity } from 'src/common/entities/04_course.entity';
 import { WeekdayEnum } from 'src/common/enums/weekday.enum';
 import { firstValueFrom } from 'rxjs';
 import { HttpService } from '@nestjs/axios';
+import { CourseDto } from 'src/common/dto/03_course.dto';
 
 type WeeklyScheduleType = {
   schedule_name: string;
@@ -34,10 +35,9 @@ export class ScheduleService {
 
     // 선택된 강의와 개인 스케줄을 요일 별로 묶을 Map
     const weeklyScheduleMap = new Map<WeekdayEnum, WeeklyScheduleType[]>();
-    const preSelectedCoursesByDay = {};
 
     // SQL문으로 필터링
-    const SQLFilteredData = await this.courseRepo
+    let query = await this.courseRepo
       .createQueryBuilder('c')
       .leftJoinAndSelect('major_course', 'mc', 'mc.course_id = c.course_id')
       .leftJoinAndSelect('c.offline_schedules', 'os')
@@ -54,9 +54,11 @@ export class ScheduleService {
       // 4. 주야 필터링
       .andWhere('c.day_or_night IN (:...day_or_night)', {
         day_or_night: [constaraints.day_or_night, 'both'],
-      })
-      // 5. 공강 요일 필터링
-      .andWhere((qb) => {
+      });
+
+    // 5. 공강 요일 필터링(선택된 공강 요일이 있을 시)
+    if (constaraints.no_class_days.length > 0) {
+      query = query.andWhere((qb) => {
         const subQuery = qb
           .subQuery()
           .select('1')
@@ -68,41 +70,44 @@ export class ScheduleService {
           .getQuery();
 
         return `NOT EXISTS ${subQuery}`;
-      })
-      // 6. 미리 선택된 강의들 필터링, 해당 시간대의 다른 강의를 거르기 위해 선택된 강의의 시간대를 weeklyScheduleMap에 저장
-      .andWhere('c.course_id NOT IN (:...selected_course_ids)', {
-        selected_course_ids: constaraints.selected_courses.map((selected) => {
-          const selected_course_schedule = selected.offline_schedules;
+      });
+    }
 
-          selected_course_schedule?.map((cur_schedule) => {
-            const cur_course_day = cur_schedule.day;
-            const cur_course_start_time = cur_schedule.start_time;
-            const cur_course_end_time = cur_schedule.end_time;
+    // 6. 미리 선택된 강의들의 강의 코드로 필터링(선택된 강의가 있을 시), 해당 시간대의 다른 강의를 거르기 위해 선택된 강의의 시간대를 weeklyScheduleMap에 저장
+    if (constaraints.selected_courses.length > 0) {
+      query = query.andWhere(
+        'c.course_code NOT IN (:...selected_course_codes)',
+        {
+          selected_course_codes: constaraints.selected_courses.map(
+            (selected) => {
+              const selected_course_schedule = selected.offline_schedules;
 
-            const newWeeklySchedule: WeeklyScheduleType = {
-              schedule_name: selected.course_name,
-              start_time: cur_course_start_time,
-              end_time: cur_course_end_time,
-            };
+              // 미리 선택된 강의의 오프라인 세션들을 탐색하여 WeeklySchedule에 추가
+              selected_course_schedule?.forEach((cur_schedule) => {
+                const cur_course_day = cur_schedule.day;
+                const cur_course_start_time = cur_schedule.start_time;
+                const cur_course_end_time = cur_schedule.end_time;
 
-            const currentSchedules =
-              weeklyScheduleMap.get(cur_course_day) ?? [];
+                const newWeeklySchedule: WeeklyScheduleType = {
+                  schedule_name: selected.course_name,
+                  start_time: cur_course_start_time,
+                  end_time: cur_course_end_time,
+                };
 
-            currentSchedules.push(newWeeklySchedule);
+                const currentSchedules =
+                  weeklyScheduleMap.get(cur_course_day) ?? [];
 
-            weeklyScheduleMap.set(
-              cur_course_day,
-              weeklyScheduleMap.get(cur_course_day) ?? [],
-            );
+                currentSchedules.push(newWeeklySchedule);
 
-            preSelectedCoursesByDay[cur_course_day] =
-              (preSelectedCoursesByDay[cur_course_day] || 0) + 1;
-          });
+                weeklyScheduleMap.set(cur_course_day, currentSchedules);
+              });
 
-          return selected.course_id;
-        }),
-      })
-      .getMany();
+              return selected.course_code;
+            },
+          ),
+        },
+      );
+    }
 
     // 공강 요일들을 묶어놓은 Set
     const noClassDaysSet = new Set(constaraints.no_class_days);
@@ -119,6 +124,8 @@ export class ScheduleService {
           : weeklyScheduleMap.set(day, [rest]);
       }
     });
+
+    const SQLFilteredData = await query.getMany();
 
     // 개인 스케줄, 미리 선택된 강의의 시간과 후보 강의의 시간이 겹치는지 확인하는 로직
     let JSFilteredData = SQLFilteredData.filter((data) => {
@@ -137,7 +144,9 @@ export class ScheduleService {
               1. 현재 강의의 end_time이 위클리 스케줄의 start_time보다 작거나 같은 경우
               2. 현재 강의의 start_time이 위클리 스케줄의 end_time보다 크거나 같은 경우
 
-              위 두 강의 중 하나(||)를 부정하면(!) false
+              조건1: 위 두 조건 중 하나(||)를 부정하면(!) false
+
+              조건2: 위의 조건1의 완전 역이라면 false
             */
 
             const cur_course_schedule_start_time =
@@ -192,19 +201,44 @@ export class ScheduleService {
       });
     }
 
-    // console.log(JSFilteredData.length);
-    // console.log(JSON.stringify(JSFilteredData, null, 2));
+    console.log(JSFilteredData.length);
+    console.log(JSON.stringify(JSFilteredData, null, 2));
+
+    // 미리 선택된 강의들도 포함시키는 이유는 반드시 포함시켜서 연산해야할 제약조건(하루 최대 강의 수, 최대 학점, 전기, 전필, 전선 등)이 있기 때문
+    const finalFilteredData: CourseDto[] = JSFilteredData.reduce(
+      (acc, cur) => {
+        const courseDto: CourseDto = {
+          semester_id: cur.semester_id,
+          course_id: cur.course_id,
+          course_code: cur.course_code,
+          course_name: cur.course_name,
+          professor_names: cur.professor_names,
+          completion_type: cur.completion_type,
+          delivery_method: cur.delivery_method,
+          credit: cur.credit,
+          day_or_night: cur.day_or_night,
+          class_section: cur.class_section,
+          grade: cur.grade,
+          grade_limit: cur.grade_limit,
+          online_min: cur.online_min,
+          offline_schedules: cur.offline_schedules,
+          plan_code: cur.plan_code,
+        };
+
+        acc.push(courseDto);
+        return acc;
+      },
+      [...constaraints.selected_courses],
+    );
 
     const response = await firstValueFrom(
       this.httpService.post(`${process.env.FAST_API_BASE_URL}/cp-sat`, {
-        filtered_data: JSFilteredData,
-        pre_selected_courses_by_day: { Thu: 1 },
+        filtered_data: finalFilteredData,
+        // 밑의 강의들은 무조건 포함되도록 하기 위해서 같이 보냄
+        pre_selected_courses: constaraints.selected_courses,
         constraints: constaraints,
       }),
     );
-
-    // console.log(response.data);
-    console.log(preSelectedCoursesByDay);
 
     return {
       message: '필터링 및 제약 조건 추출 성공',
