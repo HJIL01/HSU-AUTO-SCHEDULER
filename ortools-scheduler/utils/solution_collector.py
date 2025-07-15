@@ -1,10 +1,11 @@
 from ortools.sat.python import cp_model
 from collections import defaultdict
-from utils.sort_by_start_time import sort_by_start_time
+from .sort_by_start_time import sort_by_start_time
+from schemas.common.course_schema import CourseSchema
 
 
 class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
-    def __init__(self, is_selected, courses):
+    def __init__(self, is_selected, courses: CourseSchema):
         # 부모 클래스 CpSolverSolutionCallback 먼저 생성
         super().__init__()
         self.is_selected = is_selected  # BoolVar 리스트
@@ -21,7 +22,7 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
             i for i, var in enumerate(self.is_selected) if self.Value(var)
         ]
 
-        total_credit = sum(self.courses[i]["credit"] for i in selected_indices)
+        total_credit = sum(self.courses[i].credit for i in selected_indices)
 
         self.solutions.append(
             {
@@ -45,10 +46,9 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
 
             for course_index in selected_indices:
                 course = self.courses[course_index]
-                session_info = course["sessionInfo"]
-                offline = session_info["offline"]
-                for cur_off in offline:
-                    cur_off_day = cur_off["day"]
+                offline_schedule = course.offline_schedules
+                for cur_off in offline_schedule:
+                    cur_off_day = cur_off.day
                     course_day_indices[cur_off_day].append(course_index)
 
             for day in course_day_indices:
@@ -61,22 +61,22 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
                 print(f"{day}: ")
                 for cur_course_index in indices_by_day:
                     cur_course = self.courses[cur_course_index]
-                    cur_course_name = cur_course["courseName"]
-                    cur_course_completion_type = cur_course["completionType"]
-                    cur_course_delivery_method = cur_course["deliveryMethod"]
-                    cur_course_credit = cur_course["credit"]
-                    cur_course_offline = cur_course["sessionInfo"]["offline"]
+                    cur_course_name = cur_course.course_name
+                    cur_course_completion_type = cur_course.completion_type
+                    cur_course_delivery_method = cur_course.delivery_method
+                    cur_course_credit = cur_course.credit
+                    cur_course_offline = cur_course.offline_schedules
                     print(
                         f"{cur_course_name}({cur_course_completion_type}, {cur_course_delivery_method}, {cur_course_credit}학점)",
                         end=" ",
                     )
                     for off in cur_course_offline:
-                        place = off["place"]
-                        start_time_hour = off["startTime"] // 60
-                        start_time_min = off["startTime"] % 60
+                        place = off.place
+                        start_time_hour = off.start_time // 60
+                        start_time_min = off.start_time % 60
 
-                        end_time_hour = off["endTime"] // 60
-                        end_time_min = off["endTime"] % 60
+                        end_time_hour = off.end_time // 60
+                        end_time_min = off.end_time % 60
 
                         print(
                             f"{place}, {start_time_hour:02d}:{start_time_min:02d}~{end_time_hour:02d}:{end_time_min:02d}"

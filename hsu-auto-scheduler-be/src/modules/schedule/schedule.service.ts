@@ -186,13 +186,17 @@ export class ScheduleService {
     // console.log(JSON.stringify(JSFilteredData, null, 2));
 
     const response = await firstValueFrom(
-      this.httpService.post(`${process.env.FAST_API_BASE_URL}/constraints`, {
+      this.httpService.post(`${process.env.FAST_API_BASE_URL}/cp-sat`, {
         filtered_data: JSFilteredData,
+        constraints: constaraints,
       }),
     );
 
+    console.log(response.data);
+
     return {
       message: '필터링 및 제약 조건 추출 성공',
+      data: `${response.data}개`,
     };
   }
 }
