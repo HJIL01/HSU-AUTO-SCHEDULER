@@ -34,6 +34,7 @@ export class ScheduleService {
 
     // 선택된 강의와 개인 스케줄을 요일 별로 묶을 Map
     const weeklyScheduleMap = new Map<WeekdayEnum, WeeklyScheduleType[]>();
+    const preSelectedCoursesByDay = {};
 
     // SQL문으로 필터링
     const SQLFilteredData = await this.courseRepo
@@ -84,18 +85,24 @@ export class ScheduleService {
               end_time: cur_course_end_time,
             };
 
-            weeklyScheduleMap.has(cur_course_day)
-              ? weeklyScheduleMap.get(cur_course_day)!.push(newWeeklySchedule)
-              : weeklyScheduleMap.set(cur_course_day, [newWeeklySchedule]);
+            const currentSchedules =
+              weeklyScheduleMap.get(cur_course_day) ?? [];
+
+            currentSchedules.push(newWeeklySchedule);
+
+            weeklyScheduleMap.set(
+              cur_course_day,
+              weeklyScheduleMap.get(cur_course_day) ?? [],
+            );
+
+            preSelectedCoursesByDay[cur_course_day] =
+              (preSelectedCoursesByDay[cur_course_day] || 0) + 1;
           });
 
           return selected.course_id;
         }),
       })
       .getMany();
-
-    console.log(SQLFilteredData);
-    return '성공';
 
     // 공강 요일들을 묶어놓은 Set
     const noClassDaysSet = new Set(constaraints.no_class_days);
@@ -191,11 +198,13 @@ export class ScheduleService {
     const response = await firstValueFrom(
       this.httpService.post(`${process.env.FAST_API_BASE_URL}/cp-sat`, {
         filtered_data: JSFilteredData,
+        pre_selected_courses_by_day: { Thu: 1 },
         constraints: constaraints,
       }),
     );
 
-    console.log(response.data);
+    // console.log(response.data);
+    console.log(preSelectedCoursesByDay);
 
     return {
       message: '필터링 및 제약 조건 추출 성공',

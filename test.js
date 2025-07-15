@@ -1,8 +1,15 @@
-// test1: 1000~2000
-// test2: 1500~1800
+const test = [
+  { day: "월" },
+  { day: "월" },
+  { day: "수" },
+  { day: "수" },
+  { day: "금" },
+];
 
-const test1Start = 1200;
-const test1End = 2000;
+const s = {};
 
-const test2Start = 1500;
-const test2End = 1800;
+test.map((e) => {
+  s[e.day] = (s[e.day] || 0) + 1;
+});
+
+console.log(s);

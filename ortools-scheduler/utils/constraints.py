@@ -1,9 +1,10 @@
 from collections import defaultdict
 from schemas.common.course_schema import CourseSchema
 from .get_start_time_and_end_time import get_start_time_and_end_time
-from .sort_by_start_time import sort_by_start_time
 
 
+# ------- deprecated ------- #
+# 목적함수를 사용하면 여러 해를 구할 수 없기 때문에 사용하지 않음
 # 최대로 지향하는 목적 함수
 # 목적 함수는 모델에서 하나만 사용 가능하다
 def set_objective_maximize_credit(courses: list[CourseSchema], model, is_selected):
@@ -52,11 +53,11 @@ def add_max_credit_constraint(
     # 최대 학점 제한
     limit_max = (
         sum(course.credit * cur for course, cur in zip(courses, is_selected))
-        == max_credit
+        <= max_credit
     )
 
     # 최소 학점 제한 최대 학점에서 6뺀 학점. 최대 학점이 6미만이라면 0으로 처리
-    min_credit = max_credit - 6 if max_credit - 6 > 0 else 0
+    # min_credit = max_credit - 6 if max_credit - 6 > 0 else 0
     # limit_min = (
     #     sum(course.credit * cur for course, cur in zip(courses, is_selected))
     #     >= min_credit

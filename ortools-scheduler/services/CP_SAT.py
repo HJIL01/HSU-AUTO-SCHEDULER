@@ -1,6 +1,6 @@
 from ortools.sat.python import cp_model
-from typing import List
 from schemas.common.course_schema import CourseSchema
+from schemas.common.enums import WeekdayEnum
 from schemas.common.constraints_schema import ConstraintsSchema
 from utils.constraints import (
     # set_objective_maximize_credit,
@@ -16,7 +16,9 @@ from utils.solution_collector import AllSolutionCollector
 
 
 def HSU_AUTO_SCHEDULER_CP_SAT(
-    filtered_data: List[CourseSchema], constraints: ConstraintsSchema
+    filtered_data: list[CourseSchema],
+    pre_selected_courses_by_day: dict[WeekdayEnum, int],
+    constraints: ConstraintsSchema,
 ):
     data_len = len(filtered_data)
 
@@ -55,6 +57,13 @@ def HSU_AUTO_SCHEDULER_CP_SAT(
         print("해가 존재하지 않음")
 
     if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
+        # 해가 나왔다면 학점 기준 내림차순 정렬(학점이 높은 순으로 주기 위해서)
+        solution_collector.sort_by_total_credit_descending()
+
+        # 해가 나왔다면 총 수업 간 간격(분) 기준 오름차순 정렬(연강 간격이 작은 순으로 주기 위해서)
+        solution_collector.sort_by_total_course_gap_ascending()
+
+        # 디버깅용
         solution_collector.solution_print()
 
     return solution_collector.solution_count
