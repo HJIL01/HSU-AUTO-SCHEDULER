@@ -1,0 +1,1022 @@
+/* text */
+@theme {
+    --text-xs: 1.2rem;
+    --text-sm: 1.4rem;
+    --text-base: 1.6rem;
+    --text-md: 1.8rem;
+    --text-lg: 2rem;
+    --text-xl: 2.2rem;
+    --text-2xl: 2.4rem;
+    --text-3xl: 2.6rem;
+    --text-4xl: 2.8rem;
+    --text-5xl: 3rem;
+    --text-6xl: 3.2rem;
+    --text-7xl: 3.4rem;
+    --text-8xl: 3.6rem;
+    --text-9xl: 3.8rem;
+    --text-10xl: 4rem;
+}
+
+/* spacing */
+@theme {
+    --spacing-1: 0.2rem;
+    /* 2px */
+    --spacing-2: 0.4rem;
+    /* 4px */
+    --spacing-3: 0.6rem;
+    /* 6px */
+    --spacing-4: 0.8rem;
+    /* 8px */
+    --spacing-5: 1rem;
+    /* 10px */
+    --spacing-6: 1.2rem;
+    /* 12px */
+    --spacing-7: 1.4rem;
+    /* 14px */
+    --spacing-8: 1.6rem;
+    /* 16px */
+    --spacing-9: 1.8rem;
+    /* 18px */
+    --spacing-10: 2rem;
+    /* 20px */
+    --spacing-11: 2.2rem;
+    /* 22px */
+    --spacing-12: 2.4rem;
+    /* 24px */
+    --spacing-13: 2.6rem;
+    /* 26px */
+    --spacing-14: 2.8rem;
+    /* 28px */
+    --spacing-15: 3rem;
+    /* 30px */
+    --spacing-16: 3.2rem;
+    /* 32px */
+    --spacing-17: 3.4rem;
+    /* 34px */
+    --spacing-18: 3.6rem;
+    /* 36px */
+    --spacing-19: 3.8rem;
+    /* 38px */
+    --spacing-20: 4rem;
+    /* 40px */
+    --spacing-21: 4.2rem;
+    /* 42px */
+    --spacing-22: 4.4rem;
+    /* 44px */
+    --spacing-23: 4.6rem;
+    /* 46px */
+    --spacing-24: 4.8rem;
+    /* 48px */
+    --spacing-25: 5rem;
+    /* 50px */
+    --spacing-26: 5.2rem;
+    /* 52px */
+    --spacing-27: 5.4rem;
+    /* 54px */
+    --spacing-28: 5.6rem;
+    /* 56px */
+    --spacing-29: 5.8rem;
+    /* 58px */
+    --spacing-30: 6rem;
+    /* 60px */
+    --spacing-31: 6.2rem;
+    /* 62px */
+    --spacing-32: 6.4rem;
+    /* 64px */
+    --spacing-33: 6.6rem;
+    /* 66px */
+    --spacing-34: 6.8rem;
+    /* 68px */
+    --spacing-35: 7rem;
+    /* 70px */
+    --spacing-36: 7.2rem;
+    /* 72px */
+    --spacing-37: 7.4rem;
+    /* 74px */
+    --spacing-38: 7.6rem;
+    /* 76px */
+    --spacing-39: 7.8rem;
+    /* 78px */
+    --spacing-40: 8rem;
+    /* 80px */
+    --spacing-41: 8.2rem;
+    /* 82px */
+    --spacing-42: 8.4rem;
+    /* 84px */
+    --spacing-43: 8.6rem;
+    /* 86px */
+    --spacing-44: 8.8rem;
+    /* 88px */
+    --spacing-45: 9rem;
+    /* 90px */
+    --spacing-46: 9.2rem;
+    /* 92px */
+    --spacing-47: 9.4rem;
+    /* 94px */
+    --spacing-48: 9.6rem;
+    /* 96px */
+    --spacing-49: 9.8rem;
+    /* 98px */
+    --spacing-50: 10rem;
+    /* 100px */
+    --spacing-51: 10.2rem;
+    /* 102px */
+    --spacing-52: 10.4rem;
+    /* 104px */
+    --spacing-53: 10.6rem;
+    /* 106px */
+    --spacing-54: 10.8rem;
+    /* 108px */
+    --spacing-55: 11rem;
+    /* 110px */
+    --spacing-56: 11.2rem;
+    /* 112px */
+    --spacing-57: 11.4rem;
+    /* 114px */
+    --spacing-58: 11.6rem;
+    /* 116px */
+    --spacing-59: 11.8rem;
+    /* 118px */
+    --spacing-60: 12rem;
+    /* 120px */
+    --spacing-61: 12.2rem;
+    /* 122px */
+    --spacing-62: 12.4rem;
+    /* 124px */
+    --spacing-63: 12.6rem;
+    /* 126px */
+    --spacing-64: 12.8rem;
+    /* 128px */
+    --spacing-65: 13rem;
+    /* 130px */
+    --spacing-66: 13.2rem;
+    /* 132px */
+    --spacing-67: 13.4rem;
+    /* 134px */
+    --spacing-68: 13.6rem;
+    /* 136px */
+    --spacing-69: 13.8rem;
+    /* 138px */
+    --spacing-70: 14rem;
+    /* 140px */
+    --spacing-71: 14.2rem;
+    /* 142px */
+    --spacing-72: 14.4rem;
+    /* 144px */
+    --spacing-73: 14.6rem;
+    /* 146px */
+    --spacing-74: 14.8rem;
+    /* 148px */
+    --spacing-75: 15rem;
+    /* 150px */
+    --spacing-76: 15.2rem;
+    /* 152px */
+    --spacing-77: 15.4rem;
+    /* 154px */
+    --spacing-78: 15.6rem;
+    /* 156px */
+    --spacing-79: 15.8rem;
+    /* 158px */
+    --spacing-80: 16rem;
+    /* 160px */
+    --spacing-81: 16.2rem;
+    /* 162px */
+    --spacing-82: 16.4rem;
+    /* 164px */
+    --spacing-83: 16.6rem;
+    /* 166px */
+    --spacing-84: 16.8rem;
+    /* 168px */
+    --spacing-85: 17rem;
+    /* 170px */
+    --spacing-86: 17.2rem;
+    /* 172px */
+    --spacing-87: 17.4rem;
+    /* 174px */
+    --spacing-88: 17.6rem;
+    /* 176px */
+    --spacing-89: 17.8rem;
+    /* 178px */
+    --spacing-90: 18rem;
+    /* 180px */
+    --spacing-91: 18.2rem;
+    /* 182px */
+    --spacing-92: 18.4rem;
+    /* 184px */
+    --spacing-93: 18.6rem;
+    /* 186px */
+    --spacing-94: 18.8rem;
+    /* 188px */
+    --spacing-95: 19rem;
+    /* 190px */
+    --spacing-96: 19.2rem;
+    /* 192px */
+    --spacing-97: 19.4rem;
+    /* 194px */
+    --spacing-98: 19.6rem;
+    /* 196px */
+    --spacing-99: 19.8rem;
+    /* 198px */
+    --spacing-100: 20rem;
+    /* 200px */
+    --spacing-101: 20.2rem;
+    /* 202px */
+    --spacing-102: 20.4rem;
+    /* 204px */
+    --spacing-103: 20.6rem;
+    /* 206px */
+    --spacing-104: 20.8rem;
+    /* 208px */
+    --spacing-105: 21rem;
+    /* 210px */
+    --spacing-106: 21.2rem;
+    /* 212px */
+    --spacing-107: 21.4rem;
+    /* 214px */
+    --spacing-108: 21.6rem;
+    /* 216px */
+    --spacing-109: 21.8rem;
+    /* 218px */
+    --spacing-110: 22rem;
+    /* 220px */
+    --spacing-111: 22.2rem;
+    /* 222px */
+    --spacing-112: 22.4rem;
+    /* 224px */
+    --spacing-113: 22.6rem;
+    /* 226px */
+    --spacing-114: 22.8rem;
+    /* 228px */
+    --spacing-115: 23rem;
+    /* 230px */
+    --spacing-116: 23.2rem;
+    /* 232px */
+    --spacing-117: 23.4rem;
+    /* 234px */
+    --spacing-118: 23.6rem;
+    /* 236px */
+    --spacing-119: 23.8rem;
+    /* 238px */
+    --spacing-120: 24rem;
+    /* 240px */
+    --spacing-121: 24.2rem;
+    /* 242px */
+    --spacing-122: 24.4rem;
+    /* 244px */
+    --spacing-123: 24.6rem;
+    /* 246px */
+    --spacing-124: 24.8rem;
+    /* 248px */
+    --spacing-125: 25rem;
+    /* 250px */
+    --spacing-126: 25.2rem;
+    /* 252px */
+    --spacing-127: 25.4rem;
+    /* 254px */
+    --spacing-128: 25.6rem;
+    /* 256px */
+    --spacing-129: 25.8rem;
+    /* 258px */
+    --spacing-130: 26rem;
+    /* 260px */
+    --spacing-131: 26.2rem;
+    /* 262px */
+    --spacing-132: 26.4rem;
+    /* 264px */
+    --spacing-133: 26.6rem;
+    /* 266px */
+    --spacing-134: 26.8rem;
+    /* 268px */
+    --spacing-135: 27rem;
+    /* 270px */
+    --spacing-136: 27.2rem;
+    /* 272px */
+    --spacing-137: 27.4rem;
+    /* 274px */
+    --spacing-138: 27.6rem;
+    /* 276px */
+    --spacing-139: 27.8rem;
+    /* 278px */
+    --spacing-140: 28rem;
+    /* 280px */
+    --spacing-141: 28.2rem;
+    /* 282px */
+    --spacing-142: 28.4rem;
+    /* 284px */
+    --spacing-143: 28.6rem;
+    /* 286px */
+    --spacing-144: 28.8rem;
+    /* 288px */
+    --spacing-145: 29rem;
+    /* 290px */
+    --spacing-146: 29.2rem;
+    /* 292px */
+    --spacing-147: 29.4rem;
+    /* 294px */
+    --spacing-148: 29.6rem;
+    /* 296px */
+    --spacing-149: 29.8rem;
+    /* 298px */
+    --spacing-150: 30rem;
+    /* 300px */
+    --spacing-151: 30.2rem;
+    /* 302px */
+    --spacing-152: 30.4rem;
+    /* 304px */
+    --spacing-153: 30.6rem;
+    /* 306px */
+    --spacing-154: 30.8rem;
+    /* 308px */
+    --spacing-155: 31rem;
+    /* 310px */
+    --spacing-156: 31.2rem;
+    /* 312px */
+    --spacing-157: 31.4rem;
+    /* 314px */
+    --spacing-158: 31.6rem;
+    /* 316px */
+    --spacing-159: 31.8rem;
+    /* 318px */
+    --spacing-160: 32rem;
+    /* 320px */
+    --spacing-161: 32.2rem;
+    /* 322px */
+    --spacing-162: 32.4rem;
+    /* 324px */
+    --spacing-163: 32.6rem;
+    /* 326px */
+    --spacing-164: 32.8rem;
+    /* 328px */
+    --spacing-165: 33rem;
+    /* 330px */
+    --spacing-166: 33.2rem;
+    /* 332px */
+    --spacing-167: 33.4rem;
+    /* 334px */
+    --spacing-168: 33.6rem;
+    /* 336px */
+    --spacing-169: 33.8rem;
+    /* 338px */
+    --spacing-170: 34rem;
+    /* 340px */
+    --spacing-171: 34.2rem;
+    /* 342px */
+    --spacing-172: 34.4rem;
+    /* 344px */
+    --spacing-173: 34.6rem;
+    /* 346px */
+    --spacing-174: 34.8rem;
+    /* 348px */
+    --spacing-175: 35rem;
+    /* 350px */
+    --spacing-176: 35.2rem;
+    /* 352px */
+    --spacing-177: 35.4rem;
+    /* 354px */
+    --spacing-178: 35.6rem;
+    /* 356px */
+    --spacing-179: 35.8rem;
+    /* 358px */
+    --spacing-180: 36rem;
+    /* 360px */
+    --spacing-181: 36.2rem;
+    /* 362px */
+    --spacing-182: 36.4rem;
+    /* 364px */
+    --spacing-183: 36.6rem;
+    /* 366px */
+    --spacing-184: 36.8rem;
+    /* 368px */
+    --spacing-185: 37rem;
+    /* 370px */
+    --spacing-186: 37.2rem;
+    /* 372px */
+    --spacing-187: 37.4rem;
+    /* 374px */
+    --spacing-188: 37.6rem;
+    /* 376px */
+    --spacing-189: 37.8rem;
+    /* 378px */
+    --spacing-190: 38rem;
+    /* 380px */
+    --spacing-191: 38.2rem;
+    /* 382px */
+    --spacing-192: 38.4rem;
+    /* 384px */
+    --spacing-193: 38.6rem;
+    /* 386px */
+    --spacing-194: 38.8rem;
+    /* 388px */
+    --spacing-195: 39rem;
+    /* 390px */
+    --spacing-196: 39.2rem;
+    /* 392px */
+    --spacing-197: 39.4rem;
+    /* 394px */
+    --spacing-198: 39.6rem;
+    /* 396px */
+    --spacing-199: 39.8rem;
+    /* 398px */
+    --spacing-200: 40rem;
+    /* 400px */
+    --spacing-201: 40.2rem;
+    /* 402px */
+    --spacing-202: 40.4rem;
+    /* 404px */
+    --spacing-203: 40.6rem;
+    /* 406px */
+    --spacing-204: 40.8rem;
+    /* 408px */
+    --spacing-205: 41rem;
+    /* 410px */
+    --spacing-206: 41.2rem;
+    /* 412px */
+    --spacing-207: 41.4rem;
+    /* 414px */
+    --spacing-208: 41.6rem;
+    /* 416px */
+    --spacing-209: 41.8rem;
+    /* 418px */
+    --spacing-210: 42rem;
+    /* 420px */
+    --spacing-211: 42.2rem;
+    /* 422px */
+    --spacing-212: 42.4rem;
+    /* 424px */
+    --spacing-213: 42.6rem;
+    /* 426px */
+    --spacing-214: 42.8rem;
+    /* 428px */
+    --spacing-215: 43rem;
+    /* 430px */
+    --spacing-216: 43.2rem;
+    /* 432px */
+    --spacing-217: 43.4rem;
+    /* 434px */
+    --spacing-218: 43.6rem;
+    /* 436px */
+    --spacing-219: 43.8rem;
+    /* 438px */
+    --spacing-220: 44rem;
+    /* 440px */
+    --spacing-221: 44.2rem;
+    /* 442px */
+    --spacing-222: 44.4rem;
+    /* 444px */
+    --spacing-223: 44.6rem;
+    /* 446px */
+    --spacing-224: 44.8rem;
+    /* 448px */
+    --spacing-225: 45rem;
+    /* 450px */
+    --spacing-226: 45.2rem;
+    /* 452px */
+    --spacing-227: 45.4rem;
+    /* 454px */
+    --spacing-228: 45.6rem;
+    /* 456px */
+    --spacing-229: 45.8rem;
+    /* 458px */
+    --spacing-230: 46rem;
+    /* 460px */
+    --spacing-231: 46.2rem;
+    /* 462px */
+    --spacing-232: 46.4rem;
+    /* 464px */
+    --spacing-233: 46.6rem;
+    /* 466px */
+    --spacing-234: 46.8rem;
+    /* 468px */
+    --spacing-235: 47rem;
+    /* 470px */
+    --spacing-236: 47.2rem;
+    /* 472px */
+    --spacing-237: 47.4rem;
+    /* 474px */
+    --spacing-238: 47.6rem;
+    /* 476px */
+    --spacing-239: 47.8rem;
+    /* 478px */
+    --spacing-240: 48rem;
+    /* 480px */
+    --spacing-241: 48.2rem;
+    /* 482px */
+    --spacing-242: 48.4rem;
+    /* 484px */
+    --spacing-243: 48.6rem;
+    /* 486px */
+    --spacing-244: 48.8rem;
+    /* 488px */
+    --spacing-245: 49rem;
+    /* 490px */
+    --spacing-246: 49.2rem;
+    /* 492px */
+    --spacing-247: 49.4rem;
+    /* 494px */
+    --spacing-248: 49.6rem;
+    /* 496px */
+    --spacing-249: 49.8rem;
+    /* 498px */
+    --spacing-250: 50rem;
+    /* 500px */
+    --spacing-251: 50.2rem;
+    /* 502px */
+    --spacing-252: 50.4rem;
+    /* 504px */
+    --spacing-253: 50.6rem;
+    /* 506px */
+    --spacing-254: 50.8rem;
+    /* 508px */
+    --spacing-255: 51rem;
+    /* 510px */
+    --spacing-256: 51.2rem;
+    /* 512px */
+    --spacing-257: 51.4rem;
+    /* 514px */
+    --spacing-258: 51.6rem;
+    /* 516px */
+    --spacing-259: 51.8rem;
+    /* 518px */
+    --spacing-260: 52rem;
+    /* 520px */
+    --spacing-261: 52.2rem;
+    /* 522px */
+    --spacing-262: 52.4rem;
+    /* 524px */
+    --spacing-263: 52.6rem;
+    /* 526px */
+    --spacing-264: 52.8rem;
+    /* 528px */
+    --spacing-265: 53rem;
+    /* 530px */
+    --spacing-266: 53.2rem;
+    /* 532px */
+    --spacing-267: 53.4rem;
+    /* 534px */
+    --spacing-268: 53.6rem;
+    /* 536px */
+    --spacing-269: 53.8rem;
+    /* 538px */
+    --spacing-270: 54rem;
+    /* 540px */
+    --spacing-271: 54.2rem;
+    /* 542px */
+    --spacing-272: 54.4rem;
+    /* 544px */
+    --spacing-273: 54.6rem;
+    /* 546px */
+    --spacing-274: 54.8rem;
+    /* 548px */
+    --spacing-275: 55rem;
+    /* 550px */
+    --spacing-276: 55.2rem;
+    /* 552px */
+    --spacing-277: 55.4rem;
+    /* 554px */
+    --spacing-278: 55.6rem;
+    /* 556px */
+    --spacing-279: 55.8rem;
+    /* 558px */
+    --spacing-280: 56rem;
+    /* 560px */
+    --spacing-281: 56.2rem;
+    /* 562px */
+    --spacing-282: 56.4rem;
+    /* 564px */
+    --spacing-283: 56.6rem;
+    /* 566px */
+    --spacing-284: 56.8rem;
+    /* 568px */
+    --spacing-285: 57rem;
+    /* 570px */
+    --spacing-286: 57.2rem;
+    /* 572px */
+    --spacing-287: 57.4rem;
+    /* 574px */
+    --spacing-288: 57.6rem;
+    /* 576px */
+    --spacing-289: 57.8rem;
+    /* 578px */
+    --spacing-290: 58rem;
+    /* 580px */
+    --spacing-291: 58.2rem;
+    /* 582px */
+    --spacing-292: 58.4rem;
+    /* 584px */
+    --spacing-293: 58.6rem;
+    /* 586px */
+    --spacing-294: 58.8rem;
+    /* 588px */
+    --spacing-295: 59rem;
+    /* 590px */
+    --spacing-296: 59.2rem;
+    /* 592px */
+    --spacing-297: 59.4rem;
+    /* 594px */
+    --spacing-298: 59.6rem;
+    /* 596px */
+    --spacing-299: 59.8rem;
+    /* 598px */
+    --spacing-300: 60rem;
+    /* 600px */
+    --spacing-301: 60.2rem;
+    /* 602px */
+    --spacing-302: 60.4rem;
+    /* 604px */
+    --spacing-303: 60.6rem;
+    /* 606px */
+    --spacing-304: 60.8rem;
+    /* 608px */
+    --spacing-305: 61rem;
+    /* 610px */
+    --spacing-306: 61.2rem;
+    /* 612px */
+    --spacing-307: 61.4rem;
+    /* 614px */
+    --spacing-308: 61.6rem;
+    /* 616px */
+    --spacing-309: 61.8rem;
+    /* 618px */
+    --spacing-310: 62rem;
+    /* 620px */
+    --spacing-311: 62.2rem;
+    /* 622px */
+    --spacing-312: 62.4rem;
+    /* 624px */
+    --spacing-313: 62.6rem;
+    /* 626px */
+    --spacing-314: 62.8rem;
+    /* 628px */
+    --spacing-315: 63rem;
+    /* 630px */
+    --spacing-316: 63.2rem;
+    /* 632px */
+    --spacing-317: 63.4rem;
+    /* 634px */
+    --spacing-318: 63.6rem;
+    /* 636px */
+    --spacing-319: 63.8rem;
+    /* 638px */
+    --spacing-320: 64rem;
+    /* 640px */
+    --spacing-321: 64.2rem;
+    /* 642px */
+    --spacing-322: 64.4rem;
+    /* 644px */
+    --spacing-323: 64.6rem;
+    /* 646px */
+    --spacing-324: 64.8rem;
+    /* 648px */
+    --spacing-325: 65rem;
+    /* 650px */
+    --spacing-326: 65.2rem;
+    /* 652px */
+    --spacing-327: 65.4rem;
+    /* 654px */
+    --spacing-328: 65.6rem;
+    /* 656px */
+    --spacing-329: 65.8rem;
+    /* 658px */
+    --spacing-330: 66rem;
+    /* 660px */
+    --spacing-331: 66.2rem;
+    /* 662px */
+    --spacing-332: 66.4rem;
+    /* 664px */
+    --spacing-333: 66.6rem;
+    /* 666px */
+    --spacing-334: 66.8rem;
+    /* 668px */
+    --spacing-335: 67rem;
+    /* 670px */
+    --spacing-336: 67.2rem;
+    /* 672px */
+    --spacing-337: 67.4rem;
+    /* 674px */
+    --spacing-338: 67.6rem;
+    /* 676px */
+    --spacing-339: 67.8rem;
+    /* 678px */
+    --spacing-340: 68rem;
+    /* 680px */
+    --spacing-341: 68.2rem;
+    /* 682px */
+    --spacing-342: 68.4rem;
+    /* 684px */
+    --spacing-343: 68.6rem;
+    /* 686px */
+    --spacing-344: 68.8rem;
+    /* 688px */
+    --spacing-345: 69rem;
+    /* 690px */
+    --spacing-346: 69.2rem;
+    /* 692px */
+    --spacing-347: 69.4rem;
+    /* 694px */
+    --spacing-348: 69.6rem;
+    /* 696px */
+    --spacing-349: 69.8rem;
+    /* 698px */
+    --spacing-350: 70rem;
+    /* 700px */
+    --spacing-351: 70.2rem;
+    /* 702px */
+    --spacing-352: 70.4rem;
+    /* 704px */
+    --spacing-353: 70.6rem;
+    /* 706px */
+    --spacing-354: 70.8rem;
+    /* 708px */
+    --spacing-355: 71rem;
+    /* 710px */
+    --spacing-356: 71.2rem;
+    /* 712px */
+    --spacing-357: 71.4rem;
+    /* 714px */
+    --spacing-358: 71.6rem;
+    /* 716px */
+    --spacing-359: 71.8rem;
+    /* 718px */
+    --spacing-360: 72rem;
+    /* 720px */
+    --spacing-361: 72.2rem;
+    /* 722px */
+    --spacing-362: 72.4rem;
+    /* 724px */
+    --spacing-363: 72.6rem;
+    /* 726px */
+    --spacing-364: 72.8rem;
+    /* 728px */
+    --spacing-365: 73rem;
+    /* 730px */
+    --spacing-366: 73.2rem;
+    /* 732px */
+    --spacing-367: 73.4rem;
+    /* 734px */
+    --spacing-368: 73.6rem;
+    /* 736px */
+    --spacing-369: 73.8rem;
+    /* 738px */
+    --spacing-370: 74rem;
+    /* 740px */
+    --spacing-371: 74.2rem;
+    /* 742px */
+    --spacing-372: 74.4rem;
+    /* 744px */
+    --spacing-373: 74.6rem;
+    /* 746px */
+    --spacing-374: 74.8rem;
+    /* 748px */
+    --spacing-375: 75rem;
+    /* 750px */
+    --spacing-376: 75.2rem;
+    /* 752px */
+    --spacing-377: 75.4rem;
+    /* 754px */
+    --spacing-378: 75.6rem;
+    /* 756px */
+    --spacing-379: 75.8rem;
+    /* 758px */
+    --spacing-380: 76rem;
+    /* 760px */
+    --spacing-381: 76.2rem;
+    /* 762px */
+    --spacing-382: 76.4rem;
+    /* 764px */
+    --spacing-383: 76.6rem;
+    /* 766px */
+    --spacing-384: 76.8rem;
+    /* 768px */
+    --spacing-385: 77rem;
+    /* 770px */
+    --spacing-386: 77.2rem;
+    /* 772px */
+    --spacing-387: 77.4rem;
+    /* 774px */
+    --spacing-388: 77.6rem;
+    /* 776px */
+    --spacing-389: 77.8rem;
+    /* 778px */
+    --spacing-390: 78rem;
+    /* 780px */
+    --spacing-391: 78.2rem;
+    /* 782px */
+    --spacing-392: 78.4rem;
+    /* 784px */
+    --spacing-393: 78.6rem;
+    /* 786px */
+    --spacing-394: 78.8rem;
+    /* 788px */
+    --spacing-395: 79rem;
+    /* 790px */
+    --spacing-396: 79.2rem;
+    /* 792px */
+    --spacing-397: 79.4rem;
+    /* 794px */
+    --spacing-398: 79.6rem;
+    /* 796px */
+    --spacing-399: 79.8rem;
+    /* 798px */
+    --spacing-400: 80rem;
+    /* 800px */
+    --spacing-401: 80.2rem;
+    /* 802px */
+    --spacing-402: 80.4rem;
+    /* 804px */
+    --spacing-403: 80.6rem;
+    /* 806px */
+    --spacing-404: 80.8rem;
+    /* 808px */
+    --spacing-405: 81rem;
+    /* 810px */
+    --spacing-406: 81.2rem;
+    /* 812px */
+    --spacing-407: 81.4rem;
+    /* 814px */
+    --spacing-408: 81.6rem;
+    /* 816px */
+    --spacing-409: 81.8rem;
+    /* 818px */
+    --spacing-410: 82rem;
+    /* 820px */
+    --spacing-411: 82.2rem;
+    /* 822px */
+    --spacing-412: 82.4rem;
+    /* 824px */
+    --spacing-413: 82.6rem;
+    /* 826px */
+    --spacing-414: 82.8rem;
+    /* 828px */
+    --spacing-415: 83rem;
+    /* 830px */
+    --spacing-416: 83.2rem;
+    /* 832px */
+    --spacing-417: 83.4rem;
+    /* 834px */
+    --spacing-418: 83.6rem;
+    /* 836px */
+    --spacing-419: 83.8rem;
+    /* 838px */
+    --spacing-420: 84rem;
+    /* 840px */
+    --spacing-421: 84.2rem;
+    /* 842px */
+    --spacing-422: 84.4rem;
+    /* 844px */
+    --spacing-423: 84.6rem;
+    /* 846px */
+    --spacing-424: 84.8rem;
+    /* 848px */
+    --spacing-425: 85rem;
+    /* 850px */
+    --spacing-426: 85.2rem;
+    /* 852px */
+    --spacing-427: 85.4rem;
+    /* 854px */
+    --spacing-428: 85.6rem;
+    /* 856px */
+    --spacing-429: 85.8rem;
+    /* 858px */
+    --spacing-430: 86rem;
+    /* 860px */
+    --spacing-431: 86.2rem;
+    /* 862px */
+    --spacing-432: 86.4rem;
+    /* 864px */
+    --spacing-433: 86.6rem;
+    /* 866px */
+    --spacing-434: 86.8rem;
+    /* 868px */
+    --spacing-435: 87rem;
+    /* 870px */
+    --spacing-436: 87.2rem;
+    /* 872px */
+    --spacing-437: 87.4rem;
+    /* 874px */
+    --spacing-438: 87.6rem;
+    /* 876px */
+    --spacing-439: 87.8rem;
+    /* 878px */
+    --spacing-440: 88rem;
+    /* 880px */
+    --spacing-441: 88.2rem;
+    /* 882px */
+    --spacing-442: 88.4rem;
+    /* 884px */
+    --spacing-443: 88.6rem;
+    /* 886px */
+    --spacing-444: 88.8rem;
+    /* 888px */
+    --spacing-445: 89rem;
+    /* 890px */
+    --spacing-446: 89.2rem;
+    /* 892px */
+    --spacing-447: 89.4rem;
+    /* 894px */
+    --spacing-448: 89.6rem;
+    /* 896px */
+    --spacing-449: 89.8rem;
+    /* 898px */
+    --spacing-450: 90rem;
+    /* 900px */
+    --spacing-451: 90.2rem;
+    /* 902px */
+    --spacing-452: 90.4rem;
+    /* 904px */
+    --spacing-453: 90.6rem;
+    /* 906px */
+    --spacing-454: 90.8rem;
+    /* 908px */
+    --spacing-455: 91rem;
+    /* 910px */
+    --spacing-456: 91.2rem;
+    /* 912px */
+    --spacing-457: 91.4rem;
+    /* 914px */
+    --spacing-458: 91.6rem;
+    /* 916px */
+    --spacing-459: 91.8rem;
+    /* 918px */
+    --spacing-460: 92rem;
+    /* 920px */
+    --spacing-461: 92.2rem;
+    /* 922px */
+    --spacing-462: 92.4rem;
+    /* 924px */
+    --spacing-463: 92.6rem;
+    /* 926px */
+    --spacing-464: 92.8rem;
+    /* 928px */
+    --spacing-465: 93rem;
+    /* 930px */
+    --spacing-466: 93.2rem;
+    /* 932px */
+    --spacing-467: 93.4rem;
+    /* 934px */
+    --spacing-468: 93.6rem;
+    /* 936px */
+    --spacing-469: 93.8rem;
+    /* 938px */
+    --spacing-470: 94rem;
+    /* 940px */
+    --spacing-471: 94.2rem;
+    /* 942px */
+    --spacing-472: 94.4rem;
+    /* 944px */
+    --spacing-473: 94.6rem;
+    /* 946px */
+    --spacing-474: 94.8rem;
+    /* 948px */
+    --spacing-475: 95rem;
+    /* 950px */
+    --spacing-476: 95.2rem;
+    /* 952px */
+    --spacing-477: 95.4rem;
+    /* 954px */
+    --spacing-478: 95.6rem;
+    /* 956px */
+    --spacing-479: 95.8rem;
+    /* 958px */
+    --spacing-480: 96rem;
+    /* 960px */
+    --spacing-481: 96.2rem;
+    /* 962px */
+    --spacing-482: 96.4rem;
+    /* 964px */
+    --spacing-483: 96.6rem;
+    /* 966px */
+    --spacing-484: 96.8rem;
+    /* 968px */
+    --spacing-485: 97rem;
+    /* 970px */
+    --spacing-486: 97.2rem;
+    /* 972px */
+    --spacing-487: 97.4rem;
+    /* 974px */
+    --spacing-488: 97.6rem;
+    /* 976px */
+    --spacing-489: 97.8rem;
+    /* 978px */
+    --spacing-490: 98rem;
+    /* 980px */
+    --spacing-491: 98.2rem;
+    /* 982px */
+    --spacing-492: 98.4rem;
+    /* 984px */
+    --spacing-493: 98.6rem;
+    /* 986px */
+    --spacing-494: 98.8rem;
+    /* 988px */
+    --spacing-495: 99rem;
+    /* 990px */
+    --spacing-496: 99.2rem;
+    /* 992px */
+    --spacing-497: 99.4rem;
+    /* 994px */
+    --spacing-498: 99.6rem;
+    /* 996px */
+    --spacing-499: 99.8rem;
+    /* 998px */
+    --spacing-500: 100rem;
+    /* 1000px */
+}

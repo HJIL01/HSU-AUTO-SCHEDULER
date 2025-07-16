@@ -1,4 +1,4 @@
-import TimeTable from "./components/timeTable";
+import TimeTable from "./_components/timeTable";
 
 export default function Home() {
   return (

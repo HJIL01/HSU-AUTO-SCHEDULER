@@ -1,47 +1,44 @@
 "use client";
 
-import { WeekdayEnum } from "@/enums/weekday.enum";
-import { useEffect, useRef, useState } from "react";
+import { days } from "@/constants/days";
+import { hours } from "@/constants/hours";
+import { WeekdayKorMap } from "@/enums/weekday.enum";
+import DayColumn from "../_components/DayColumn";
+import clsx from "clsx";
 
 export default function Page() {
-  const [testArray, setTestArray] = useState<number[]>([]);
-  const [colWidth, setColWidth] = useState<number>(0);
-  const ref = useRef<HTMLDivElement | null>(null);
-  const mockDays = [WeekdayEnum.TUE, WeekdayEnum.THU];
-
-  useEffect(() => {
-    const count = Math.floor(Math.random() * 3) + 5;
-    const generated = Array.from({ length: count }, (_, i) => i);
-    setTestArray(generated);
-
-    function getTest() {
-      if (!ref.current) {
-        return;
-      }
-      setColWidth(ref.current.offsetWidth / count);
-    }
-
-    getTest();
-
-    window.addEventListener("resize", getTest);
-
-    return () => window.removeEventListener("resize", getTest);
-  }, []);
-
-  console.log(colWidth);
-
   return (
     <div className="flex min-h-dvh w-full items-center justify-center gap-2 bg-amber-200">
-      <div ref={ref} className="flex w-[80%] bg-red-50">
-        {testArray.map((e, i) => (
-          <div
-            key={e}
-            className="flex h-[30px] w-[30px] items-center justify-center bg-red-300"
-          >
-            {e}
-          </div>
-        ))}
-      </div>
+      <table className="w-[80%] max-w-400 border [&_td]:border [&_th]:border">
+        <thead className="text-sm">
+          <tr className="h-25">
+            <th className="w-30" />
+            {days.map((day) => (
+              <th key={day}>{WeekdayKorMap[day]}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              {hours.map((hour, i) => (
+                <div
+                  key={hour}
+                  className={clsx(
+                    "flex h-30 items-center justify-center",
+                    i !== 0 && "border-t",
+                  )}
+                >
+                  {hour}시
+                </div>
+              ))}
+            </th>
+            {days.map((day) => (
+              <DayColumn key={day} hours={hours} />
+            ))}
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 }
