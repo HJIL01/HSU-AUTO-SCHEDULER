@@ -37,7 +37,7 @@ export class ScheduleService {
     const weeklyScheduleMap = new Map<WeekdayEnum, WeeklyScheduleType[]>();
 
     // SQL문으로 필터링
-    let query = await this.courseRepo
+    let query = this.courseRepo
       .createQueryBuilder('c')
       .leftJoinAndSelect('major_course', 'mc', 'mc.course_id = c.course_id')
       .leftJoinAndSelect('c.offline_schedules', 'os')
@@ -201,8 +201,8 @@ export class ScheduleService {
       });
     }
 
-    console.log(JSFilteredData.length);
-    console.log(JSON.stringify(JSFilteredData, null, 2));
+    // console.log(JSFilteredData.length);
+    // console.log(JSON.stringify(JSFilteredData, null, 2));
 
     // 미리 선택된 강의들도 포함시키는 이유는 반드시 포함시켜서 연산해야할 제약조건(하루 최대 강의 수, 최대 학점, 전기, 전필, 전선 등)이 있기 때문
     const finalFilteredData: CourseDto[] = JSFilteredData.reduce(

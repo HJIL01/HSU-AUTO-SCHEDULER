@@ -11,7 +11,7 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
         # 부모 클래스 CpSolverSolutionCallback 먼저 생성
         super().__init__()
         self.is_selected = is_selected  # BoolVar 리스트
-        self.courses = courses  # 필터링된 과목 정보 리스트
+        self.selected_course_indicies = courses  # 필터링된 과목 정보 리스트
         self.solution_count = 0  # 해 개수 카운터
         self.solutions = (
             []
@@ -27,7 +27,9 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
         ]
 
         # 현재 해의 총 학점 합
-        total_credit = sum(self.courses[i].credit for i in selected_indices)
+        total_credit = sum(
+            self.selected_course_indicies[i].credit for i in selected_indices
+        )
 
         # 1. 요일별로 묶은 후 start_time 기준으로 정렬한다
         # 2. 정렬 후엔 요일별 시간 순으로 강의가 배치되어 있으므로
@@ -37,7 +39,7 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
 
         # 요일별로 묶기
         for selected_course_index in selected_indices:
-            selected_course = self.courses[selected_course_index]
+            selected_course = self.selected_course_indicies[selected_course_index]
             selected_course_offline_schedules = selected_course.offline_schedules
             for cur_offline_schedule in selected_course_offline_schedules:
                 cur_offline_schedule_day = cur_offline_schedule.day
@@ -50,7 +52,7 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
             indicies_by_day = course_day_indices[day]
             indicies_by_day.sort(
                 key=lambda course_index: sort_by_start_time(
-                    self.courses, course_index, day
+                    self.selected_course_indicies, course_index, day
                 )
             )
 
@@ -61,8 +63,8 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
                 cur_course_index = indicies_by_day[i]
                 next_course_index = indicies_by_day[i + 1]
 
-                cur_course = self.courses[cur_course_index]
-                next_course = self.courses[next_course_index]
+                cur_course = self.selected_course_indicies[cur_course_index]
+                next_course = self.selected_course_indicies[next_course_index]
 
                 _, cur_course_end_time_in_cur_day = get_start_time_and_end_time(
                     cur_course, day
@@ -100,7 +102,7 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
                 course_day_indices[day] = []
 
             for course_index in selected_indices:
-                course = self.courses[course_index]
+                course = self.selected_course_indicies[course_index]
                 offline_schedule = course.offline_schedules
                 for cur_off in offline_schedule:
                     cur_off_day = cur_off.day
@@ -110,12 +112,12 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
                 indices_by_day = course_day_indices[day]
                 indices_by_day.sort(
                     key=lambda course_index: sort_by_start_time(
-                        self.courses, course_index, day
+                        self.selected_course_indicies, course_index, day
                     )
                 )
                 print(f"{day}: ")
                 for cur_course_index in indices_by_day:
-                    cur_course = self.courses[cur_course_index]
+                    cur_course = self.selected_course_indicies[cur_course_index]
                     cur_course_name = cur_course.course_name
                     cur_course_completion_type = cur_course.completion_type
                     cur_course_delivery_method = cur_course.delivery_method

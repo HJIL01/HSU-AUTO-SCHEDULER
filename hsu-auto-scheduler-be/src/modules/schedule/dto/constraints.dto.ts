@@ -77,13 +77,6 @@ export class ConstraintsDto {
   )
   daily_lecture_limit: number;
 
-  @Type(() => Number)
-  @IsNumber(
-    { allowNaN: false },
-    { message: '수업 간 시간 간격은 숫자여야 합니다.' },
-  )
-  allowed_gap_mins: number;
-
   @IsBoolean()
   has_lunch_break: boolean;
 }

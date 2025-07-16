@@ -1,5 +1,5 @@
-import { DayOrNightEnum } from "./dayOrNight.enum";
-import { OfflineScheduleType } from "./offline-schedule.type";
+import { DayOrNightEnum } from "../enums/dayOrNight.enum";
+import { OfflineScheduleType } from "./offlineSchedule.type";
 
 // 강좌 타입
 export type CourseType = {
