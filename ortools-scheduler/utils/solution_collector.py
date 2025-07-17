@@ -4,7 +4,6 @@ from .sort_by_start_time import sort_by_start_time
 from .get_start_time_and_end_time import get_start_time_and_end_time
 from schemas.common.course_schema import CourseSchema
 from schemas.common.enums import WeekdayEnum
-from schemas.common.solution_schema import SolutionSchema
 
 
 class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
@@ -17,7 +16,7 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
             courses  # 제약조건들을 만족하는 강의 리스트
         )
         self.solution_count = 0  # 해 개수 카운터
-        self.solutions: list[SolutionSchema] = (
+        self.solutions = (
             []
         )  # 모든 솔루션들을 담은 배열 (몇번째 해인지, 선택된 인덱스, 총 학점)
 
@@ -53,17 +52,24 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
         # 요일별로 묶기
         for selected_course in selected_courses:
             selected_course_offline_schedules = selected_course.offline_schedules
-            for cur_offline_schedule in selected_course_offline_schedules:
-                cur_offline_schedule_day = cur_offline_schedule.day
-                courses_by_day[cur_offline_schedule_day].append(selected_course)
+            if selected_course_offline_schedules:
+                for cur_offline_schedule in selected_course_offline_schedules:
+                    cur_offline_schedule_day = cur_offline_schedule.day
+                    courses_by_day[cur_offline_schedule_day].append(selected_course)
+            else:
+                courses_by_day["nontimes"].append(selected_course)
 
         # 요일별로 start_time 기준 정렬
         for day in courses_by_day:
+            if day == "nontimes":
+                continue
             courses_in_cur_day = courses_by_day[day]
             courses_in_cur_day.sort(key=lambda course: sort_by_start_time(course, day))
 
         # 현재 해의 total_course_gap 구하기
         for day in courses_by_day:
+            if day == "nontimes":
+                continue
             courses_in_cur_day = courses_by_day[day]
             for i in range(len(courses_in_cur_day) - 1):
                 cur_course = courses_in_cur_day[i]
@@ -98,9 +104,10 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
 
             for day in selected_courses:
                 courses_in_cur_day = selected_courses[day]
-                courses_in_cur_day.sort(
-                    key=lambda course: sort_by_start_time(course, day)
-                )
+                if day != "nontimes":
+                    courses_in_cur_day.sort(
+                        key=lambda course: sort_by_start_time(course, day)
+                    )
                 print(f"{day}: ")
                 for cur_course in courses_in_cur_day:
                     cur_course_name = cur_course.course_name
