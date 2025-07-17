@@ -1,0 +1,23 @@
+@theme {
+    --color-scheduler-main-bg: #F8F8F8;
+
+    --color-hsu: #11348E;
+
+    --color-scheduler-cell-border: #E6E6E6;
+
+    --color-course-block-1: #A9B5DF;
+    --color-course-block-2: #F75A5A;
+    --color-course-block-3: #ECFAE5;
+    --color-course-block-4: #F4E7E1;
+    --color-course-block-5: #FFAAAA;
+    --color-course-block-6: #FFD586;
+    --color-course-block-7: #FFE99A;
+    --color-course-block-8: #FFF2EB;
+    --color-course-block-9: #D1D8BE;
+    --color-course-block-10: #9EC6F3;
+    --color-course-block-11: #F5EEDC;
+    --color-course-block-12: #8F87F1;
+    --color-course-block-13: #FFFECE;
+    --color-course-block-14: #FFEDFA;
+    --color-course-block-15: #FFB8E0;
+}

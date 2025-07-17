@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./sizes.css";
+@import "./colors.css";
 
 html,
 body {
@@ -23,4 +24,8 @@ li {
 
 a {
     text-decoration: none;
+}
+
+select {
+    outline: none;
 }

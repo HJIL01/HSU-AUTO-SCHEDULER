@@ -12,13 +12,34 @@ type Props = {
   coursesInCurDay: CourseType[];
 };
 
+const bgClass = [
+  "bg-course-block-1",
+  "bg-course-block-2",
+  "bg-course-block-3",
+  "bg-course-block-4",
+  "bg-course-block-5",
+  "bg-course-block-6",
+  "bg-course-block-7",
+  "bg-course-block-8",
+  "bg-course-block-9",
+  "bg-course-block-10",
+  "bg-course-block-11",
+  "bg-course-block-12",
+  "bg-course-block-13",
+  "bg-course-block-14",
+  "bg-course-block-15",
+];
+
 export default function DayColumn({ day, hours, coursesInCurDay }: Props) {
   return (
     <td data-day={day} className="relative">
       {hours.map((hour, i) => (
         <div
           key={hour}
-          className={clsx("min-w-20", i !== 0 && "border-t")}
+          className={clsx(
+            "min-w-20",
+            i !== 0 && "border-scheduler-cell-border border-t",
+          )}
           style={{
             height: `${COURSE_CELL_HEIGHT}px`,
           }}
@@ -36,10 +57,15 @@ export default function DayColumn({ day, hours, coursesInCurDay }: Props) {
           course,
           day,
         );
+        const randomBg = bgClass[Math.floor(Math.random() * bgClass.length)];
+
         return (
           <div
             key={course.course_id}
-            className="absolute top-0 z-50 w-full overflow-hidden border-y border-b-amber-950 bg-red-500 p-2"
+            className={clsx(
+              "border-y-scheduler-cell-border absolute top-0 z-50 w-full overflow-hidden border-y p-2",
+              randomBg,
+            )}
             style={{
               top: `${offsetTop}px`,
               height: `${courseBlockHeight}px`,

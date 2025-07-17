@@ -21,7 +21,7 @@ export default function Page() {
   };
 
   return (
-    <main className="min-h-dvh w-full bg-amber-200">
+    <main className="min-h-dvh w-full">
       {/* <div className="flex gap-10">
         <div>학기: 드롭박스</div>
         <div>전공: 드롭박스</div>
@@ -36,14 +36,19 @@ export default function Page() {
         <div>점심 보장: 불리언 (디폴트 false)</div>
       </div> */}
 
-      <div className="h-max w-max">
-        <CustomSelectBox<string> items={mock_semesters} name="semester_id" />
-        <table className="w-[70dvw] max-w-400 border-collapse border [&_td]:border [&_th]:border">
+      <div className="relative h-max w-max">
+        <div className="bg-hsu flex justify-between rounded-t-2xl px-10 py-5">
+          <h2 className="text-2xl font-bold text-white">HSU Auto Scheduler</h2>
+          <CustomSelectBox<string> items={mock_semesters} name="semester_id" />
+        </div>
+        <table className="bg-scheduler-main-bg [&_td]:border-scheduler-cell-border [&_th]:border-scheduler-cell-border w-[70dvw] max-w-400 min-w-200 border-collapse border [&_td]:border [&_th]:border">
           <thead className="text-sm">
             <tr className="h-25">
-              <th className="w-30 min-w-15" />
+              <th className="w-30" />
               {DAYS.map((day) => (
-                <th key={day}>{WeekdayKorMap[day]}</th>
+                <th key={day} className="text-hsu">
+                  {WeekdayKorMap[day]}
+                </th>
               ))}
             </tr>
           </thead>
@@ -54,11 +59,11 @@ export default function Page() {
                   <div
                     key={hour}
                     className={clsx(
-                      "flex h-30 items-center justify-center",
-                      i !== 0 && "border-t",
+                      "flex h-30 items-center justify-center text-xs",
+                      i !== 0 && "border-scheduler-cell-border border-t",
                     )}
                   >
-                    {hour}시
+                    {hour}:00
                   </div>
                 ))}
               </th>
@@ -97,6 +102,11 @@ export default function Page() {
             </ul>
           </div>
         )}
+
+        <div className="absolute bottom-20 left-1/2 z-50">
+          <button>버튼1</button>
+          <button>버튼2</button>
+        </div>
       </div>
 
       <button
