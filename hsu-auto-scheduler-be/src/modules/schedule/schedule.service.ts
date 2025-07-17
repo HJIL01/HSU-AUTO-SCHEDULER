@@ -25,7 +25,7 @@ export class ScheduleService {
   async filterDataAndPostConstraints(constaraints: ConstraintsDto) {
     /* 
       SQL문으로 필터링 할 것들
-      학기, 전공, 학년, 주야, 공강 요일, 미리 선택된 강의,
+      학기, 전공, 학년, 주야, 공강 요일, 미리 선택된 강의와 같은 과목코드의 강의,
 
       JS로 필터링 할 것들
       선택된 강의와 같은 시간의 강의,
@@ -240,9 +240,14 @@ export class ScheduleService {
       }),
     );
 
+    const { total_solution_count, solutions } = response.data;
+
     return {
       message: '필터링 및 제약 조건 추출 성공',
-      data: `${response.data}개`,
+      data: {
+        total_solution_count,
+        solutions,
+      },
     };
   }
 }
