@@ -67,7 +67,10 @@ def HSU_AUTO_SCHEDULER_CP_SAT(
 
         # 디버깅용
         # 정렬 후 해를 print 하므로 n번째 해 << 이것이 뒤죽박죽일 수 있음
-        solution_collector.solution_print()
-        print(solution_collector.solution_count)
+        # solution_collector.solution_print()
+        # print(solution_collector.solution_count)
 
-    return solution_collector.solution_count
+    return {
+        "total_solution_count": solution_collector.get_solution_count,
+        "solutions": solution_collector.get_solutions,
+    }
