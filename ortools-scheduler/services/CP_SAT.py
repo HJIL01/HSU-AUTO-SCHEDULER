@@ -62,6 +62,9 @@ def HSU_AUTO_SCHEDULER_CP_SAT(
         # 해가 나왔다면 학점 기준 내림차순 정렬(학점이 높은 순으로 주기 위해서)
         solution_collector.sort_by_total_credit_descending()
 
+        # 해가 나왔다면 온라인 강의 개수 기준 정렬(온라인 강의 많은 수로)
+        solution_collector.sort_by_online_course_count_descending()
+
         # 해가 나왔다면 총 수업 간 간격(분) 기준 오름차순 정렬(연강 간격이 작은 순으로 주기 위해서)
         solution_collector.sort_by_total_course_gap_ascending()
 

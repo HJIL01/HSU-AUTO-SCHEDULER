@@ -39,6 +39,12 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
             selected_course.credit for selected_course in selected_courses
         )
 
+        total_online_course_count = sum(
+            1
+            for selected_course in selected_courses
+            if selected_course.delivery_method == "온라인100%"
+        )
+
         # 1. 요일별로 묶은 후 start_time 기준으로 정렬한다
         # 2. 정렬 후엔 요일별 시간 순으로 강의가 배치되어 있으므로
         # 3. 다음 강의의 시작 시간 - 현재 강의의 끝나는 시간을 gap에 모두 더하여 total_gap을 구한다
@@ -91,15 +97,20 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
                 "solution_index": self.solution_count,
                 "selected_courses": courses_by_day,
                 "total_credit": total_credit,
+                "total_online_course_count": total_online_course_count,
                 "total_course_gap": total_course_gap,
             }
         )
 
     def solution_print(self):
         for cur_solution in self.solutions:
-            solution_index, selected_courses, total_credit, total_course_gap = (
-                cur_solution.values()
-            )
+            (
+                solution_index,
+                selected_courses,
+                total_credit,
+                total_online_course_count,
+                total_course_gap,
+            ) = cur_solution.values()
             print(f"{solution_index}번째 해:")
 
             for day in selected_courses:
@@ -130,12 +141,18 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
                         print(
                             f"{place}, {start_time_hour:02d}:{start_time_min:02d}~{end_time_hour:02d}:{end_time_min:02d}"
                         )
-            print(f"총 학점: {total_credit} total_course_gap: {total_course_gap}")
+            print()
+            print(
+                f"총 학점: {total_credit} total_course_gap: {total_course_gap} 온라인 강의 총 개수: {total_online_course_count}"
+            )
             print()
 
     # 총 학점 합 기준 내림차순으로 정렬하는 함수
     def sort_by_total_credit_descending(self):
         self.solutions.sort(key=lambda solution: -solution["total_credit"])
+
+    def sort_by_online_course_count_descending(self):
+        self.solutions.sort(key=lambda solution: -solution["total_online_course_count"])
 
     # 총 수업 간 간격 합 기준 내림차순으로 정렬하는 함수
     def sort_by_total_course_gap_ascending(self):
