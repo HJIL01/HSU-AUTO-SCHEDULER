@@ -7,7 +7,7 @@ export function getOfflineScheduleInCurDay(
 ) {
   const offlineSchedules = course.offline_schedules;
 
-  const targetOfflineSchedule = offlineSchedules?.find(
+  const targetOfflineSchedule = offlineSchedules!.find(
     (off) => off.day === day,
   );
 

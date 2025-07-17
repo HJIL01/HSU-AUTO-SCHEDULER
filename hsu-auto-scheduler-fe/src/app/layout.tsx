@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./../styles/globals.css";
 import RQProvider from "@/components/RQProvider";
+import RHFProvider from "@/components/RHFProvider";
 
 export const metadata: Metadata = {
   title: "HSU Auto Scheduler",
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <RQProvider>{children}</RQProvider>
+        <RQProvider>
+          <RHFProvider>{children}</RHFProvider>
+        </RQProvider>
       </body>
     </html>
   );

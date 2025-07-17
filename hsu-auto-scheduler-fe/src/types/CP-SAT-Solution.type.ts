@@ -1,8 +1,8 @@
 import { WeekdayEnum } from "@/enums/weekday.enum";
 import { CourseType } from "./course.type";
 
-export type SelectedCoursesType = {
-  [key in WeekdayEnum]: CourseType[];
+export type SelectedCoursesType = { [key in WeekdayEnum]: CourseType[] } & {
+  nontimes: CourseType[];
 };
 
 export type CPSAT_SolutionType = {
