@@ -7,5 +7,5 @@ export const schema = z.object({
 export type SchemaType = z.infer<typeof schema>;
 
 export const defaultValues: SchemaType = {
-  semester_id: "20251",
+  semester_id: "2025-2",
 };
