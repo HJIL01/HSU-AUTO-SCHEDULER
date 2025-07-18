@@ -14,7 +14,7 @@ function getDayAndTime(dayAndTime: string) {
   const replaced = dayAndTime.replace(/\s+|M/g, "");
   const day = dayAndTime[0];
   const [startTime, endTime] = replaced.slice(1).split("~");
-  return [day, startTime, endTime];
+  return [day, startTime, endTime || startTime];
 }
 
 /* 
@@ -34,13 +34,18 @@ function extractInPersonSchedule(
   const splitSchedules = inPersonSchedule.split("/").map((e) => e.trim());
 
   const matchSchedules = splitSchedules.flatMap((schedule) => {
-    const [place, timeString] = schedule.split(" ");
+    const [place, ...timeString] = schedule.split(
+      /(?=(?:월|화|수|목|금|토|일))/
+    );
 
-    return timeString.split(",").map((time) => `${place} ${time}`);
+    return timeString
+      .join("")
+      .split(",")
+      .map((time) => `${place} ${time}`);
   });
 
   const formatted = matchSchedules.map((schedule) => {
-    const [place, timeString] = schedule.split(" ");
+    const [place, timeString] = schedule.split(/(?=(?:월|화|수|목|금|토|일))/);
 
     return [place, ...getDayAndTime(timeString)];
   });
@@ -79,47 +84,38 @@ function extractInPersonSchedule(
 export function formatClassInfo(
   deliveryMethod: string,
   credit: number,
-  classRoom: string
+  classRoom: string,
+  courseName: string
 ): SessionInfoType | null {
-  // 온라인100%가 아니고 강의실 및 교시 정보가 없다면
-  if (deliveryMethod !== "온라인100%" && !classRoom) {
-    return null;
-  }
-
   // falsy값이 아니라면 모든 1개 이상의 공백들을 공백 하나로 치환
   classRoom = classRoom ? classRoom.replace(/\s+/g, " ") : classRoom;
 
-  switch (deliveryMethod) {
-    case "온라인100%": {
-      return {
-        online: credit,
-        offline_schedules: null,
-      };
+  if (deliveryMethod === "온라인100%") {
+    return {
+      online: credit,
+      offline_schedules: null,
+    };
+  } else {
+    // 온라인이 아닌데 수업 정보가 없는 경우
+    if (!classRoom) {
+      console.error(`${courseName}: 온라인이 아니지만 수업 정보가 null임`);
+      return null;
     }
-    case "대면수업": {
-      const formattedSessionInfo = {
-        online: 0,
-        offline_schedules: extractInPersonSchedule(classRoom),
-      };
 
-      return formattedSessionInfo;
-    }
-    case "BL": {
+    let online = 0;
+    let offlineString = classRoom;
+
+    if (offlineString.includes("온라인강좌")) {
       const [onlineString, ...offlineArray] = classRoom.split("/");
-
-      const online = Number(onlineString.replace(/온라인강좌|시간/g, ""));
-      const offlineString = offlineArray.join("/");
-
-      return {
-        online,
-        offline_schedules: extractInPersonSchedule(offlineString),
-      };
+      online = Number(onlineString.replace(/온라인강좌|시간/g, "")) || 0;
+      offlineString = offlineArray.join("/");
     }
-    default: {
-      return {
-        online: 0,
-        offline_schedules: null,
-      };
-    }
+
+    return {
+      online,
+      offline_schedules: offlineString
+        ? extractInPersonSchedule(offlineString)
+        : null,
+    };
   }
 }

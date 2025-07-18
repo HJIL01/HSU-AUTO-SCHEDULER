@@ -12,12 +12,12 @@ import { postMajorData } from "apis/postMajorData";
 
 const TEST_FUNC_TIME_OUT = 1000 * 60 * 5;
 const semester: SemesterType = splitSemester("2025-1");
-const MAJOR_CODE = "V024";
+const MAJOR_CODE = "W040";
 
 test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모든 강좌 가져오기 -> 데베 저장", async ({
   page,
 }) => {
-  // 테스트 함수 타임아웃 2분으로 정의
+  // 테스트 함수 타임아웃 5분으로 정의
   test.setTimeout(TEST_FUNC_TIME_OUT);
 
   // 시간표 및 강의 계획서 홈페이지 접속
@@ -46,10 +46,10 @@ test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모�
   const majors: MajorType[] = majorXmlToJson(majorsXml);
 
   const postSemesterRes = await postSemesterData(semester);
-  // console.log(postSemesterRes);
+  console.log(postSemesterRes);
 
   const postMajorRes = await postMajorData(semester.semester_id, majors);
-  // console.log(postMajorRes);
+  console.log(postMajorRes);
 
   // 모든 전공들을 루프하면서 데이터베이스에 포맷된 정보를 기반으로 저장
   for (const index in majors) {
@@ -82,7 +82,7 @@ test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모�
         semester.semester_id,
         coursesXml
       );
-      console.log(JSON.stringify(courses, null, 2));
+      // console.log(JSON.stringify(courses, null, 2));
 
       const res = await postCourseData(semester, major, courses);
       console.log(

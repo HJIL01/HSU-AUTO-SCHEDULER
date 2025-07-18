@@ -1,4 +1,4 @@
-import { DayOrNightEnum } from "types/day-or-night.enum";
+import { DayOrNightEnum } from "types/dayOrNight.enum";
 import { WeekdayEnum } from "types/weekday.enum";
 
 // 요일을 요일 코드로 변환하는 함수

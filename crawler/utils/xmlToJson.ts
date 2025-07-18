@@ -50,7 +50,8 @@ export function courseXmlToJson(
     const sessionInfo: SessionInfoType | null = formatClassInfo(
       row.kwamok_gubun,
       +row.hakjum,
-      row.classroom
+      row.classroom,
+      row.kwamokname
     );
 
     return {
