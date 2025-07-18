@@ -7,6 +7,7 @@ import { WeekdayEnum } from 'src/common/enums/weekday.enum';
 import { firstValueFrom } from 'rxjs';
 import { HttpService } from '@nestjs/axios';
 import { CourseDto } from 'src/common/dto/03_course.dto';
+import { SemesterEntity } from 'src/common/entities/01_semester.entity';
 
 type WeeklyScheduleType = {
   schedule_name: string;
@@ -17,10 +18,23 @@ type WeeklyScheduleType = {
 @Injectable()
 export class ScheduleService {
   constructor(
+    @InjectRepository(SemesterEntity)
+    private readonly semesterRepo: Repository<SemesterEntity>,
+
     @InjectRepository(CourseEntity)
     private readonly courseRepo: Repository<CourseEntity>,
     private readonly httpService: HttpService,
   ) {}
+
+  async getSemesters() {
+    const semesters = await this.semesterRepo.find();
+
+    semesters.sort((a, b) => +b.semester_id - +a.semester_id);
+    return {
+      message: 'get semesters 성공',
+      data: semesters,
+    };
+  }
 
   async filterDataAndPostConstraints(constaraints: ConstraintsDto) {
     /* 
