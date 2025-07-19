@@ -1,0 +1,65 @@
+"use client";
+
+import getMajors from "@/api/getMajors";
+import CustomSelectBox from "@/components/ui/CustomSelectBox";
+import { SchemaType } from "@/types/schema";
+import { SelectOptionType } from "@/types/selectOption.type";
+import { SemesterType } from "@/types/semester.type";
+import { useQueryClient } from "@tanstack/react-query";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
+import { Controller, useFormContext } from "react-hook-form";
+
+type Props = {
+  semesters: SemesterType[];
+};
+
+export default function RHFSelectSemester({ semesters }: Props) {
+  const queryClient = useQueryClient();
+  const router = useRouter();
+  const params = useSearchParams();
+
+  const { control, watch } = useFormContext<SchemaType>();
+
+  const currentSemester = watch("semester");
+
+  const selectBoxOptions: SelectOptionType[] = semesters.map((semester) => ({
+    value: `${semester.year}-${semester.term}`,
+    label: `${semester.year}년 ${semester.term}학기`,
+  }));
+
+  const handleChangeSemester = (semester: string) => {
+    router.replace(`/timetable/${semester}?${params}`);
+  };
+
+  const handleSelectChange = (
+    value: string,
+    onChange: (...event: any[]) => void,
+  ) => {
+    onChange(value);
+    handleChangeSemester(value);
+  };
+
+  useEffect(() => {
+    const [year, term] = currentSemester.split("-");
+    queryClient.prefetchQuery({
+      queryKey: ["majors", currentSemester],
+      queryFn: () => getMajors(year, term),
+    });
+  }, [currentSemester]);
+
+  return (
+    <Controller
+      name="semester"
+      control={control}
+      render={({ field }) => (
+        <CustomSelectBox
+          {...field}
+          items={selectBoxOptions}
+          placeholder="학기"
+          onChange={(e) => handleSelectChange(e.target.value, field.onChange)}
+        />
+      )}
+    />
+  );
+}

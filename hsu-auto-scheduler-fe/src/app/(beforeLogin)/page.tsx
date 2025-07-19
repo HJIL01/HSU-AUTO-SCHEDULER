@@ -1,11 +1,6 @@
-import TimeTableBody from "./_components/TimeTableBody";
-import TimeTableTitle from "./_components/TimeTableTitle";
+import { redirect } from "next/navigation";
 
-export default function TimeTableMain() {
-  return (
-    <div className="h-max w-max">
-      <TimeTableTitle />
-      <TimeTableBody />
-    </div>
-  );
+export default function BeforeLogin() {
+  redirect("/timetable");
+  return;
 }

@@ -1,4 +1,4 @@
-import RHFSelectSemester from "./RHF/RHFSelectSemester";
+import RHFSelectSemester from "../RHF/RHFSelectSemester";
 import { getSemesters } from "@/api/getSemesters";
 
 export default async function TimeTableTitle() {

@@ -5,5 +5,5 @@ CREATE TABLE major_course (
     PRIMARY KEY (major_code, course_id, semester_id),
     FOREIGN KEY (major_code) REFERENCES major(major_code),
     FOREIGN KEY (course_id) REFERENCES course(course_id) ON DELETE CASCADE,
-    FOREIGN KEY (semester_id) REFERENCES semester(semester_id)
+    FOREIGN KEY (semester_id) REFERENCES semester(semester_id) ON DELETE CASCADE
 );

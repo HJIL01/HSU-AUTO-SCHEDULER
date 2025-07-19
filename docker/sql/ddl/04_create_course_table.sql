@@ -13,5 +13,5 @@ CREATE TABLE course (
     grade_limit VARCHAR(255),
     online_min DECIMAL(2,1) DEFAULT 0,
     plan_code VARCHAR(255),
-    FOREIGN KEY (semester_id) REFERENCES semester(semester_id)
+    FOREIGN KEY (semester_id) REFERENCES semester(semester_id) ON DELETE CASCADE
 );

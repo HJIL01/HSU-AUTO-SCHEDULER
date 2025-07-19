@@ -8,6 +8,7 @@ import { firstValueFrom } from 'rxjs';
 import { HttpService } from '@nestjs/axios';
 import { CourseDto } from 'src/common/dto/03_course.dto';
 import { SemesterEntity } from 'src/common/entities/01_semester.entity';
+import { MajorEntity } from 'src/common/entities/02_major.entity';
 
 type WeeklyScheduleType = {
   schedule_name: string;
@@ -21,11 +22,16 @@ export class ScheduleService {
     @InjectRepository(SemesterEntity)
     private readonly semesterRepo: Repository<SemesterEntity>,
 
+    @InjectRepository(MajorEntity)
+    private readonly majorRepo: Repository<MajorEntity>,
+
     @InjectRepository(CourseEntity)
     private readonly courseRepo: Repository<CourseEntity>,
+
     private readonly httpService: HttpService,
   ) {}
 
+  // 모든 학년-학기를 조회하는 함수
   async getSemesters() {
     const semesters = await this.semesterRepo.find();
 
@@ -33,6 +39,22 @@ export class ScheduleService {
     return {
       message: 'get semesters 성공',
       data: semesters,
+    };
+  }
+
+  // 학기에 맞는 모든 전공을 가져오는 함수
+  async getMajors(semesterId: string) {
+    const majors = await this.majorRepo
+      .createQueryBuilder('m')
+      .leftJoinAndSelect('semester_major', 'sm', 'm.major_code = sm.major_code')
+      .where('sm.semester_id = :semester_id', {
+        semester_id: semesterId,
+      })
+      .getMany();
+
+    return {
+      message: 'get majors 성공',
+      data: majors,
     };
   }
 

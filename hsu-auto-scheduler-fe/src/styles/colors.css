@@ -20,4 +20,9 @@
     --color-course-block-13: #FFFECE;
     --color-course-block-14: #FFEDFA;
     --color-course-block-15: #FFB8E0;
+
+    /* 필터 부분 */
+    --color-course-list-main-bg: #f9fafb;
+    --color-course-list-border: #98a2b3;
+    --color-course-fileter-bg: #f2f4f7;
 }

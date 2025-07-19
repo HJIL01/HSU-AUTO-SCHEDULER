@@ -15,5 +15,6 @@ export default function RHFProvider({ children }: Props) {
     resolver: zodResolver(schema),
     defaultValues,
   });
+
   return <FormProvider {...method}>{children}</FormProvider>;
 }

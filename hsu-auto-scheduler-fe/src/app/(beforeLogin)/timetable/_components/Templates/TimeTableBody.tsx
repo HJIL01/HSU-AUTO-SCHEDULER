@@ -6,7 +6,7 @@ import { WeekdayKorMap } from "@/enums/weekday.enum";
 import useGetConstraintsResult from "@/hooks/queries/useGetConstraintsResult";
 import { CPSAT_SolutionType } from "@/types/CP-SAT-Solution.type";
 import { useState } from "react";
-import DayColumn from "./DayColumn";
+import DayColumn from "../Organisms/DayColumn";
 import clsx from "clsx";
 
 export default function TimeTableBody() {
@@ -81,11 +81,6 @@ export default function TimeTableBody() {
           </ul>
         </div>
       )}
-
-      <div className="absolute bottom-20 left-1/2 z-50">
-        <button>버튼1</button>
-        <button>버튼2</button>
-      </div>
     </div>
   );
 }
