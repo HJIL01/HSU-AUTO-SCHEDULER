@@ -15,6 +15,8 @@ type Props = {
 };
 
 export default function RHFSelectSemester({ semesters }: Props) {
+  // useEffect를 사용한 prefetch 때문에 해당 컴포넌트는  RHFCustomSelect를 사용하지 못함
+  // 전용 컴포넌트로 남김
   const queryClient = useQueryClient();
   const router = useRouter();
   const params = useSearchParams();

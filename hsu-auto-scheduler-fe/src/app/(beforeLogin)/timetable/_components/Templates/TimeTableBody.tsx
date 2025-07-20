@@ -6,8 +6,8 @@ import { WeekdayKorMap } from "@/enums/weekday.enum";
 import useGetConstraintsResult from "@/hooks/queries/useGetConstraintsResult";
 import { CPSAT_SolutionType } from "@/types/CP-SAT-Solution.type";
 import { useState } from "react";
-import DayColumn from "../Organisms/DayColumn";
 import clsx from "clsx";
+import DayColumn from "../organisms/DayColumn";
 
 export default function TimeTableBody() {
   const [mockData, setMockData] = useState<CPSAT_SolutionType>();

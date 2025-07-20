@@ -12,22 +12,22 @@ export const schema = z.object({
   dayOrNight: z.string().min(1, { message: "주야 구분을 입력해주세요!" }),
   noClassDays: z.array(z.enum(WeekdayEnum)),
   maxCredit: z
-    .number()
+    .number({ message: "숫자만 입력해주세요" })
     .min(1, { message: "최솟값은 1학점 이상이어야 합니다." })
     .max(21, { message: "최대 학점은 21학점입니다." }),
   majorFoundation: z
-    .number()
+    .number({ message: "숫자만 입력해주세요" })
     .min(0, { message: "0 미만의 값은 입력할 수 없습니다" })
     .max(21),
   majorRequired: z
-    .number()
+    .number({ message: "숫자만 입력해주세요" })
     .min(0, { message: "0 미만의 값은 입력할 수 없습니다" })
     .max(21),
   majorElective: z
-    .number()
+    .number({ message: "숫자만 입력해주세요" })
     .min(0, { message: "0 미만의 값은 입력할 수 없습니다" })
     .max(21),
-  dailyLectureLimit: z.number().min(1),
+  dailyLectureLimit: z.number({ message: "숫자만 입력해주세요" }).min(1),
   hasLunchBreak: z.boolean(),
 });
 
@@ -38,7 +38,7 @@ export const defaultValues: SchemaType = {
   major: "",
   grade: "",
   dayOrNight: "",
-  noClassDays: [WeekdayEnum.FRI, WeekdayEnum.SUN],
+  noClassDays: [WeekdayEnum.SAT, WeekdayEnum.SUN],
   maxCredit: 18,
   majorFoundation: 0,
   majorRequired: 0,

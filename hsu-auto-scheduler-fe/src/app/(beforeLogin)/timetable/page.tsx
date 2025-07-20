@@ -1,5 +1,5 @@
-import TimeTableBody from "./_components/Templates/TimeTableBody";
-import TimeTableTitle from "./_components/Templates/TimeTableTitle";
+import TimeTableBody from "./_components/templates/TimeTableBody";
+import TimeTableTitle from "./_components/templates/TimeTableTitle";
 
 export default function TimeTableMain() {
   return (

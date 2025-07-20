@@ -7,7 +7,7 @@ import { ComponentProps } from "react";
 type Props = {
   items: SelectOptionType[];
   name: string;
-  placeholder: string;
+  placeholder?: string;
   className?: string;
 } & ComponentProps<"select">;
 
@@ -21,7 +21,7 @@ export default function CustomSelectBox({
   return (
     <select
       name={name}
-      className={clsx("rounded-lg bg-white px-3 text-xs", className)}
+      className={clsx("h-fit rounded-lg bg-white px-3 py-2 text-xs", className)}
       {...props}
     >
       <option value="" disabled hidden>
