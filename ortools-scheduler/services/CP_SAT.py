@@ -52,6 +52,9 @@ def HSU_AUTO_SCHEDULER_CP_SAT(
     # Enumerate all solutions.
     solver.parameters.enumerate_all_solutions = True
 
+    # 탐색 시간제한 5초
+    solver.parameters.max_time_in_seconds = 5.0
+
     # Solve
     status = solver.solve(model, solution_collector)
 
@@ -59,19 +62,15 @@ def HSU_AUTO_SCHEDULER_CP_SAT(
         print("해가 존재하지 않음")
 
     if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
-        # 해가 나왔다면 학점 기준 내림차순 정렬(학점이 높은 순으로 주기 위해서)
-        solution_collector.sort_by_total_credit_descending()
-
-        # 해가 나왔다면 온라인 강의 개수 기준 정렬(온라인 강의 많은 수로)
-        solution_collector.sort_by_online_course_count_descending()
-
-        # 해가 나왔다면 총 수업 간 간격(분) 기준 오름차순 정렬(연강 간격이 작은 순으로 주기 위해서)
-        solution_collector.sort_by_total_course_gap_ascending()
+        # 해가 나왔다면 총 학점 높은 순으로, 온라인 강의 많은 순으로, 수업 간 간격(분) 낮은 순으로 정렬
+        solution_collector.sort_solutions_by_priority()
 
         # 디버깅용
         # 정렬 후 해를 print 하므로 n번째 해 << 이것이 뒤죽박죽일 수 있음
-        # solution_collector.solution_print()
-        # print(solution_collector.solution_count)
+        solution_collector.solution_print()
+        print(
+            f"총 해의 개수: {solution_collector.solution_count} 총 탐색 시간: {solver.WallTime()}초"
+        )
 
     return {
         "total_solution_count": solution_collector.get_solution_count,

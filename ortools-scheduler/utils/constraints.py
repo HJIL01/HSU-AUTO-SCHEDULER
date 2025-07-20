@@ -72,21 +72,21 @@ def add_max_credit_constraint(
         <= max_credit
     )
 
-    # 0학점 안나오게 제한
-    not_zero_credit = (
-        sum(course.credit * cur for course, cur in zip(courses, is_selected)) != 0
+    # 최소 학점 제한 최대 학점에서 6뺀 학점. 최대 학점이 6미만이라면 0으로 처리
+    min_credit = max_credit - 6 if max_credit - 6 > 0 else 1
+    limit_min = (
+        sum(course.credit * cur for course, cur in zip(courses, is_selected))
+        >= min_credit
     )
 
-    # 최소 학점 제한 최대 학점에서 6뺀 학점. 최대 학점이 6미만이라면 0으로 처리
-    # min_credit = max_credit - 6 if max_credit - 6 > 0 else 0
-    # limit_min = (
-    #     sum(course.credit * cur for course, cur in zip(courses, is_selected))
-    #     >= min_credit
+    # 0학점 안나오게 제한
+    # not_zero_credit = (
+    #     sum(course.credit * cur for course, cur in zip(courses, is_selected)) != 0
     # )
 
     model.Add(limit_max)
-    model.Add(not_zero_credit)
-    # model.Add(limit_min)
+    model.Add(limit_min)
+    # model.Add(not_zero_credit)
 
 
 # 과목의 이름을 기준으로 중복을 제거하는 제약조건 추가 함수

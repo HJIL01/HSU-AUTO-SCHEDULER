@@ -20,7 +20,7 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
             []
         )  # 모든 솔루션들을 담은 배열 (몇번째 해인지, 선택된 인덱스, 총 학점)
         # 최대 해 개수
-        self.solution_limit = 100
+        # self.solution_limit = 100
 
     # 해를 찾을 때마다 부모 클래스인 CpSolverSolutionCallback에서 콜백할 함수
     def on_solution_callback(self):
@@ -104,9 +104,9 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
             }
         )
 
-        if self.solution_count >= self.solution_limit:
-            print(f"Stop Search after {self.solution_limit} solutions")
-            self.stop_search()
+        # if self.solution_count >= self.solution_limit:
+        #     print(f"Stop Search after {self.solution_limit} solutions")
+        #     self.stop_search()
 
     def solution_print(self):
         for cur_solution in self.solutions:
@@ -153,17 +153,18 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
             )
             print()
 
-    # 총 학점 합 기준 내림차순으로 정렬하는 함수
-    def sort_by_total_credit_descending(self):
-        self.solutions.sort(key=lambda solution: -solution["total_credit"])
-
-    # 온라인 수업 개수 기준 내림차순으로 정렬하는 함수
-    def sort_by_online_course_count_descending(self):
-        self.solutions.sort(key=lambda solution: -solution["total_online_course_count"])
-
-    # 총 수업 간 간격 합 기준 내림차순으로 정렬하는 함수
-    def sort_by_total_course_gap_ascending(self):
-        self.solutions.sort(key=lambda solution: solution["total_course_gap"])
+    # 해를 우선순위로 정렬하는 함수
+    def sort_solutions_by_priority(self):
+        self.solutions.sort(
+            key=lambda solution: (
+                # 총 학점 많은 순
+                -solution["total_credit"],
+                # 온라인 강의 많은 순
+                -solution["total_online_course_count"],
+                # 시간 간격 적은 순
+                solution["total_course_gap"],
+            )
+        )
 
     @property
     def get_solution_count(self):
