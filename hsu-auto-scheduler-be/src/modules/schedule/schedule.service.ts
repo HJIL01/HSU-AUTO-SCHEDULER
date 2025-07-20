@@ -58,6 +58,13 @@ export class ScheduleService {
     };
   }
 
+  // 필터에 맞는 모든 강의들을 가져오는 함수
+  async getCourses() {
+    return {
+      message: 'get courses 성공',
+    };
+  }
+
   async filterDataAndPostConstraints(constaraints: ConstraintsDto) {
     /* 
       SQL문으로 필터링 할 것들

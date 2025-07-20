@@ -8,7 +8,7 @@ import { HttpModule } from '@nestjs/axios';
   imports: [
     DatabaseModule,
     HttpModule.register({
-      timeout: 5000,
+      timeout: 8000,
       maxRedirects: 3,
     }),
   ],

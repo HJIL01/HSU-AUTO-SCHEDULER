@@ -16,6 +16,11 @@ export class ScheduleController {
     return this.scheduleService.getMajors(semesterId);
   }
 
+  @Get('get-courses')
+  getCourses() {
+    return this.scheduleService.getCourses();
+  }
+
   @Post('constraints')
   handleScheduleConstaraints(@Body() constaraints: ConstraintsDto) {
     return this.scheduleService.filterDataAndPostConstraints(constaraints);
