@@ -21,9 +21,9 @@ export default function RHFSelectSemester({ semesters }: Props) {
   const router = useRouter();
   const params = useSearchParams();
 
-  const { control, watch } = useFormContext<SchemaType>();
+  const { control, getValues } = useFormContext<SchemaType>();
 
-  const currentSemester = watch("semester");
+  const currentSemester = getValues("semester");
 
   const selectBoxOptions: SelectOptionType[] = semesters.map((semester) => ({
     value: `${semester.year}-${semester.term}`,

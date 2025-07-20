@@ -8,7 +8,7 @@ import { SelectOptionType } from "@/types/selectOption.type";
 import { DayOrNightEnum, DayOrNightKorMap } from "@/enums/dayOrNight.enum";
 import RHFTextInput from "@/components/RHF/RHFTextInput";
 import { useState } from "react";
-import NoClassDaySelectModal from "../../modal/NoClassDaySelectModal";
+import NoClassDaySelectModal from "../modal/NoClassDaySelectModal";
 import { WeekdayKorMap } from "@/enums/weekday.enum";
 
 export default function CourseFilters() {
@@ -19,9 +19,9 @@ export default function CourseFilters() {
   const [noClassDaysSelectModalIsOpen, setNoClassDaysSelectModalIsOpen] =
     useState<boolean>(false);
 
-  const { watch } = useFormContext<SchemaType>();
-  const currentSemester = watch("semester");
-  const currentNoClassDays = watch("noClassDays");
+  const { getValues } = useFormContext<SchemaType>();
+  const currentSemester = getValues("semester");
+  const currentNoClassDays = getValues("noClassDays");
 
   // 해당 학기의 모든 전공들을 가져오는 훅
   const { data: getMajorsResponse, isPending: getMajorsPending } =
@@ -67,7 +67,7 @@ export default function CourseFilters() {
   };
 
   return (
-    <div className="flex gap-4">
+    <div className="flex flex-col flex-wrap justify-center gap-4 md:flex-row md:justify-start">
       {/* 전공 필터 */}
       <RHFCustomSelect<SchemaType>
         name="major"
@@ -96,23 +96,66 @@ export default function CourseFilters() {
       <RHFTextInput
         readOnly
         name=""
-        id=""
-        className="border-course-list-border !w-max cursor-pointer border py-[5px]"
+        id="noClassDays"
+        labelText="공강 요일:"
+        className=""
         placeholder="공강 요일을 선택하세요"
         onClick={openNoClassDaysModal}
         value={
           currentNoClassDays.length
-            ? `공강 요일: ${currentNoClassDays.map((day) => WeekdayKorMap[day]).join(", ")}`
+            ? `${currentNoClassDays.map((day) => WeekdayKorMap[day]).join(", ")}`
             : ""
         }
       />
 
       {/* 최대 학점 필터 */}
       <RHFTextInput<SchemaType>
+        type="number"
         name="maxCredit"
         id="maxCredit"
+        labelText="최대 학점:"
+        className="!w-[3ch]"
+        placeholder="18"
+      />
+
+      {/* 전공 기초 필터 */}
+      <RHFTextInput<SchemaType>
         type="number"
-        className="border-course-list-border w-fit cursor-pointer border py-[5px]"
+        name="majorFoundation"
+        id="majorFoundation"
+        labelText="전공 기초:"
+        className="!w-[3ch]"
+        placeholder="0"
+      />
+
+      {/* 전공 필수 필터 */}
+      <RHFTextInput<SchemaType>
+        type="number"
+        name="majorRequired"
+        id="majorRequired"
+        labelText="전공 필수:"
+        className="!w-[3ch]"
+        placeholder="0"
+      />
+
+      {/* 전공 선택 필터 */}
+      <RHFTextInput<SchemaType>
+        type="number"
+        name="majorElective"
+        id="majorElective"
+        labelText="전공 선택:"
+        className="!w-[3ch]"
+        placeholder="0"
+      />
+
+      {/* 하루 최대 강의 수 필터 */}
+      <RHFTextInput<SchemaType>
+        type="number"
+        name="dailyLectureLimit"
+        id="dailyLectureLimit"
+        labelText="하루 최대 강의 제한:"
+        className="!w-[3ch]"
+        placeholder="3"
       />
 
       {noClassDaysSelectModalIsOpen && (

@@ -7,19 +7,19 @@ import { use, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
 export default function CourseList() {
-  const { watch } = useFormContext<SchemaType>();
+  const { getValues } = useFormContext<SchemaType>();
 
-  const currentSemester = watch("semester");
-  const currentMajor = watch("major");
-  const currentGrade = +watch("grade"); // 문자열 → 숫자 변환
-  const currentDayOrNight = watch("dayOrNight");
-  const currentNoClassDays = watch("noClassDays");
-  const currentMaxCredit = watch("maxCredit");
-  const currentMajorFoundation = watch("majorFoundation");
-  const currentMajorRequired = watch("majorRequired");
-  const currentMajorElective = watch("majorElective");
-  const currentDailyLectureLimit = watch("dailyLectureLimit");
-  const currentHasLunchBreak = watch("hasLunchBreak");
+  const currentSemester = getValues("semester");
+  const currentMajor = getValues("major");
+  const currentGrade = +getValues("grade");
+  const currentDayOrNight = getValues("dayOrNight");
+  const currentNoClassDays = getValues("noClassDays");
+  const currentMaxCredit = getValues("maxCredit");
+  const currentMajorFoundation = getValues("majorFoundation");
+  const currentMajorRequired = getValues("majorRequired");
+  const currentMajorElective = getValues("majorElective");
+  const currentDailyLectureLimit = getValues("dailyLectureLimit");
+  const currentHasLunchBreak = getValues("hasLunchBreak");
 
   const filter: FilterType = {
     currentSemester,
@@ -37,7 +37,7 @@ export default function CourseList() {
 
   const [test, setTest] = useState(1);
 
-  const { data: getCoursesResponse } = useGetCourses(filter);
+  // const { data: getCoursesResponse } = useGetCourses(filter);
   //   console.log(getCoursesResponse);
   return <div>courseDAta</div>;
 }

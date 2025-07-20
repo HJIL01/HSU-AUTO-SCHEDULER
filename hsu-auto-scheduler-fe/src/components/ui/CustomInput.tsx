@@ -13,7 +13,7 @@ export const CustomInput = forwardRef<
       type={type || "text"}
       ref={ref}
       className={clsx(
-        "disabled:bg-course-fileter-bg h-fit w-full rounded-lg px-3 py-2 text-xs placeholder:text-gray-500",
+        "border-course-list-border h-fit w-full cursor-pointer rounded-lg border px-3 py-[5px] text-xs placeholder:text-gray-500",
         className,
       )}
       id={id}

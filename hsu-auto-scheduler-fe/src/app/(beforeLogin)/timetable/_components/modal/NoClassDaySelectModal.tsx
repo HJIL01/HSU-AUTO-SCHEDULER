@@ -14,8 +14,8 @@ type Props = {
 export default function NoClassDaySelectModal({
   closeNoClassDaysModal,
 }: Props) {
-  const { watch, setValue } = useFormContext<SchemaType>();
-  const currentNoClassDays = watch("noClassDays");
+  const { getValues, setValue } = useFormContext<SchemaType>();
+  const currentNoClassDays = getValues("noClassDays");
 
   const [selectedNoClassDays, setSelectNoClassDays] = useState<
     Set<WeekdayEnum>

@@ -4,11 +4,13 @@
 import { SelectOptionType } from "@/types/selectOption.type";
 import { Controller, FieldValues, Path, useFormContext } from "react-hook-form";
 import CustomSelectBox from "../ui/CustomSelectBox";
+import clsx from "clsx";
+import { useState } from "react";
 
 type Props<T extends FieldValues> = {
   name: Path<T>;
   items: SelectOptionType[];
-  placeholder?: string;
+  placeholder: string;
   className?: string;
   onChangeOverride?: (
     value: string,
@@ -28,6 +30,16 @@ export default function RHFCustomSelect<T extends FieldValues>({
     formState: { errors },
   } = useFormContext<T>();
 
+  const [isFocus, setIsFocus] = useState<boolean>(false);
+
+  const handleInputOnFocus = () => {
+    setIsFocus(true);
+  };
+
+  const handleInputOnBlur = () => {
+    setIsFocus(false);
+  };
+
   return (
     <div>
       <Controller
@@ -38,7 +50,13 @@ export default function RHFCustomSelect<T extends FieldValues>({
             {...field}
             items={items}
             placeholder={placeholder}
-            className={className}
+            className={clsx(
+              "transition-colors duration-150",
+              className,
+              isFocus && "border-zinc-950",
+            )}
+            onFocus={handleInputOnFocus}
+            onBlur={handleInputOnBlur}
             onChange={(e) => {
               if (onChangeOverride) {
                 onChangeOverride(e.target.value, field.onChange);

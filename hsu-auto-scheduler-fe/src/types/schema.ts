@@ -11,23 +11,66 @@ export const schema = z.object({
     .refine((e) => !isNaN(Number(e)), { message: "학년은 숫자만 입력" }),
   dayOrNight: z.string().min(1, { message: "주야 구분을 입력해주세요!" }),
   noClassDays: z.array(z.enum(WeekdayEnum)),
-  maxCredit: z
-    .number({ message: "숫자만 입력해주세요" })
-    .min(1, { message: "최솟값은 1학점 이상이어야 합니다." })
-    .max(21, { message: "최대 학점은 21학점입니다." }),
-  majorFoundation: z
-    .number({ message: "숫자만 입력해주세요" })
-    .min(0, { message: "0 미만의 값은 입력할 수 없습니다" })
-    .max(21),
-  majorRequired: z
-    .number({ message: "숫자만 입력해주세요" })
-    .min(0, { message: "0 미만의 값은 입력할 수 없습니다" })
-    .max(21),
-  majorElective: z
-    .number({ message: "숫자만 입력해주세요" })
-    .min(0, { message: "0 미만의 값은 입력할 수 없습니다" })
-    .max(21),
-  dailyLectureLimit: z.number({ message: "숫자만 입력해주세요" }).min(1),
+  maxCredit: z.preprocess(
+    (val) => {
+      if (typeof val === "string" || typeof val === "number") {
+        return Number(val);
+      }
+      return val;
+    },
+    z
+      .number()
+      .min(0, { message: "0미만의 값은 입력할 수 없습니다" })
+      .max(21, { message: "최대 학점은 21학점 미만입니다" }),
+  ),
+  majorFoundation: z.preprocess(
+    (val) => {
+      if (typeof val === "string" || typeof val === "number") {
+        return Number(val);
+      }
+      return val;
+    },
+    z
+      .number()
+      .min(0, { message: "0미만의 값은 입력할 수 없습니다" })
+      .max(21, { message: "전공 기초는 21학점 미만입니다" }),
+  ),
+  majorRequired: z.preprocess(
+    (val) => {
+      if (typeof val === "string" || typeof val === "number") {
+        return Number(val);
+      }
+      return val;
+    },
+    z
+      .number()
+      .min(0, { message: "0미만의 값은 입력할 수 없습니다" })
+      .max(21, { message: "전공 필수는 21학점 미만입니다" }),
+  ),
+  majorElective: z.preprocess(
+    (val) => {
+      if (typeof val === "string" || typeof val === "number") {
+        return Number(val);
+      }
+      return val;
+    },
+    z
+      .number()
+      .min(0, { message: "0미만의 값은 입력할 수 없습니다" })
+      .max(21, { message: "전공 선택은 21학점 미만입니다" }),
+  ),
+  dailyLectureLimit: z.preprocess(
+    (val) => {
+      if (typeof val === "string" || typeof val === "number") {
+        return +val;
+      }
+
+      return val;
+    },
+    z.number().min(1, {
+      message: "하루 최대 강의 제한은 1미만의 값을 입력할 수 없습니다",
+    }),
+  ),
   hasLunchBreak: z.boolean(),
 });
 
