@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { ConstraintsDto } from './dto/constraints.dto';
+import { ConstraintsDto } from '../dto/constraints.dto';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CourseEntity } from 'src/common/entities/04_course.entity';
@@ -9,6 +9,7 @@ import { HttpService } from '@nestjs/axios';
 import { CourseDto } from 'src/common/dto/03_course.dto';
 import { SemesterEntity } from 'src/common/entities/01_semester.entity';
 import { MajorEntity } from 'src/common/entities/02_major.entity';
+import { CourseFilteringQueryService } from './CourseFilteringQuery.service';
 
 type WeeklyScheduleType = {
   schedule_name: string;
@@ -29,6 +30,8 @@ export class ScheduleService {
     private readonly courseRepo: Repository<CourseEntity>,
 
     private readonly httpService: HttpService,
+
+    private readonly courseFilterQueryService: CourseFilteringQueryService,
   ) {}
 
   // 모든 학년-학기를 조회하는 함수
@@ -60,8 +63,51 @@ export class ScheduleService {
 
   // 필터에 맞는 모든 강의들을 가져오는 함수
   async getCourses() {
+    const courseAlias = 'c';
+    const majorCourseAlias = 'mc';
+    const offlineScheduleAlias = 'os';
+
+    const query = this.courseRepo
+      .createQueryBuilder(courseAlias)
+      .leftJoinAndSelect(
+        'major_course',
+        majorCourseAlias,
+        'mc.course_id = c.course_id',
+      )
+      .leftJoinAndSelect(
+        'c.offline_schedules',
+        offlineScheduleAlias,
+        'os.course_id = c.course_id',
+      );
+
+    const noClassDaysFilterQuery =
+      this.courseFilterQueryService.getCoursesByNoClassDays(courseAlias, [
+        WeekdayEnum.MON,
+        WeekdayEnum.FRI,
+      ]);
+
+    query.andWhere(
+      noClassDaysFilterQuery.clause,
+      noClassDaysFilterQuery.params,
+    );
+
+    // const courseFilterQuery =
+    //   this.courseFilterQueryService.getCoursesBySemester(courseAlias, '20252');
+
+    // const majorFilterQuery = this.courseFilterQueryService.getCoursesByMajor(
+    //   majorCourseAlias,
+    //   'V024',
+    // );
+
+    // query.where(courseFilterQuery.clause, courseFilterQuery.params);
+    // query.andWhere(majorFilterQuery.clause, majorFilterQuery.params);
+
+    const data = await query.getMany();
+    console.log(data);
+
     return {
       message: 'get courses 성공',
+      data,
     };
   }
 

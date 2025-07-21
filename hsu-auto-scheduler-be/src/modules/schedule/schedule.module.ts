@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
 import { DatabaseModule } from '../database/database.module';
 import { ScheduleController } from './schedule.controller';
-import { ScheduleService } from './schedule.service';
+import { ScheduleService } from './services/schedule.service';
 import { HttpModule } from '@nestjs/axios';
+import { CourseFilteringQueryService } from './services/CourseFilteringQuery.service';
 
 @Module({
   imports: [
@@ -13,6 +14,6 @@ import { HttpModule } from '@nestjs/axios';
     }),
   ],
   controllers: [ScheduleController],
-  providers: [ScheduleService],
+  providers: [ScheduleService, CourseFilteringQueryService],
 })
 export class ScheduleModule {}
