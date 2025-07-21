@@ -1,8 +1,7 @@
-import { DayOrNightEnum } from "@/enums/dayOrNight.enum";
 import { WeekdayEnum } from "@/enums/weekday.enum";
 import z from "zod";
-import { OfflineScheduleSchema } from "./OfflineScheduel.schema";
 import { courseSchema } from "./Course.schema";
+import { PersonalScheduleSchema } from "./PersonalSchedule.schema";
 
 export const CreateCPSATschema = z.object({
   semester: z.string().min(1, { message: "학기를 선택해주세요!" }),
@@ -14,7 +13,7 @@ export const CreateCPSATschema = z.object({
     .refine((e) => !isNaN(Number(e)), { message: "학년은 숫자만 입력" }),
   day_or_night: z.string().min(1, { message: "주야 구분을 입력해주세요!" }),
   no_class_days: z.array(z.enum(WeekdayEnum)),
-  personal_schedules: z.array(OfflineScheduleSchema),
+  personal_schedules: z.array(PersonalScheduleSchema),
   selected_courses: z.array(courseSchema),
   max_credit: z.preprocess(
     (val) => {

@@ -14,16 +14,6 @@ export type FilterType = {
 
   no_class_days: WeekdayEnum[];
 
-  max_credit: number;
-
-  major_foundation: number;
-
-  major_required: number;
-
-  major_elective: number;
-
-  daily_lecture_limit: number;
-
   has_lunch_break: boolean;
 
   personal_schedules: PersonalScheduleType[];
