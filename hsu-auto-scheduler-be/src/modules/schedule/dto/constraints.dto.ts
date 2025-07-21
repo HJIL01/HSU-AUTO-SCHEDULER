@@ -93,6 +93,5 @@ export class ConstraintsDto {
     전공 기초,
     전공 필수,
     전공 선택,
-    수업 간 간격 분,
     점심시간 확보 여부
  */

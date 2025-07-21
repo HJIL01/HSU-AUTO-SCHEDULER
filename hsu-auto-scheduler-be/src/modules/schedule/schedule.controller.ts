@@ -18,9 +18,9 @@ export class ScheduleController {
   }
 
   // 필터가 너무 많으므로 POST로 바꿈
-  @Get('get-courses')
+  @Post('get-courses')
   getCourses(@Body() getCourseFilters: GetCoursesFilterDto) {
-    return this.scheduleService.getCourses();
+    return this.scheduleService.getCourses(getCourseFilters);
   }
 
   @Post('constraints')

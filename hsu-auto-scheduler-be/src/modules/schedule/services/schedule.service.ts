@@ -10,8 +10,9 @@ import { CourseDto } from 'src/common/dto/03_course.dto';
 import { SemesterEntity } from 'src/common/entities/01_semester.entity';
 import { MajorEntity } from 'src/common/entities/02_major.entity';
 import { CourseFilteringQueryService } from './CourseFilteringQuery.service';
+import { GetCoursesFilterDto } from '../dto/getCoursesFilter.dto';
 
-type WeeklyScheduleType = {
+export type WeeklyScheduleType = {
   schedule_name: string;
   start_time: number;
   end_time: number;
@@ -62,7 +63,18 @@ export class ScheduleService {
   }
 
   // 필터에 맞는 모든 강의들을 가져오는 함수
-  async getCourses() {
+  async getCourses(getCourseFilters: GetCoursesFilterDto) {
+    const {
+      semester_id,
+      major_code,
+      grade,
+      day_or_night,
+      no_class_days,
+      has_lunch_break,
+      personal_schedules,
+      selected_courses,
+    } = getCourseFilters;
+
     const courseAlias = 'c';
     const majorCourseAlias = 'mc';
     const offlineScheduleAlias = 'os';
@@ -164,6 +176,7 @@ export class ScheduleService {
 
     // 6. 미리 선택된 강의들의 강의 코드로 필터링(선택된 강의가 있을 시), 해당 시간대의 다른 강의를 거르기 위해 선택된 강의의 시간대를 weeklyScheduleMap에 저장
     if (constaraints.selected_courses.length > 0) {
+      // 같은 강의 코드를 가진 강의 필터링(같은 이름의 강의)
       query = query.andWhere(
         'c.course_code NOT IN (:...selected_course_codes)',
         {
@@ -205,9 +218,9 @@ export class ScheduleService {
 
     personalSchedules.map((schedule) => {
       const { day, ...rest } = schedule;
-      // 해당 강의가 공강 요일에 포함되지 않는다면
+      // 해당 스케줄이 공강 요일에 포함되지 않는다면
       if (!noClassDaysSet.has(day)) {
-        // 해당 요일에 추가된 강의가 이미 있다면 리스트에 추가, 아니면 리스트를 만들기
+        // WeeklyScheduleMap에 이미 해당 스케줄의 요일이 있다면 그 요일의 배열에 추가, 아니면 리스트를 만들기
         weeklyScheduleMap.has(day)
           ? weeklyScheduleMap.get(day)!.push(rest)
           : weeklyScheduleMap.set(day, [rest]);
