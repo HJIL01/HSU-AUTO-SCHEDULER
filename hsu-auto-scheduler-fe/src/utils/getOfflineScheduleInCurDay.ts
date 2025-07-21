@@ -1,5 +1,5 @@
 import { WeekdayEnum } from "@/enums/weekday.enum";
-import { CourseType } from "@/types/course.type";
+import { CourseType } from "@/types/schemas/Course.schema";
 
 export function getOfflineScheduleInCurDay(
   course: CourseType,

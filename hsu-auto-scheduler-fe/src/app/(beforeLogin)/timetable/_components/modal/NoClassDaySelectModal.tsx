@@ -4,8 +4,11 @@ import Image from "next/image";
 import CloseIcon from "@/assets/icons/close-icon.svg";
 import { WeekdayEnum, WeekdayKorMap, WeekdayOrder } from "@/enums/weekday.enum";
 import { useFormContext } from "react-hook-form";
-import { defaultValues, SchemaType } from "@/types/schema";
 import { FormEvent, useState } from "react";
+import {
+  createCPSATSchemaDefaultValues,
+  CreateCPSATschemaType,
+} from "@/types/schemas/CreateCPSAT.schema";
 
 type Props = {
   closeNoClassDaysModal: () => void;
@@ -14,8 +17,8 @@ type Props = {
 export default function NoClassDaySelectModal({
   closeNoClassDaysModal,
 }: Props) {
-  const { getValues, setValue } = useFormContext<SchemaType>();
-  const currentNoClassDays = getValues("noClassDays");
+  const { getValues, setValue } = useFormContext<CreateCPSATschemaType>();
+  const currentNoClassDays = getValues("no_class_days");
 
   const [selectedNoClassDays, setSelectNoClassDays] = useState<
     Set<WeekdayEnum>
@@ -36,13 +39,14 @@ export default function NoClassDaySelectModal({
       selectedNoClassDays,
     ).sort((a, b) => WeekdayOrder[a] - WeekdayOrder[b]);
 
-    setValue("noClassDays", selectedNoClassDaysArray);
+    setValue("no_class_days", selectedNoClassDaysArray);
 
     closeNoClassDaysModal();
   };
 
   const handleResetNoClassDays = () => {
-    const noClassDaysDefaultValue = defaultValues.noClassDays;
+    const noClassDaysDefaultValue =
+      createCPSATSchemaDefaultValues.no_class_days;
 
     setSelectNoClassDays(new Set(noClassDaysDefaultValue));
   };

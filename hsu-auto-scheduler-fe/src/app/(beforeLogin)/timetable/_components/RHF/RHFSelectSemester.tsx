@@ -2,7 +2,7 @@
 
 import getMajors from "@/api/getMajors";
 import CustomSelectBox from "@/components/ui/CustomSelectBox";
-import { SchemaType } from "@/types/schema";
+import { CreateCPSATschemaType } from "@/types/schemas/CreateCPSAT.schema";
 import { SelectOptionType } from "@/types/selectOption.type";
 import { SemesterType } from "@/types/semester.type";
 import { useQueryClient } from "@tanstack/react-query";
@@ -21,7 +21,7 @@ export default function RHFSelectSemester({ semesters }: Props) {
   const router = useRouter();
   const params = useSearchParams();
 
-  const { control, getValues } = useFormContext<SchemaType>();
+  const { control, getValues } = useFormContext<CreateCPSATschemaType>();
 
   const currentSemester = getValues("semester");
 

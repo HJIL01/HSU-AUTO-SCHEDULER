@@ -1,43 +1,42 @@
 "use client";
 
+import { DayOrNightEnum } from "@/enums/dayOrNight.enum";
+import { WeekdayEnum } from "@/enums/weekday.enum";
 import useGetCourses from "@/hooks/queries/useGetCourses";
 import { FilterType } from "@/types/filter.type";
-import { SchemaType } from "@/types/schema";
-import { use, useState } from "react";
+import { CreateCPSATschemaType } from "@/types/schemas/CreateCPSAT.schema";
+import { OfflineScheduleType } from "@/types/schemas/OfflineScheduel.schema";
+import { splitSemester } from "@/utils/splitSemester";
+import { useMemo } from "react";
 import { useFormContext } from "react-hook-form";
 
 export default function CourseList() {
-  const { getValues } = useFormContext<SchemaType>();
+  const { watch } = useFormContext<CreateCPSATschemaType>();
+  const values = watch();
+  console.log(values);
 
-  const currentSemester = getValues("semester");
-  const currentMajor = getValues("major");
-  const currentGrade = +getValues("grade");
-  const currentDayOrNight = getValues("dayOrNight");
-  const currentNoClassDays = getValues("noClassDays");
-  const currentMaxCredit = getValues("maxCredit");
-  const currentMajorFoundation = getValues("majorFoundation");
-  const currentMajorRequired = getValues("majorRequired");
-  const currentMajorElective = getValues("majorElective");
-  const currentDailyLectureLimit = getValues("dailyLectureLimit");
-  const currentHasLunchBreak = getValues("hasLunchBreak");
+  // const filters: FilterType = useMemo(() => {
+  //   const { semester, ...rest } = values;
+  //   const semester_id = splitSemester(semester);
 
-  const filter: FilterType = {
-    currentSemester,
-    currentMajor,
-    currentGrade,
-    currentDayOrNight,
-    currentNoClassDays,
-    currentMaxCredit,
-    currentMajorFoundation,
-    currentMajorRequired,
-    currentMajorElective,
-    currentDailyLectureLimit,
-    currentHasLunchBreak,
-  };
+  //   return {
+  //     semester_id,
+  //     major_code: rest.major_code || null,
+  //     grade: rest.grade ? +rest.grade : null,
+  //     day_or_night: (rest.day_or_night as DayOrNightEnum) || null,
+  //     no_class_days: (rest.no_class_days as WeekdayEnum[]) || [],
+  //     max_credit: +rest.max_credit,
+  //     major_foundation: +rest.major_foundation,
+  //     major_required: +rest.major_required,
+  //     major_elective: +rest.major_elective,
+  //     daily_lecture_limit: +rest.daily_lecture_limit,
+  //     has_lunch_break: !!rest.has_lunch_break,
+  //     personal_schedules: rest.personal_schedules,
+  //     selected_courses: rest.selected_courses || [],
+  //   };
+  // }, [values]);
 
-  const [test, setTest] = useState(1);
-
-  // const { data: getCoursesResponse } = useGetCourses(filter);
-  //   console.log(getCoursesResponse);
+  // const { data: getCoursesResponse } = useGetCourses(filters);
+  // console.log(getCoursesResponse);
   return <div>courseDAta</div>;
 }

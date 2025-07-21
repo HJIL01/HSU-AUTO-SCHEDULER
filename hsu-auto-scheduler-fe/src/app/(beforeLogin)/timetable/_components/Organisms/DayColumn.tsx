@@ -1,10 +1,10 @@
 import { COURSE_CELL_HEIGHT } from "@/constants/CourseCellHeight";
 import { WeekdayEnum } from "@/enums/weekday.enum";
 import { getTopByStartTime } from "@/utils/getTopByStartTime";
-import { CourseType } from "@/types/course.type";
 import clsx from "clsx";
 import { getCourseBlockHeight } from "@/utils/getCourseBlockHeight";
 import { getOfflineScheduleInCurDay } from "@/utils/getOfflineScheduleInCurDay";
+import { CourseType } from "@/types/schemas/Course.schema";
 
 type Props = {
   day: WeekdayEnum;

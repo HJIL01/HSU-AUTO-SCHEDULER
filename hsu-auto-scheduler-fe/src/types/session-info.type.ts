@@ -1,4 +1,4 @@
-import { OfflineScheduleType } from "./offlineSchedule.type";
+import { OfflineScheduleType } from "./schemas/OfflineScheduel.schema";
 
 export type SessionInfoType = {
   online: number;

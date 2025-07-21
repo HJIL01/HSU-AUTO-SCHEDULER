@@ -1,7 +1,7 @@
 "use client";
 
 import { Controller, FieldValues, Path, useFormContext } from "react-hook-form";
-import { ComponentProps, useState } from "react";
+import { ComponentProps, FocusEvent, useState } from "react";
 import { CustomInput } from "../ui/CustomInput";
 import clsx from "clsx";
 
@@ -9,6 +9,7 @@ type Props<T extends FieldValues> = {
   id: string;
   name: Path<T>;
   labelText: string;
+  fixValueFuncOnBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   className?: string;
   type?: string;
 } & ComponentProps<"input">;
@@ -18,6 +19,7 @@ export default function RHFTextInput<T extends FieldValues>({
   id,
   name,
   labelText,
+  fixValueFuncOnBlur,
   className,
   ...props
 }: Props<T>) {
@@ -32,8 +34,16 @@ export default function RHFTextInput<T extends FieldValues>({
     setIsFocus(true);
   };
 
-  const handleInputOnBlurOverride = (onBlur: (...e: any[]) => void) => {
-    onBlur();
+  // event를 받아서 onBlur에 넘겨주고, 상태 변경 처리
+  const handleInputOnBlurOverride = (
+    onBlur: (event: React.FocusEvent<HTMLInputElement>) => void,
+    event: React.FocusEvent<HTMLInputElement>,
+  ) => {
+    if (fixValueFuncOnBlur) {
+      fixValueFuncOnBlur(event);
+    }
+
+    onBlur(event);
     setIsFocus(false);
   };
 
@@ -58,7 +68,7 @@ export default function RHFTextInput<T extends FieldValues>({
               onFocus={handleInputOnFocus}
               {...{
                 ...field,
-                onBlur: () => handleInputOnBlurOverride(field.onBlur),
+                onBlur: (e) => handleInputOnBlurOverride(field.onBlur, e),
               }}
               {...props}
             />

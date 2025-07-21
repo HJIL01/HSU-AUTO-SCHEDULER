@@ -1,5 +1,5 @@
 import { WeekdayEnum } from "@/enums/weekday.enum";
-import { CourseType } from "./course.type";
+import { CourseType } from "./schemas/Course.schema";
 
 export type SelectedCoursesType = { [key in WeekdayEnum]: CourseType[] } & {
   nontimes: CourseType[];
