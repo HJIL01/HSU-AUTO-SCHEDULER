@@ -7,7 +7,7 @@ import useGetConstraintsResult from "@/hooks/queries/useGetConstraintsResult";
 import { CPSAT_SolutionType } from "@/types/CP-SAT-Solution.type";
 import { useState } from "react";
 import clsx from "clsx";
-import DayColumn from "../organisms/DayColumn";
+import DayColumn from "../02_organisms/DayColumn";
 
 export default function TimeTableBody() {
   const [mockData, setMockData] = useState<CPSAT_SolutionType>();

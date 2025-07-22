@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
-import TimeTableEditButton from "./timetable/_components/organisms/TimeTableEditButton";
-import CourseFinder from "./timetable/_components/templates/CourseFinder";
+import TimeTableEditButton from "./timetable/_components/02_organisms/TimeTableEditButton";
+import CourseFinder from "./timetable/_components/01_templates/CourseFinder";
 
 type Props = {
   children: ReactNode;

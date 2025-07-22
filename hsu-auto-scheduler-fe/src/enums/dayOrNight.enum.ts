@@ -7,5 +7,5 @@ export enum DayOrNightEnum {
 export const DayOrNightKorMap = {
   day: "주간",
   night: "야간",
-  both: "주야합반",
+  both: "합반",
 };

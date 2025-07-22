@@ -7,7 +7,7 @@ import { SelectOptionType } from "@/types/selectOption.type";
 import { DayOrNightEnum, DayOrNightKorMap } from "@/enums/dayOrNight.enum";
 import RHFTextInput from "@/components/RHF/RHFTextInput";
 import { FocusEvent, useState } from "react";
-import NoClassDaySelectModal from "../modal/NoClassDaySelectModal";
+import NoClassDaySelectModal from "../05_modals/NoClassDaySelectModal";
 import { WeekdayKorMap } from "@/enums/weekday.enum";
 import {
   CreateCPSATschemaType,

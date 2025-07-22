@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 export default function useGetCourses(filters: FilterType) {
   return useQuery({
     queryKey: ["courses", JSON.stringify(filters)],
-    queryFn: async (): Promise<ResponseType<CourseType>[]> => {
+    queryFn: async (): Promise<ResponseType<CourseType[]>> => {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_BASE_URL}/schedule/get-courses`,
         {

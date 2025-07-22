@@ -81,7 +81,7 @@ export const CreateCPSATschema = z.object({
 export type CreateCPSATschemaType = z.infer<typeof CreateCPSATschema>;
 
 export const createCPSATSchemaDefaultValues: CreateCPSATschemaType = {
-  semester: "2025-1",
+  semester: "2025-2",
   major_code: "",
   grade: "",
   day_or_night: "",
