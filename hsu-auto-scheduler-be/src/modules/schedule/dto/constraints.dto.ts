@@ -38,7 +38,7 @@ export class ConstraintsDto {
   @IsArray()
   @ValidateNested()
   @Type(() => PersonalScheduleDto)
-  personal_schedule: PersonalScheduleDto[];
+  personal_schedules: PersonalScheduleDto[];
 
   @IsArray()
   @ValidateNested()
