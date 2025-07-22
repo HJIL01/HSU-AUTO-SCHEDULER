@@ -3,7 +3,7 @@ import TimeTableTitle from "./_components/01_templates/TimeTableTitle";
 
 export default function TimeTableMain() {
   return (
-    <div className="h-max w-max">
+    <div className="h-[50dvh]">
       <TimeTableTitle />
       <TimeTableBody />
     </div>
