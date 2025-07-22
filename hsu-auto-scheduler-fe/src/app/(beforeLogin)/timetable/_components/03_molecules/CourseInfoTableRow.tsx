@@ -10,10 +10,10 @@ type Props = {
 
 export default function CourseInfoTableRow({ courseInfo }: Props) {
   return (
-    <tr className="text-xs [&_td]:border [&_td]:py-3">
+    <tr className="text-xs [&_td]:border [&_td]:border-t-0 [&_td]:py-3">
       <td> {`${courseInfo.course_code}-${courseInfo.class_section}`}</td>
       <td>{courseInfo.course_name}</td>
-      <td>{courseInfo.professor_names}</td>
+      <td>{courseInfo.professor_names.join(", ")}</td>
       <td>{courseInfo.grade === 0 ? "전학년" : courseInfo.grade}</td>
       <td>{courseInfo.grade_limit ? courseInfo.grade_limit : "-"}</td>
       <td>{courseInfo.completion_type}</td>

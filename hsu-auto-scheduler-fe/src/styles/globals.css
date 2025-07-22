@@ -1,13 +1,14 @@
 @import "tailwindcss";
 @import "./sizes.css";
 @import "./colors.css";
+@import "./animations.css";
 
 html,
 body {
     min-width: 100dvw;
     font-size: 62.5% !important;
-    overflow-x: hidden;
-    min-height: 100dvh;
+    overflow: hidden;
+    max-height: 100dvh;
 }
 
 img,

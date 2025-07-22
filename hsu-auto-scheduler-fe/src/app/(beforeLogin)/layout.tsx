@@ -9,7 +9,9 @@ type Props = {
 export default async function BeforeLoginLayout({ children }: Props) {
   return (
     <>
-      <main>{children}</main>
+      <main className="flex max-h-dvh justify-center overflow-y-auto">
+        {children}
+      </main>
       <CourseFinder />
       <TimeTableEditButton />
     </>

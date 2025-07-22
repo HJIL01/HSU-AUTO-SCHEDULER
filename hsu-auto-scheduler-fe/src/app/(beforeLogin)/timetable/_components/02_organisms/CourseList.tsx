@@ -10,6 +10,8 @@ import { splitSemester } from "@/utils/splitSemester";
 import { useMemo } from "react";
 import { useFormContext } from "react-hook-form";
 import CourseInfoTableRow from "../03_molecules/CourseInfoTableRow";
+import SangSangBoogi from "@/assets/SangSangBoogi.webp";
+import Image from "next/image";
 
 export default function CourseList() {
   const { watch } = useFormContext<CreateCPSATschemaType>();
@@ -34,16 +36,26 @@ export default function CourseList() {
   const { data: getCoursesResponse, isPending } = useGetCourses(filters);
 
   const courses = getCoursesResponse?.data.slice(0, 50);
+  console.log(courses);
 
   return (
-    <div className="max-h-[500px] overflow-y-auto">
-      <table className="w-full border">
-        <thead className="sticky top-0 border bg-white [&_th]:border [&_th]:py-4 [&_th]:text-xs [&_th]:whitespace-nowrap">
+    <div className="h-full w-full overflow-y-auto">
+      <table className="bg-filter-courses-table-head-bg sticky top-0 h-18 w-full table-fixed border-collapse border text-xs [&_th]:border">
+        <colgroup>
+          <col className="w-40" />
+          <col className="min-w-50" />
+          <col className="w-48" />
+          <col className="w-25" />
+          <col className="w-30" />
+          <col className="w-30" />
+          <col className="w-31" />
+          <col className="w-20" />
+          <col className="min-w-100" />
+          <col className="w-42" />
+        </colgroup>
+        <thead>
           <tr>
-            <th>
-              과목코드
-              <div className="fixed text-red-500">과목코드</div>
-            </th>
+            <th>과목코드</th>
             <th>과목명</th>
             <th>교수</th>
             <th>학년</th>
@@ -55,12 +67,43 @@ export default function CourseList() {
             <th>강의 계획서</th>
           </tr>
         </thead>
-        <tbody className="[&_td]:text-center">
-          {courses?.map((course) => (
-            <CourseInfoTableRow key={course.course_id} courseInfo={course} />
-          ))}
-        </tbody>
       </table>
+
+      {isPending ? (
+        <div className="bg-filter-courses-table-body-bg flex h-[calc(100%-36px)] w-full flex-col items-center justify-center text-2xl">
+          <div className="animate-spin-sangsangboogi h-auto w-42">
+            <Image src={SangSangBoogi} alt="상상부기" />
+          </div>
+          로딩중...
+        </div>
+      ) : (
+        <table className="w-full table-fixed border-collapse border border-t-0">
+          <colgroup>
+            <col className="w-40" />
+            <col className="min-w-50" />
+            <col className="w-48" />
+            <col className="w-25" />
+            <col className="w-30" />
+            <col className="w-30" />
+            <col className="w-31" />
+            <col className="w-20" />
+            <col className="min-w-100" />
+            <col className="w-42" />
+          </colgroup>
+          <tbody className="bg-filter-courses-table-body-bg [&_td]:text-center">
+            {courses?.map((course) => (
+              <CourseInfoTableRow key={course.course_id} courseInfo={course} />
+            ))}
+          </tbody>
+          <tfoot className="h-30">
+            <tr>
+              <td colSpan={10} className="h-20 border">
+                <Image src={SangSangBoogi} alt="상상부기" />
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      )}
     </div>
   );
 }

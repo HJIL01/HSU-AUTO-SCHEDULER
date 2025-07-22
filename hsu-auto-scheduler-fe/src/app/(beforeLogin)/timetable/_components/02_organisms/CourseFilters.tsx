@@ -162,7 +162,7 @@ export default function CourseFilters() {
   };
 
   return (
-    <div className="flex flex-col flex-wrap justify-center gap-4 md:flex-row md:justify-start">
+    <div className="flex h-14 gap-4">
       {/* 전공 필터 */}
       <RHFCustomSelect<CreateCPSATschemaType>
         name="major_code"
