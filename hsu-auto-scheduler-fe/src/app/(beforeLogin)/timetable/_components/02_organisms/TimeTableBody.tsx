@@ -7,7 +7,7 @@ import useGetConstraintsResult from "@/hooks/queries/useGetConstraintsResult";
 import { CPSAT_SolutionType } from "@/types/CP-SAT-Solution.type";
 import { useState } from "react";
 import clsx from "clsx";
-import DayColumn from "../02_organisms/DayColumn";
+import DayColumn from "../04_atoms/DayColumn";
 
 export default function TimeTableBody() {
   const [mockData, setMockData] = useState<CPSAT_SolutionType>();
@@ -19,11 +19,11 @@ export default function TimeTableBody() {
   };
 
   return (
-    <div className="relative">
-      <table className="bg-scheduler-main-bg [&_td]:border-scheduler-cell-border [&_th]:border-scheduler-cell-border w-[70dvw] max-w-400 min-w-200 border-collapse border [&_td]:border [&_th]:border">
+    <div className="relative max-sm:h-[30dvh]">
+      <table className="[&_td]:border-scheduler-cell-border [&_th]:border-scheduler-cell-border w-full border-collapse border bg-white [&_td]:border [&_th]:border">
         <thead className="text-sm">
-          <tr className="h-25">
-            <th className="w-30" />
+          <tr className="h-30">
+            <th className="min-w-15" />
             {DAYS.map((day) => (
               <th key={day} className="text-hsu">
                 {WeekdayKorMap[day]}
@@ -38,7 +38,7 @@ export default function TimeTableBody() {
                 <div
                   key={hour}
                   className={clsx(
-                    "flex h-30 items-center justify-center text-xs",
+                    "flex h-[60px] items-center justify-center text-xs",
                     i !== 0 && "border-scheduler-cell-border border-t",
                   )}
                 >

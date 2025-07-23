@@ -1,5 +1,7 @@
 @theme {
-    --color-scheduler-main-bg: #F8F8F8;
+    --color-body-bg: #EEEEEE;
+
+    --color-timetable-body-bg: #F8F8F8;
 
     --color-hsu: #11348E;
 

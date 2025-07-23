@@ -2,7 +2,10 @@
 
 import getMajors from "@/api/getMajors";
 import CustomSelectBox from "@/components/ui/CustomSelectBox";
-import { CreateCPSATschemaType } from "@/types/schemas/CreateCPSAT.schema";
+import {
+  createCPSATSchemaDefaultValues,
+  CreateCPSATschemaType,
+} from "@/types/schemas/CreateCPSAT.schema";
 import { SelectOptionType } from "@/types/selectOption.type";
 import { SemesterType } from "@/types/semester.type";
 import { useQueryClient } from "@tanstack/react-query";
@@ -19,19 +22,16 @@ export default function RHFSelectSemester({ semesters }: Props) {
   // 전용 컴포넌트로 남김
   const queryClient = useQueryClient();
   const router = useRouter();
-  const params = useSearchParams();
 
-  const { control, getValues } = useFormContext<CreateCPSATschemaType>();
-
-  const currentSemester = getValues("semester");
+  const { control, setValue } = useFormContext<CreateCPSATschemaType>();
 
   const selectBoxOptions: SelectOptionType[] = semesters.map((semester) => ({
     value: `${semester.year}-${semester.term}`,
     label: `${semester.year}년 ${semester.term}학기`,
   }));
 
-  const handleChangeSemester = (semester: string) => {
-    router.replace(`/timetable/${semester}?${params}`);
+  const handleChangeSemester = (semesterString: string) => {
+    router.replace(`/timetable?semester=${semesterString}`);
   };
 
   const handleSelectChange = (
@@ -42,13 +42,12 @@ export default function RHFSelectSemester({ semesters }: Props) {
     handleChangeSemester(value);
   };
 
-  useEffect(() => {
-    const [year, term] = currentSemester.split("-");
-    queryClient.prefetchQuery({
-      queryKey: ["majors", currentSemester],
-      queryFn: () => getMajors(year, term),
-    });
-  }, [currentSemester]);
+  // useEffect(() => {
+  //   queryClient.prefetchQuery({
+  //     queryKey: ["majors", currentSemester],
+  //     queryFn: () => getMajors(currentSemester),
+  //   });
+  // }, [currentSemester]);
 
   return (
     <Controller

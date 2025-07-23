@@ -1,11 +1,11 @@
 import { MajorType } from "@/types/major.type";
 import { ResponseType } from "@/types/response.type";
+import { splitSemester } from "@/utils/splitSemester";
 
 export default async function getMajors(
-  year: string,
-  term: string,
+  semesterString: string,
 ): Promise<ResponseType<MajorType[]>> {
-  const semesterId = `${year}${term}`;
+  const semesterId = splitSemester(semesterString);
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/schedule/get-majors?semesterId=${semesterId}`,
     {
@@ -14,7 +14,7 @@ export default async function getMajors(
         "Content-Type": "application/json",
       },
       next: {
-        tags: ["majors", `${year}-${term}`],
+        tags: ["majors", semesterString],
       },
     },
   );

@@ -37,7 +37,7 @@ export default function DayColumn({ day, hours, coursesInCurDay }: Props) {
         <div
           key={hour}
           className={clsx(
-            "min-w-20",
+            "min-w-15",
             i !== 0 && "border-scheduler-cell-border border-t",
           )}
           style={{

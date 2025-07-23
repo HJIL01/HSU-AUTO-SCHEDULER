@@ -162,13 +162,13 @@ export default function CourseFilters() {
   };
 
   return (
-    <div className="flex h-14 gap-4">
+    <div className="flex flex-wrap justify-center gap-5 bg-white py-8">
       {/* 전공 필터 */}
       <RHFCustomSelect<CreateCPSATschemaType>
         name="major_code"
         items={majorSelectedOptions}
-        placeholder="전공을 선택하세요"
-        className="!bg-course-fileter-bg border-course-list-border border"
+        placeholder="전공"
+        className="!bg-course-fileter-bg border-course-list-border !max-w-80 truncate border"
       />
 
       {/* 학년 필터 */}

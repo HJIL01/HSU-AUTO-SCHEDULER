@@ -1,19 +1,18 @@
+import { getSemesters } from "@/api/getSemesters";
 import { ReactNode } from "react";
-import TimeTableEditButton from "./timetable/_components/02_organisms/TimeTableEditButton";
-import CourseFinder from "./timetable/_components/01_templates/CourseFinder";
+import TimeTableHeader from "./timetable/_components/02_organisms/TimeTableHeader";
 
 type Props = {
   children: ReactNode;
 };
 
 export default async function BeforeLoginLayout({ children }: Props) {
+  const { data: semesters } = await getSemesters();
+
   return (
-    <>
-      <main className="flex max-h-dvh justify-center overflow-y-auto">
-        {children}
-      </main>
-      <CourseFinder />
-      <TimeTableEditButton />
-    </>
+    <div className="mx-auto max-w-[80dvw]">
+      <TimeTableHeader semesters={semesters} />
+      <main className="w-full">{children}</main>
+    </div>
   );
 }

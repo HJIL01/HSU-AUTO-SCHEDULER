@@ -7,8 +7,8 @@ html,
 body {
     min-width: 100dvw;
     font-size: 62.5% !important;
-    overflow: hidden;
-    max-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 img,
@@ -46,4 +46,12 @@ input[type=number] {
 
 button {
     cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+
+    html,
+    body {
+        font-size: 50% !important;
+    }
 }

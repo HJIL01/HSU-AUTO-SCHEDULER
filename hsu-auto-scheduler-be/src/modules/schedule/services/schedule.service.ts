@@ -39,7 +39,7 @@ export class ScheduleService {
   async getSemesters() {
     const semesters = await this.semesterRepo.find();
 
-    semesters.sort((a, b) => +b.semester_id - +a.semester_id);
+    semesters.sort((a, b) => +a.semester_id - +b.semester_id);
     return {
       message: 'get semesters 성공',
       data: semesters,
