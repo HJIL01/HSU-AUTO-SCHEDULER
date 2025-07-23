@@ -1,37 +1,21 @@
 "use client";
 
-import { WeekdayEnum } from "@/enums/weekday.enum";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import z from "zod";
-
-export const TestSchema = z.object({
-  test: z.enum(WeekdayEnum, { message: "enum이 아님" }),
-});
-
-export type TestSchemaType = z.infer<typeof TestSchema>;
+import { useHSUStore } from "@/store/store";
+import { useShallow } from "zustand/shallow";
 
 export default function page() {
-  const {
-    register,
-    setValue,
-    formState: { errors },
-  } = useForm<TestSchemaType>({
-    mode: "all",
-    resolver: zodResolver(TestSchema),
-  });
-
-  console.log(errors?.["test"]);
+  const { isOpen, setOpen, setClose } = useHSUStore(
+    useShallow((state) => ({
+      isOpen: state.isOpen,
+      setOpen: state.setOpen,
+      setClose: state.setClose,
+    })),
+  );
   return (
     <div>
-      <input
-        type="text"
-        className="h-50 w-50 border border-red-500 text-2xl"
-        {...register("test")}
-        onBlur={() => {
-          setValue("test", WeekdayEnum.MON);
-        }}
-      />
+      <button onClick={setOpen}>열기</button>
+      {isOpen ? "열림" : "닫힘"}
+      <button onClick={setClose}>닫기</button>
     </div>
   );
 }

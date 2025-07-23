@@ -8,6 +8,10 @@ import { CPSAT_SolutionType } from "@/types/CP-SAT-Solution.type";
 import { useState } from "react";
 import clsx from "clsx";
 import DayColumn from "../02_organisms/DayColumn";
+import { useHSUStore } from "@/store/store";
+import { useShallow } from "zustand/shallow";
+import { motion } from "framer-motion";
+import { COURSE_FINDER_HEIGHT } from "@/constants/CourseFinderHeight";
 
 export default function TimeTableBody() {
   const [mockData, setMockData] = useState<CPSAT_SolutionType>();
@@ -18,8 +22,25 @@ export default function TimeTableBody() {
     setMockData(data.data.solutions.slice(0, 1)[0]);
   };
 
+  const { isOpen } = useHSUStore(
+    useShallow((state) => ({
+      isOpen: state.isOpen,
+    })),
+  );
+
   return (
-    <div className="relative">
+    <motion.div
+      animate={{
+        height: isOpen
+          ? window.innerHeight * (COURSE_FINDER_HEIGHT / 100) + 55
+          : "100%",
+      }}
+      transition={{
+        duration: 1,
+        ease: "easeInOut",
+      }}
+      className={clsx("relative")}
+    >
       <table className="bg-scheduler-main-bg [&_td]:border-scheduler-cell-border [&_th]:border-scheduler-cell-border w-[70dvw] max-w-400 min-w-200 border-collapse border [&_td]:border [&_th]:border">
         <thead className="text-sm">
           <tr className="h-25">
@@ -81,6 +102,6 @@ export default function TimeTableBody() {
           </ul>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }

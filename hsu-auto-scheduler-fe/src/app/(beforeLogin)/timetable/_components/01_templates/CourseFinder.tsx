@@ -3,17 +3,40 @@
 import DropDownArrow from "@/assets/icons/DrowDownArrow";
 import CourseFilters from "../02_organisms/CourseFilters";
 import CourseList from "../02_organisms/CourseList";
-import { useState } from "react";
+import { useHSUStore } from "@/store/store";
+import { useShallow } from "zustand/shallow";
+import { motion } from "framer-motion";
+import { COURSE_FINDER_HEIGHT } from "@/constants/CourseFinderHeight";
 
 export default function CourseFinder() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { isOpen, setClose } = useHSUStore(
+    useShallow((state) => ({
+      isOpen: state.isOpen,
+      setClose: state.setClose,
+    })),
+  );
+
   return (
-    <div className="border-t-border border-t-course-list-border bg-course-list-main-bg fixed bottom-0 h-[50dvh] w-full space-y-8 border-t px-5 py-7">
-      <button className="border-course-list-border bg-course-list-main-bg absolute top-0 right-0 -translate-y-full rounded-t-lg border border-b-0 p-5">
+    <motion.div
+      style={{
+        height: `${COURSE_FINDER_HEIGHT}dvh`,
+      }}
+      animate={{
+        top: isOpen ? `${95 - COURSE_FINDER_HEIGHT}dvh` : "110dvh",
+        opacity: isOpen ? 1 : 0,
+      }}
+      initial={{ top: "110vh", opacity: 0 }}
+      transition={{ duration: 1, ease: "easeInOut" }}
+      className="border-t-border border-t-course-list-border bg-course-list-main-bg fixed bottom-0 w-full space-y-8 border-t px-5 py-7"
+    >
+      <button
+        onClick={setClose}
+        className="border-course-list-border bg-course-list-main-bg absolute top-0 right-0 -translate-y-full rounded-t-lg border border-b-0 p-5"
+      >
         <DropDownArrow />
       </button>
       <CourseFilters />
       <CourseList />
-    </div>
+    </motion.div>
   );
 }

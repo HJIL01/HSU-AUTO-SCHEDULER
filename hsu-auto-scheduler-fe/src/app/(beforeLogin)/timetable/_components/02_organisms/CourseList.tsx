@@ -50,7 +50,7 @@ export default function CourseList() {
           <col className="w-30" />
           <col className="w-31" />
           <col className="w-20" />
-          <col className="min-w-100" />
+          <col className="min-w-130" />
           <col className="w-42" />
         </colgroup>
         <thead>
@@ -77,7 +77,7 @@ export default function CourseList() {
           로딩중...
         </div>
       ) : (
-        <table className="w-full table-fixed border-collapse border border-t-0">
+        <table className="w-full table-fixed border-collapse border border-t-0 [&_tr]:h-22">
           <colgroup>
             <col className="w-40" />
             <col className="min-w-50" />
@@ -87,7 +87,7 @@ export default function CourseList() {
             <col className="w-30" />
             <col className="w-31" />
             <col className="w-20" />
-            <col className="min-w-100" />
+            <col className="min-w-130" />
             <col className="w-42" />
           </colgroup>
           <tbody className="bg-filter-courses-table-body-bg [&_td]:text-center">
@@ -95,14 +95,14 @@ export default function CourseList() {
               <CourseInfoTableRow key={course.course_id} courseInfo={course} />
             ))}
           </tbody>
-          <tfoot className="h-30">
-            <tr>
-              <td colSpan={10} className="h-20 border">
-                <Image src={SangSangBoogi} alt="상상부기" />
-              </td>
-            </tr>
-          </tfoot>
         </table>
+      )}
+      {courses && courses.length >= 50 && (
+        <div className="flex h-25 w-full items-center justify-center border border-t-0">
+          <div className="animate-spin-sangsangboogi h-20 w-fit">
+            <Image src={SangSangBoogi} alt="상상부기" />
+          </div>
+        </div>
       )}
     </div>
   );

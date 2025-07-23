@@ -162,112 +162,121 @@ export default function CourseFilters() {
   };
 
   return (
-    <div className="flex h-14 gap-4">
-      {/* 전공 필터 */}
-      <RHFCustomSelect<CreateCPSATschemaType>
-        name="major_code"
-        items={majorSelectedOptions}
-        placeholder="전공을 선택하세요"
-        className="!bg-course-fileter-bg border-course-list-border border"
-      />
+    <div className="flex h-14 justify-between">
+      <div className="flex gap-4">
+        {/* 전공 필터 */}
+        <RHFCustomSelect<CreateCPSATschemaType>
+          name="major_code"
+          items={majorSelectedOptions}
+          placeholder="전공을 선택하세요"
+          className="!bg-course-fileter-bg border-course-list-border max-w-100 truncate border"
+        />
 
-      {/* 학년 필터 */}
-      <RHFCustomSelect<CreateCPSATschemaType>
-        name="grade"
-        items={gradeSelectOptions}
-        placeholder="학년"
-        className="!bg-course-fileter-bg border-course-list-border border"
-      />
+        {/* 학년 필터 */}
+        <RHFCustomSelect<CreateCPSATschemaType>
+          name="grade"
+          items={gradeSelectOptions}
+          placeholder="학년"
+          className="!bg-course-fileter-bg border-course-list-border border"
+        />
 
-      {/* 주야 필터 */}
-      <RHFCustomSelect<CreateCPSATschemaType>
-        name="day_or_night"
-        items={dayOrNightSelectOptions}
-        placeholder="주/야"
-        className="!bg-course-fileter-bg border-course-list-border border"
-      />
+        {/* 주야 필터 */}
+        <RHFCustomSelect<CreateCPSATschemaType>
+          name="day_or_night"
+          items={dayOrNightSelectOptions}
+          placeholder="주/야"
+          className="!bg-course-fileter-bg border-course-list-border border"
+        />
 
-      {/* 공강 필터 */}
-      <RHFTextInput
-        readOnly
-        name=""
-        id="no_class_days"
-        labelText="공강 요일:"
-        placeholder="공강 요일을 선택하세요"
-        onClick={openNoClassDaysModal}
-        value={
-          currentNoClassDays.length
-            ? `${currentNoClassDays.map((day) => WeekdayKorMap[day]).join(", ")}`
-            : ""
-        }
-      />
+        {/* 공강 필터 */}
+        <RHFTextInput
+          readOnly
+          name=""
+          id="no_class_days"
+          labelText="공강 요일:"
+          placeholder="공강 요일을 선택하세요"
+          className="min-w-30 truncate"
+          onClick={openNoClassDaysModal}
+          value={
+            currentNoClassDays.length
+              ? `${currentNoClassDays.map((day) => WeekdayKorMap[day]).join(", ")}`
+              : "없음"
+          }
+        />
 
-      {/* 최대 학점 필터 */}
-      <RHFTextInput<CreateCPSATschemaType>
-        type="number"
-        name="max_credit"
-        id="max_credit"
-        labelText="최대 학점:"
-        className="!w-[3ch] rounded-none"
-        placeholder="18"
-        fixValueFuncOnBlur={fixValueMaxCreditOnBlur}
-      />
+        {/* 최대 학점 필터 */}
+        <RHFTextInput<CreateCPSATschemaType>
+          type="number"
+          name="max_credit"
+          id="max_credit"
+          labelText="최대 학점:"
+          className="!w-[3ch] rounded-none"
+          placeholder="18"
+          fixValueFuncOnBlur={fixValueMaxCreditOnBlur}
+        />
 
-      {/* 전공 기초 필터 */}
-      <RHFTextInput<CreateCPSATschemaType>
-        type="number"
-        name="major_foundation"
-        id="major_foundation"
-        labelText="전공 기초(최소 학점):"
-        className="!w-[3ch] rounded-none"
-        placeholder="0"
-        fixValueFuncOnBlur={fixValueMajorFoundationOnBlur}
-      />
+        {/* 전공 기초 필터 */}
+        <RHFTextInput<CreateCPSATschemaType>
+          type="number"
+          name="major_foundation"
+          id="major_foundation"
+          labelText="전공 기초(최소 학점):"
+          className="!w-[3ch] rounded-none"
+          placeholder="0"
+          fixValueFuncOnBlur={fixValueMajorFoundationOnBlur}
+        />
 
-      {/* 전공 필수 필터 */}
-      <RHFTextInput<CreateCPSATschemaType>
-        type="number"
-        name="major_required"
-        id="major_required"
-        labelText="전공 필수(최소 학점):"
-        className="!w-[3ch] rounded-none"
-        placeholder="0"
-        fixValueFuncOnBlur={fixValueMajorRequired}
-      />
+        {/* 전공 필수 필터 */}
+        <RHFTextInput<CreateCPSATschemaType>
+          type="number"
+          name="major_required"
+          id="major_required"
+          labelText="전공 필수(최소 학점):"
+          className="!w-[3ch] rounded-none"
+          placeholder="0"
+          fixValueFuncOnBlur={fixValueMajorRequired}
+        />
 
-      {/* 전공 선택 필터 */}
-      <RHFTextInput<CreateCPSATschemaType>
-        type="number"
-        name="major_elective"
-        id="major_elective"
-        labelText="전공 선택(최소 학점):"
-        className="!w-[3ch] rounded-none"
-        placeholder="0"
-        fixValueFuncOnBlur={fixValueMajorElective}
-      />
+        {/* 전공 선택 필터 */}
+        <RHFTextInput<CreateCPSATschemaType>
+          type="number"
+          name="major_elective"
+          id="major_elective"
+          labelText="전공 선택(최소 학점):"
+          className="!w-[3ch] rounded-none"
+          placeholder="0"
+          fixValueFuncOnBlur={fixValueMajorElective}
+        />
 
-      {/* 하루 최대 강의 수 필터 */}
-      <RHFTextInput<CreateCPSATschemaType>
-        type="number"
-        name="daily_lecture_limit"
-        id="daily_lecture_limit"
-        labelText="하루 최대 강의 제한:"
-        className="!w-[3ch] rounded-none"
-        placeholder="3"
-        fixValueFuncOnBlur={fixValueDailyLectureLimit}
-      />
+        {/* 하루 최대 강의 수 필터 */}
+        <RHFTextInput<CreateCPSATschemaType>
+          type="number"
+          name="daily_lecture_limit"
+          id="daily_lecture_limit"
+          labelText="하루 최대 강의 제한:"
+          className="!w-[3ch] rounded-none"
+          placeholder="3"
+          fixValueFuncOnBlur={fixValueDailyLectureLimit}
+        />
 
-      <RHFTextInput<CreateCPSATschemaType>
-        type="checkbox"
-        name="has_lunch_break"
-        id="has_lunch_break"
-        labelText="점심 보장(12시~13시):"
-        className="!w-[3ch] rounded-none"
-      />
+        <RHFTextInput<CreateCPSATschemaType>
+          type="checkbox"
+          name="has_lunch_break"
+          id="has_lunch_break"
+          labelText="점심 보장(12시~13시):"
+          className="!w-[3ch] rounded-none"
+        />
 
-      {noClassDaysSelectModalIsOpen && (
-        <NoClassDaySelectModal closeNoClassDaysModal={closeNoClassDaysModal} />
-      )}
+        {noClassDaysSelectModalIsOpen && (
+          <NoClassDaySelectModal
+            closeNoClassDaysModal={closeNoClassDaysModal}
+          />
+        )}
+      </div>
+
+      <button className="bg-hsu rounded-lg px-3 text-xs text-white">
+        시간표 자동 생성
+      </button>
     </div>
   );
 }
