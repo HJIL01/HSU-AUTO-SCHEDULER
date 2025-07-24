@@ -17,7 +17,7 @@ export default function useGetConstraintsResult() {
             grade: 3,
             day_or_night: "day",
             no_class_days: ["Mon", "Fri", "Sat", "Sun"],
-            personal_schedule: [],
+            personal_schedules: [],
             selected_courses: [],
             max_credit: 18,
             major_foundation: 0,

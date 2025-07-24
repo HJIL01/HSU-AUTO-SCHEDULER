@@ -5,10 +5,10 @@ import clsx from "clsx";
 import { getCourseBlockHeight } from "@/utils/getCourseBlockHeight";
 import { getOfflineScheduleInCurDay } from "@/utils/getOfflineScheduleInCurDay";
 import { CourseType } from "@/types/schemas/Course.schema";
+import { HOURS } from "@/constants/hours";
 
 type Props = {
   day: WeekdayEnum;
-  hours: number[];
   coursesInCurDay: CourseType[];
 };
 
@@ -30,10 +30,10 @@ const bgClass = [
   "bg-course-block-15",
 ];
 
-export default function DayColumn({ day, hours, coursesInCurDay }: Props) {
+export default function DayColumn({ day, coursesInCurDay }: Props) {
   return (
     <td data-day={day} className="relative">
-      {hours.map((hour, i) => (
+      {HOURS.map((hour, i) => (
         <div
           key={hour}
           className={clsx(
@@ -47,7 +47,7 @@ export default function DayColumn({ day, hours, coursesInCurDay }: Props) {
       ))}
 
       {coursesInCurDay.map((course) => {
-        if (!course.offline_schedules) {
+        if (course.offline_schedules.length === 0) {
           return;
         }
 

@@ -3,6 +3,9 @@
 
     --color-hsu: #11348E;
 
+    /* 시간표 부분 */
+    --color-timetable-body-bg: #F8F8F8;
+    --color-timetable-cell-border: #E6E6E6;
     --color-scheduler-cell-border: #E6E6E6;
 
     --color-course-block-1: #A9B5DF;

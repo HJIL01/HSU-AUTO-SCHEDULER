@@ -47,3 +47,8 @@ input[type=number] {
 button {
     cursor: pointer;
 }
+
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+}

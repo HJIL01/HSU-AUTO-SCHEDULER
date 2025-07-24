@@ -29,32 +29,47 @@ export default function TimeTableBody() {
     })),
   );
 
-  console.log(hoveredCourse);
-
   return (
     <motion.div
       animate={{
         height: isOpen
-          ? window.innerHeight * (COURSE_FINDER_HEIGHT / 100) + 55
+          ? window.innerHeight * (COURSE_FINDER_HEIGHT / 100) + 52
           : "100%",
       }}
       transition={{
         duration: 1,
         ease: "easeInOut",
       }}
-      className={clsx("relative")}
+      className={clsx("relative w-full")}
     >
-      <table className="bg-scheduler-main-bg [&_td]:border-scheduler-cell-border [&_th]:border-scheduler-cell-border w-[70dvw] max-w-400 min-w-200 border-collapse border [&_td]:border [&_th]:border">
-        <thead className="text-sm">
+      {/* thead */}
+      <table className="bg-timetable-body-bg w-full border text-sm">
+        <colgroup>
+          <col className="border-timetable-cell-border w-30 border" />
+          {DAYS.map((day) => (
+            <col key={day} className="border-timetable-cell-border border" />
+          ))}
+        </colgroup>
+
+        <thead className="text-hsu">
           <tr className="h-25">
-            <th className="w-30" />
+            <th />
             {DAYS.map((day) => (
-              <th key={day} className="text-hsu">
-                {WeekdayKorMap[day]}
-              </th>
+              <th key={day}>{WeekdayKorMap[day]}</th>
             ))}
           </tr>
         </thead>
+      </table>
+
+      {/* tbody */}
+      <table className="[&_td]:border-timetable-cell-border bg-timetable-body-bg [&_th]:border-timetable-cell-border w-full border text-sm [&_td]:border [&_th]:border">
+        <colgroup>
+          <col className="border-timetable-cell-border w-30 border" />
+          {DAYS.map((day) => (
+            <col key={day} className="border-timetable-cell-border border" />
+          ))}
+        </colgroup>
+
         <tbody>
           <tr>
             <th>
@@ -63,7 +78,7 @@ export default function TimeTableBody() {
                   key={hour}
                   className={clsx(
                     "flex h-30 items-center justify-center text-xs",
-                    i !== 0 && "border-scheduler-cell-border border-t",
+                    i !== 0 && "border-timetable-cell-border border-t",
                   )}
                 >
                   {hour}:00
@@ -74,7 +89,6 @@ export default function TimeTableBody() {
               <DayColumn
                 key={day}
                 day={day}
-                hours={HOURS}
                 coursesInCurDay={mockData?.selected_courses[day] ?? []}
               />
             ))}
@@ -105,6 +119,13 @@ export default function TimeTableBody() {
           </ul>
         </div>
       )}
+
+      <button
+        className="fixed top-0 right-0 z-50 h-50 w-50 bg-red-500 text-2xl"
+        onClick={getCPSATResult}
+      >
+        가져오기sadsad
+      </button>
     </motion.div>
   );
 }
