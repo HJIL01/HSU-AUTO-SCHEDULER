@@ -65,7 +65,7 @@ export class ScheduleService {
   // 필터에 맞는 모든 강의들을 가져오는 함수
   async getCourses(getCoursesCondition: GetCoursesDto) {
     const { currentPage, pagePerLimit, filters } = getCoursesCondition;
-    console.log(currentPage);
+
     const {
       semester_id,
       major_code,
