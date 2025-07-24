@@ -10,7 +10,7 @@ import { CourseDto } from 'src/common/dto/03_course.dto';
 import { SemesterEntity } from 'src/common/entities/01_semester.entity';
 import { MajorEntity } from 'src/common/entities/02_major.entity';
 import { CourseFilteringQueryService } from './CourseFilteringQuery.service';
-import { GetCoursesFilterDto } from '../dto/getCoursesFilter.dto';
+import { GetCoursesDto } from '../dto/getCourses.dto';
 
 export type WeeklyScheduleType = {
   schedule_name: string;
@@ -63,7 +63,9 @@ export class ScheduleService {
   }
 
   // 필터에 맞는 모든 강의들을 가져오는 함수
-  async getCourses(getCourseFilters: GetCoursesFilterDto) {
+  async getCourses(getCoursesCondition: GetCoursesDto) {
+    const { currentPage, pagePerLimit, filters } = getCoursesCondition;
+    console.log(currentPage);
     const {
       semester_id,
       major_code,
@@ -73,7 +75,7 @@ export class ScheduleService {
       personal_schedules,
       selected_courses,
       has_lunch_break,
-    } = getCourseFilters;
+    } = filters;
 
     const weeklyScheduleMap = new Map<WeekdayEnum, WeeklyScheduleType[]>();
 
@@ -193,7 +195,12 @@ export class ScheduleService {
         );
     }
 
-    console.log(JSON.stringify(filteredCourses, null, 2));
+    // console.log(JSON.stringify(filteredCourses, null, 2));
+    const paginationStart = (currentPage - 1) * pagePerLimit;
+    const paginationEnd = paginationStart + pagePerLimit;
+
+    filteredCourses = filteredCourses.slice(paginationStart, paginationEnd);
+
     return {
       message: 'get courses 성공',
       data: filteredCourses,

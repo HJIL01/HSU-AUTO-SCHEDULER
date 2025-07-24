@@ -1,15 +1,10 @@
-const test = [
-  { day: "월" },
-  { day: "월" },
-  { day: "수" },
-  { day: "수" },
-  { day: "금" },
-];
+const test = Array.from({ length: 500 }, (_, i) => i);
+const cur = 2;
+const per = 50;
 
-const s = {};
+const start = (cur - 1) * per;
+const end = start + per;
 
-test.map((e) => {
-  s[e.day] = (s[e.day] || 0) + 1;
-});
+const s = test.slice(start, end);
 
-console.log(s);
+console.log(s, s.length);

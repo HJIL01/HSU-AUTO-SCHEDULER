@@ -1,10 +1,19 @@
+import { getSemesters } from "@/api/getSemesters";
 import TimeTableBody from "./_components/01_templates/TimeTableBody";
 import TimeTableTitle from "./_components/01_templates/TimeTableTitle";
 
-export default function TimeTableMain() {
+type Props = {
+  searchParams: Promise<{ semester?: string }>;
+};
+
+export default async function TimeTableMain({ searchParams }: Props) {
+  const [{ semester: currentSemester }, { data: semesters }] =
+    await Promise.all([searchParams, getSemesters()]);
+
+  console.log(currentSemester);
   return (
     <div>
-      <TimeTableTitle />
+      <TimeTableTitle currentSemester={currentSemester} semesters={semesters} />
       <TimeTableBody />
     </div>
   );

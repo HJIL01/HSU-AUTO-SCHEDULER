@@ -1,42 +1,93 @@
 "use client";
 
-import CustomSkeleton from "@/components/ui/CustomSkeleton";
 import { DayOrNightEnum } from "@/enums/dayOrNight.enum";
 import { WeekdayEnum } from "@/enums/weekday.enum";
 import useGetCourses from "@/hooks/queries/useGetCourses";
 import { FilterType } from "@/types/filter.type";
 import { CreateCPSATschemaType } from "@/types/schemas/CreateCPSAT.schema";
 import { splitSemester } from "@/utils/splitSemester";
-import { useMemo } from "react";
+import { useCallback, useMemo, useRef } from "react";
 import { useFormContext } from "react-hook-form";
 import CourseInfoTableRow from "../03_molecules/CourseInfoTableRow";
+import SpinSangSangBoogi from "@/components/ui/SpinSangSangBoogi";
 import SangSangBoogi from "@/assets/SangSangBoogi.webp";
 import Image from "next/image";
 
 export default function CourseList() {
   const { watch } = useFormContext<CreateCPSATschemaType>();
-  const values = watch();
+  const semester = watch("semester");
+  const major_code = watch("major_code");
+  const grade = watch("grade");
+  const day_or_night = watch("day_or_night");
+  const no_class_days = watch("no_class_days");
+  const has_lunch_break = watch("has_lunch_break");
+  const personal_schedules = watch("personal_schedules");
+  const selected_courses = watch("selected_courses");
 
   const filters: FilterType = useMemo(() => {
-    const { semester, ...rest } = values;
     const semester_id = splitSemester(semester);
 
     return {
       semester_id,
-      major_code: rest.major_code || null,
-      grade: rest.grade ? +rest.grade : null,
-      day_or_night: (rest.day_or_night as DayOrNightEnum) || null,
-      no_class_days: (rest.no_class_days as WeekdayEnum[]) || [],
-      has_lunch_break: !!rest.has_lunch_break,
-      personal_schedules: rest.personal_schedules || [],
-      selected_courses: rest.selected_courses || [],
+      major_code: major_code || null,
+      grade: grade ? +grade : null,
+      day_or_night: (day_or_night as DayOrNightEnum) || null,
+      no_class_days: (no_class_days as WeekdayEnum[]) || [],
+      has_lunch_break: !!has_lunch_break,
+      personal_schedules: personal_schedules || [],
+      selected_courses: selected_courses || [],
     };
-  }, [values]);
+  }, [
+    semester,
+    major_code,
+    grade,
+    day_or_night,
+    no_class_days,
+    has_lunch_break,
+    personal_schedules,
+    selected_courses,
+  ]);
 
-  const { data: getCoursesResponse, isPending } = useGetCourses(filters);
+  const {
+    data,
+    isLoading,
+    isFetching,
+    isFetchingNextPage,
+    hasNextPage,
+    fetchNextPage,
+  } = useGetCourses(filters);
 
-  const courses = getCoursesResponse?.data.slice(0, 50);
-  console.log(courses);
+  const courses = data?.pages.flatMap((e) => e.data);
+
+  const loader = useRef<IntersectionObserver | null>(null);
+
+  const fetchNextPageWithDelay = useCallback(() => {
+    setTimeout(() => {
+      fetchNextPage();
+    }, 1000);
+  }, [fetchNextPage]);
+
+  const observer = useCallback(
+    (node: HTMLDivElement) => {
+      if (isFetching || isFetchingNextPage) {
+        return;
+      }
+
+      if (loader.current) {
+        loader.current.disconnect();
+      }
+
+      loader.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && hasNextPage) {
+          console.log("보임");
+          fetchNextPageWithDelay();
+        }
+      });
+
+      if (node) loader.current.observe(node);
+    },
+    [isFetching, isFetchingNextPage, loader, fetchNextPage],
+  );
 
   return (
     <div className="h-full w-full overflow-y-auto">
@@ -69,15 +120,13 @@ export default function CourseList() {
         </thead>
       </table>
 
-      {isPending ? (
+      {isLoading ? (
         <div className="bg-filter-courses-table-body-bg flex h-[calc(100%-36px)] w-full flex-col items-center justify-center text-2xl">
-          <div className="animate-spin-sangsangboogi h-auto w-42">
-            <Image src={SangSangBoogi} alt="상상부기" />
-          </div>
+          <SpinSangSangBoogi className="w-42" />
           로딩중...
         </div>
       ) : (
-        <table className="w-full table-fixed border-collapse border border-t-0 [&_tr]:h-22">
+        <table className="w-full table-fixed border-collapse [&_tr]:h-22">
           <colgroup>
             <col className="w-40" />
             <col className="min-w-50" />
@@ -91,17 +140,38 @@ export default function CourseList() {
             <col className="w-42" />
           </colgroup>
           <tbody className="bg-filter-courses-table-body-bg [&_td]:text-center">
-            {courses?.map((course) => (
-              <CourseInfoTableRow key={course.course_id} courseInfo={course} />
-            ))}
+            {courses &&
+              (courses.length === 0 ? (
+                <tr className="text-md !h-100 bg-white">
+                  <td colSpan={10}>
+                    <div className="flex h-full w-full flex-col items-center justify-center">
+                      <div className="mb-2 h-auto w-25">
+                        <Image src={SangSangBoogi} alt="상상부기" />
+                      </div>
+                      검색 결과가 없습니다
+                    </div>
+                  </td>
+                </tr>
+              ) : (
+                courses.map((course) => (
+                  <CourseInfoTableRow
+                    key={course.course_id}
+                    courseInfo={course}
+                  />
+                ))
+              ))}
           </tbody>
         </table>
       )}
-      {courses && courses.length >= 50 && (
-        <div className="flex h-25 w-full items-center justify-center border border-t-0">
-          <div className="animate-spin-sangsangboogi h-20 w-fit">
-            <Image src={SangSangBoogi} alt="상상부기" />
-          </div>
+
+      {courses && hasNextPage && !isFetchingNextPage && (
+        <div
+          role="status"
+          aria-live="polite"
+          ref={observer}
+          className="flex h-25 w-full items-center justify-center"
+        >
+          <SpinSangSangBoogi className="w-12" />
         </div>
       )}
     </div>

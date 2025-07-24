@@ -1,12 +1,17 @@
+import { COURSES_PER_PAGE } from "@/constants/CoursesPerPage";
 import { FilterType } from "@/types/filter.type";
 import { ResponseType } from "@/types/response.type";
 import { CourseType } from "@/types/schemas/Course.schema";
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 
 export default function useGetCourses(filters: FilterType) {
-  return useQuery({
+  return useInfiniteQuery({
     queryKey: ["courses", JSON.stringify(filters)],
-    queryFn: async (): Promise<ResponseType<CourseType[]>> => {
+    queryFn: async ({
+      pageParam,
+    }: {
+      pageParam: number;
+    }): Promise<ResponseType<CourseType[]>> => {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_BASE_URL}/schedule/get-courses`,
         {
@@ -14,7 +19,15 @@ export default function useGetCourses(filters: FilterType) {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(filters, null, 0),
+          body: JSON.stringify(
+            {
+              currentPage: pageParam,
+              pagePerLimit: COURSES_PER_PAGE,
+              filters,
+            },
+            null,
+            0,
+          ),
         },
       );
 
@@ -23,6 +36,14 @@ export default function useGetCourses(filters: FilterType) {
       }
 
       return res.json();
+    },
+    initialPageParam: 1,
+    getNextPageParam: (lastPage, _, lastPageParam) => {
+      if (lastPage.data.length < COURSES_PER_PAGE) {
+        return undefined;
+      }
+
+      return lastPageParam + 1;
     },
   });
 }

@@ -31,7 +31,7 @@ export default function CourseFinder() {
     >
       <button
         onClick={setClose}
-        className="border-course-list-border bg-course-list-main-bg absolute top-0 right-0 -translate-y-full rounded-t-lg border border-b-0 p-5"
+        className="border-course-list-border bg-course-list-main-bg absolute top-0 right-0 translate-y-[-98%] rounded-t-lg border border-b-0 p-5"
       >
         <DropDownArrow />
       </button>

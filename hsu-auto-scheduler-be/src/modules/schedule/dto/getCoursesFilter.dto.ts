@@ -42,12 +42,12 @@ export class GetCoursesFilterDto {
   has_lunch_break: boolean;
 
   @IsArray()
-  @ValidateNested()
+  @ValidateNested({ each: true })
   @Type(() => PersonalScheduleDto)
   personal_schedules: PersonalScheduleDto[];
 
   @IsArray()
-  @ValidateNested()
+  @ValidateNested({ each: true })
   @Type(() => CourseDto)
   selected_courses: CourseDto[];
 }

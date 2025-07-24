@@ -70,7 +70,7 @@ export class CourseDto {
   online_min: number;
 
   @IsOptional()
-  @ValidateNested()
+  @ValidateNested({ each: true })
   @Type(() => OfflineScheduleDto)
   offline_schedules: OfflineScheduleDto[] | null;
 

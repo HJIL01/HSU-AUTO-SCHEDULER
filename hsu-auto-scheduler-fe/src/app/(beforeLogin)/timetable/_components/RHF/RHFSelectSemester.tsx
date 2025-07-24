@@ -11,19 +11,23 @@ import { useEffect } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
 type Props = {
+  currentSemestere?: string;
   semesters: SemesterType[];
 };
 
-export default function RHFSelectSemester({ semesters }: Props) {
+export default function RHFSelectSemester({
+  currentSemestere,
+  semesters,
+}: Props) {
   // useEffect를 사용한 prefetch 때문에 해당 컴포넌트는  RHFCustomSelect를 사용하지 못함
   // 전용 컴포넌트로 남김
   const queryClient = useQueryClient();
   const router = useRouter();
-  const params = useSearchParams();
+  const searchParams = useSearchParams();
 
-  const { control, getValues } = useFormContext<CreateCPSATschemaType>();
+  const { control, setValue } = useFormContext<CreateCPSATschemaType>();
 
-  const currentSemester = getValues("semester");
+  const currentSemester = searchParams.get("semester") || "2025-2";
 
   const selectBoxOptions: SelectOptionType[] = semesters.map((semester) => ({
     value: `${semester.year}-${semester.term}`,
@@ -31,7 +35,7 @@ export default function RHFSelectSemester({ semesters }: Props) {
   }));
 
   const handleChangeSemester = (semester: string) => {
-    router.replace(`/timetable/${semester}?${params}`);
+    router.replace(`/timetable?semester=${semester}`);
   };
 
   const handleSelectChange = (
@@ -43,6 +47,7 @@ export default function RHFSelectSemester({ semesters }: Props) {
   };
 
   useEffect(() => {
+    setValue("semester", currentSemester);
     const [year, term] = currentSemester.split("-");
     queryClient.prefetchQuery({
       queryKey: ["majors", currentSemester],
@@ -53,6 +58,7 @@ export default function RHFSelectSemester({ semesters }: Props) {
   return (
     <Controller
       name="semester"
+      defaultValue={currentSemestere}
       control={control}
       render={({ field }) => (
         <CustomSelectBox

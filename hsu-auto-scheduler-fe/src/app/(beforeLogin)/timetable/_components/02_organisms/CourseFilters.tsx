@@ -27,12 +27,11 @@ export default function CourseFilters() {
   const currentNoClassDays = getValues("no_class_days");
 
   // 해당 학기의 모든 전공들을 가져오는 훅
-  const { data: getMajorsResponse, isPending: getMajorsPending } =
+  const { data: getMajorsResponse, isFetching: getMajorsFetching } =
     useGetMajors(currentSemester);
 
-  if (getMajorsPending) {
-    console.log("준비중");
-    return;
+  if (getMajorsFetching) {
+    return <div className="h-14 w-full" />;
   }
 
   // 전공 선택 리스트
@@ -163,7 +162,22 @@ export default function CourseFilters() {
 
   return (
     <div className="flex h-14 justify-between">
-      <div className="flex gap-4">
+      <div className="relative flex max-w-[80dvw] gap-4 overflow-x-hidden">
+        <div
+          className="absolute top-0 left-0 z-[8888] h-full w-5"
+          style={{
+            background:
+              "linear-gradient(to left, transparent 25%, var(--color-course-list-main-bg) 100%)",
+          }}
+        />
+        <div
+          className="absolute top-0 right-0 z-[8888] h-full w-5 shrink-0"
+          style={{
+            background:
+              "linear-gradient(to right, transparent 0%, var(--color-course-list-main-bg) 75%)",
+          }}
+        />
+
         {/* 전공 필터 */}
         <RHFCustomSelect<CreateCPSATschemaType>
           name="major_code"
@@ -171,7 +185,6 @@ export default function CourseFilters() {
           placeholder="전공을 선택하세요"
           className="!bg-course-fileter-bg border-course-list-border max-w-100 truncate border"
         />
-
         {/* 학년 필터 */}
         <RHFCustomSelect<CreateCPSATschemaType>
           name="grade"
@@ -179,7 +192,6 @@ export default function CourseFilters() {
           placeholder="학년"
           className="!bg-course-fileter-bg border-course-list-border border"
         />
-
         {/* 주야 필터 */}
         <RHFCustomSelect<CreateCPSATschemaType>
           name="day_or_night"
@@ -187,7 +199,6 @@ export default function CourseFilters() {
           placeholder="주/야"
           className="!bg-course-fileter-bg border-course-list-border border"
         />
-
         {/* 공강 필터 */}
         <RHFTextInput
           readOnly
@@ -203,7 +214,6 @@ export default function CourseFilters() {
               : "없음"
           }
         />
-
         {/* 최대 학점 필터 */}
         <RHFTextInput<CreateCPSATschemaType>
           type="number"
@@ -214,7 +224,6 @@ export default function CourseFilters() {
           placeholder="18"
           fixValueFuncOnBlur={fixValueMaxCreditOnBlur}
         />
-
         {/* 전공 기초 필터 */}
         <RHFTextInput<CreateCPSATschemaType>
           type="number"
@@ -225,7 +234,6 @@ export default function CourseFilters() {
           placeholder="0"
           fixValueFuncOnBlur={fixValueMajorFoundationOnBlur}
         />
-
         {/* 전공 필수 필터 */}
         <RHFTextInput<CreateCPSATschemaType>
           type="number"
@@ -236,7 +244,6 @@ export default function CourseFilters() {
           placeholder="0"
           fixValueFuncOnBlur={fixValueMajorRequired}
         />
-
         {/* 전공 선택 필터 */}
         <RHFTextInput<CreateCPSATschemaType>
           type="number"
@@ -247,7 +254,6 @@ export default function CourseFilters() {
           placeholder="0"
           fixValueFuncOnBlur={fixValueMajorElective}
         />
-
         {/* 하루 최대 강의 수 필터 */}
         <RHFTextInput<CreateCPSATschemaType>
           type="number"
@@ -258,7 +264,6 @@ export default function CourseFilters() {
           placeholder="3"
           fixValueFuncOnBlur={fixValueDailyLectureLimit}
         />
-
         <RHFTextInput<CreateCPSATschemaType>
           type="checkbox"
           name="has_lunch_break"
@@ -266,7 +271,6 @@ export default function CourseFilters() {
           labelText="점심 보장(12시~13시):"
           className="!w-[3ch] rounded-none"
         />
-
         {noClassDaysSelectModalIsOpen && (
           <NoClassDaySelectModal
             closeNoClassDaysModal={closeNoClassDaysModal}

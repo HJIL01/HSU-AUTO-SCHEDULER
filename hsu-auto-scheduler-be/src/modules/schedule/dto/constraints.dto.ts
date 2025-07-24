@@ -36,12 +36,12 @@ export class ConstraintsDto {
   no_class_days: WeekdayEnum[];
 
   @IsArray()
-  @ValidateNested()
+  @ValidateNested({ each: true })
   @Type(() => PersonalScheduleDto)
   personal_schedules: PersonalScheduleDto[];
 
   @IsArray()
-  @ValidateNested()
+  @ValidateNested({ each: true })
   @Type(() => CourseDto)
   selected_courses: CourseDto[];
 

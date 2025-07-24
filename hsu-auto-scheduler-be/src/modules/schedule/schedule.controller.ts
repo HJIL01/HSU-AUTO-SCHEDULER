@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { ConstraintsDto } from './dto/constraints.dto';
 import { ScheduleService } from './services/schedule.service';
-import { GetCoursesFilterDto } from './dto/getCoursesFilter.dto';
+import { GetCoursesDto } from './dto/getCourses.dto';
 
 @Controller('schedule')
 export class ScheduleController {
@@ -19,8 +19,8 @@ export class ScheduleController {
 
   // 필터가 너무 많으므로 POST로 바꿈
   @Post('get-courses')
-  getCourses(@Body() getCourseFilters: GetCoursesFilterDto) {
-    return this.scheduleService.getCourses(getCourseFilters);
+  getCourses(@Body() getCoursesCondition: GetCoursesDto) {
+    return this.scheduleService.getCourses(getCoursesCondition);
   }
 
   @Post('constraints')
