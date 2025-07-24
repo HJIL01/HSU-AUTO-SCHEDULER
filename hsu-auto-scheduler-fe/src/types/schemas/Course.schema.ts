@@ -36,7 +36,7 @@ export const courseSchema = z.object({
     message: "온라인 시간은 숫자여야 합니다.",
   }),
 
-  offline_schedules: z.union([z.array(OfflineScheduleSchema), z.null()]),
+  offline_schedules: z.array(OfflineScheduleSchema),
 
   plan_code: z.union([z.string().min(1), z.null()]),
 });

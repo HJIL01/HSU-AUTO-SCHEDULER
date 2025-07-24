@@ -1,16 +1,40 @@
 "use client";
 
 import { DayOrNightKorMap } from "@/enums/dayOrNight.enum";
+import { useHSUStore } from "@/store/store";
 import { CourseType } from "@/types/schemas/Course.schema";
 import { createOfflineScheduleString } from "@/utils/createOfflineScheduleString";
+import { useCallback } from "react";
+import { useShallow } from "zustand/shallow";
 
 type Props = {
   courseInfo: CourseType;
 };
 
 export default function CourseInfoTableRow({ courseInfo }: Props) {
+  const { setHoveredCourse, clearHoveredCourse } = useHSUStore(
+    useShallow((state) => ({
+      hoveredCourse: state.hoveredCourse,
+      setHoveredCourse: state.setHoveredCourse,
+      clearHoveredCourse: state.clearHoveredCourse,
+    })),
+  );
+
+  const setHover = useCallback(
+    () => setHoveredCourse(courseInfo),
+    [courseInfo, setHoveredCourse],
+  );
+  const clearHover = useCallback(
+    () => clearHoveredCourse(),
+    [clearHoveredCourse],
+  );
+
   return (
-    <tr className="text-xs [&_td]:border [&_td]:border-t-0 [&_td]:py-3">
+    <tr
+      className="bg-filter-courses-table-row-bg hover:bg-filter-courses-table-row-hover-bg cursor-pointer text-xs [&_td]:border [&_td]:border-t-0 [&_td]:py-3"
+      onMouseEnter={setHover}
+      onMouseLeave={clearHover}
+    >
       <td> {`${courseInfo.course_code}-${courseInfo.class_section}`}</td>
       <td>{courseInfo.course_name}</td>
       <td>{courseInfo.professor_names.join(", ")}</td>
@@ -20,8 +44,8 @@ export default function CourseInfoTableRow({ courseInfo }: Props) {
       <td>{courseInfo.delivery_method}</td>
       <td>{DayOrNightKorMap[courseInfo.day_or_night]}</td>
       <td className="whitespace-pre-line">
-        {courseInfo.offline_schedules
-          ? createOfflineScheduleString(courseInfo.offline_schedules!)
+        {courseInfo.offline_schedules.length > 0
+          ? createOfflineScheduleString(courseInfo.offline_schedules)
           : "-"}
       </td>
       <td>

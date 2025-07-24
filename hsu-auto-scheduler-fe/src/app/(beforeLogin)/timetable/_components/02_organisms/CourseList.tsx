@@ -6,12 +6,13 @@ import useGetCourses from "@/hooks/queries/useGetCourses";
 import { FilterType } from "@/types/filter.type";
 import { CreateCPSATschemaType } from "@/types/schemas/CreateCPSAT.schema";
 import { splitSemester } from "@/utils/splitSemester";
-import { useCallback, useMemo, useRef } from "react";
+import { useMemo } from "react";
 import { useFormContext } from "react-hook-form";
 import CourseInfoTableRow from "../03_molecules/CourseInfoTableRow";
 import SpinSangSangBoogi from "@/components/ui/SpinSangSangBoogi";
 import SangSangBoogi from "@/assets/SangSangBoogi.webp";
 import Image from "next/image";
+import { useInfiniteScroll } from "@/hooks/useInfinityScroll";
 
 export default function CourseList() {
   const { watch } = useFormContext<CreateCPSATschemaType>();
@@ -48,46 +49,12 @@ export default function CourseList() {
     selected_courses,
   ]);
 
-  const {
-    data,
-    isLoading,
-    isFetching,
-    isFetchingNextPage,
-    hasNextPage,
-    fetchNextPage,
-  } = useGetCourses(filters);
+  const { data, isLoading, hasNextPage, fetchNextPage } =
+    useGetCourses(filters);
 
   const courses = data?.pages.flatMap((e) => e.data);
 
-  const loader = useRef<IntersectionObserver | null>(null);
-
-  const fetchNextPageWithDelay = useCallback(() => {
-    setTimeout(() => {
-      fetchNextPage();
-    }, 1000);
-  }, [fetchNextPage]);
-
-  const observer = useCallback(
-    (node: HTMLDivElement) => {
-      if (isFetching || isFetchingNextPage) {
-        return;
-      }
-
-      if (loader.current) {
-        loader.current.disconnect();
-      }
-
-      loader.current = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && hasNextPage) {
-          console.log("보임");
-          fetchNextPageWithDelay();
-        }
-      });
-
-      if (node) loader.current.observe(node);
-    },
-    [isFetching, isFetchingNextPage, loader, fetchNextPage],
-  );
+  const observer = useInfiniteScroll({ hasNextPage, fetchNextPage });
 
   return (
     <div className="h-full w-full overflow-y-auto">
@@ -121,7 +88,7 @@ export default function CourseList() {
       </table>
 
       {isLoading ? (
-        <div className="bg-filter-courses-table-body-bg flex h-[calc(100%-36px)] w-full flex-col items-center justify-center text-2xl">
+        <div className="bg-filter-courses-table-row-bg flex h-[calc(100%-36px)] w-full flex-col items-center justify-center text-2xl">
           <SpinSangSangBoogi className="w-42" />
           로딩중...
         </div>
@@ -139,7 +106,7 @@ export default function CourseList() {
             <col className="min-w-130" />
             <col className="w-42" />
           </colgroup>
-          <tbody className="bg-filter-courses-table-body-bg [&_td]:text-center">
+          <tbody className="[&_td]:text-center">
             {courses &&
               (courses.length === 0 ? (
                 <tr className="text-md !h-100 bg-white">
@@ -164,7 +131,7 @@ export default function CourseList() {
         </table>
       )}
 
-      {courses && hasNextPage && !isFetchingNextPage && (
+      {courses && hasNextPage && (
         <div
           role="status"
           aria-live="polite"

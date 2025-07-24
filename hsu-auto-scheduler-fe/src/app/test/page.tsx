@@ -1,21 +1,15 @@
-"use client";
-
-import { useHSUStore } from "@/store/store";
-import { useShallow } from "zustand/shallow";
+import React from "react";
 
 export default function page() {
-  const { isOpen, setOpen, setClose } = useHSUStore(
-    useShallow((state) => ({
-      isOpen: state.isOpen,
-      setOpen: state.setOpen,
-      setClose: state.setClose,
-    })),
-  );
   return (
     <div>
-      <button onClick={setOpen}>열기</button>
-      {isOpen ? "열림" : "닫힘"}
-      <button onClick={setClose}>닫기</button>
+      <select name="" id="" defaultValue={"5"}>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
     </div>
   );
 }

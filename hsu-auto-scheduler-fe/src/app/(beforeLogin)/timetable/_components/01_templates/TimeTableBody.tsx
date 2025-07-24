@@ -22,11 +22,14 @@ export default function TimeTableBody() {
     setMockData(data.data.solutions.slice(0, 1)[0]);
   };
 
-  const { isOpen } = useHSUStore(
+  const { isOpen, hoveredCourse } = useHSUStore(
     useShallow((state) => ({
       isOpen: state.isOpen,
+      hoveredCourse: state.hoveredCourse,
     })),
   );
+
+  console.log(hoveredCourse);
 
   return (
     <motion.div

@@ -4,16 +4,20 @@ import {
   createCourseFinderSlice,
 } from "./courseFinder.slice";
 import { devtools, persist, subscribeWithSelector } from "zustand/middleware";
-import { immer } from "zustand/middleware/immer";
+import {
+  createHoveredCourseSlice,
+  HoveredCourseSliceType,
+} from "./hoveredCourse.slice";
 
-type StoreType = CourseFinderSliceType;
+type StoreType = CourseFinderSliceType & HoveredCourseSliceType;
 
 export const useHSUStore = create<StoreType>()(
   devtools(
     persist(
-      subscribeWithSelector(
-        immer((...a) => ({ ...createCourseFinderSlice(...a) })),
-      ),
+      subscribeWithSelector((...a) => ({
+        ...createCourseFinderSlice(...a),
+        ...createHoveredCourseSlice(...a),
+      })),
       {
         name: "SchedulerState",
         //   persist를 적용하고 싶은 state를 밑에 명시

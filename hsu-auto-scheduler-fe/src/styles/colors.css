@@ -27,5 +27,6 @@
     --color-course-fileter-bg: #f2f4f7;
 
     --color-filter-courses-table-head-bg: #E9E3DF;
-    --color-filter-courses-table-body-bg: #FAF7F3;
+    --color-filter-courses-table-row-bg: #FAF7F3;
+    --color-filter-courses-table-row-hover-bg: #DBDBDB;
 }
