@@ -14,10 +14,10 @@ export type CourseType = {
   day_or_night: DayOrNightEnum; // 주야구분: enum
   class_section: string; // 분반: string
   grade: number; // 학년(1, 2, 3, 4학년 또는 전학년(0으로)): number
-  grade_limit: string | null; // 학년 제한: string 또는 null
-  online_min: number; // 온라인 시간: number
-  offline_schedules: OfflineScheduleType[] | null; // 오프라인 스케줄
-  plan_code: string | null; // 강의 계획서 code string 또는 null
+  grade_limit: number | null; // 학년 제한: number 또는 null
+  online_hour: number; // 온라인 시간: number
+  offline_schedules: OfflineScheduleType[]; // 오프라인 스케줄
+  plan_code: string; // 강의 계획서 code string 또는 null
 };
 
 /* 

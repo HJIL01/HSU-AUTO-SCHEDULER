@@ -66,10 +66,10 @@ export function courseXmlToJson(
       day_or_night: parseDayOrNight(row.juya),
       class_section: String(row.bunban),
       grade: isNaN(+row.haknean) ? 0 : +row.haknean,
-      grade_limit: row.haknean_limit || null,
-      online_min: sessionInfo?.online || 0,
-      offline_schedules: sessionInfo?.offline_schedules || null,
-      plan_code: row.plan || null,
+      grade_limit: +row.haknean_limit || null,
+      online_hour: sessionInfo?.online || 0,
+      offline_schedules: sessionInfo?.offline_schedules || [],
+      plan_code: row.plan,
     };
   });
 

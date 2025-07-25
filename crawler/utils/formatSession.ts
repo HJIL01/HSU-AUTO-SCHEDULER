@@ -84,29 +84,31 @@ function extractInPersonSchedule(
 export function formatClassInfo(
   deliveryMethod: string,
   credit: number,
-  classRoom: string,
+  scheduleString: string,
   courseName: string
 ): SessionInfoType | null {
   // falsy값이 아니라면 모든 1개 이상의 공백들을 공백 하나로 치환
-  classRoom = classRoom ? classRoom.replace(/\s+/g, " ") : classRoom;
+  scheduleString = scheduleString
+    ? scheduleString.replace(/\s+/g, " ")
+    : scheduleString;
 
   if (deliveryMethod === "온라인100%") {
     return {
       online: credit,
-      offline_schedules: null,
+      offline_schedules: [],
     };
   } else {
     // 온라인이 아닌데 수업 정보가 없는 경우
-    if (!classRoom) {
+    if (!scheduleString) {
       console.error(`${courseName}: 온라인이 아니지만 수업 정보가 null임`);
       return null;
     }
 
     let online = 0;
-    let offlineString = classRoom;
+    let offlineString = scheduleString;
 
     if (offlineString.includes("온라인강좌")) {
-      const [onlineString, ...offlineArray] = classRoom.split("/");
+      const [onlineString, ...offlineArray] = scheduleString.split("/");
       online = Number(onlineString.replace(/온라인강좌|시간/g, "")) || 0;
       offlineString = offlineArray.join("/");
     }
@@ -115,7 +117,7 @@ export function formatClassInfo(
       online,
       offline_schedules: offlineString
         ? extractInPersonSchedule(offlineString)
-        : null,
+        : [],
     };
   }
 }
