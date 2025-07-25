@@ -195,7 +195,7 @@ export class CrawlerService {
             class_section: rest.class_section,
             grade: rest.grade,
             grade_limit: rest.grade_limit,
-            online_min: rest.online_min,
+            online_hour: rest.online_hour,
             plan_code: rest.plan_code,
             semester: semesterEntity,
           });
@@ -203,7 +203,7 @@ export class CrawlerService {
           await queryRunner.manager.save(CourseEntity, createdCourseEntity);
 
           // 오프라인 스케줄이 있다면 오프라인 스케줄 테이블에 저장
-          if (offline_schedules) {
+          if (offline_schedules.length > 0) {
             const createdOfflineScheduleEntities = offline_schedules.map(
               (off_schedule) => {
                 const entity = new OfflineScheduleEntity();

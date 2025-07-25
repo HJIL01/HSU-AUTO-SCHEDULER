@@ -49,11 +49,10 @@ export class CourseEntity {
   @Column()
   grade: number;
 
-  @Column({ type: 'varchar', length: 255, nullable: true })
-  grade_limit: string | null;
+  grade_limit: number | null;
 
   @Column({ default: 0 })
-  online_min: number;
+  online_hour: number;
 
   @Column({ type: 'varchar', length: 255, nullable: true })
   plan_code: string | null;

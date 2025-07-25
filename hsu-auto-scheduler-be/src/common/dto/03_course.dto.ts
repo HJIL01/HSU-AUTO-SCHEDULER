@@ -61,18 +61,16 @@ export class CourseDto {
   grade: number;
 
   @IsOptional()
-  @IsString()
-  @IsNotEmpty()
-  grade_limit: string | null;
+  @IsNumber({ allowNaN: false }, { message: '학년 제한은 숫자여야 합니다.' })
+  grade_limit: number | null;
 
   @Type(() => Number)
   @IsNumber({ allowNaN: false }, { message: '온라인 시간은 숫자여야 합니다.' })
-  online_min: number;
+  online_hour: number;
 
-  @IsOptional()
   @ValidateNested({ each: true })
   @Type(() => OfflineScheduleDto)
-  offline_schedules: OfflineScheduleDto[] | null;
+  offline_schedules: OfflineScheduleDto[];
 
   @IsOptional()
   @IsString()

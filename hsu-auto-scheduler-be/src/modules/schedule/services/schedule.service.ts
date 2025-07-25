@@ -343,7 +343,7 @@ export class ScheduleService {
           class_section: cur.class_section,
           grade: cur.grade,
           grade_limit: cur.grade_limit,
-          online_min: cur.online_min,
+          online_hour: cur.online_hour,
           offline_schedules: cur.offline_schedules,
           plan_code: cur.plan_code,
         };

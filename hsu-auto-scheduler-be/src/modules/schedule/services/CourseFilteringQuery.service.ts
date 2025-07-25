@@ -116,7 +116,7 @@ export class CourseFilteringQueryService {
         selected_course_codes: selected_courses.map((selected) => {
           const selected_course_schedules = selected.offline_schedules;
 
-          selected_course_schedules?.forEach((cur_schedule) => {
+          selected_course_schedules.forEach((cur_schedule) => {
             const { day, ...rest } = cur_schedule;
 
             const newWeeklySchedule: WeeklyScheduleType = {
