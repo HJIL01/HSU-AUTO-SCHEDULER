@@ -1,10 +1,10 @@
 "use client";
 
-import { useHSUStore } from "@/store/store";
+import { useTimeTableStore } from "@/store/store";
 import { useShallow } from "zustand/shallow";
 
 export default function TimeTableEditButton() {
-  const { setOpen } = useHSUStore(
+  const { setOpen } = useTimeTableStore(
     useShallow((state) => ({
       setOpen: state.setOpen,
     })),

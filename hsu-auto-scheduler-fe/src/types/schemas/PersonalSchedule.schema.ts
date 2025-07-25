@@ -1,5 +1,5 @@
 import z from "zod";
-import { OfflineScheduleSchema } from "./OfflineScheduel.schema";
+import { OfflineScheduleSchema } from "./OfflineSchedule.schema";
 
 export const PersonalScheduleSchema = z.object({
   schedule_name: z

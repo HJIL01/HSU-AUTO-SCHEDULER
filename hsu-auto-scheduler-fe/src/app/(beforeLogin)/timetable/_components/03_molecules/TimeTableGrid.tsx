@@ -5,16 +5,18 @@ import { HOURS } from "@/constants/hours";
 import clsx from "clsx";
 import DayColumn from "../04_atoms/DayColumn";
 import { WeekdayKorMap } from "@/enums/weekday.enum";
-import { CourseType } from "@/types/schemas/Course.schema";
-import { HoverCourseRenderMapType } from "@/types/courseRenderInfo.type";
+import {
+  HoverCourseRenderMapType,
+  SelectedCoursesRenderMapType,
+} from "@/types/courseRenderInfo.type";
 
 type Props = {
-  selectedCourses?: CourseType[];
+  selectedCoursesByDay?: SelectedCoursesRenderMapType;
   hoveredCourseByDay?: HoverCourseRenderMapType;
 };
 
 export default function TimeTableGrid({
-  selectedCourses,
+  selectedCoursesByDay,
   hoveredCourseByDay,
 }: Props) {
   return (
@@ -66,6 +68,7 @@ export default function TimeTableGrid({
               <DayColumn
                 key={day}
                 day={day}
+                coursesInCurDay={selectedCoursesByDay?.get(day)}
                 hoveredCourseInCurDay={hoveredCourseByDay?.get(day)}
               />
             ))}

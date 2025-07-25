@@ -4,7 +4,6 @@ import useGetConstraintsResult from "@/hooks/queries/useGetConstraintsResult";
 import { CPSAT_SolutionType } from "@/types/CP-SAT-Solution.type";
 import { useMemo, useState } from "react";
 import clsx from "clsx";
-import { useHSUStore } from "@/store/store";
 import { useShallow } from "zustand/shallow";
 import { motion } from "framer-motion";
 import { COURSE_FINDER_HEIGHT } from "@/constants/CourseFinderHeight";
@@ -13,10 +12,12 @@ import OnlineCourseList from "../03_molecules/OnlineCourseList";
 import {
   CourseRenderInfoType,
   HoverCourseRenderMapType,
+  SelectedCoursesRenderMapType,
 } from "@/types/courseRenderInfo.type";
 import { getOfflineScheduleInCurDay } from "@/utils/getOfflineScheduleInCurDay";
 import { getTopByStartTime } from "@/utils/getTopByStartTime";
 import { getCourseBlockHeight } from "@/utils/getCourseBlockHeight";
+import { useTimeTableStore } from "@/store/store";
 
 export default function TimeTableBody() {
   const [mockData, setMockData] = useState<CPSAT_SolutionType>();
@@ -27,10 +28,11 @@ export default function TimeTableBody() {
     setMockData(data.data.solutions.slice(0, 1)[0]);
   };
 
-  const { isOpen, hoveredCourse } = useHSUStore(
+  const { isOpen, hoveredCourse, selectedCourses } = useTimeTableStore(
     useShallow((state) => ({
       isOpen: state.isOpen,
       hoveredCourse: state.hoveredCourse,
+      selectedCourses: state.selectedCourses,
     })),
   );
 
@@ -41,6 +43,7 @@ export default function TimeTableBody() {
       courseId: hoveredCourse.course_id,
       courseName: hoveredCourse.course_name,
       professors: hoveredCourse.professor_names,
+      colorIndex: 0,
     };
 
     if (hoveredCourse.offline_schedules.length > 0) {
@@ -58,6 +61,41 @@ export default function TimeTableBody() {
     return new Map([["nontime", baseInfo]]);
   }, [hoveredCourse]);
 
+  const selectedCoursesByDay: SelectedCoursesRenderMapType = useMemo(() => {
+    const dayMap: SelectedCoursesRenderMapType = new Map();
+
+    selectedCourses.forEach((selectedCourse, index) => {
+      const baseInfo: CourseRenderInfoType = {
+        courseId: selectedCourse.course_id,
+        courseName: selectedCourse.course_name,
+        professors: selectedCourse.professor_names,
+        colorIndex: 0,
+      };
+
+      if (selectedCourse.offline_schedules.length === 0) {
+        const newNontimes = dayMap.get("nontimes") ?? [];
+        newNontimes.push(baseInfo);
+        dayMap.set("nontimes", newNontimes);
+      } else {
+        selectedCourse.offline_schedules.forEach((offlineSchedule) => {
+          const curDay = offlineSchedule.day;
+
+          const newCoursesInCurDay = dayMap.get(curDay) ?? [];
+          newCoursesInCurDay.push({
+            ...baseInfo,
+            offlineSchedule,
+            top: getTopByStartTime(selectedCourse, curDay),
+            height: getCourseBlockHeight(selectedCourse, curDay),
+            colorIndex: index + 1,
+          });
+          dayMap.set(curDay, newCoursesInCurDay);
+        });
+      }
+    });
+
+    return dayMap;
+  }, [selectedCourses]);
+
   return (
     <motion.div
       animate={{
@@ -71,7 +109,10 @@ export default function TimeTableBody() {
       }}
       className={clsx("relative w-full")}
     >
-      <TimeTableGrid hoveredCourseByDay={hoveredCourseByDay} />
+      <TimeTableGrid
+        selectedCoursesByDay={selectedCoursesByDay}
+        hoveredCourseByDay={hoveredCourseByDay}
+      />
       <OnlineCourseList />
 
       <button

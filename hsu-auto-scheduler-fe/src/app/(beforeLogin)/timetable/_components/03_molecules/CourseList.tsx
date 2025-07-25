@@ -121,10 +121,7 @@ export default function CourseList() {
                 </tr>
               ) : (
                 courses.map((course) => (
-                  <CourseInfoTableRow
-                    key={course.course_id}
-                    courseInfo={course}
-                  />
+                  <CourseInfoTableRow key={course.course_id} course={course} />
                 ))
               ))}
           </tbody>

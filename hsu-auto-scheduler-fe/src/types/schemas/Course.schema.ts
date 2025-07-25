@@ -1,6 +1,6 @@
 import { DayOrNightEnum } from "@/enums/dayOrNight.enum";
 import z from "zod";
-import { OfflineScheduleSchema } from "./OfflineScheduel.schema";
+import { OfflineScheduleSchema } from "./OfflineSchedule.schema";
 
 export const courseSchema = z.object({
   semester_id: z.string().min(1, { message: "학기를 선택해주세요!" }),
@@ -30,9 +30,9 @@ export const courseSchema = z.object({
 
   grade: z.number({ message: "grade는 숫자여야 합니다." }),
 
-  grade_limit: z.union([z.string().min(1), z.null()]).optional(),
+  grade_limit: z.union([z.number(), z.null()]),
 
-  online_min: z.number({
+  online_hour: z.number({
     message: "온라인 시간은 숫자여야 합니다.",
   }),
 

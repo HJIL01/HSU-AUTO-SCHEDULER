@@ -1,59 +1,53 @@
 "use client";
 
 import { DayOrNightKorMap } from "@/enums/dayOrNight.enum";
-import { useHSUStore } from "@/store/store";
+import useMarkCourseSchedule from "@/hooks/useMarkCourseSchedule";
+import { useTimeTableStore } from "@/store/store";
 import { CourseType } from "@/types/schemas/Course.schema";
 import { createOfflineScheduleString } from "@/utils/createOfflineScheduleString";
-import { useCallback } from "react";
 import { useShallow } from "zustand/shallow";
 
 type Props = {
-  courseInfo: CourseType;
+  course: CourseType;
 };
 
-export default function CourseInfoTableRow({ courseInfo }: Props) {
-  const { setHoveredCourse, clearHoveredCourse } = useHSUStore(
+export default function CourseInfoTableRow({ course }: Props) {
+  const { setHoveredCourse, clearHoveredCourse } = useTimeTableStore(
     useShallow((state) => ({
-      hoveredCourse: state.hoveredCourse,
       setHoveredCourse: state.setHoveredCourse,
       clearHoveredCourse: state.clearHoveredCourse,
     })),
   );
 
-  const setHover = useCallback(
-    () => setHoveredCourse(courseInfo),
-    [courseInfo, setHoveredCourse],
-  );
-  const clearHover = useCallback(
-    () => clearHoveredCourse(),
-    [clearHoveredCourse],
-  );
+  const { onClickCourse } = useMarkCourseSchedule();
 
   return (
     <tr
       className="bg-filter-courses-table-row-bg hover:bg-filter-courses-table-row-hover-bg cursor-pointer text-xs [&_td]:border [&_td]:border-t-0 [&_td]:py-3"
-      onMouseEnter={setHover}
-      onMouseLeave={clearHover}
+      onMouseEnter={() => setHoveredCourse(course)}
+      onMouseLeave={clearHoveredCourse}
+      onClick={() => onClickCourse(course)}
     >
-      <td> {`${courseInfo.course_code}-${courseInfo.class_section}`}</td>
-      <td>{courseInfo.course_name}</td>
-      <td>{courseInfo.professor_names.join(", ")}</td>
-      <td>{courseInfo.grade === 0 ? "전학년" : courseInfo.grade}</td>
-      <td>{courseInfo.grade_limit ? courseInfo.grade_limit : "-"}</td>
-      <td>{courseInfo.completion_type}</td>
-      <td>{courseInfo.delivery_method}</td>
-      <td>{DayOrNightKorMap[courseInfo.day_or_night]}</td>
+      <td> {`${course.course_code}-${course.class_section}`}</td>
+      <td>{course.course_name}</td>
+      <td>{course.professor_names.join(", ")}</td>
+      <td>{course.grade === 0 ? "전학년" : course.grade}</td>
+      <td>{course.grade_limit ? course.grade_limit : "-"}</td>
+      <td>{course.completion_type}</td>
+      <td>{course.delivery_method}</td>
+      <td>{DayOrNightKorMap[course.day_or_night]}</td>
       <td className="whitespace-pre-line">
-        {courseInfo.offline_schedules.length > 0
-          ? createOfflineScheduleString(courseInfo.offline_schedules)
+        {course.online_hour > 0 && `온라인강좌: ${course.online_hour}시간\n`}
+        {course.offline_schedules.length > 0
+          ? createOfflineScheduleString(course.offline_schedules)
           : "-"}
       </td>
       <td>
-        {courseInfo.plan_code !== "x" ? (
+        {course.plan_code !== "x" ? (
           <button
             onClick={() => {
               window.open(
-                `https://info.hansung.ac.kr/fuz/professor/lecturePlan/suupplan_main_view.jsp?code=${courseInfo.plan_code}`,
+                `https://info.hansung.ac.kr/fuz/professor/lecturePlan/suupplan_main_view.jsp?code=${course.plan_code}`,
                 "_blank",
                 "width=1000,height=800,top=0,left=500",
               );

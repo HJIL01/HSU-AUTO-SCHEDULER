@@ -1,22 +1,20 @@
 "use client";
 
+import { COURSE_BLOCK_BG_COLORS } from "@/constants/CourseBlockBgColors";
 import { CourseRenderInfoType } from "@/types/courseRenderInfo.type";
 import clsx from "clsx";
 
 type Props = {
   courseRenderInfo: CourseRenderInfoType;
-  isHoveredCourse: boolean;
 };
 
-export default function CourseBlock({
-  courseRenderInfo,
-  isHoveredCourse,
-}: Props) {
+export default function CourseBlock({ courseRenderInfo }: Props) {
   return (
     <div
       key={courseRenderInfo.courseId}
       className={clsx(
-        "border-y-scheduler-cell-border absolute top-0 z-30 w-full overflow-hidden border-y bg-red-500 p-2",
+        "border-y-scheduler-cell-border absolute top-0 z-30 w-full overflow-hidden border-y bg-amber-300 p-2",
+        COURSE_BLOCK_BG_COLORS[courseRenderInfo.colorIndex],
       )}
       style={{
         top: `${courseRenderInfo.top}px`,

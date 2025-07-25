@@ -3,13 +3,13 @@
 import DropDownArrow from "@/assets/icons/DrowDownArrow";
 import CourseFilters from "../03_molecules/CourseFilters";
 import CourseList from "../03_molecules/CourseList";
-import { useHSUStore } from "@/store/store";
 import { useShallow } from "zustand/shallow";
 import { motion } from "framer-motion";
 import { COURSE_FINDER_HEIGHT } from "@/constants/CourseFinderHeight";
+import { useTimeTableStore } from "@/store/store";
 
 export default function CourseFinder() {
-  const { isOpen, setClose } = useHSUStore(
+  const { isOpen, setClose } = useTimeTableStore(
     useShallow((state) => ({
       isOpen: state.isOpen,
       setClose: state.setClose,

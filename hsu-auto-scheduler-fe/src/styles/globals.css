@@ -3,6 +3,11 @@
 @import "./colors.css";
 @import "./animations.css";
 
+:root {
+    --z-index-hovered-course: 50;
+    --z-index-no-class-days-modal: 99999;
+}
+
 html,
 body {
     min-width: 100dvw;
