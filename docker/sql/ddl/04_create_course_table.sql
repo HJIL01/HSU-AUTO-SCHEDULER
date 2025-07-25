@@ -10,8 +10,8 @@ CREATE TABLE course (
     day_or_night VARCHAR(255) NOT NULL CHECK (day_or_night IN ('day', 'night', 'both')),
     class_section VARCHAR(255) NOT NULL,
     grade INT NOT NULL,
-    grade_limit VARCHAR(255),
-    online_min DECIMAL(2,1) DEFAULT 0,
+    grade_limit INT,
+    online_hour DECIMAL(2,1) DEFAULT 0,
     plan_code VARCHAR(255),
     FOREIGN KEY (semester_id) REFERENCES semester(semester_id) ON DELETE CASCADE
 );
