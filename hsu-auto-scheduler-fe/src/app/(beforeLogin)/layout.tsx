@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import TimeTableEditButton from "./timetable/_components/02_organisms/TimeTableEditButton";
+import TimeTableEditButton from "./timetable/_components/04_atoms/TimeTableEditButton";
 import CourseFinder from "./timetable/_components/01_templates/CourseFinder";
 
 type Props = {

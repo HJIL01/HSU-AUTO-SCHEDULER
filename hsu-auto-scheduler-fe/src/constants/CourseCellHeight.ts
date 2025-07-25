@@ -1,1 +1,1 @@
-export const COURSE_CELL_HEIGHT = 60;
+export const TIMETABLE_CELL_HEIGHT = 60;

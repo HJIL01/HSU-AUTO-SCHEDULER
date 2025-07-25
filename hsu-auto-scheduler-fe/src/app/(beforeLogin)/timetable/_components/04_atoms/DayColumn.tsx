@@ -1,4 +1,3 @@
-import { COURSE_CELL_HEIGHT } from "@/constants/CourseCellHeight";
 import { WeekdayEnum } from "@/enums/weekday.enum";
 import { getTopByStartTime } from "@/utils/getTopByStartTime";
 import clsx from "clsx";
@@ -6,10 +5,14 @@ import { getCourseBlockHeight } from "@/utils/getCourseBlockHeight";
 import { getOfflineScheduleInCurDay } from "@/utils/getOfflineScheduleInCurDay";
 import { CourseType } from "@/types/schemas/Course.schema";
 import { HOURS } from "@/constants/hours";
+import { TIMETABLE_CELL_HEIGHT } from "@/constants/CourseCellHeight";
+import { CourseRenderInfoType } from "@/types/courseRenderInfo.type";
+import CourseBlock from "./CourseBlock";
 
 type Props = {
   day: WeekdayEnum;
-  coursesInCurDay: CourseType[];
+  coursesInCurDay?: CourseType[];
+  hoveredCourseInCurDay?: CourseRenderInfoType;
 };
 
 const bgClass = [
@@ -30,7 +33,12 @@ const bgClass = [
   "bg-course-block-15",
 ];
 
-export default function DayColumn({ day, coursesInCurDay }: Props) {
+export default function DayColumn({
+  day,
+  coursesInCurDay,
+  hoveredCourseInCurDay,
+}: Props) {
+  console.log(hoveredCourseInCurDay);
   return (
     <td data-day={day} className="relative">
       {HOURS.map((hour, i) => (
@@ -41,15 +49,15 @@ export default function DayColumn({ day, coursesInCurDay }: Props) {
             i !== 0 && "border-scheduler-cell-border border-t",
           )}
           style={{
-            height: `${COURSE_CELL_HEIGHT}px`,
+            height: `${TIMETABLE_CELL_HEIGHT}px`,
           }}
         />
       ))}
 
-      {coursesInCurDay.map((course) => {
-        if (course.offline_schedules.length === 0) {
-          return;
-        }
+      {coursesInCurDay?.map((course) => {
+        // if (course.offline_schedules.length === 0) {
+        //   return;
+        // }
 
         const offsetTop = getTopByStartTime(course, day);
         const courseBlockHeight = getCourseBlockHeight(course, day);
@@ -63,7 +71,7 @@ export default function DayColumn({ day, coursesInCurDay }: Props) {
           <div
             key={course.course_id}
             className={clsx(
-              "border-y-scheduler-cell-border absolute top-0 z-50 w-full overflow-hidden border-y p-2",
+              "border-y-scheduler-cell-border absolute top-0 z-30 w-full overflow-hidden border-y p-2",
               randomBg,
             )}
             style={{
@@ -77,6 +85,13 @@ export default function DayColumn({ day, coursesInCurDay }: Props) {
           </div>
         );
       })}
+
+      {hoveredCourseInCurDay && (
+        <CourseBlock
+          courseRenderInfo={hoveredCourseInCurDay}
+          isHoveredCourse={true}
+        />
+      )}
     </td>
   );
 }

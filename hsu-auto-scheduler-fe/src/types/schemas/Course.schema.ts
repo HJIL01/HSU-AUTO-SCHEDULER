@@ -3,7 +3,7 @@ import z from "zod";
 import { OfflineScheduleSchema } from "./OfflineScheduel.schema";
 
 export const courseSchema = z.object({
-  semeter_id: z.string().min(1, { message: "학기를 선택해주세요!" }),
+  semester_id: z.string().min(1, { message: "학기를 선택해주세요!" }),
 
   course_id: z.string().min(1, { message: "course id는 필수값입니다" }),
 

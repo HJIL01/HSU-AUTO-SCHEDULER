@@ -8,7 +8,7 @@ import { CreateCPSATschemaType } from "@/types/schemas/CreateCPSAT.schema";
 import { splitSemester } from "@/utils/splitSemester";
 import { useMemo } from "react";
 import { useFormContext } from "react-hook-form";
-import CourseInfoTableRow from "../03_molecules/CourseInfoTableRow";
+import CourseInfoTableRow from "../04_atoms/CourseInfoTableRow";
 import SpinSangSangBoogi from "@/components/ui/SpinSangSangBoogi";
 import SangSangBoogi from "@/assets/SangSangBoogi.webp";
 import Image from "next/image";

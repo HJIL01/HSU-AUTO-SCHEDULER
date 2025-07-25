@@ -1,3 +1,7 @@
+@theme {
+    --spacing-timetable-cell-height: 6rem;
+}
+
 /* text */
 @theme {
     --text-xs: 1.2rem;

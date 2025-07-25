@@ -1,7 +1,7 @@
 import { WeekdayEnum } from "@/enums/weekday.enum";
 import { getOfflineScheduleInCurDay } from "./getOfflineScheduleInCurDay";
-import { COURSE_CELL_HEIGHT } from "@/constants/CourseCellHeight";
 import { CourseType } from "@/types/schemas/Course.schema";
+import { TIMETABLE_CELL_HEIGHT } from "@/constants/CourseCellHeight";
 
 export function getCourseBlockHeight(course: CourseType, day: WeekdayEnum) {
   const targetOfflineSchedule = getOfflineScheduleInCurDay(course, day);
@@ -11,7 +11,7 @@ export function getCourseBlockHeight(course: CourseType, day: WeekdayEnum) {
 
   const totalCourseTime = endTime - startTime;
 
-  const courseBlockHeight = totalCourseTime * (COURSE_CELL_HEIGHT / 60);
+  const courseBlockHeight = totalCourseTime * (TIMETABLE_CELL_HEIGHT / 60);
 
   return courseBlockHeight + 1;
 }

@@ -1,8 +1,8 @@
 "use client";
 
 import DropDownArrow from "@/assets/icons/DrowDownArrow";
-import CourseFilters from "../02_organisms/CourseFilters";
-import CourseList from "../02_organisms/CourseList";
+import CourseFilters from "../03_molecules/CourseFilters";
+import CourseList from "../03_molecules/CourseList";
 import { useHSUStore } from "@/store/store";
 import { useShallow } from "zustand/shallow";
 import { motion } from "framer-motion";
