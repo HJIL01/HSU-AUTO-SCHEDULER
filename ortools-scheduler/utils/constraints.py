@@ -152,7 +152,7 @@ def add_daily_lecture_limit_constraint(
     course_day_indices = defaultdict(list)
 
     for idx, course in enumerate(courses):
-        if course.offline_schedules:
+        if len(course.offline_schedules) > 0:
             for offline_schedule in course.offline_schedules:
                 course_day_indices[offline_schedule.day].append(idx)
 

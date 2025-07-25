@@ -60,7 +60,7 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
         # 요일별로 묶기
         for selected_course in selected_courses:
             selected_course_offline_schedules = selected_course.offline_schedules
-            if selected_course_offline_schedules:
+            if len(selected_course_offline_schedules) > 0:
                 for cur_offline_schedule in selected_course_offline_schedules:
                     cur_offline_schedule_day = cur_offline_schedule.day
                     courses_by_day[cur_offline_schedule_day].append(selected_course)

@@ -19,9 +19,9 @@ class CourseSchema(BaseModel):
     class_section: str = Field(..., description="분반")
     grade: int = Field(..., description="대상 학년", ge=0)
 
-    grade_limit: Optional[str] = Field(None, description="학년 제한")
-    online_min: float = Field(..., description="온라인 수업 시간", ge=0)
-    offline_schedules: Optional[list[OfflineScheduleSchema]] = Field(
+    grade_limit: Optional[int] = Field(None, description="학년 제한")
+    online_hour: float = Field(..., description="온라인 수업 시간", ge=0)
+    offline_schedules: list[OfflineScheduleSchema] = Field(
         None, description="오프라인 시간표"
     )
     plan_code: Optional[str] = Field(None, description="계획 코드")
