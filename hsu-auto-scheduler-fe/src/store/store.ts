@@ -25,7 +25,7 @@ type StoreType = CourseFinderSliceType &
   SelectedCourseSliceType &
   TimeSelectionSliceType;
 
-export const useTimeTableStore = create<StoreType>()(
+export const useTimetableStore = create<StoreType>()(
   devtools(
     persist(
       subscribeWithSelector((...a) => ({

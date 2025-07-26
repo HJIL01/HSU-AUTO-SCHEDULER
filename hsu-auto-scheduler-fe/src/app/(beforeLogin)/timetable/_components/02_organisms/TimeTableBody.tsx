@@ -17,7 +17,8 @@ import {
 import { getOfflineScheduleInCurDay } from "@/utils/getOfflineScheduleInCurDay";
 import { getTopByStartTime } from "@/utils/getTopByStartTime";
 import { getCourseBlockHeight } from "@/utils/getCourseBlockHeight";
-import { useTimeTableStore } from "@/store/store";
+import { COURSE_BLOCK_BG_COLORS } from "@/constants/CourseBlockBgColors";
+import { useTimetableStore } from "@/store/store";
 
 export default function TimeTableBody() {
   const [mockData, setMockData] = useState<CPSAT_SolutionType>();
@@ -28,13 +29,15 @@ export default function TimeTableBody() {
     setMockData(data.data.solutions.slice(0, 1)[0]);
   };
 
-  const { isOpen, hoveredCourse, selectedCourses } = useTimeTableStore(
-    useShallow((state) => ({
-      isOpen: state.isOpen,
-      hoveredCourse: state.hoveredCourse,
-      selectedCourses: state.selectedCourses,
-    })),
-  );
+  const { isOpen, hoveredCourse, selectedCourses, timeSelections } =
+    useTimetableStore(
+      useShallow((state) => ({
+        isOpen: state.isOpen,
+        hoveredCourse: state.hoveredCourse,
+        selectedCourses: state.selectedCourses,
+        timeSelections: state.timeSelectionsByDay,
+      })),
+    );
 
   const hoveredCourseByDay: HoverCourseRenderMapType = useMemo(() => {
     if (!hoveredCourse) return new Map();
@@ -42,6 +45,7 @@ export default function TimeTableBody() {
     const baseInfo: CourseRenderInfoType = {
       courseId: hoveredCourse.course_id,
       courseName: hoveredCourse.course_name,
+      courseClassSection: hoveredCourse.class_section,
       professors: hoveredCourse.professor_names,
       colorIndex: 0,
     };
@@ -68,6 +72,7 @@ export default function TimeTableBody() {
       const baseInfo: CourseRenderInfoType = {
         courseId: selectedCourse.course_id,
         courseName: selectedCourse.course_name,
+        courseClassSection: selectedCourse.class_section,
         professors: selectedCourse.professor_names,
         colorIndex: 0,
       };
@@ -86,7 +91,7 @@ export default function TimeTableBody() {
             offlineSchedule,
             top: getTopByStartTime(selectedCourse, curDay),
             height: getCourseBlockHeight(selectedCourse, curDay),
-            colorIndex: index + 1,
+            colorIndex: (index % (COURSE_BLOCK_BG_COLORS.length - 1)) + 1,
           });
           dayMap.set(curDay, newCoursesInCurDay);
         });

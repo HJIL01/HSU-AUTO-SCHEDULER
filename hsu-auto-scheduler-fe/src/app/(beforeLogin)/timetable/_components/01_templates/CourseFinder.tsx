@@ -6,10 +6,10 @@ import CourseList from "../03_molecules/CourseList";
 import { useShallow } from "zustand/shallow";
 import { motion } from "framer-motion";
 import { COURSE_FINDER_HEIGHT } from "@/constants/CourseFinderHeight";
-import { useTimeTableStore } from "@/store/store";
+import { useTimetableStore } from "@/store/store";
 
 export default function CourseFinder() {
-  const { isOpen, setClose } = useTimeTableStore(
+  const { isOpen, setClose } = useTimetableStore(
     useShallow((state) => ({
       isOpen: state.isOpen,
       setClose: state.setClose,
@@ -27,7 +27,7 @@ export default function CourseFinder() {
       }}
       initial={{ top: "110vh", opacity: 0 }}
       transition={{ duration: 1, ease: "easeInOut" }}
-      className="border-t-border border-t-course-list-border bg-course-list-main-bg fixed bottom-0 w-full space-y-8 border-t px-5 py-7"
+      className="border-t-border border-t-course-list-border bg-course-list-main-bg fixed bottom-0 z-(--z-index-course-) w-full space-y-8 border-t px-5 py-7"
     >
       <button
         onClick={setClose}

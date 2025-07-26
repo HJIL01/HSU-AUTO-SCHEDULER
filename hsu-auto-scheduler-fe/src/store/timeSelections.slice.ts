@@ -19,7 +19,7 @@ type TimeSelectionActionType = {
     startIndex: number,
     endIndex: number,
   ) => void;
-  deselectTimeRange: (
+  deleteSelectedTimeRange: (
     day: WeekdayEnum,
     startIndex: number,
     endIndex: number,
@@ -65,7 +65,7 @@ export const createTimeSelectionSlice: StateCreator<
         }
       });
     },
-    deselectTimeRange: (day, startIndex, endIndex) => {
+    deleteSelectedTimeRange: (day, startIndex, endIndex) => {
       set((state) => {
         const dayTimes = state.timeSelectionsByDay.get(day);
         if (dayTimes) {

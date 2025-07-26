@@ -38,7 +38,7 @@ export const createSelectedCourseSlice: StateCreator<
       }),
     deleteCourse: (courseId: string) => {
       set((state) => {
-        state.selectedCourses.filter(
+        state.selectedCourses = state.selectedCourses.filter(
           (selectedCourse) => selectedCourse.course_id !== courseId,
         );
       });

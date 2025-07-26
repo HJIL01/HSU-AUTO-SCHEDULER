@@ -5,7 +5,9 @@
 
 :root {
     --z-index-hovered-course: 50;
-    --z-index-no-class-days-modal: 99999;
+    --z-index-schedule-block: 49;
+    --z-index-course-finder: 9998;
+    --z-index-no-class-days-modal: 9999;
 }
 
 html,

@@ -14,6 +14,7 @@ export type HoverCourseRenderMapType = Map<
 export type CourseRenderInfoType = {
   courseId: string;
   courseName: string;
+  courseClassSection: string;
   professors: string[];
   colorIndex: number;
   offlineSchedule?: OfflineScheduleType;

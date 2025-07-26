@@ -1,10 +1,12 @@
-const test = Array.from({ length: 500 }, (_, i) => i);
-const cur = 2;
-const per = 50;
+const s = ["이건 아님", "테스트1", "테스트2", "테스트3", "테스트4", "테스트5"];
 
-const start = (cur - 1) * per;
-const end = start + per;
+const e = Array.from({ length: 12 }, (_, i) => i);
 
-const s = test.slice(start, end);
+e.forEach((_, i) => {
+  const color = s[(i % (s.length - 1)) + 1];
 
-console.log(s, s.length);
+  console.log(color);
+});
+
+// 1 2 3 4 5 2 3 4
+//   0 1 2 3 4 5 6

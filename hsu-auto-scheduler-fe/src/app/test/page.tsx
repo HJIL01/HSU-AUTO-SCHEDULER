@@ -2,15 +2,15 @@
 
 import React from "react";
 import TimeTableGrid from "../(beforeLogin)/timetable/_components/03_molecules/TimeTableGrid";
+import CloseIcon from "@/assets/icons/CloseIcon";
+import CloseIcon2 from "@/assets/icons/close-icon.svg";
+import Image from "next/image";
 
 export default function page() {
   return (
-    <div className="relative h-500 w-200">
-      <div className="absolute z-[var(--custom-z-index20)] h-100 w-100 bg-red-300">
-        z10
-      </div>
-      <div className="absolute z-[var(--custom-z-index10)] h-100 w-100 bg-amber-500">
-        z20
+    <div className="relative h-500 w-200 bg-red-500">
+      <div className="aspect-square w-10">
+        <CloseIcon />
       </div>
     </div>
   );

@@ -2,7 +2,7 @@
 
 import { DayOrNightKorMap } from "@/enums/dayOrNight.enum";
 import useMarkCourseSchedule from "@/hooks/useMarkCourseSchedule";
-import { useTimeTableStore } from "@/store/store";
+import { useTimetableStore } from "@/store/store";
 import { CourseType } from "@/types/schemas/Course.schema";
 import { createOfflineScheduleString } from "@/utils/createOfflineScheduleString";
 import { useShallow } from "zustand/shallow";
@@ -12,7 +12,7 @@ type Props = {
 };
 
 export default function CourseInfoTableRow({ course }: Props) {
-  const { setHoveredCourse, clearHoveredCourse } = useTimeTableStore(
+  const { setHoveredCourse, clearHoveredCourse } = useTimetableStore(
     useShallow((state) => ({
       setHoveredCourse: state.setHoveredCourse,
       clearHoveredCourse: state.clearHoveredCourse,

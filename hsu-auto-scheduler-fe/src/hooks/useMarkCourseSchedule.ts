@@ -1,4 +1,4 @@
-import { useTimeTableStore } from "@/store/store";
+import { useTimetableStore } from "@/store/store";
 import { CourseType } from "@/types/schemas/Course.schema";
 import getHourIndexFromMins from "@/utils/getHourIndexFromMins";
 import { useShallow } from "zustand/shallow";
@@ -10,7 +10,7 @@ export default function useMarkCourseSchedule() {
     isOverlap,
     selectTimeRange,
     clearHoveredCourse,
-  } = useTimeTableStore(
+  } = useTimetableStore(
     useShallow((state) => ({
       selectedCourses: state.selectedCourses,
       isCourseAdded: state.isCourseAdded,
@@ -22,6 +22,7 @@ export default function useMarkCourseSchedule() {
   );
 
   // 클릭 없이 추가랑 마크만 하는 함수
+  // 밑의 클릭 있는 함수를 불러도 이 함수만 부르면 알아서 겹치는지 확인하고 삭제해줌
   const addCourseAndMark = (course: CourseType) => {
     for (const offlineSchedule of course.offline_schedules) {
       const curDay = offlineSchedule.day;
