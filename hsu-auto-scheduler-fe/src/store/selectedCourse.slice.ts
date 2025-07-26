@@ -4,20 +4,21 @@ import { combine } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 
 type SelectedCourseStateType = {
-  selectedCourses: CourseType[];
+  selectedCourses: Record<string, CourseType[]>;
 };
 
 type SelectedCourseActionType = {
-  isCourseAdded: (courseId: string) => boolean;
-  addCourse: (course: CourseType) => void;
-  deleteCourse: (courseId: string) => void;
+  ensureSemesterInitialized: (semester: string) => void;
+  isCourseAdded: (semester: string, courseId: string) => boolean;
+  addCourse: (semester: string, course: CourseType) => void;
+  deleteCourse: (semester: string, courseId: string) => void;
 };
 
 export type SelectedCourseSliceType = SelectedCourseStateType &
   SelectedCourseActionType;
 
 const initialState: SelectedCourseStateType = {
-  selectedCourses: [],
+  selectedCourses: {},
 };
 
 export const createSelectedCourseSlice: StateCreator<
@@ -27,19 +28,30 @@ export const createSelectedCourseSlice: StateCreator<
   SelectedCourseSliceType
 > = immer(
   combine(initialState, (set, get) => ({
-    isCourseAdded: (courseId: string) => {
-      return get().selectedCourses.some(
-        (selectedCourse) => selectedCourse.course_id === courseId,
-      );
+    ensureSemesterInitialized: (semester: string) => {
+      const currentSelectedCourses = get().selectedCourses[semester];
+
+      if (!currentSelectedCourses) {
+        set((state) => {
+          state.selectedCourses[semester] = [];
+        });
+      }
     },
-    addCourse: (course: CourseType) =>
+    isCourseAdded: (semester: string, courseId: string) => {
+      const semesterCourses = get().selectedCourses[semester] ?? [];
+      return semesterCourses.some((c) => c.course_id === courseId);
+    },
+    addCourse: (semester: string, course: CourseType) =>
       set((state) => {
-        state.selectedCourses.push(course);
+        const semesterCourses = state.selectedCourses[semester] ?? [];
+        semesterCourses.push(course);
+        state.selectedCourses[semester] = semesterCourses;
       }),
-    deleteCourse: (courseId: string) => {
+    deleteCourse: (semester: string, courseId: string) => {
       set((state) => {
-        state.selectedCourses = state.selectedCourses.filter(
-          (selectedCourse) => selectedCourse.course_id !== courseId,
+        const semesterCourses = state.selectedCourses[semester] ?? [];
+        state.selectedCourses[semester] = semesterCourses.filter(
+          (c) => c.course_id !== courseId,
         );
       });
     },

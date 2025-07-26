@@ -27,7 +27,7 @@ export default function CourseFinder() {
       }}
       initial={{ top: "110vh", opacity: 0 }}
       transition={{ duration: 1, ease: "easeInOut" }}
-      className="border-t-border border-t-course-list-border bg-course-list-main-bg fixed bottom-0 z-(--z-index-course-) w-full space-y-8 border-t px-5 py-7"
+      className="border-t-border border-t-course-list-border bg-course-list-main-bg fixed bottom-0 z-(--z-index-course-finder) w-full space-y-8 border-t px-5 py-7"
     >
       <button
         onClick={setClose}

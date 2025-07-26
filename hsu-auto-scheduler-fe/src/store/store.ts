@@ -36,8 +36,10 @@ export const useTimetableStore = create<StoreType>()(
       })),
       {
         name: "Scheduler-Store",
-        //   persist를 적용하고 싶은 state를 밑에 명시
-        partialize: (state) => ({}),
+        partialize: (state) => ({
+          selectedCourses: state.selectedCourses,
+          timetableSelections: state.timetableSelections,
+        }),
       },
     ),
   ),
