@@ -369,7 +369,7 @@ export class ScheduleService {
       message: '필터링 및 제약 조건 추출 성공',
       data: {
         total_solution_count,
-        solutions,
+        solutions: solutions,
       },
     };
   }

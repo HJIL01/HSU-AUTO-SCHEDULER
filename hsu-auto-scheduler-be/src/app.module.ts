@@ -20,7 +20,7 @@ import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
       {
         name: 'short',
         ttl: 1000,
-        limit: 3,
+        limit: 8,
       },
       {
         name: 'long',

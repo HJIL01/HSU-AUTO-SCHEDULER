@@ -44,8 +44,8 @@ export class CourseFilteringQueryService {
   // sql: 학년 필터링
   getCoursesByGrade(courseRepoAlias: string, grade: number): QueryFilterType {
     return {
-      clause: `${courseRepoAlias}.grade = :grade`,
-      params: { grade },
+      clause: `${courseRepoAlias}.grade IN (:...grade)`,
+      params: { grade: [grade, 0] },
     };
   }
 
