@@ -73,7 +73,15 @@ def add_max_credit_constraint(
     )
 
     # 최소 학점 제한 최대 학점에서 6뺀 학점. 최대 학점이 6미만이라면 0으로 처리
-    min_credit = max_credit - 6 if max_credit - 6 > 0 else 1
+    # 만약 데이터셋이 충분하지 않다면 해당 데이터셋을 합친 학점으로 최소 학점 처리
+    courses_total_credit = sum(course.credit for course in courses)
+    min_credit = max_credit
+
+    if courses_total_credit < max_credit:
+        min_credit = courses_total_credit
+    else:
+        min_credit = max(max_credit - 3, 1)
+
     limit_min = (
         sum(course.credit * cur for course, cur in zip(courses, is_selected))
         >= min_credit
