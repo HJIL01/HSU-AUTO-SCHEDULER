@@ -30,7 +30,7 @@ export const courseSchema = z.object({
 
   grade: z.number({ message: "grade는 숫자여야 합니다." }),
 
-  grade_limit: z.union([z.number(), z.null()]),
+  grade_limit: z.union([z.number(), z.null()]).optional(),
 
   online_hour: z.number({
     message: "온라인 시간은 숫자여야 합니다.",

@@ -1,4 +1,4 @@
-import { useTimetableStore } from "@/store/store";
+import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { CourseType } from "@/types/schemas/Course.schema";
 import getHourIndexFromMins from "@/utils/getHourIndexFromMins";
 import { useShallow } from "zustand/shallow";

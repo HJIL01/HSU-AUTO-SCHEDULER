@@ -1,8 +1,6 @@
 "use client";
 
-import useGetConstraintsResult from "@/hooks/queries/useGetConstraintsResult";
-import { CPSAT_SolutionType } from "@/types/CP-SAT-Solution.type";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo } from "react";
 import clsx from "clsx";
 import { useShallow } from "zustand/shallow";
 import { motion } from "framer-motion";
@@ -18,18 +16,10 @@ import { getOfflineScheduleInCurDay } from "@/utils/getOfflineScheduleInCurDay";
 import { getTopByStartTime } from "@/utils/getTopByStartTime";
 import { getCourseBlockHeight } from "@/utils/getCourseBlockHeight";
 import { COURSE_BLOCK_BG_COLORS } from "@/constants/CourseBlockBgColors";
-import { useTimetableStore } from "@/store/store";
+import { useTimetableStore } from "@/store/timetable/timetableStore";
 import useCurrentSemester from "@/hooks/useCurrentSemester";
 
 export default function TimeTableBody() {
-  const [mockData, setMockData] = useState<CPSAT_SolutionType>();
-  const { refetch } = useGetConstraintsResult();
-
-  const getCPSATResult = async () => {
-    const { data } = await refetch();
-    setMockData(data.data.solutions.slice(0, 1)[0]);
-  };
-
   const currentSemester = useCurrentSemester();
   const {
     isOpen,
@@ -51,7 +41,6 @@ export default function TimeTableBody() {
   useEffect(() => {
     if (!semesterSelectedCourses) {
       ensureSemesterInitialized(currentSemester);
-      console.log("실행됨", selectedCourses);
     }
   }, [semesterSelectedCourses, ensureSemesterInitialized, currentSemester]);
 
@@ -141,13 +130,6 @@ export default function TimeTableBody() {
         hoveredCourseByDay={hoveredCourseByDay}
       />
       <OnlineCourseList />
-
-      <button
-        className="fixed top-0 right-0 z-50 h-50 w-50 bg-red-500 text-2xl"
-        onClick={getCPSATResult}
-      >
-        가져오기sadsad
-      </button>
     </motion.div>
   );
 }

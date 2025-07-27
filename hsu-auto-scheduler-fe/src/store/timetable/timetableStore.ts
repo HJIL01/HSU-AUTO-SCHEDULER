@@ -1,4 +1,3 @@
-import { enableMapSet } from "immer";
 import { create } from "zustand";
 import {
   CourseFinderSliceType,
@@ -18,14 +17,12 @@ import {
   TimeSelectionSliceType,
 } from "./timeSelections.slice";
 
-enableMapSet();
-
-type StoreType = CourseFinderSliceType &
+type TimetableStoreType = CourseFinderSliceType &
   HoveredCourseSliceType &
   SelectedCourseSliceType &
   TimeSelectionSliceType;
 
-export const useTimetableStore = create<StoreType>()(
+export const useTimetableStore = create<TimetableStoreType>()(
   devtools(
     persist(
       subscribeWithSelector((...a) => ({

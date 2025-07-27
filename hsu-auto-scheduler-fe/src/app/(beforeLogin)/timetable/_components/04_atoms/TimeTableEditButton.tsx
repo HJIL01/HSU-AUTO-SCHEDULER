@@ -1,6 +1,6 @@
 "use client";
 
-import { useTimetableStore } from "@/store/store";
+import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { useShallow } from "zustand/shallow";
 
 export default function TimeTableEditButton() {

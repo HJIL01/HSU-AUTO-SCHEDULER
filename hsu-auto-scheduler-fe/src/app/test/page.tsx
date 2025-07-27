@@ -2,6 +2,7 @@
 
 import React from "react";
 import CloseIcon from "@/assets/icons/CloseIcon";
+import RightArrow from "@/assets/icons/RightArrow";
 
 export enum WeekdayEnum {
   MON = "Mon",
@@ -30,7 +31,7 @@ function test(semester: string) {
 export default function page() {
   return (
     <div className="flex h-dvh w-dvw items-center justify-center bg-sky-200 text-2xl">
-      asd
+      <RightArrow />
     </div>
   );
 }

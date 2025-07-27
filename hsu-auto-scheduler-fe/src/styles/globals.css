@@ -4,9 +4,15 @@
 @import "./animations.css";
 
 :root {
+    /* 강의 호버 시 미리보기 */
     --z-index-hovered-course: 50;
+    /* 스케줄 블록 */
     --z-index-schedule-block: 49;
+    /* course 탐색 모달창 */
     --z-index-course-finder: 9998;
+    /* 필터 부분 왼쪽 오른쪽 가림막 */
+    --z-index-course-finder-edge-fader: 100;
+    /* 공강 요일 선택 모달 */
     --z-index-no-class-days-modal: 9999;
 }
 
@@ -58,4 +64,16 @@ button {
 table {
     table-layout: fixed;
     border-collapse: collapse;
+}
+
+/* 스크롤바 숨김 */
+.scrollbarHidden {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.scrollbarHidden::-webkit-scrollbar {
+    display: none;
 }

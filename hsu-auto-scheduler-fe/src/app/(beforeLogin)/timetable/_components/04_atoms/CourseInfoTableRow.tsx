@@ -2,7 +2,7 @@
 
 import { DayOrNightKorMap } from "@/enums/dayOrNight.enum";
 import useMarkCourseSchedule from "@/hooks/useMarkCourseSchedule";
-import { useTimetableStore } from "@/store/store";
+import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { CourseType } from "@/types/schemas/Course.schema";
 import { createOfflineScheduleString } from "@/utils/createOfflineScheduleString";
 import { useShallow } from "zustand/shallow";
@@ -33,14 +33,16 @@ export default function CourseInfoTableRow({ course }: Props) {
       <td>{course.professor_names.join(", ")}</td>
       <td>{course.grade === 0 ? "전학년" : course.grade}</td>
       <td>{course.grade_limit ? course.grade_limit : "-"}</td>
+      <td>{course.credit}</td>
       <td>{course.completion_type}</td>
       <td>{course.delivery_method}</td>
       <td>{DayOrNightKorMap[course.day_or_night]}</td>
       <td className="whitespace-pre-line">
         {course.online_hour > 0 && `온라인강좌: ${course.online_hour}시간\n`}
-        {course.offline_schedules.length > 0
-          ? createOfflineScheduleString(course.offline_schedules)
-          : "-"}
+        {course.delivery_method !== "온라인100%" &&
+          (course.offline_schedules.length > 0
+            ? createOfflineScheduleString(course.offline_schedules)
+            : "-")}
       </td>
       <td>
         {course.plan_code !== "x" ? (

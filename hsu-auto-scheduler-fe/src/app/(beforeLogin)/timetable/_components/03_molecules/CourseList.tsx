@@ -13,62 +13,48 @@ import SpinSangSangBoogi from "@/components/ui/SpinSangSangBoogi";
 import SangSangBoogi from "@/assets/SangSangBoogi.webp";
 import Image from "next/image";
 import { useInfiniteScroll } from "@/hooks/useInfinityScroll";
+import { CourseType } from "@/types/schemas/Course.schema";
 
-export default function CourseList() {
-  const { watch } = useFormContext<CreateCPSATschemaType>();
-  const semester = watch("semester");
-  const major_code = watch("major_code");
-  const grade = watch("grade");
-  const day_or_night = watch("day_or_night");
-  const no_class_days = watch("no_class_days");
-  const has_lunch_break = watch("has_lunch_break");
-  const personal_schedules = watch("personal_schedules");
-  const selected_courses = watch("selected_courses");
+type Props = {
+  hasNextPage: boolean;
+  fetchNextPage: () => void;
+  isLoading: boolean;
+  courses?: CourseType[];
+};
 
-  const filters: FilterType = useMemo(() => {
-    const semester_id = splitSemester(semester);
-
-    return {
-      semester_id,
-      major_code: major_code || null,
-      grade: grade ? +grade : null,
-      day_or_night: (day_or_night as DayOrNightEnum) || null,
-      no_class_days: (no_class_days as WeekdayEnum[]) || [],
-      has_lunch_break: !!has_lunch_break,
-      personal_schedules: personal_schedules || [],
-      selected_courses: selected_courses || [],
-    };
-  }, [
-    semester,
-    major_code,
-    grade,
-    day_or_night,
-    no_class_days,
-    has_lunch_break,
-    personal_schedules,
-    selected_courses,
-  ]);
-
-  const { data, isLoading, hasNextPage, fetchNextPage } =
-    useGetCourses(filters);
-
-  const courses = data?.pages.flatMap((e) => e.data);
-
+export default function CourseList({
+  hasNextPage,
+  fetchNextPage,
+  isLoading,
+  courses,
+}: Props) {
   const observer = useInfiniteScroll({ hasNextPage, fetchNextPage });
 
   return (
     <div className="h-full w-full overflow-y-auto">
       <table className="bg-filter-courses-table-head-bg sticky top-0 h-18 w-full table-fixed border-collapse border text-xs [&_th]:border">
         <colgroup>
+          {/* 과목코드 */}
           <col className="w-40" />
+          {/* 과목명 */}
           <col className="min-w-50" />
+          {/* 교수 */}
           <col className="w-48" />
+          {/* 학년 */}
           <col className="w-25" />
+          {/* 학년제한 */}
           <col className="w-30" />
-          <col className="w-30" />
-          <col className="w-31" />
+          {/* 학점 */}
           <col className="w-20" />
+          {/* 이수구분 */}
+          <col className="w-30" />
+          {/* 과목구분 */}
+          <col className="w-31" />
+          {/* 주/야 */}
+          <col className="w-20" />
+          {/* 강의 스케줄 */}
           <col className="min-w-130" />
+          {/* 강의 계획서 */}
           <col className="w-42" />
         </colgroup>
         <thead>
@@ -78,6 +64,7 @@ export default function CourseList() {
             <th>교수</th>
             <th>학년</th>
             <th>학년제한</th>
+            <th>학점</th>
             <th>이수구분</th>
             <th>과목구분</th>
             <th>주/야</th>
@@ -95,15 +82,27 @@ export default function CourseList() {
       ) : (
         <table className="w-full table-fixed border-collapse [&_tr]:h-22">
           <colgroup>
+            {/* 과목코드 */}
             <col className="w-40" />
+            {/* 과목명 */}
             <col className="min-w-50" />
+            {/* 교수 */}
             <col className="w-48" />
+            {/* 학년 */}
             <col className="w-25" />
+            {/* 학년제한 */}
             <col className="w-30" />
-            <col className="w-30" />
-            <col className="w-31" />
+            {/* 학점 */}
             <col className="w-20" />
+            {/* 이수구분 */}
+            <col className="w-30" />
+            {/* 과목구분 */}
+            <col className="w-31" />
+            {/* 주/야 */}
+            <col className="w-20" />
+            {/* 강의 스케줄 */}
             <col className="min-w-130" />
+            {/* 강의 계획서 */}
             <col className="w-42" />
           </colgroup>
           <tbody className="[&_td]:text-center">
