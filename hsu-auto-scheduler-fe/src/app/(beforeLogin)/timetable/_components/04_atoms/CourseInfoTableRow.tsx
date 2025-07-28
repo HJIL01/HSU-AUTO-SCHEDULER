@@ -20,6 +20,7 @@ export default function CourseInfoTableRow({ course }: Props) {
   );
 
   const { onClickCourse } = useMarkCourseSchedule();
+  console.log(course.completion_types);
 
   return (
     <tr
@@ -31,10 +32,14 @@ export default function CourseInfoTableRow({ course }: Props) {
       <td> {`${course.course_code}-${course.class_section}`}</td>
       <td>{course.course_name}</td>
       <td>{course.professor_names.join(", ")}</td>
-      <td>{course.grade === 0 ? "전학년" : course.grade}</td>
+      <td>
+        {course.grades
+          .map((grade) => (grade === 0 ? "전학년" : grade))
+          .join("/")}
+      </td>
       <td>{course.grade_limit ? course.grade_limit : "-"}</td>
       <td>{course.credit}</td>
-      <td>{course.completion_type}</td>
+      <td>{course.completion_types.join("/")}</td>
       <td>{course.delivery_method}</td>
       <td>{DayOrNightKorMap[course.day_or_night]}</td>
       <td className="whitespace-pre-line">

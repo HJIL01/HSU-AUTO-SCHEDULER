@@ -128,12 +128,12 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
                 print(f"{day}: ")
                 for cur_course in courses_in_cur_day:
                     cur_course_name = cur_course.course_name
-                    cur_course_completion_type = cur_course.completion_type
+                    cur_course_completion_types = "/".join(cur_course.completion_types)
                     cur_course_delivery_method = cur_course.delivery_method
                     cur_course_credit = cur_course.credit
                     cur_course_offline = cur_course.offline_schedules
                     print(
-                        f"{cur_course_name}({cur_course_completion_type}, {cur_course_delivery_method}, {cur_course_credit}학점)",
+                        f"{cur_course_name}({cur_course_completion_types}, {cur_course_delivery_method}, {cur_course_credit}학점)",
                         end=" ",
                     )
                     for off in cur_course_offline:

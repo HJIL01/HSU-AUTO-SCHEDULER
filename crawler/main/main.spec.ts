@@ -11,7 +11,7 @@ import { postSemesterData } from "apis/postSemesterData";
 import { postMajorData } from "apis/postMajorData";
 
 const TEST_FUNC_TIME_OUT = 1000 * 60 * 5;
-const semester: SemesterType = splitSemester("2025-1");
+const semester: SemesterType = splitSemester("2025-2");
 const MAJOR_CODE = "W040";
 
 test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모든 강좌 가져오기 -> 데베 저장", async ({
@@ -22,7 +22,6 @@ test("해당 학기의 모든 전공 가져오기 -> 전공 하나하나의 모�
 
   // 시간표 및 강의 계획서 홈페이지 접속
   await page.goto("https://info.hansung.ac.kr/jsp/haksa/siganpyo_aui.jsp");
-
   // 타겟 연도-학기 네트워크 요청이 성공했을 시
   const [majors_response] = await Promise.all([
     page.waitForResponse((res) => {

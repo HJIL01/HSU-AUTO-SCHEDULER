@@ -14,7 +14,10 @@ export const courseSchema = z.object({
   professor_names: z.array(
     z.string().min(1, { message: "professor name은 문자열이어야 합니다" }),
   ),
-  completion_type: z.string().min(1, { message: "이수 구분은 필수값입니다" }),
+  completion_types: z.array(
+    z.string().min(1, { message: "이수 구분은 필수값입니다" }),
+    { message: "이수 구분은 배열이어야 합니다" },
+  ),
 
   delivery_method: z.string().min(1, { message: "과목 구분은 필수값입니다" }),
 
@@ -28,7 +31,9 @@ export const courseSchema = z.object({
     .string({ message: "분반은 문자열이어야 합니다" })
     .min(1, { message: "분반을 입력해주세요" }),
 
-  grade: z.number({ message: "grade는 숫자여야 합니다." }),
+  grades: z.array(z.number({ message: "grade는 숫자여야 합니다." }), {
+    message: "grades는 숫자의 배열이어야 합니다",
+  }),
 
   grade_limit: z.union([z.number(), z.null()]).optional(),
 
