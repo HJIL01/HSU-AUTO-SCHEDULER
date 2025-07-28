@@ -29,9 +29,6 @@ export class CourseEntity {
   professor_names: string[];
 
   @Column()
-  completion_type: string;
-
-  @Column()
   delivery_method: string;
 
   @Column()
@@ -45,9 +42,6 @@ export class CourseEntity {
 
   @Column()
   class_section: string;
-
-  @Column()
-  grade: number;
 
   grade_limit: number | null;
 

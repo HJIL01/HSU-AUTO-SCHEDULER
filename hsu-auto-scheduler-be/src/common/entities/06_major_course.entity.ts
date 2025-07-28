@@ -1,4 +1,4 @@
-import { Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
 import { MajorEntity } from './02_major.entity';
 import { CourseEntity } from './04_course.entity';
 import { SemesterEntity } from './01_semester.entity';
@@ -13,6 +13,12 @@ export class MajorCourseEntity {
 
   @PrimaryColumn()
   semester_id: string;
+
+  @Column()
+  completion_type: string;
+
+  @Column()
+  grade: number;
 
   @ManyToOne(() => MajorEntity, (major) => major.major_courses)
   @JoinColumn({ name: 'major_code' })

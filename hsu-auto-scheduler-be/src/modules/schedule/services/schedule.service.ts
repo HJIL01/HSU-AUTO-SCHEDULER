@@ -208,13 +208,13 @@ export class ScheduleService {
   }
 
   async filterDataAndPostConstraints(constaraints: ConstraintsDto) {
-    /* 
+    /*
       SQL문으로 필터링 할 것들
       학기, 전공, 학년, 주야, 공강 요일, 미리 선택된 강의와 같은 과목코드의 강의,
 
       JS로 필터링 할 것들
       선택된 강의와 같은 시간의 강의,
-      스케줄 시간대, 
+      스케줄 시간대,
       점심 true라면 점심 시간에 포함된 강의들
     */
 
@@ -336,7 +336,7 @@ export class ScheduleService {
           course_code: cur.course_code,
           course_name: cur.course_name,
           professor_names: cur.professor_names,
-          completion_type: cur.completion_type,
+          completion_type: cur.major_courses.,
           delivery_method: cur.delivery_method,
           credit: cur.credit,
           day_or_night: cur.day_or_night,
