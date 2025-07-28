@@ -19,7 +19,7 @@ def set_objective_maximize_credit(courses: list[CourseSchema], model, is_selecte
     objective_minimize_major_foundation = sum(
         course.credit * cur
         for course, cur in zip(courses, is_selected)
-        if course.completion_type == "전기"
+        if "전기" in course.completion_types
     )
 
     # 전공 필수 선택을 최소화하는 목적식
@@ -27,7 +27,7 @@ def set_objective_maximize_credit(courses: list[CourseSchema], model, is_selecte
     objective_minimize_major_required = sum(
         course.credit * cur
         for course, cur in zip(courses, is_selected)
-        if course.completion_type == "전필"
+        if "전필" in course.completion_types
     )
 
     # 전공 선택 선택을 최소화하는 목적식
@@ -35,7 +35,7 @@ def set_objective_maximize_credit(courses: list[CourseSchema], model, is_selecte
     objective_minimize_major_elective = sum(
         course.credit * cur
         for course, cur in zip(courses, is_selected)
-        if course.completion_type == "전선"
+        if "전선" in course.completion_types
     )
 
     model.Maximize(
@@ -119,7 +119,7 @@ def add_major_foundation_min_constraint(
         sum(
             course.credit * cur
             for course, cur in zip(courses, is_selected)
-            if course.completion_type == "전기"
+            if "전기" in course.completion_types
         )
         >= major_foundation_credit
     )
@@ -133,7 +133,7 @@ def add_major_required_min_constraint(
         sum(
             course.credit * cur
             for course, cur in zip(courses, is_selected)
-            if course.completion_type == "전필"
+            if "전필" in course.completion_types
         )
         >= major_required_credit
     )
@@ -147,7 +147,7 @@ def add_major_elective_min_constraint(
         sum(
             course.credit * cur
             for course, cur in zip(courses, is_selected)
-            if course.completion_type == "전선"
+            if "전선" in course.completion_types
         )
         >= major_elective_credit
     )

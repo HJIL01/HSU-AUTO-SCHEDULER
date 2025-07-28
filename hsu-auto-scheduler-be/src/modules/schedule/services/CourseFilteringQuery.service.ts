@@ -1,8 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 import { CourseEntity } from 'src/common/entities/04_course.entity';
 import { WeekdayEnum } from 'src/common/enums/weekday.enum';
-import { Repository, SelectQueryBuilder } from 'typeorm';
+import { SelectQueryBuilder } from 'typeorm';
 import { WeeklyScheduleType } from './schedule.service';
 import { PersonalScheduleDto } from '../dto/personalSchedule.dto';
 import { CourseDto } from 'src/common/dto/03_course.dto';
@@ -14,11 +13,6 @@ type QueryFilterType = {
 
 @Injectable()
 export class CourseFilteringQueryService {
-  constructor(
-    @InjectRepository(CourseEntity)
-    private readonly courseRepo: Repository<CourseEntity>,
-  ) {}
-
   // sql: 학기 필터링
   getCoursesBySemester(
     courseRepoAlias: string,
@@ -32,20 +26,24 @@ export class CourseFilteringQueryService {
 
   // sql: 전공 필터링
   getCoursesByMajor(
-    majorCourseRepoAlias: string,
+    courseRepoAlias: string,
     major_code: string,
   ): QueryFilterType {
     return {
-      clause: `${majorCourseRepoAlias}.major_code = :major_code`,
-      params: { major_code },
-    };
-  }
+      clause: (qb: SelectQueryBuilder<CourseEntity>) => {
+        const subQuery = qb
+          .subQuery()
+          .select('1')
+          .from('major_course', 'mc')
+          .where(`mc.course_id = ${courseRepoAlias}.course_id`)
+          .andWhere('mc.major_code = :major_code')
+          .getQuery();
 
-  // sql: 학년 필터링
-  getCoursesByGrade(courseRepoAlias: string, grade: number): QueryFilterType {
-    return {
-      clause: `${courseRepoAlias}.grade IN (:...grade)`,
-      params: { grade: [grade, 0] },
+        return `EXISTS ${subQuery}`;
+      },
+      params: {
+        major_code,
+      },
     };
   }
 
@@ -60,50 +58,33 @@ export class CourseFilteringQueryService {
     };
   }
 
-  // sql: 공강 요일 필터링
+  // sql: 학년 필터링(major course가 조인되어 있을 시)
+  getCoursesByGrade(
+    majorCourseRepoAlias: string,
+    grade: number,
+  ): QueryFilterType {
+    return {
+      clause: `${majorCourseRepoAlias}.grade IN (:...grades)`,
+      params: {
+        grades: [0, grade],
+      },
+    };
+  }
+
+  // sql: 공강 요일 필터링(offline schedule이 조인되어 있을 시)
   getCoursesByNoClassDays(
-    courseRepoAlias: string,
+    offlineScheduleRepoAlias: string,
     no_class_days: WeekdayEnum[],
   ): QueryFilterType {
     return {
-      clause: (qb: SelectQueryBuilder<CourseEntity>) => {
-        const subQuery = qb
-          .subQuery()
-          .select('1')
-          .from('offline_schedule', 'os')
-          .where(`os.course_id = ${courseRepoAlias}.course_id`)
-          .andWhere('os.day IN (:...excludeDays)')
-          .getQuery();
-
-        return `NOT EXISTS ${subQuery}`;
-      },
+      clause: `${offlineScheduleRepoAlias}.day NOT IN (:...excludeDays)`,
       params: {
         excludeDays: no_class_days,
       },
     };
   }
 
-  // js: weeklyScheduleMap에 요일별로 개인 스케줄을 추가
-  getCoursesByPersonalSchedulesFilter(
-    personal_schedules: PersonalScheduleDto[],
-    no_class_days: WeekdayEnum[],
-    weeklyScheduleMap: Map<WeekdayEnum, WeeklyScheduleType[]>,
-  ) {
-    const noClassDaysSet = new Set(no_class_days);
-
-    personal_schedules.forEach((personal_schedule) => {
-      const { day, ...rest } = personal_schedule;
-
-      // 해당 스케줄이 공강 요일에 포함되지 않는다면 weeklyScheduleMap에 추가
-      if (!noClassDaysSet.has(day)) {
-        weeklyScheduleMap.has(day)
-          ? weeklyScheduleMap.get(day)!.push(rest)
-          : weeklyScheduleMap.set(day, [rest]);
-      }
-    });
-  }
-
-  // js: 미리 선택된 강의 필터링(강의 코드로 같은 이름의 강의를 거름)
+  // sql: 미리 선택된 강의 필터링(강의 코드로 같은 이름의 강의를 거름)
   // 미리 선택된 강의들을 개인 스케줄로 취급하여 weeklyScheduleMap에 요일별로 추가(해당 강의의 시간대와 겹치는 다른 강의를 거르기 위해)
   getCoursesByPreSelectedCourses(
     courseRepoAlias: string,
@@ -138,6 +119,26 @@ export class CourseFilteringQueryService {
     };
 
     return query;
+  }
+
+  // js: weeklyScheduleMap에 요일별로 개인 스케줄을 추가
+  getCoursesByPersonalSchedulesFilter(
+    personal_schedules: PersonalScheduleDto[],
+    no_class_days: WeekdayEnum[],
+    weeklyScheduleMap: Map<WeekdayEnum, WeeklyScheduleType[]>,
+  ) {
+    const noClassDaysSet = new Set(no_class_days);
+
+    personal_schedules.forEach((personal_schedule) => {
+      const { day, ...rest } = personal_schedule;
+
+      // 해당 스케줄이 공강 요일에 포함되지 않는다면 weeklyScheduleMap에 추가
+      if (!noClassDaysSet.has(day)) {
+        weeklyScheduleMap.has(day)
+          ? weeklyScheduleMap.get(day)!.push(rest)
+          : weeklyScheduleMap.set(day, [rest]);
+      }
+    });
   }
 
   getCoursesFilterByWeeklySchedule(

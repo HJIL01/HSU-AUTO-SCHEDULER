@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { MajorDto } from 'src/common/dto/02_major.dto';
-import { CourseDto } from 'src/common/dto/03_course.dto';
 import { OfflineScheduleDto } from 'src/common/dto/04_offline-schedule.dto';
 import { SemesterEntity } from 'src/common/entities/01_semester.entity';
 import { MajorEntity } from 'src/common/entities/02_major.entity';
@@ -9,6 +8,7 @@ import { CourseEntity } from 'src/common/entities/04_course.entity';
 import { OfflineScheduleEntity } from 'src/common/entities/05_offlineSchedule.entity';
 import { MajorCourseEntity } from 'src/common/entities/06_major_course.entity';
 import { QueryRunner } from 'typeorm';
+import { CrawledCourseDto } from '../dto/crawledCourse.dto';
 
 @Injectable()
 export class PersistenceService {
@@ -51,7 +51,7 @@ export class PersistenceService {
   // course table 저장 메서드
   async insertIntoCourseTable(
     queryRunner: QueryRunner,
-    course: CourseDto,
+    course: CrawledCourseDto,
     semesterEntity: SemesterEntity,
   ) {
     const createdCourseEntity = queryRunner.manager.create(CourseEntity, {

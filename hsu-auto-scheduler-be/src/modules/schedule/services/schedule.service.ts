@@ -77,7 +77,15 @@ export class ScheduleService {
       has_lunch_break,
     } = filters;
 
-    const weeklyScheduleMap = new Map<WeekdayEnum, WeeklyScheduleType[]>();
+    /*
+      SQL문으로 필터링 할 것들
+      학기, 전공, 학년, 주야, 공강 요일, 미리 선택된 강의와 같은 과목코드의 강의,
+
+      JS로 필터링 할 것들
+      선택된 강의와 같은 시간의 강의,
+      스케줄 시간대,
+      점심 true라면 점심 시간에 포함된 강의들
+    */
 
     const courseRepoAlias = 'c';
     const majorCourseRepoAlias = 'mc';
@@ -85,47 +93,41 @@ export class ScheduleService {
 
     const query = this.courseRepo
       .createQueryBuilder(courseRepoAlias)
-      .leftJoinAndSelect(
-        'major_course',
-        majorCourseRepoAlias,
-        `${majorCourseRepoAlias}.course_id = ${courseRepoAlias}.course_id`,
-      )
-      .leftJoinAndSelect(
-        `${courseRepoAlias}.offline_schedules`,
-        offlineScheduleRepoAlias,
-        `${offlineScheduleRepoAlias}.course_id = ${courseRepoAlias}.course_id`,
-      );
+      .leftJoinAndSelect('c.major_courses', majorCourseRepoAlias)
+      .leftJoinAndSelect('c.offline_schedules', offlineScheduleRepoAlias);
 
-    // 학기는 필수 포함
+    // 선택된 강의와 개인 스케줄을 요일 별로 묶을 Map
+    const weeklyScheduleMap = new Map<WeekdayEnum, WeeklyScheduleType[]>();
+
+    // 1. sql: 학기 필터링(필수)
     const semesterFilterQuery =
       this.courseFilterQueryService.getCoursesBySemester(
         courseRepoAlias,
         semester_id,
       );
-
     query.where(semesterFilterQuery.clause, semesterFilterQuery.params);
 
-    // 선택한 전공 코드가 있을 시
+    // 2. sql: 전공 필터링(선택)
     if (major_code) {
       const majorFilterQuery = this.courseFilterQueryService.getCoursesByMajor(
-        majorCourseRepoAlias,
+        courseRepoAlias,
         major_code,
       );
 
       query.andWhere(majorFilterQuery.clause, majorFilterQuery.params);
     }
 
-    // 선택한 학년이 있을 시
+    // 3. sql: 학년 필터링(선택)
     if (grade) {
       const gradeFilterQuery = this.courseFilterQueryService.getCoursesByGrade(
-        courseRepoAlias,
+        majorCourseRepoAlias,
         grade,
       );
 
       query.andWhere(gradeFilterQuery.clause, gradeFilterQuery.params);
     }
 
-    // 선택한 주야가 있을 시
+    // 4. sql: 주야 필터링(선택)
     if (day_or_night) {
       const dayOrNightFilterQuery =
         this.courseFilterQueryService.getCoursesByDayOrNight(
@@ -139,11 +141,11 @@ export class ScheduleService {
       );
     }
 
-    // 선택한 공강 요일이 있을 시
+    // 5. sql: 공강 요일 필터링(선택)
     if (no_class_days.length > 0) {
       const noClassDaysFilterQuery =
         this.courseFilterQueryService.getCoursesByNoClassDays(
-          courseRepoAlias,
+          offlineScheduleRepoAlias,
           no_class_days,
         );
 
@@ -153,18 +155,9 @@ export class ScheduleService {
       );
     }
 
-    // 개인 스케줄이 있을 시
-    if (personal_schedules.length > 0) {
-      this.courseFilterQueryService.getCoursesByPersonalSchedulesFilter(
-        personal_schedules,
-        no_class_days,
-        weeklyScheduleMap,
-      );
-    }
-
-    // 미리 선택한 강의가 있을 시
+    // 6. sql: 미리 선택된 강의 필터링(선택)
     if (selected_courses.length > 0) {
-      const preSelectedCourseFilterQuery =
+      const selectedCoursesFilterQuery =
         this.courseFilterQueryService.getCoursesByPreSelectedCourses(
           courseRepoAlias,
           selected_courses,
@@ -172,8 +165,18 @@ export class ScheduleService {
         );
 
       query.andWhere(
-        preSelectedCourseFilterQuery.clause,
-        preSelectedCourseFilterQuery.params,
+        selectedCoursesFilterQuery.clause,
+        selectedCoursesFilterQuery.params,
+      );
+    }
+
+    // 7. js: 개인 스케줄
+    if (personal_schedules.length > 0) {
+      // 그냥 weeklyScheduleMap에 추가만 하는 것이므로 따로 추가적인 작업 없이 호출만
+      this.courseFilterQueryService.getCoursesByPersonalSchedulesFilter(
+        personal_schedules,
+        no_class_days,
+        weeklyScheduleMap,
       );
     }
 
@@ -187,7 +190,7 @@ export class ScheduleService {
         weeklyScheduleMap,
       );
 
-    // 점심 시간 포함이 true일시
+    // 8. js: 점심 시간 보장 제약이 true일 경우 강의의 시간이 점심 시간과 겹치는지 확인하는 로직
     if (has_lunch_break) {
       filteredCourses =
         this.courseFilterQueryService.getCoursesByLunchTimeFilter(
@@ -195,29 +198,43 @@ export class ScheduleService {
         );
     }
 
-    // console.log(JSON.stringify(filteredCourses, null, 2));
+    let finalFilteredCourses: CourseDto[] = filteredCourses.map((course) => ({
+      semester_id: course.semester_id,
+      course_id: course.course_id,
+      course_code: course.course_code,
+      course_name: course.course_name,
+      professor_names: course.professor_names,
+      completion_types: Array.from(
+        new Set(course.major_courses.map((mc) => mc.completion_type)),
+      ),
+      delivery_method: course.delivery_method,
+      credit: course.credit,
+      day_or_night: course.day_or_night,
+      class_section: course.class_section,
+      grades: Array.from(
+        new Set(course.major_courses.map((mc) => mc.grade)),
+      ).sort((a, b) => b - a),
+      grade_limit: course.grade_limit,
+      online_hour: course.online_hour,
+      offline_schedules: course.offline_schedules,
+      plan_code: course.plan_code,
+    }));
+
     const paginationStart = (currentPage - 1) * pagePerLimit;
     const paginationEnd = paginationStart + pagePerLimit;
 
-    filteredCourses = filteredCourses.slice(paginationStart, paginationEnd);
+    finalFilteredCourses = finalFilteredCourses.slice(
+      paginationStart,
+      paginationEnd,
+    );
 
     return {
-      message: 'get courses 성공',
-      data: filteredCourses,
+      mssage: '성공',
+      data: finalFilteredCourses,
     };
   }
 
   async filterDataAndPostConstraints(constaraints: ConstraintsDto) {
-    /*
-      SQL문으로 필터링 할 것들
-      학기, 전공, 학년, 주야, 공강 요일, 미리 선택된 강의와 같은 과목코드의 강의,
-
-      JS로 필터링 할 것들
-      선택된 강의와 같은 시간의 강의,
-      스케줄 시간대,
-      점심 true라면 점심 시간에 포함된 강의들
-    */
-
     // 선택된 강의와 개인 스케줄을 요일 별로 묶을 Map
     const weeklyScheduleMap = new Map<WeekdayEnum, WeeklyScheduleType[]>();
 
@@ -225,18 +242,10 @@ export class ScheduleService {
     const majorCourseRepoAlias = 'mc';
     const offlineScheduleRepoAlias = 'os';
 
-    // courseRepo에 offline_schedules를 엔티티 left 조인(객체에 포함시킴), major_course 일반 left 조인
     const query = this.courseRepo
       .createQueryBuilder(courseRepoAlias)
-      .leftJoinAndSelect(
-        'major_course',
-        majorCourseRepoAlias,
-        `${majorCourseRepoAlias}.course_id = ${courseRepoAlias}.course_id`,
-      )
-      .leftJoinAndSelect(
-        `${courseRepoAlias}.offline_schedules`,
-        offlineScheduleRepoAlias,
-      );
+      .leftJoinAndSelect('c.major_courses', majorCourseRepoAlias)
+      .leftJoinAndSelect('c.offline_schedules', offlineScheduleRepoAlias);
 
     // 1. 학기 필터링
     const semesterFilterQuery =
@@ -246,18 +255,19 @@ export class ScheduleService {
       );
     query.where(semesterFilterQuery.clause, semesterFilterQuery.params);
 
-    // 2. 전공 코드 필터링
+    // 2. 전공 필터링
     const majorFilterQuery = this.courseFilterQueryService.getCoursesByMajor(
-      majorCourseRepoAlias,
+      courseRepoAlias,
       constaraints.major_code,
     );
     query.andWhere(majorFilterQuery.clause, majorFilterQuery.params);
 
     // 3. 학년 필터링
     const gradeFilterQuery = this.courseFilterQueryService.getCoursesByGrade(
-      courseRepoAlias,
+      majorCourseRepoAlias,
       constaraints.grade,
     );
+
     query.andWhere(gradeFilterQuery.clause, gradeFilterQuery.params);
 
     // 4. 주야 필터링
@@ -272,7 +282,7 @@ export class ScheduleService {
     if (constaraints.no_class_days.length > 0) {
       const noClassDaysFilterQuery =
         this.courseFilterQueryService.getCoursesByNoClassDays(
-          courseRepoAlias,
+          offlineScheduleRepoAlias,
           constaraints.no_class_days,
         );
       query.andWhere(
@@ -336,12 +346,16 @@ export class ScheduleService {
           course_code: cur.course_code,
           course_name: cur.course_name,
           professor_names: cur.professor_names,
-          completion_type: cur.major_courses.,
+          completion_types: Array.from(
+            new Set(cur.major_courses.map((mc) => mc.completion_type)),
+          ),
           delivery_method: cur.delivery_method,
           credit: cur.credit,
           day_or_night: cur.day_or_night,
           class_section: cur.class_section,
-          grade: cur.grade,
+          grades: Array.from(
+            new Set(cur.major_courses.map((mc) => mc.grade)),
+          ).sort((a, b) => b - a),
           grade_limit: cur.grade_limit,
           online_hour: cur.online_hour,
           offline_schedules: cur.offline_schedules,

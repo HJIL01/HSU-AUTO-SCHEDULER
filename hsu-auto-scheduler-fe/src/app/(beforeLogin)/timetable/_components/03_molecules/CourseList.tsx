@@ -1,13 +1,5 @@
 "use client";
 
-import { DayOrNightEnum } from "@/enums/dayOrNight.enum";
-import { WeekdayEnum } from "@/enums/weekday.enum";
-import useGetCourses from "@/hooks/queries/useGetCourses";
-import { FilterType } from "@/types/filter.type";
-import { CreateCPSATschemaType } from "@/types/schemas/CreateCPSAT.schema";
-import { splitSemester } from "@/utils/splitSemester";
-import { useMemo } from "react";
-import { useFormContext } from "react-hook-form";
 import CourseInfoTableRow from "../04_atoms/CourseInfoTableRow";
 import SpinSangSangBoogi from "@/components/ui/SpinSangSangBoogi";
 import SangSangBoogi from "@/assets/SangSangBoogi.webp";
@@ -41,13 +33,13 @@ export default function CourseList({
           {/* 교수 */}
           <col className="w-48" />
           {/* 학년 */}
-          <col className="w-25" />
+          <col className="w-31" />
           {/* 학년제한 */}
           <col className="w-30" />
           {/* 학점 */}
           <col className="w-20" />
           {/* 이수구분 */}
-          <col className="w-30" />
+          <col className="w-33" />
           {/* 과목구분 */}
           <col className="w-31" />
           {/* 주/야 */}
@@ -89,13 +81,13 @@ export default function CourseList({
             {/* 교수 */}
             <col className="w-48" />
             {/* 학년 */}
-            <col className="w-25" />
+            <col className="w-31" />
             {/* 학년제한 */}
             <col className="w-30" />
             {/* 학점 */}
             <col className="w-20" />
             {/* 이수구분 */}
-            <col className="w-30" />
+            <col className="w-33" />
             {/* 과목구분 */}
             <col className="w-31" />
             {/* 주/야 */}

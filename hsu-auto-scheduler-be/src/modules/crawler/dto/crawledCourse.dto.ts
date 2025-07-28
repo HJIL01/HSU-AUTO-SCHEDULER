@@ -9,10 +9,10 @@ import {
   IsString,
   ValidateNested,
 } from 'class-validator';
-import { DayOrNightEnum } from '../enums/dayOrNight.enum';
-import { OfflineScheduleDto } from './04_offline-schedule.dto';
+import { OfflineScheduleDto } from 'src/common/dto/04_offline-schedule.dto';
+import { DayOrNightEnum } from 'src/common/enums/dayOrNight.enum';
 
-export class CourseDto {
+export class CrawledCourseDto {
   @IsString()
   @IsNotEmpty()
   semester_id: string;
@@ -35,11 +35,9 @@ export class CourseDto {
   @IsNotEmpty({ each: true })
   professor_names: string[];
 
-  @IsArray()
-  @ArrayNotEmpty()
-  @IsString({ each: true })
-  @IsNotEmpty({ each: true })
-  completion_types: string[];
+  @IsString()
+  @IsNotEmpty()
+  completion_type: string;
 
   @IsString()
   @IsNotEmpty()
@@ -58,13 +56,9 @@ export class CourseDto {
   @IsNotEmpty()
   class_section: string;
 
-  @IsArray({ message: 'grades는 배열이어야 합니다.' })
-  @IsNumber(
-    { allowNaN: false },
-    { each: true, message: 'grade는 숫자여야 합니다.' },
-  )
   @Type(() => Number)
-  grades: number[];
+  @IsNumber({ allowNaN: false }, { message: 'grade는 숫자여야 합니다.' })
+  grade: number;
 
   @IsOptional()
   @IsNumber({ allowNaN: false }, { message: '학년 제한은 숫자여야 합니다.' })

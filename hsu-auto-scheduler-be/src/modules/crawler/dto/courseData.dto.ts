@@ -5,7 +5,7 @@ import {
   IsString,
   ValidateNested,
 } from 'class-validator';
-import { CourseDto } from 'src/common/dto/03_course.dto';
+import { CrawledCourseDto } from './crawledCourse.dto';
 
 export class CourseDataDto {
   @IsString()
@@ -18,6 +18,6 @@ export class CourseDataDto {
 
   @IsOptional()
   @ValidateNested({ each: true })
-  @Type(() => CourseDto)
-  courses: CourseDto[] | null;
+  @Type(() => CrawledCourseDto)
+  courses: CrawledCourseDto[] | null;
 }

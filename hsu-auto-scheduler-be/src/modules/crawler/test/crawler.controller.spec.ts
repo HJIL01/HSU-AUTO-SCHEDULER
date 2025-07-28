@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { CrawlerController } from './crawler.controller';
-import { CrawlerService } from './crawler.service';
+import { CrawlerController } from '../crawler.controller';
+import { TransactionService } from '../services/transaction.service';
+import { PersistenceService } from '../services/persistence.service';
 
 describe('CrawlerController', () => {
   let controller: CrawlerController;
@@ -8,7 +9,7 @@ describe('CrawlerController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [CrawlerController],
-      providers: [CrawlerService],
+      providers: [TransactionService, PersistenceService],
     }).compile();
 
     controller = module.get<CrawlerController>(CrawlerController);
