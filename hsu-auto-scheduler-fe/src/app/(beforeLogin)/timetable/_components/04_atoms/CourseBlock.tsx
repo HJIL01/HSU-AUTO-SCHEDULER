@@ -9,12 +9,12 @@ import { useState } from "react";
 
 type Props = {
   courseRenderInfo: CourseRenderInfoType;
-  isScheduleBlock?: boolean;
+  isCPSATResult?: boolean;
 };
 
 export default function CourseBlock({
   courseRenderInfo,
-  isScheduleBlock,
+  isCPSATResult,
 }: Props) {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const { deleteCourseAndUnmark } = useUnmarkCourseSchedule();
@@ -33,7 +33,7 @@ export default function CourseBlock({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {isHovered && (
+      {isHovered && !isCPSATResult && (
         <button
           className="float-right mt-2 mr-3 w-7 bg-transparent"
           onClick={() =>
@@ -47,7 +47,7 @@ export default function CourseBlock({
           <CloseIcon />
         </button>
       )}
-      <h2 className="text-sm font-extrabold">
+      <h2 className="text-sm font-extrabold max-md:text-xs">
         {courseRenderInfo.courseName}({courseRenderInfo.courseClassSection})
       </h2>
 

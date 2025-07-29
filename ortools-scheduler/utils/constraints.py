@@ -174,14 +174,24 @@ def add_non_overlapping_schedule_constraint(
         for cur_course_offline_schedule in cur_course.offline_schedules:
             course_day_indices[cur_course_offline_schedule.day].append(cur_course_index)
 
+    print(course_day_indices)
     for cur_day in course_day_indices:
         indicies_by_day = course_day_indices[cur_day]
         for i, cur_course_index in enumerate(indicies_by_day):
             cur_course_start_time_in_cur_day, cur_course_end_time_in_cur_day = (
                 get_start_time_and_end_time(courses[cur_course_index], cur_day)
             )
+
+            print(
+                "현재 코스: ",
+                cur_day,
+                cur_course_start_time_in_cur_day,
+                cur_course_end_time_in_cur_day,
+                cur_course.course_name,
+            )
             for j in range(i + 1, len(indicies_by_day)):
                 next_course_index = indicies_by_day[j]
+
                 next_course = courses[next_course_index]
                 next_course_start_time_in_cur_day, next_course_end_time_in_cur_day = (
                     get_start_time_and_end_time(next_course, cur_day)
@@ -192,7 +202,11 @@ def add_non_overlapping_schedule_constraint(
                     and cur_course_end_time_in_cur_day
                     > next_course_start_time_in_cur_day
                 ):
+                    print(
+                        f"겹침: {cur_course.course_name}, {next_course.course_name}, {cur_day}"
+                    )
                     model.AddBoolOr(
                         is_selected[cur_course_index].Not(),
                         is_selected[next_course_index].Not(),
                     )
+            print()

@@ -54,8 +54,8 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
         total_course_gap = 0
 
         # 공강인 요일까지도 전부 포함해서 묶기(요일에 배치된 강의가 없으면 빈 배열)
-        for day in WeekdayEnum:
-            courses_by_day[day.value] = []
+        # for day in WeekdayEnum:
+        #     courses_by_day[day.value] = []
 
         # 요일별로 묶기
         for selected_course in selected_courses:
@@ -97,7 +97,7 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
         self.solutions.append(
             {
                 "solution_index": self.solution_count,
-                "selected_courses": courses_by_day,
+                "selected_courses": selected_courses,
                 "total_credit": total_credit,
                 "total_online_course_count": total_online_course_count,
                 "total_course_gap": total_course_gap,

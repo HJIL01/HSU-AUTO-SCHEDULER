@@ -11,12 +11,14 @@ type Props = {
   day: WeekdayEnum;
   coursesInCurDay?: CourseRenderInfoType[];
   hoveredCourseInCurDay?: CourseRenderInfoType;
+  isCPSATResult?: boolean;
 };
 
 export default function DayColumn({
   day,
   coursesInCurDay,
   hoveredCourseInCurDay,
+  isCPSATResult,
 }: Props) {
   return (
     <td data-day={day} className="relative">
@@ -35,11 +37,18 @@ export default function DayColumn({
 
       {coursesInCurDay &&
         coursesInCurDay.map((courseInCurDay, i) => (
-          <CourseBlock key={i} courseRenderInfo={courseInCurDay} />
+          <CourseBlock
+            key={i}
+            courseRenderInfo={courseInCurDay}
+            isCPSATResult={isCPSATResult}
+          />
         ))}
 
       {hoveredCourseInCurDay && (
-        <CourseBlock courseRenderInfo={hoveredCourseInCurDay} />
+        <CourseBlock
+          courseRenderInfo={hoveredCourseInCurDay}
+          isCPSATResult={isCPSATResult}
+        />
       )}
     </td>
   );

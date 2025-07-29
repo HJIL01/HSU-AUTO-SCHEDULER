@@ -14,12 +14,14 @@ type Props = {
   selectedCoursesByDay?: SelectedCoursesRenderMapType;
   hoveredCourseByDay?: HoverCourseRenderMapType;
   className?: string;
+  isCPSATResult?: boolean;
 };
 
 export default function TimeTableGrid({
   selectedCoursesByDay,
   hoveredCourseByDay,
   className,
+  isCPSATResult,
 }: Props) {
   return (
     <div className={className}>
@@ -72,6 +74,7 @@ export default function TimeTableGrid({
                 day={day}
                 coursesInCurDay={selectedCoursesByDay?.get(day)}
                 hoveredCourseInCurDay={hoveredCourseByDay?.get(day)}
+                isCPSATResult={isCPSATResult}
               />
             ))}
           </tr>
