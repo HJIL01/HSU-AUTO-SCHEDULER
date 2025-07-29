@@ -67,7 +67,7 @@ def HSU_AUTO_SCHEDULER_CP_SAT(
 
         # 디버깅용
         # 정렬 후 해를 print 하므로 n번째 해 << 이것이 뒤죽박죽일 수 있음
-        solution_collector.solution_print()
+        # solution_collector.solution_print()
         print(
             f"총 해의 개수: {solution_collector.solution_count} 총 탐색 시간: {solver.WallTime()}초"
         )

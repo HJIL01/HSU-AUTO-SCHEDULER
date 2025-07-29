@@ -20,7 +20,7 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
             []
         )  # 모든 솔루션들을 담은 배열 (몇번째 해인지, 선택된 인덱스, 총 학점)
         # 최대 해 개수
-        self.solution_limit = 10000
+        self.solution_limit = 7000
 
     # 해를 찾을 때마다 부모 클래스인 CpSolverSolutionCallback에서 콜백할 함수
     def on_solution_callback(self):
