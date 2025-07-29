@@ -20,11 +20,10 @@ export default function CourseInfoTableRow({ course }: Props) {
   );
 
   const { onClickCourse } = useMarkCourseSchedule();
-  console.log(course.completion_types);
 
   return (
     <tr
-      className="bg-filter-courses-table-row-bg hover:bg-filter-courses-table-row-hover-bg cursor-pointer text-xs [&_td]:border [&_td]:border-t-0 [&_td]:py-3"
+      className="bg-course-finder-courses-table-row-bg hover:bg-course-finder-courses-table-row-hover-bg cursor-pointer text-xs [&_td]:border [&_td]:border-t-0 [&_td]:py-3"
       onMouseEnter={() => setHoveredCourse(course)}
       onMouseLeave={clearHoveredCourse}
       onClick={() => onClickCourse(course)}
@@ -52,12 +51,14 @@ export default function CourseInfoTableRow({ course }: Props) {
       <td>
         {course.plan_code !== "x" ? (
           <button
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               window.open(
                 `https://info.hansung.ac.kr/fuz/professor/lecturePlan/suupplan_main_view.jsp?code=${course.plan_code}`,
                 "_blank",
                 "width=1000,height=800,top=0,left=500",
               );
+              clearHoveredCourse();
             }}
             className="bg-hsu rounded-3xl px-4 py-2 text-white"
           >

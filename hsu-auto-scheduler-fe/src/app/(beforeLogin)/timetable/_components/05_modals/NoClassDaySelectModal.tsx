@@ -94,7 +94,7 @@ export default function NoClassDaySelectModal({
           <div className="flex justify-between text-xs text-zinc-800">
             <button
               type="button"
-              className="bg-course-fileter-bg border-course-list-border rounded-[18px] border px-5 py-3"
+              className="bg-course-finder-filter-bg border-course-finder-border rounded-[18px] border px-5 py-3"
               onClick={handleResetNoClassDays}
             >
               초기화

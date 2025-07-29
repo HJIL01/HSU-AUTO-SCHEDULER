@@ -102,7 +102,7 @@ export default function CourseFilters({ hasEnoughData }: Props) {
           )}
           style={{
             background:
-              "linear-gradient(to left, transparent 25%, var(--color-course-list-main-bg) 100%)",
+              "linear-gradient(to left, transparent 25%, var(--color-course-finder-main-bg) 100%)",
           }}
         />
         <div
@@ -112,7 +112,7 @@ export default function CourseFilters({ hasEnoughData }: Props) {
           )}
           style={{
             background:
-              "linear-gradient(to right, transparent 0%, var(--color-course-list-main-bg) 75%)",
+              "linear-gradient(to right, transparent 0%, var(--color-course-finder-main-bg) 75%)",
           }}
         />
 
@@ -128,21 +128,21 @@ export default function CourseFilters({ hasEnoughData }: Props) {
             name="major_code"
             items={majorSelectedOptions}
             placeholder="전공을 선택하세요"
-            className="!bg-course-fileter-bg border-course-list-border max-w-130 truncate border"
+            className="!bg-course-finder-filter-bg border-course-finder-border max-w-130 truncate border"
           />
           {/* 학년 필터 */}
           <RHFCustomSelect<CreateCPSATschemaType>
             name="grade"
             items={gradeSelectOptions}
             placeholder="학년"
-            className="!bg-course-fileter-bg border-course-list-border border"
+            className="!bg-course-finder-filter-bg border-course-finder-border border"
           />
           {/* 주야 필터 */}
           <RHFCustomSelect<CreateCPSATschemaType>
             name="day_or_night"
             items={dayOrNightSelectOptions}
             placeholder="주/야"
-            className="!bg-course-fileter-bg border-course-list-border border"
+            className="!bg-course-finder-filter-bg border-course-finder-border border"
           />
           {/* 공강 필터 */}
           <RHFTextInput

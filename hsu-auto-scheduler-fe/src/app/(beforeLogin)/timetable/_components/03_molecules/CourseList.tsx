@@ -23,8 +23,9 @@ export default function CourseList({
   const observer = useInfiniteScroll({ hasNextPage, fetchNextPage });
 
   return (
-    <div className="h-full w-full overflow-y-auto">
-      <table className="bg-filter-courses-table-head-bg sticky top-0 h-18 w-full table-fixed border-collapse border text-xs [&_th]:border">
+    // 밑에서 50px을 뺀 이유는 옵저버의 높이가 h-25이기 때문
+    <div className="h-[calc(100%-50px)] w-full overflow-y-auto">
+      <table className="bg-course-finder-courses-table-head-bg sticky top-0 h-18 w-full table-fixed border-collapse border text-xs [&_th]:border">
         <colgroup>
           {/* 과목코드 */}
           <col className="w-40" />
@@ -67,7 +68,7 @@ export default function CourseList({
       </table>
 
       {isLoading ? (
-        <div className="bg-filter-courses-table-row-bg flex h-[calc(100%-36px)] w-full flex-col items-center justify-center text-2xl">
+        <div className="bg-course-finder-courses-table-row-bg flex h-[calc(100%-36px)] w-full flex-col items-center justify-center text-2xl">
           <SpinSangSangBoogi className="w-42" />
           로딩중...
         </div>

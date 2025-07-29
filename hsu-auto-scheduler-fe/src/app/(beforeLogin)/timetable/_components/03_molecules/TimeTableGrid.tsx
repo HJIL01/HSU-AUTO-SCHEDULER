@@ -13,14 +13,16 @@ import {
 type Props = {
   selectedCoursesByDay?: SelectedCoursesRenderMapType;
   hoveredCourseByDay?: HoverCourseRenderMapType;
+  className?: string;
 };
 
 export default function TimeTableGrid({
   selectedCoursesByDay,
   hoveredCourseByDay,
+  className,
 }: Props) {
   return (
-    <>
+    <div className={className}>
       {/* thead */}
       <table className="bg-timetable-body-bg w-full border text-sm">
         <colgroup>
@@ -75,6 +77,6 @@ export default function TimeTableGrid({
           </tr>
         </tbody>
       </table>
-    </>
+    </div>
   );
 }

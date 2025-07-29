@@ -1,7 +1,7 @@
 "use client";
 
 export const COURSE_BLOCK_BG_COLORS = [
-  "bg-filter-courses-table-row-hover-bg",
+  "bg-course-finder-courses-table-row-hover-bg",
   "bg-course-block-1",
   "bg-course-block-2",
   "bg-course-block-3",

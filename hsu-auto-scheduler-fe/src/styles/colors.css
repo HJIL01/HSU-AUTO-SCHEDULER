@@ -24,12 +24,12 @@
     --color-course-block-14: #FFEDFA;
     --color-course-block-15: #FFB8E0;
 
-    /* 필터 부분 */
-    --color-course-list-main-bg: #f9fafb;
-    --color-course-list-border: #98a2b3;
-    --color-course-fileter-bg: #f2f4f7;
+    /* course finder 부분 */
+    --color-course-finder-main-bg: #f9fafb;
+    --color-course-finder-border: #98a2b3;
+    --color-course-finder-filter-bg: #f2f4f7;
 
-    --color-filter-courses-table-head-bg: #E9E3DF;
-    --color-filter-courses-table-row-bg: #FAF7F3;
-    --color-filter-courses-table-row-hover-bg: #DBDBDB;
+    --color-course-finder-courses-table-head-bg: #E9E3DF;
+    --color-course-finder-courses-table-row-bg: #FAF7F3;
+    --color-course-finder-courses-table-row-hover-bg: #DBDBDB;
 }

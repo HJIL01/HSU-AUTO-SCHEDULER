@@ -52,7 +52,7 @@ export default function RHFTextInput<T extends FieldValues>({
       <label
         htmlFor={id}
         className={clsx(
-          "border-course-list-border bg-course-fileter-bg flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-[5px] transition-colors duration-150",
+          "border-course-finder-border bg-course-finder-filter-bg flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-[5px] transition-colors duration-150",
           isFocus && "border-zinc-950",
         )}
       >

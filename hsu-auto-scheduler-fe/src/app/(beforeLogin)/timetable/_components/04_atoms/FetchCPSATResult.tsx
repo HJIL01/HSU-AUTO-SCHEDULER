@@ -2,13 +2,22 @@
 
 import useGetCPSATResults from "@/hooks/queries/useGetCPSATResults";
 import { CreateCPSATschemaType } from "@/types/schemas/CreateCPSAT.schema";
+import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
+import CPSATResultModal from "../05_modals/CPSATResultModal";
 
 type Props = {
   hasEnoughData: boolean;
 };
 
 export default function FetchCPSATResult({ hasEnoughData }: Props) {
+  const [totalSolutionCount, setTotalSolutionCount] = useState<number | null>(
+    null,
+  );
+  const [CPSATResultModalIsOpen, setCPSATResultModalIsOpen] =
+    useState<boolean>(false);
+  const [isFetching, setIsFetching] = useState<boolean>(false);
+
   const { handleSubmit, getValues } = useFormContext<CreateCPSATschemaType>();
   const { data, refetch } = useGetCPSATResults();
   const filters = getValues();
@@ -19,23 +28,48 @@ export default function FetchCPSATResult({ hasEnoughData }: Props) {
     );
   };
 
-  const onSubmit = () => {
-    if (!hasEnoughData && !confirmInsufficientCredit()) {
-      return;
-    }
+  const onSubmit = async () => {
+    if (!hasEnoughData && !confirmInsufficientCredit()) return;
 
-    refetch();
+    setCPSATResultModalIsOpen(true);
+    setIsFetching(true);
+    const start = Date.now();
+
+    await refetch();
+
+    const elapsed = Date.now() - start;
+    const minTime = 700;
+    setTimeout(
+      () => setIsFetching(false),
+      Math.max(minTime, minTime - elapsed),
+    );
   };
 
-  const CPSATResult = data?.pages.flatMap((e) => e.data);
-  console.log(CPSATResult);
+  useEffect(() => {
+    if (data) {
+      setTotalSolutionCount(data.pages[0].data.total_solution_count);
+    }
+  }, [data, setTotalSolutionCount]);
+
+  const CPSATResult = data?.pages.flatMap((e) => {
+    return e.data.solutions;
+  });
 
   return (
-    <button
-      className="bg-hsu rounded-lg px-3 text-xs whitespace-nowrap text-white"
-      onClick={handleSubmit(onSubmit)}
-    >
-      시간표 자동 생성
-    </button>
+    <>
+      <button
+        className="bg-hsu rounded-lg px-3 text-xs whitespace-nowrap text-white"
+        onClick={handleSubmit(onSubmit)}
+      >
+        시간표 자동 생성
+      </button>
+      {CPSATResultModalIsOpen && (
+        <CPSATResultModal
+          isFetching={isFetching}
+          setCPSATResultModalIsOpen={setCPSATResultModalIsOpen}
+          CPSATResult={CPSATResult}
+        />
+      )}
+    </>
   );
 }

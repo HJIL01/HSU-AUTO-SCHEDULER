@@ -7,6 +7,8 @@ import useCurrentSemester from "../useCurrentSemester";
 import { CPSAT_RESULT_PER_PAGE } from "@/constants/CPSATResultPerPage";
 import { useEffect } from "react";
 import { splitSemester } from "@/utils/splitSemester";
+import { CPSATSolutionType } from "@/types/CPSATSolution.type";
+import { ResponseType } from "@/types/response.type";
 
 export default function useGetCPSATResults() {
   const currentSemester = useCurrentSemester();
@@ -26,7 +28,12 @@ export default function useGetCPSATResults() {
 
   return useInfiniteQuery({
     queryKey: ["cp-sat result"],
-    queryFn: async () => {
+    queryFn: async (): Promise<
+      ResponseType<{
+        total_solution_count: number;
+        solutions: CPSATSolutionType[];
+      }>
+    > => {
       const { semester, ...rest } = getValues();
       const semester_id = splitSemester(semester);
 
@@ -50,7 +57,7 @@ export default function useGetCPSATResults() {
     },
     initialPageParam: 1,
     getNextPageParam: (lastPage, _, lastPageParam) => {
-      if (lastPage.data.length < CPSAT_RESULT_PER_PAGE) {
+      if (lastPage.data.solutions.length < CPSAT_RESULT_PER_PAGE) {
         return undefined;
       }
 

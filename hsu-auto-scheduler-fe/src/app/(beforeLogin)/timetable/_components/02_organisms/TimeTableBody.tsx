@@ -116,7 +116,8 @@ export default function TimeTableBody() {
     <motion.div
       animate={{
         height: isOpen
-          ? window.innerHeight * (COURSE_FINDER_HEIGHT / 100) + 52
+          ? // 밑의 52px은 헤더(title)의 높이
+            `calc(${100 - COURSE_FINDER_HEIGHT}dvh - 52px)`
           : "100%",
       }}
       transition={{
