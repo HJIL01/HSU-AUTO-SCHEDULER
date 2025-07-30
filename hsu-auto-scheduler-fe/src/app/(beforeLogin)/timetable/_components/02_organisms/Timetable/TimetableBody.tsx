@@ -5,8 +5,8 @@ import clsx from "clsx";
 import { useShallow } from "zustand/shallow";
 import { motion } from "framer-motion";
 import { COURSE_FINDER_HEIGHT } from "@/constants/CourseFinderHeight";
-import TimeTableGrid from "../03_molecules/TimeTableGrid";
-import OnlineCourseList from "../03_molecules/OnlineCourseList";
+import TimeTableGrid from "../../03_molecules/Timetable/TimeTableGrid";
+import OnlineCourseList from "../../03_molecules/Timetable/OnlineCourseList";
 import {
   CourseRenderInfoType,
   HoverCourseRenderMapType,
@@ -61,8 +61,8 @@ export default function TimeTableBody() {
           acc.set(cur.day, {
             ...baseInfo,
             offlineSchedule: getOfflineScheduleInCurDay(hoveredCourse, cur.day),
-            top: getTopByStartTime(hoveredCourse, cur.day),
-            height: getCourseBlockHeight(hoveredCourse, cur.day),
+            top: getTopByStartTime(hoveredCourse, cur.day, false),
+            height: getCourseBlockHeight(hoveredCourse, cur.day, false),
           });
           return acc;
         }, new Map());
@@ -100,8 +100,8 @@ export default function TimeTableBody() {
             newCoursesInCurDay.push({
               ...baseInfo,
               offlineSchedule,
-              top: getTopByStartTime(selectedCourse, curDay),
-              height: getCourseBlockHeight(selectedCourse, curDay),
+              top: getTopByStartTime(selectedCourse, curDay, false),
+              height: getCourseBlockHeight(selectedCourse, curDay, false),
               colorIndex: (index % (COURSE_BLOCK_BG_COLORS.length - 1)) + 1,
             });
             dayMap.set(curDay, newCoursesInCurDay);
@@ -116,7 +116,7 @@ export default function TimeTableBody() {
     <motion.div
       animate={{
         height: isOpen
-          ? // 밑의 52px은 헤더(title)의 높이
+          ? // 밑의 52px은 헤더(TimetableTitle)의 높이
             `calc(${100 - COURSE_FINDER_HEIGHT}dvh - 52px)`
           : "100%",
       }}
@@ -129,6 +129,7 @@ export default function TimeTableBody() {
       <TimeTableGrid
         selectedCoursesByDay={selectedCoursesByDay}
         hoveredCourseByDay={hoveredCourseByDay}
+        isCPSATResult={false}
       />
       <OnlineCourseList />
     </motion.div>

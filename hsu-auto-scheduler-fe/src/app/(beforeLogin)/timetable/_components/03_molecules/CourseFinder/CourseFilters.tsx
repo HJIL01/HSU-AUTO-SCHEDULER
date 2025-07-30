@@ -1,19 +1,19 @@
 "use client";
 
-import RHFCustomSelect from "../../../../../components/RHF/RHFCustomSelect";
 import { useFormContext } from "react-hook-form";
 import { useGetMajors } from "@/hooks/queries/useGetMajors";
 import { SelectOptionType } from "@/types/selectOption.type";
 import { DayOrNightEnum, DayOrNightKorMap } from "@/enums/dayOrNight.enum";
 import RHFTextInput from "@/components/RHF/RHFTextInput";
 import { useRef, useState } from "react";
-import NoClassDaySelectModal from "../05_modals/NoClassDaySelectModal";
 import { WeekdayKorMap } from "@/enums/weekday.enum";
 import { CreateCPSATschemaType } from "@/types/schemas/CreateCPSAT.schema";
 import useFixInputValues from "@/hooks/useFixInputValues";
 import clsx from "clsx";
 import useHorizontalScrollByWheel from "@/hooks/useHorizontalScrollByWheel";
-import FetchCPSATResult from "../04_atoms/FetchCPSATResult";
+import RHFCustomSelect from "@/components/RHF/RHFCustomSelect";
+import NoClassDaySelectModal from "../../05_modals/NoClassDaySelectModal";
+import FetchCPSATResult from "../../04_atoms/CourseFinder/FetchCPSATResult";
 
 type Props = {
   hasEnoughData: boolean;

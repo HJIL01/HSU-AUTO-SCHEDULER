@@ -1,9 +1,15 @@
 import { WeekdayEnum } from "@/enums/weekday.enum";
 import { getOfflineScheduleInCurDay } from "./getOfflineScheduleInCurDay";
 import { CourseType } from "@/types/schemas/Course.schema";
-import { TIMETABLE_CELL_HEIGHT } from "@/constants/CourseCellHeight";
+import getTimetableCellHeight from "./getTimetableCellHeight";
 
-export function getCourseBlockHeight(course: CourseType, day: WeekdayEnum) {
+export function getCourseBlockHeight(
+  course: CourseType,
+  day: WeekdayEnum,
+  isCPSATResult: boolean,
+) {
+  const timetableCellHeight = getTimetableCellHeight(isCPSATResult);
+
   const targetOfflineSchedule = getOfflineScheduleInCurDay(course, day);
 
   const startTime = targetOfflineSchedule!.start_time;
@@ -11,7 +17,7 @@ export function getCourseBlockHeight(course: CourseType, day: WeekdayEnum) {
 
   const totalCourseTime = endTime - startTime;
 
-  const courseBlockHeight = totalCourseTime * (TIMETABLE_CELL_HEIGHT / 60);
+  const courseBlockHeight = totalCourseTime * (timetableCellHeight / 60);
 
   return courseBlockHeight + 1;
 }

@@ -4,16 +4,14 @@ import useGetCPSATResults from "@/hooks/queries/useGetCPSATResults";
 import { CreateCPSATschemaType } from "@/types/schemas/CreateCPSAT.schema";
 import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
-import CPSATResultModal from "../05_modals/CPSATResultModal";
+import CPSATResultModal from "../../05_modals/CPSATResultModal";
 
 type Props = {
   hasEnoughData: boolean;
 };
 
 export default function FetchCPSATResult({ hasEnoughData }: Props) {
-  const [totalSolutionCount, setTotalSolutionCount] = useState<number | null>(
-    null,
-  );
+  const [totalSolutionCount, setTotalSolutionCount] = useState<number>(0);
   const [CPSATResultModalIsOpen, setCPSATResultModalIsOpen] =
     useState<boolean>(false);
   const [isFetching, setIsFetching] = useState<boolean>(false);
@@ -68,6 +66,7 @@ export default function FetchCPSATResult({ hasEnoughData }: Props) {
           isFetching={isFetching}
           setCPSATResultModalIsOpen={setCPSATResultModalIsOpen}
           CPSATResult={CPSATResult}
+          totalSolutionCount={totalSolutionCount}
         />
       )}
     </>

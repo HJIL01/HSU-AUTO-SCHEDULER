@@ -3,7 +3,6 @@
 import { WeekdayEnum } from "@/enums/weekday.enum";
 import clsx from "clsx";
 import { HOURS } from "@/constants/hours";
-import { TIMETABLE_CELL_HEIGHT } from "@/constants/CourseCellHeight";
 import { CourseRenderInfoType } from "@/types/courseRenderInfo.type";
 import CourseBlock from "./CourseBlock";
 
@@ -11,7 +10,8 @@ type Props = {
   day: WeekdayEnum;
   coursesInCurDay?: CourseRenderInfoType[];
   hoveredCourseInCurDay?: CourseRenderInfoType;
-  isCPSATResult?: boolean;
+  isCPSATResult: boolean;
+  timetableCellHeight: number;
 };
 
 export default function DayColumn({
@@ -19,6 +19,7 @@ export default function DayColumn({
   coursesInCurDay,
   hoveredCourseInCurDay,
   isCPSATResult,
+  timetableCellHeight,
 }: Props) {
   return (
     <td data-day={day} className="relative">
@@ -30,7 +31,7 @@ export default function DayColumn({
             i !== 0 && "border-scheduler-cell-border border-t",
           )}
           style={{
-            height: `${TIMETABLE_CELL_HEIGHT}px`,
+            height: `${timetableCellHeight}px`,
           }}
         />
       ))}

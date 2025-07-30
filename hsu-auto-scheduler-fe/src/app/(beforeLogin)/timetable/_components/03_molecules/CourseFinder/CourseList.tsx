@@ -1,11 +1,11 @@
 "use client";
 
-import CourseInfoTableRow from "../04_atoms/CourseInfoTableRow";
 import SpinSangSangBoogi from "@/components/ui/SpinSangSangBoogi";
 import SangSangBoogi from "@/assets/SangSangBoogi.webp";
 import Image from "next/image";
 import { useInfiniteScroll } from "@/hooks/useInfinityScroll";
 import { CourseType } from "@/types/schemas/Course.schema";
+import CourseInfoTableRow from "../../04_atoms/CourseFinder/CourseInfoTableRow";
 
 type Props = {
   hasNextPage: boolean;

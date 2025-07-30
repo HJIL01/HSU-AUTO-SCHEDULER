@@ -28,7 +28,11 @@ export default function useGetCPSATResults() {
 
   return useInfiniteQuery({
     queryKey: ["cp-sat result"],
-    queryFn: async (): Promise<
+    queryFn: async ({
+      pageParam,
+    }: {
+      pageParam: number;
+    }): Promise<
       ResponseType<{
         total_solution_count: number;
         solutions: CPSATSolutionType[];
@@ -45,8 +49,12 @@ export default function useGetCPSATResults() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
+            currentPage: pageParam,
+            pagePerLimit: CPSAT_RESULT_PER_PAGE,
             semester_id,
-            ...rest,
+            constraints: {
+              ...rest,
+            },
           }),
         },
       );

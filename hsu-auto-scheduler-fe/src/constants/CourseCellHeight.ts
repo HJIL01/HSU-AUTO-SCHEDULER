@@ -1,1 +1,0 @@
-export const TIMETABLE_CELL_HEIGHT = 60;

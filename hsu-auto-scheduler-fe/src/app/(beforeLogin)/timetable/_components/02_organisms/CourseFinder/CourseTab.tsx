@@ -1,8 +1,6 @@
 "use client";
 
 import useGetCourses from "@/hooks/queries/useGetCourses";
-import CourseFilters from "../03_molecules/CourseFilters";
-import CourseList from "../03_molecules/CourseList";
 import { DayOrNightEnum } from "@/enums/dayOrNight.enum";
 import { FilterType } from "@/types/filter.type";
 import { useMemo } from "react";
@@ -10,6 +8,8 @@ import { splitSemester } from "@/utils/splitSemester";
 import { useFormContext } from "react-hook-form";
 import { CreateCPSATschemaType } from "@/types/schemas/CreateCPSAT.schema";
 import { WeekdayEnum } from "@/enums/weekday.enum";
+import CourseFilters from "../../03_molecules/CourseFinder/CourseFilters";
+import CourseList from "../../03_molecules/CourseFinder/CourseList";
 
 export default function CourseTab() {
   const { watch } = useFormContext<CreateCPSATschemaType>();
