@@ -12,7 +12,8 @@ from utils.constraints import (
     add_daily_lecture_limit_constraint,
     add_non_overlapping_schedule_constraint,
 )
-from utils.solution_collector import AllSolutionCollector
+from services.solution_collector import AllSolutionCollector
+from services.solution_printer import AllSolutionPrinter
 
 
 def HSU_AUTO_SCHEDULER_CP_SAT(
@@ -62,12 +63,17 @@ def HSU_AUTO_SCHEDULER_CP_SAT(
         print("해가 존재하지 않음")
 
     if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
-        # 해가 나왔다면 총 학점 높은 순으로, 온라인 강의 많은 순으로, 수업 간 간격(분) 낮은 순으로 정렬
+
+        # 해가 나왔다면 총 학점 높은 순으로,
+        # 전학년 포함된 강의가 적은 순으로,
+        # 온라인 강의 많은 순으로,
+        # 수업 간 간격(분) 낮은 순으로 정렬
         solution_collector.sort_solutions_by_priority()
 
-        # 디버깅용
-        # 정렬 후 해를 print 하므로 n번째 해 << 이것이 뒤죽박죽일 수 있음
-        # solution_collector.solution_print()
+        # 이러면 정렬 이후에 찍힘
+        solution_printer = AllSolutionPrinter(solution_collector.get_solutions)
+        solution_printer.solution_print()
+
         print(
             f"총 해의 개수: {solution_collector.solution_count} 총 탐색 시간: {solver.WallTime()}초"
         )
