@@ -16,10 +16,6 @@ import { DayOrNightEnum } from 'src/common/enums/dayOrNight.enum';
 export class ConstraintsDto {
   @IsString()
   @IsNotEmpty()
-  semester_id: string;
-
-  @IsString()
-  @IsNotEmpty()
   major_code: string;
 
   @Type(() => Number)

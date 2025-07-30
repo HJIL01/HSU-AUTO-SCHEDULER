@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post, Query } from '@nestjs/common';
-import { ConstraintsDto } from './dto/constraints.dto';
 import { ScheduleService } from './services/schedule.service';
 import { GetCoursesDto } from './dto/getCourses.dto';
+import { GetCPSATResultDto } from './dto/getCPSATResult.dto';
 
 @Controller('schedule')
 export class ScheduleController {
@@ -24,7 +24,7 @@ export class ScheduleController {
   }
 
   @Post('constraints')
-  handleScheduleConstaraints(@Body() constaraints: ConstraintsDto) {
-    return this.scheduleService.filterDataAndPostConstraints(constaraints);
+  handleScheduleConstaraints(@Body() getCPSATCondition: GetCPSATResultDto) {
+    return this.scheduleService.filterDataAndPostConstraints(getCPSATCondition);
   }
 }

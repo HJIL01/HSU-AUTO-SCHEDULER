@@ -11,6 +11,7 @@ import { SemesterEntity } from 'src/common/entities/01_semester.entity';
 import { MajorEntity } from 'src/common/entities/02_major.entity';
 import { CourseFilteringQueryService } from './CourseFilteringQuery.service';
 import { GetCoursesDto } from '../dto/getCourses.dto';
+import { GetCPSATResultDto } from '../dto/getCPSATResult.dto';
 
 export type WeeklyScheduleType = {
   schedule_name: string;
@@ -235,7 +236,9 @@ export class ScheduleService {
     };
   }
 
-  async filterDataAndPostConstraints(constaraints: ConstraintsDto) {
+  async filterDataAndPostConstraints(getCPSATCondition: GetCPSATResultDto) {
+    const { currentPage, pagePerLimit, semester_id, constraints } =
+      getCPSATCondition;
     // 선택된 강의와 개인 스케줄을 요일 별로 묶을 Map
     const weeklyScheduleMap = new Map<WeekdayEnum, WeeklyScheduleType[]>();
 
@@ -252,14 +255,14 @@ export class ScheduleService {
     const semesterFilterQuery =
       this.courseFilterQueryService.getCoursesBySemester(
         courseRepoAlias,
-        constaraints.semester_id,
+        semester_id,
       );
     query.where(semesterFilterQuery.clause, semesterFilterQuery.params);
 
     // 2. 전공 필터링
     const majorFilterQuery = this.courseFilterQueryService.getCoursesByMajor(
       courseRepoAlias,
-      constaraints.major_code,
+      constraints.major_code,
     );
     query.andWhere(majorFilterQuery.clause, majorFilterQuery.params);
 
@@ -267,7 +270,7 @@ export class ScheduleService {
     const gradeFilterQuery =
       this.courseFilterQueryService.getCoursesByGradeForCPSAT(
         majorCourseRepoAlias,
-        constaraints.grade,
+        constraints.grade,
       );
 
     query.andWhere(gradeFilterQuery.clause, gradeFilterQuery.params);
@@ -276,16 +279,16 @@ export class ScheduleService {
     const dayOrNightFilterQuery =
       this.courseFilterQueryService.getCoursesByDayOrNight(
         courseRepoAlias,
-        constaraints.day_or_night,
+        constraints.day_or_night,
       );
     query.andWhere(dayOrNightFilterQuery.clause, dayOrNightFilterQuery.params);
 
     // 5. 공강 요일 필터링(선택된 공강 요일이 있을 시)
-    if (constaraints.no_class_days.length > 0) {
+    if (constraints.no_class_days.length > 0) {
       const noClassDaysFilterQuery =
         this.courseFilterQueryService.getCoursesByNoClassDays(
           offlineScheduleRepoAlias,
-          constaraints.no_class_days,
+          constraints.no_class_days,
         );
       query.andWhere(
         noClassDaysFilterQuery.clause,
@@ -294,11 +297,11 @@ export class ScheduleService {
     }
 
     // 6. 미리 선택된 강의들의 강의 코드로 필터링
-    if (constaraints.selected_courses.length > 0) {
+    if (constraints.selected_courses.length > 0) {
       const preSelectedCourseFilterQuery =
         this.courseFilterQueryService.getCoursesByPreSelectedCourses(
           courseRepoAlias,
-          constaraints.selected_courses,
+          constraints.selected_courses,
           weeklyScheduleMap,
         );
 
@@ -309,11 +312,11 @@ export class ScheduleService {
     }
 
     // 7. 개인 스케줄
-    if (constaraints.personal_schedules.length > 0) {
+    if (constraints.personal_schedules.length > 0) {
       // 그냥 weeklyScheduleMap에 추가만 하는 것이므로 따로 추가적인 작업 없이 호출만
       this.courseFilterQueryService.getCoursesByPersonalSchedulesFilter(
-        constaraints.personal_schedules,
-        constaraints.no_class_days,
+        constraints.personal_schedules,
+        constraints.no_class_days,
         weeklyScheduleMap,
       );
     }
@@ -329,7 +332,7 @@ export class ScheduleService {
       );
 
     // 점심 시간 보장 제약이 true일 경우 강의의 시간이 점심 시간과 겹치는지 확인하는 로직
-    if (constaraints.has_lunch_break) {
+    if (constraints.has_lunch_break) {
       filteredCourses =
         this.courseFilterQueryService.getCoursesByLunchTimeFilter(
           filteredCourses,
@@ -367,27 +370,30 @@ export class ScheduleService {
         acc.push(courseDto);
         return acc;
       },
-      [...constaraints.selected_courses],
+      [...constraints.selected_courses],
     );
 
-    console.log(JSON.stringify(finalFilteredCourses, null, 2));
+    // console.log(JSON.stringify(finalFilteredCourses, null, 2));
 
     const response = await firstValueFrom(
       this.httpService.post(`${process.env.FAST_API_BASE_URL}/cp-sat`, {
         filtered_data: finalFilteredCourses,
         // 밑의 강의들은 무조건 포함되도록 하기 위해서 같이 보냄
-        pre_selected_courses: constaraints.selected_courses,
-        constraints: constaraints,
+        pre_selected_courses: constraints.selected_courses,
+        constraints: constraints,
       }),
     );
 
     const { total_solution_count, solutions } = response.data;
 
+    const paginationStart = (currentPage - 1) * pagePerLimit;
+    const paginationEnd = paginationStart + pagePerLimit;
+
     return {
       message: '필터링 및 제약 조건 추출 성공',
       data: {
         total_solution_count,
-        solutions: solutions,
+        solutions: solutions.slice(paginationStart, paginationEnd),
       },
     };
   }
