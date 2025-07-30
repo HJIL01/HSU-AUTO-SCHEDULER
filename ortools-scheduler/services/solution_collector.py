@@ -82,5 +82,5 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
 
     @property
     def get_solutions(self):
-        # 상위 50개만 잘라서 줌
-        return self.solutions[:10]
+        # 상위 500개만 잘라서 줌
+        return self.solutions[:500]
