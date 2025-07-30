@@ -119,10 +119,11 @@ export class ScheduleService {
 
     // 3. sql: 학년 필터링(선택)
     if (grade) {
-      const gradeFilterQuery = this.courseFilterQueryService.getCoursesByGrade(
-        majorCourseRepoAlias,
-        grade,
-      );
+      const gradeFilterQuery =
+        this.courseFilterQueryService.getCoursesByGradeForSearch(
+          majorCourseRepoAlias,
+          grade,
+        );
 
       query.andWhere(gradeFilterQuery.clause, gradeFilterQuery.params);
     }
@@ -263,10 +264,11 @@ export class ScheduleService {
     query.andWhere(majorFilterQuery.clause, majorFilterQuery.params);
 
     // 3. 학년 필터링
-    const gradeFilterQuery = this.courseFilterQueryService.getCoursesByGrade(
-      majorCourseRepoAlias,
-      constaraints.grade,
-    );
+    const gradeFilterQuery =
+      this.courseFilterQueryService.getCoursesByGradeForCPSAT(
+        majorCourseRepoAlias,
+        constaraints.grade,
+      );
 
     query.andWhere(gradeFilterQuery.clause, gradeFilterQuery.params);
 
@@ -367,6 +369,8 @@ export class ScheduleService {
       },
       [...constaraints.selected_courses],
     );
+
+    console.log(JSON.stringify(finalFilteredCourses, null, 2));
 
     const response = await firstValueFrom(
       this.httpService.post(`${process.env.FAST_API_BASE_URL}/cp-sat`, {

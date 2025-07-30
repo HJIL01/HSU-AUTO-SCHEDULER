@@ -59,7 +59,8 @@ export class CourseFilteringQueryService {
   }
 
   // sql: 학년 필터링(major course가 조인되어 있을 시)
-  getCoursesByGrade(
+  // 강의 찾기: 공통 학년 포함
+  getCoursesByGradeForSearch(
     majorCourseRepoAlias: string,
     grade: number,
   ): QueryFilterType {
@@ -67,6 +68,19 @@ export class CourseFilteringQueryService {
       clause: `${majorCourseRepoAlias}.grade IN (:...grades)`,
       params: {
         grades: [0, grade],
+      },
+    };
+  }
+  // sql: 학년 필터링(major course가 조인되어 있을 시)
+  // CPSAT 연산: 공통 학년 제외
+  getCoursesByGradeForCPSAT(
+    majorCourseRepoAlias: string,
+    grade: number,
+  ): QueryFilterType {
+    return {
+      clause: `${majorCourseRepoAlias}.grade = :grade`,
+      params: {
+        grade,
       },
     };
   }
