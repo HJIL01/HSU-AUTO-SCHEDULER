@@ -26,7 +26,7 @@ export default function CPSATResultTabChanger({ tabMode, setTabMode }: Props) {
             ? "bg-course-finder-main-bg"
             : "bg-[#807f7e] text-zinc-800",
         )}
-        onClick={(e) => handleTabMode("timetableMode")}
+        onClick={() => handleTabMode("timetableMode")}
       >
         시간표 보기
       </button>
@@ -37,7 +37,7 @@ export default function CPSATResultTabChanger({ tabMode, setTabMode }: Props) {
             ? "bg-course-finder-main-bg"
             : "bg-[#807f7e] text-zinc-800",
         )}
-        onClick={(e) => handleTabMode("onlineLectureMode")}
+        onClick={() => handleTabMode("onlineLectureMode")}
       >
         온라인 강의 보기
       </button>
@@ -48,7 +48,7 @@ export default function CPSATResultTabChanger({ tabMode, setTabMode }: Props) {
             ? "bg-course-finder-main-bg"
             : "bg-[#807f7e] text-zinc-800",
         )}
-        onClick={(e) => handleTabMode("infoSummaryMode")}
+        onClick={() => handleTabMode("infoSummaryMode")}
       >
         시간표 요약
       </button>

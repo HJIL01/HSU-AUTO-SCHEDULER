@@ -10,7 +10,7 @@ import {
   SelectedCoursesRenderMapType,
 } from "@/types/courseRenderInfo.type";
 import getTimetableCellHeight from "@/utils/getTimetableCellHeight";
-import TimetableHead from "../../04_atoms/Timetable/TimetableHead";
+import TimetableHead from "./TimetableHead";
 
 type Props = {
   selectedCoursesByDay?: SelectedCoursesRenderMapType;

@@ -114,6 +114,11 @@ export default function TimeTableBody() {
 
   return (
     <motion.div
+      initial={{
+        height: isOpen
+          ? `calc(${100 - COURSE_FINDER_HEIGHT}dvh - 52px)`
+          : "100%",
+      }}
       animate={{
         height: isOpen
           ? // 밑의 52px은 헤더(TimetableTitle)의 높이

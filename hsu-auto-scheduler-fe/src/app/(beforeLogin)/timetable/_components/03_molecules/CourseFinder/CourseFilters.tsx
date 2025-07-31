@@ -120,7 +120,7 @@ export default function CourseFilters({ hasEnoughData }: Props) {
         <div
           ref={filterContainerRef}
           className={clsx(
-            "scrollbarHidden flex max-w-[72dvw] gap-4 overflow-x-auto",
+            "scrollbar-hidden flex max-w-[72dvw] gap-4 overflow-x-auto",
           )}
         >
           {/* 전공 필터 */}

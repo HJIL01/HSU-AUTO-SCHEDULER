@@ -2,19 +2,31 @@
 
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { useShallow } from "zustand/shallow";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function TimeTableEditButton() {
-  const { setOpen } = useTimetableStore(
+  const { isOpen, setOpen } = useTimetableStore(
     useShallow((state) => ({
+      isOpen: state.isOpen,
       setOpen: state.setOpen,
     })),
   );
+
   return (
-    <div className="fixed right-12 bottom-12 z-[99999]">
-      <button onClick={setOpen} className="text-2xl">
-        수업 추가 및 시간표 자동 생성
-      </button>
-      <button>개인 일정 추가</button>
-    </div>
+    <AnimatePresence>
+      {!isOpen && (
+        <motion.button
+          key="timetable-button"
+          className="create-timetable-btn max-md:text-md fixed right-[7dvw] z-[99999] px-8 py-5 text-lg max-sm:text-sm"
+          initial={{ bottom: "-500px", opacity: 0 }}
+          animate={{ bottom: "50px", opacity: 1 }}
+          exit={{ bottom: "-500px", opacity: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          onClick={setOpen}
+        >
+          시간표 생성
+        </motion.button>
+      )}
+    </AnimatePresence>
   );
 }
