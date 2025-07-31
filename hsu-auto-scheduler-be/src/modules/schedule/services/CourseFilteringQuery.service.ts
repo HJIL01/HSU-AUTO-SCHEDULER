@@ -59,8 +59,7 @@ export class CourseFilteringQueryService {
   }
 
   // sql: 학년 필터링(major course가 조인되어 있을 시)
-  // 강의 찾기: 공통 학년 포함
-  getCoursesByGradeForSearch(
+  getCoursesByGrade(
     majorCourseRepoAlias: string,
     grade: number,
   ): QueryFilterType {
@@ -71,19 +70,6 @@ export class CourseFilteringQueryService {
       },
     };
   }
-  // sql: 학년 필터링(major course가 조인되어 있을 시)
-  // CPSAT 연산: 공통 학년 제외
-  getCoursesByGradeForCPSAT(
-    majorCourseRepoAlias: string,
-    grade: number,
-  ): QueryFilterType {
-    return {
-      clause: `${majorCourseRepoAlias}.grade = :grade`,
-      params: {
-        grade,
-      },
-    };
-  }
 
   // sql: 공강 요일 필터링(offline schedule이 조인되어 있을 시)
   getCoursesByNoClassDays(
@@ -91,7 +77,7 @@ export class CourseFilteringQueryService {
     no_class_days: WeekdayEnum[],
   ): QueryFilterType {
     return {
-      clause: `${offlineScheduleRepoAlias}.day NOT IN (:...excludeDays)`,
+      clause: `(${offlineScheduleRepoAlias}.day NOT IN (:...excludeDays) OR ${offlineScheduleRepoAlias}.course_id IS NULL)`,
       params: {
         excludeDays: no_class_days,
       },

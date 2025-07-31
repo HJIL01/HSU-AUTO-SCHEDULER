@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { ConstraintsDto } from '../dto/constraints.dto';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CourseEntity } from 'src/common/entities/04_course.entity';
@@ -120,11 +119,10 @@ export class ScheduleService {
 
     // 3. sql: 학년 필터링(선택)
     if (grade) {
-      const gradeFilterQuery =
-        this.courseFilterQueryService.getCoursesByGradeForSearch(
-          majorCourseRepoAlias,
-          grade,
-        );
+      const gradeFilterQuery = this.courseFilterQueryService.getCoursesByGrade(
+        majorCourseRepoAlias,
+        grade,
+      );
 
       query.andWhere(gradeFilterQuery.clause, gradeFilterQuery.params);
     }
@@ -267,11 +265,10 @@ export class ScheduleService {
     query.andWhere(majorFilterQuery.clause, majorFilterQuery.params);
 
     // 3. 학년 필터링
-    const gradeFilterQuery =
-      this.courseFilterQueryService.getCoursesByGradeForCPSAT(
-        majorCourseRepoAlias,
-        constraints.grade,
-      );
+    const gradeFilterQuery = this.courseFilterQueryService.getCoursesByGrade(
+      majorCourseRepoAlias,
+      constraints.grade,
+    );
 
     query.andWhere(gradeFilterQuery.clause, gradeFilterQuery.params);
 
