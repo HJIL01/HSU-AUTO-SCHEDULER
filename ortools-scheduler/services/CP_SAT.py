@@ -1,8 +1,7 @@
 from ortools.sat.python import cp_model
 from schemas.common.course_schema import CourseSchema
 from schemas.common.constraints_schema import ConstraintsSchema
-from utils.constraints import (
-    # set_objective_maximize_credit,
+from .constraints import (
     add_pre_selected_course_constraint,
     add_max_credit_constraint,
     add_deduplicated_course_constraint,
@@ -71,8 +70,8 @@ def HSU_AUTO_SCHEDULER_CP_SAT(
         solution_collector.sort_solutions_by_priority()
 
         # 이러면 정렬 이후에 찍힘
-        solution_printer = AllSolutionPrinter(solution_collector.get_solutions)
-        solution_printer.solution_print()
+        # solution_printer = AllSolutionPrinter(solution_collector.get_solutions)
+        # solution_printer.solution_print()
 
         print(
             f"총 해의 개수: {solution_collector.solution_count} 총 탐색 시간: {solver.WallTime()}초"

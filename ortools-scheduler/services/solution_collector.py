@@ -3,6 +3,7 @@ from schemas.common.course_schema import CourseSchema
 from schemas.common.solution_schema import SolutionSchema
 from utils.group_courses_by_day import group_courses_by_day
 from utils.get_total_course_gap import get_total_course_gap
+from utils.has_common_grade import has_common_grade
 
 
 class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
@@ -67,12 +68,14 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
     def sort_solutions_by_priority(self):
         self.solutions.sort(
             key=lambda solution: (
+                # 전학년 강의가 적은 순
+                has_common_grade(solution.selected_courses),
                 # 총 학점 많은 순
                 -solution.total_credit,
-                # 시간 간격 적은 순
-                solution.total_course_gap,
                 # 온라인 강의 많은 순
                 -solution.total_online_course_count,
+                # 시간 간격 적은 순
+                solution.total_course_gap,
             )
         )
 

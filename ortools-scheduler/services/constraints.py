@@ -1,6 +1,6 @@
 from collections import defaultdict
 from schemas.common.course_schema import CourseSchema
-from .get_start_time_and_end_time import get_start_time_and_end_time
+from utils.get_start_time_and_end_time import get_start_time_and_end_time
 
 
 # ------- deprecated ------- #

@@ -9,6 +9,7 @@ class WeekdayEnum(str, Enum):
     FRI = "Fri"
     SAT = "Sat"
     SUN = "Sun"
+    NONE = "nontimes"
 
 
 class DayOrNightEnum(str, Enum):
