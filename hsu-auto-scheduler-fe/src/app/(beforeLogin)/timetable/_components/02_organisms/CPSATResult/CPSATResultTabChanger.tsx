@@ -8,9 +8,14 @@ type Props = {
   setTabMode: Dispatch<
     SetStateAction<"timetableMode" | "onlineLectureMode" | "infoSummaryMode">
   >;
+  onlineCourseCount: number;
 };
 
-export default function CPSATResultTabChanger({ tabMode, setTabMode }: Props) {
+export default function CPSATResultTabChanger({
+  tabMode,
+  setTabMode,
+  onlineCourseCount,
+}: Props) {
   const handleTabMode = (
     tabMode: "timetableMode" | "onlineLectureMode" | "infoSummaryMode",
   ) => {
@@ -39,7 +44,7 @@ export default function CPSATResultTabChanger({ tabMode, setTabMode }: Props) {
         )}
         onClick={() => handleTabMode("onlineLectureMode")}
       >
-        온라인 강의 보기
+        온라인 강의 보기({onlineCourseCount})
       </button>
       <button
         className={clsx(

@@ -13,7 +13,7 @@ import clsx from "clsx";
 import useHorizontalScrollByWheel from "@/hooks/useHorizontalScrollByWheel";
 import RHFCustomSelect from "@/components/RHF/RHFCustomSelect";
 import NoClassDaySelectModal from "../../05_modals/NoClassDaySelectModal";
-import FetchCPSATResult from "../../04_atoms/CourseFinder/FetchCPSATResult";
+import FilterActionBtns from "./FilterActionBtns";
 
 type Props = {
   hasEnoughData: boolean;
@@ -224,7 +224,7 @@ export default function CourseFilters({ hasEnoughData }: Props) {
           )}
         </div>
       </div>
-      <FetchCPSATResult hasEnoughData={hasEnoughData} />
+      <FilterActionBtns hasEnoughData={hasEnoughData} />
     </div>
   );
 }

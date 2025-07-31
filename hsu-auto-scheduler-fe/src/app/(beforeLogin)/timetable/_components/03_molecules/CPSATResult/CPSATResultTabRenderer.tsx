@@ -1,6 +1,6 @@
 import React from "react";
 import CPSATResultTimetableTab from "../../02_organisms/CPSATResult/tabs/CPSATResultTimetableTab";
-import OnlineCourseList from "../Timetable/OnlineCourseList";
+import OnlineCourseList from "../Timetable/OnlineCourseListForTimetable";
 import CPSATResultInfoSummaryTab from "../../02_organisms/CPSATResult/tabs/CPSATResultInfoSummaryTab";
 import { CPSATSolutionType } from "@/types/CPSATSolution.type";
 import groupCoursesByDay from "@/utils/groupCoursesByDay";
@@ -30,7 +30,13 @@ export default function CPSATResultTabRenderer({
           />
         );
       case "onlineLectureMode":
-        return <OnlineCourseList onlineCourses={[]} />;
+        return (
+          <OnlineCourseList
+            onlineCourses={
+              selectedCoursesByDayList[currentIndex].get("nontimes") ?? []
+            }
+          />
+        );
       case "infoSummaryMode":
         return <CPSATResultInfoSummaryTab />;
     }

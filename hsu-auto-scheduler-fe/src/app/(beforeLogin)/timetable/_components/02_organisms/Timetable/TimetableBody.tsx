@@ -6,7 +6,7 @@ import { useShallow } from "zustand/shallow";
 import { motion } from "framer-motion";
 import { COURSE_FINDER_HEIGHT } from "@/constants/CourseFinderHeight";
 import TimeTableGrid from "../../03_molecules/Timetable/TimeTableGrid";
-import OnlineCourseList from "../../03_molecules/Timetable/OnlineCourseList";
+import OnlineCourseList from "../../03_molecules/Timetable/OnlineCourseListForTimetable";
 import {
   CourseRenderInfoType,
   HoverCourseRenderMapType,
@@ -18,6 +18,7 @@ import { getCourseBlockHeight } from "@/utils/getCourseBlockHeight";
 import { COURSE_BLOCK_BG_COLORS } from "@/constants/CourseBlockBgColors";
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import useCurrentSemester from "@/hooks/useCurrentSemester";
+import OnlineCourseListForTimetable from "../../03_molecules/Timetable/OnlineCourseListForTimetable";
 
 export default function TimeTableBody() {
   const currentSemester = useCurrentSemester();
@@ -129,14 +130,18 @@ export default function TimeTableBody() {
         duration: 1,
         ease: "easeInOut",
       }}
-      className={clsx("relative w-full")}
+      className={clsx("relative flex w-full flex-col gap-10")}
     >
       <TimeTableGrid
         selectedCoursesByDay={selectedCoursesByDay}
         hoveredCourseByDay={hoveredCourseByDay}
         isCPSATResult={false}
       />
-      <OnlineCourseList />
+      {selectedCoursesByDay && selectedCoursesByDay.get("nontimes") && (
+        <OnlineCourseListForTimetable
+          onlineCourses={selectedCoursesByDay.get("nontimes")!}
+        />
+      )}
     </motion.div>
   );
 }

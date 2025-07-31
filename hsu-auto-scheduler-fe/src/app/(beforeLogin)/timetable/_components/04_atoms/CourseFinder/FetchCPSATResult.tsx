@@ -45,7 +45,7 @@ export default function FetchCPSATResult({ hasEnoughData }: Props) {
   return (
     <>
       <button
-        className="bg-hsu rounded-lg px-3 text-xs whitespace-nowrap text-white"
+        className="bg-hsu h-full rounded-lg px-3 text-xs whitespace-nowrap text-white"
         onClick={handleSubmit(onSubmit)}
       >
         시간표 자동 생성

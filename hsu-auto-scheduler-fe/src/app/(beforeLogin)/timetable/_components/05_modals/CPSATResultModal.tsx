@@ -5,7 +5,7 @@ import Portal from "@/components/Portal";
 import CloseIcon from "@/assets/icons/CloseIcon";
 import FetchingLoader from "./FetchingLoader";
 import useCPSATProcessedData from "@/hooks/useCPSATProcessedData";
-import CPSATResultTabsContainer from "../02_organisms/CPSATResult/CPSATResultTabs";
+import CPSATResultTabsContainer from "../02_organisms/CPSATResult/CPSATResultTabsContainer";
 
 type Props = {
   isFetching: boolean;

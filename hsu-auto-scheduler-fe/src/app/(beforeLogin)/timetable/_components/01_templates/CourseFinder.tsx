@@ -25,10 +25,10 @@ export default function CourseFinder() {
         height: `${COURSE_FINDER_HEIGHT}dvh`,
       }}
       animate={{
-        top: isOpen ? `${100 - COURSE_FINDER_HEIGHT}dvh` : "100dvh",
+        top: isOpen ? `calc(${100 - COURSE_FINDER_HEIGHT}dvh)` : "100dvh",
         opacity: isOpen ? 1 : 0,
       }}
-      initial={{ top: "100vh", opacity: 0 }}
+      initial={{ top: "100dvh", opacity: 0 }}
       transition={{ duration: 1, ease: "easeInOut" }}
       className="border-t-border border-t-course-finder-border bg-course-finder-main-bg fixed bottom-0 z-(--z-index-course-finder) w-full border-t px-5 py-7"
     >

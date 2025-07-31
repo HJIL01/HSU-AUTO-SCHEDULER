@@ -4,7 +4,6 @@ import { DAYS } from "@/constants/days";
 import { HOURS } from "@/constants/hours";
 import clsx from "clsx";
 import DayColumn from "../../04_atoms/Timetable/DayColumn";
-import { WeekdayKorMap } from "@/enums/weekday.enum";
 import {
   HoverCourseRenderMapType,
   SelectedCoursesRenderMapType,
