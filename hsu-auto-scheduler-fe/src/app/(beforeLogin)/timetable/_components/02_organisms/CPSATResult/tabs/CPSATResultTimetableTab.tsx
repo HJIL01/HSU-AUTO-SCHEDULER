@@ -9,8 +9,6 @@ import {
 } from "@/types/courseRenderInfo.type";
 import TimetableHead from "../../../03_molecules/Timetable/TimetableHead";
 import { motion } from "framer-motion";
-import { CPSATSolutionType } from "@/types/CPSATSolution.type";
-import groupCoursesByDay from "@/utils/groupCoursesByDay";
 
 type Props = {
   selectedCoursesByDayList: SelectedCoursesRenderMapType[];

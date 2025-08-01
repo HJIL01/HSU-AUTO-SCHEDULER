@@ -6,7 +6,6 @@ import { useShallow } from "zustand/shallow";
 import { motion } from "framer-motion";
 import { COURSE_FINDER_HEIGHT } from "@/constants/CourseFinderHeight";
 import TimeTableGrid from "../../03_molecules/Timetable/TimeTableGrid";
-import OnlineCourseList from "../../03_molecules/Timetable/OnlineCourseListForTimetable";
 import {
   CourseRenderInfoType,
   HoverCourseRenderMapType,
@@ -118,19 +117,19 @@ export default function TimeTableBody() {
       initial={{
         height: isOpen
           ? `calc(${100 - COURSE_FINDER_HEIGHT}dvh - 52px)`
-          : "100%",
+          : "auto",
       }}
       animate={{
         height: isOpen
           ? // 밑의 52px은 헤더(TimetableTitle)의 높이
             `calc(${100 - COURSE_FINDER_HEIGHT}dvh - 52px)`
-          : "100%",
+          : "auto",
       }}
       transition={{
         duration: 1,
         ease: "easeInOut",
       }}
-      className={clsx("relative flex w-full flex-col gap-10")}
+      className={clsx("relative flex h-fit w-full flex-col")}
     >
       <TimeTableGrid
         selectedCoursesByDay={selectedCoursesByDay}

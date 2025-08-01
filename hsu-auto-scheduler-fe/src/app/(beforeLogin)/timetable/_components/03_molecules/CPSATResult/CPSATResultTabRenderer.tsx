@@ -1,10 +1,10 @@
 import React from "react";
 import CPSATResultTimetableTab from "../../02_organisms/CPSATResult/tabs/CPSATResultTimetableTab";
-import OnlineCourseList from "../Timetable/OnlineCourseListForTimetable";
 import CPSATResultInfoSummaryTab from "../../02_organisms/CPSATResult/tabs/CPSATResultInfoSummaryTab";
 import { CPSATSolutionType } from "@/types/CPSATSolution.type";
 import groupCoursesByDay from "@/utils/groupCoursesByDay";
 import { SelectedCoursesRenderMapType } from "@/types/courseRenderInfo.type";
+import CPSATResultOnlineCoursesTab from "../../02_organisms/CPSATResult/tabs/CPSATResultOnlineCoursesTab";
 
 type Props = {
   tabMode: "timetableMode" | "onlineLectureMode" | "infoSummaryMode";
@@ -31,7 +31,7 @@ export default function CPSATResultTabRenderer({
         );
       case "onlineLectureMode":
         return (
-          <OnlineCourseList
+          <CPSATResultOnlineCoursesTab
             onlineCourses={
               selectedCoursesByDayList[currentIndex].get("nontimes") ?? []
             }
@@ -43,6 +43,8 @@ export default function CPSATResultTabRenderer({
   };
 
   return (
-    <div className="flex h-fit w-[75dvw] flex-col">{renderTabContent()}</div>
+    <div className="bg-timetable-body-bg flex h-[634.4px] w-[75dvw] flex-col">
+      {renderTabContent()}
+    </div>
   );
 }

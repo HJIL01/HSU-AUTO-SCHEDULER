@@ -33,7 +33,7 @@ export default function OnlineCourseListForTimetable({ onlineCourses }: Props) {
       {onlineCourses.map((onlineCourse, i) => (
         <div
           key={onlineCourse.courseId}
-          className="bg-timetable-body-bg border-timetable-cell-border border-x border-b px-5 py-5"
+          className="bg-timetable-body-bg border-timetable-cell-border border-x border-b p-5"
         >
           <div className="flex w-fit items-center gap-3">
             <h2 className="max-md:text-xxs text-sm font-extrabold max-lg:text-xs">
@@ -43,7 +43,7 @@ export default function OnlineCourseListForTimetable({ onlineCourses }: Props) {
               {onlineCourse.professors.join(", ")}
             </span>
             <button
-              className="aspect-square w-7 bg-transparent pt-1 max-md:w-5"
+              className="aspect-square w-7 bg-transparent pt-[3px] max-md:w-5"
               onClick={() => handleDeleteOnlineCourse(onlineCourse)}
             >
               <CloseIcon />

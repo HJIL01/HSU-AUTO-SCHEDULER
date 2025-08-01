@@ -12,6 +12,7 @@ type SelectedCourseActionType = {
   isCourseAdded: (semester: string, courseId: string) => boolean;
   addCourse: (semester: string, course: CourseType) => void;
   deleteCourse: (semester: string, courseId: string) => void;
+  resetSelectedCourses: (semester: string) => void;
 };
 
 export type SelectedCourseSliceType = SelectedCourseStateType &
@@ -53,6 +54,11 @@ export const createSelectedCourseSlice: StateCreator<
         state.selectedCourses[semester] = semesterCourses.filter(
           (c) => c.course_id !== courseId,
         );
+      });
+    },
+    resetSelectedCourses: (semester: string) => {
+      set((state) => {
+        state.selectedCourses[semester] = [];
       });
     },
   })),

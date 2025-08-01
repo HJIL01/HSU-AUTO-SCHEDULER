@@ -28,6 +28,7 @@ type TimeSelectionActionType = {
     startIndex: number,
     endIndex: number,
   ) => void;
+  resetTimeSelection: (semester: string) => void;
 };
 
 export type TimeSelectionSliceType = TimeSelectionStateType &
@@ -110,6 +111,17 @@ export const createTimeSelectionSlice: StateCreator<
             dayTimes[i] = 0;
           }
         }
+      });
+    },
+    resetTimeSelection: (semester: string) => {
+      set((state) => {
+        state.timetableSelections[semester] = Object.values(WeekdayEnum).reduce(
+          (acc, day) => {
+            acc[day] = Array(HOURS.length).fill(0);
+            return acc;
+          },
+          {} as Record<WeekdayEnum, number[]>,
+        );
       });
     },
   })),

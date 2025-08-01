@@ -24,7 +24,15 @@ export default function TimeTableGrid({
 }: Props) {
   const timetableCellHeight = getTimetableCellHeight(isCPSATResult);
   return (
-    <div>
+    <div
+      className={clsx(
+        isCPSATResult
+          ? "pb-0"
+          : selectedCoursesByDay?.get("nontimes")
+            ? "pb-10"
+            : "pb-20",
+      )}
+    >
       {/* thead */}
       {!isCPSATResult && <TimetableHead isCPSATResult={isCPSATResult} />}
 
