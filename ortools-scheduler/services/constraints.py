@@ -74,21 +74,25 @@ def add_max_credit_constraint(
 
     # 최소 학점 제한 최대 학점에서 6뺀 학점. 최대 학점이 6미만이라면 0으로 처리
     # 만약 데이터셋이 충분하지 않다면 해당 데이터셋을 합친 학점으로 최소 학점 처리
-    courses_total_credit = sum(course.credit for course in courses)
-    min_credit = max_credit
+    # courses_total_credit = sum(course.credit for course in courses)
+    # min_credit = max_credit
 
-    if courses_total_credit < max_credit:
-        min_credit = 1 if courses_total_credit == 0 else courses_total_credit
-    else:
-        min_credit = max(max_credit - 3, 1)
+    # if courses_total_credit < max_credit:
+    #     min_credit = 1 if courses_total_credit == 0 else courses_total_credit
+    # else:
+    #     min_credit = max(max_credit - 3, 1)
+    #
+    # limit_min = (
+    #     sum(course.credit * cur for course, cur in zip(courses, is_selected))
+    #     >= min_credit
+    # )
 
-    limit_min = (
-        sum(course.credit * cur for course, cur in zip(courses, is_selected))
-        >= min_credit
+    not_zero_credit = (
+        sum(course.credit * cur for course, cur in zip(courses, is_selected)) >= 1
     )
 
     model.Add(limit_max)
-    model.Add(limit_min)
+    model.Add(not_zero_credit)
 
 
 # 과목의 이름을 기준으로 중복을 제거하는 제약조건 추가 함수
@@ -174,7 +178,6 @@ def add_non_overlapping_schedule_constraint(
         for cur_course_offline_schedule in cur_course.offline_schedules:
             course_day_indices[cur_course_offline_schedule.day].append(cur_course_index)
 
-    # print(course_day_indices)
     for cur_day in course_day_indices:
         indicies_by_day = course_day_indices[cur_day]
         for i, cur_course_index in enumerate(indicies_by_day):
@@ -182,13 +185,6 @@ def add_non_overlapping_schedule_constraint(
                 get_start_time_and_end_time(courses[cur_course_index], cur_day)
             )
 
-            # print(
-            #     "현재 코스: ",
-            #     cur_day,
-            #     cur_course_start_time_in_cur_day,
-            #     cur_course_end_time_in_cur_day,
-            #     cur_course.course_name,
-            # )
             for j in range(i + 1, len(indicies_by_day)):
                 next_course_index = indicies_by_day[j]
 
@@ -202,11 +198,7 @@ def add_non_overlapping_schedule_constraint(
                     and cur_course_end_time_in_cur_day
                     > next_course_start_time_in_cur_day
                 ):
-                    # print(
-                    #     f"겹침: {cur_course.course_name}, {next_course.course_name}, {cur_day}"
-                    # )
                     model.AddBoolOr(
                         is_selected[cur_course_index].Not(),
                         is_selected[next_course_index].Not(),
                     )
-            print()

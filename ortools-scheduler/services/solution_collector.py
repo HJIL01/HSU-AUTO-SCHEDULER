@@ -81,7 +81,7 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
 
     @property
     def get_solution_count(self):
-        return self.solution_count
+        return min(self.solution_count, 500)
 
     @property
     def get_solutions(self):
