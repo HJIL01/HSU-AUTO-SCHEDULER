@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import CPSATResultTimetableTab from "../../02_organisms/CPSATResult/tabs/CPSATResultTimetableTab";
 import CPSATResultInfoSummaryTab from "../../02_organisms/CPSATResult/tabs/CPSATResultInfoSummaryTab";
 import { CPSATSolutionType } from "@/types/CPSATSolution.type";
@@ -18,7 +18,11 @@ export default function CPSATResultTabRenderer({
   currentIndex,
 }: Props) {
   const selectedCoursesByDayList: SelectedCoursesRenderMapType[] =
-    CPSATResult.map((result) => groupCoursesByDay(result.selected_courses));
+    useMemo(() => {
+      return CPSATResult.map((result) =>
+        groupCoursesByDay(result.selected_courses),
+      );
+    }, [CPSATResult]);
 
   const renderTabContent = () => {
     switch (tabMode) {
@@ -33,17 +37,29 @@ export default function CPSATResultTabRenderer({
         return (
           <CPSATResultOnlineCoursesTab
             onlineCourses={
-              selectedCoursesByDayList[currentIndex].get("nontimes") ?? []
+              selectedCoursesByDayList?.[currentIndex]?.get("nontimes") ?? []
             }
           />
         );
       case "infoSummaryMode":
-        return <CPSATResultInfoSummaryTab />;
+        return (
+          <CPSATResultInfoSummaryTab
+            totalCredit={CPSATResult[currentIndex].total_credit}
+            onlineCourseCount={
+              CPSATResult[currentIndex].total_online_course_count
+            }
+            currentIndex={currentIndex}
+            selectedCoursesByDayList={selectedCoursesByDayList}
+          />
+        );
     }
   };
 
   return (
-    <div className="bg-timetable-body-bg flex h-[634.4px] w-[75dvw] flex-col">
+    <div
+      className="bg-timetable-body-bg flex h-318 w-[75dvw] flex-col"
+      onClick={() => console.log(CPSATResult[currentIndex], "클릭됨")}
+    >
       {renderTabContent()}
     </div>
   );

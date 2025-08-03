@@ -1,3 +1,3 @@
 export default function getTimetableCellHeight(isCPSATResult?: boolean) {
-  return isCPSATResult ? 40 : 66;
+  return isCPSATResult ? 40 : 70;
 }

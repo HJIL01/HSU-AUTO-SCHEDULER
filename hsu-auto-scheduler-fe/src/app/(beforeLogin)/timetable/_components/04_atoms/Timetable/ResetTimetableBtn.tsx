@@ -23,7 +23,7 @@ export default function ResetTimetableBtn() {
   };
   return (
     <button
-      className="mr-3 rounded-lg bg-white px-3 py-3 text-xs"
+      className="mr-3 rounded-lg bg-white px-3 py-3 text-xs whitespace-nowrap"
       onClick={() => handleResetTimetableStore(currentSemester)}
     >
       시간표 초기화

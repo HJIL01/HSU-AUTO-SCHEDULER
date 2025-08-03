@@ -1,7 +1,11 @@
 @theme {
     --color-scheduler-main-bg: #F8F8F8;
 
-    --color-hsu: #11348E;
+    --color-hsu: #2e5cb8;
+    --color-deep-hsu: #4472c4;
+    --color-light-hsu: #f8f9ff;
+    --color-border-hsu: #e3e8ff;
+
 
     /* 시간표 부분 */
     --color-timetable-body-bg: #F8F8F8;
@@ -32,4 +36,5 @@
     --color-course-finder-courses-table-head-bg: #E9E3DF;
     --color-course-finder-courses-table-row-bg: #FAF7F3;
     --color-course-finder-courses-table-row-hover-bg: #DBDBDB;
+
 }

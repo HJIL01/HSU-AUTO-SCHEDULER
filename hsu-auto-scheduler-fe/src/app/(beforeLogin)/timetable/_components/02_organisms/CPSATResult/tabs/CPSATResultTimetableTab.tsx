@@ -1,12 +1,5 @@
-import React from "react";
 import TimeTableGrid from "../../../03_molecules/Timetable/TimeTableGrid";
-import { getCourseBlockHeight } from "@/utils/getCourseBlockHeight";
-import { getTopByStartTime } from "@/utils/getTopByStartTime";
-import { COURSE_BLOCK_BG_COLORS } from "@/constants/CourseBlockBgColors";
-import {
-  CourseRenderInfoType,
-  SelectedCoursesRenderMapType,
-} from "@/types/courseRenderInfo.type";
+import { SelectedCoursesRenderMapType } from "@/types/courseRenderInfo.type";
 import TimetableHead from "../../../03_molecules/Timetable/TimetableHead";
 import { motion } from "framer-motion";
 

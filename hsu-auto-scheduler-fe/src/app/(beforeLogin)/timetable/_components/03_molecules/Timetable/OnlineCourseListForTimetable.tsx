@@ -30,7 +30,7 @@ export default function OnlineCourseListForTimetable({ onlineCourses }: Props) {
 
   return (
     <div className="border-scheduler-cell-border w-full border-y border-b-transparent pb-20">
-      {onlineCourses.map((onlineCourse, i) => (
+      {onlineCourses.map((onlineCourse) => (
         <div
           key={onlineCourse.courseId}
           className="bg-timetable-body-bg border-timetable-cell-border border-x border-b p-5"

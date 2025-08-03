@@ -6,7 +6,17 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 
 export default function useGetCourses(filters: FilterType) {
   return useInfiniteQuery({
-    queryKey: ["courses", JSON.stringify(filters)],
+    queryKey: [
+      "courses",
+      filters.semester_id,
+      filters.major_code,
+      filters.grade,
+      JSON.stringify(filters.no_class_days),
+      filters.day_or_night,
+      JSON.stringify(filters.selected_courses),
+      JSON.stringify(filters.personal_schedules),
+      filters.has_lunch_break,
+    ],
     queryFn: async ({
       pageParam,
     }: {

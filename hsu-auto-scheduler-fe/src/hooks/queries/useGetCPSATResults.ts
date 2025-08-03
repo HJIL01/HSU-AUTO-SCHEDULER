@@ -13,6 +13,8 @@ import { ResponseType } from "@/types/response.type";
 export default function useGetCPSATResults() {
   const currentSemester = useCurrentSemester();
   const { setValue, getValues } = useFormContext<CreateCPSATschemaType>();
+  const { semester, ...rest } = getValues();
+  const semester_id = splitSemester(semester);
 
   const { selectedCourses } = useTimetableStore(
     useShallow((state) => ({
@@ -23,7 +25,7 @@ export default function useGetCPSATResults() {
   // rhf의 selected_courses와 zustand의 selectedCourses는 여기서 동기화됨
   // personal_schedules도 마찬가지
   useEffect(() => {
-    setValue("selected_courses", selectedCourses[currentSemester]);
+    setValue("selected_courses", selectedCourses[currentSemester] ?? []);
   }, [currentSemester, selectedCourses, setValue]);
 
   return useInfiniteQuery({
@@ -38,9 +40,6 @@ export default function useGetCPSATResults() {
         solutions: CPSATSolutionType[];
       }>
     > => {
-      const { semester, ...rest } = getValues();
-      const semester_id = splitSemester(semester);
-
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_BASE_URL}/schedule/constraints`,
         {
@@ -58,9 +57,11 @@ export default function useGetCPSATResults() {
           }),
         },
       );
+
       if (!response.ok) {
         throw new Error("CP-SAT Result HTTP ERROR!");
       }
+
       return response.json();
     },
     initialPageParam: 1,

@@ -21,7 +21,7 @@ export default function RHFProvider({ children }: Props) {
     ? currentSemester[0]
     : (currentSemester ?? "2025-2");
 
-  const { semester, ...rest } = createCPSATSchemaDefaultValues;
+  const { semester: _, ...rest } = createCPSATSchemaDefaultValues;
 
   const method = useForm({
     mode: "all",

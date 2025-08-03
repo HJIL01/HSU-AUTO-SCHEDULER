@@ -8,6 +8,7 @@ import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { useState } from "react";
 import CourseTab from "../02_organisms/CourseFinder/CourseTab";
 import CourseFinderTabChanger from "../03_molecules/CourseFinder/CourseFinderTabChanger";
+import PersonalScheduleTab from "../02_organisms/CourseFinder/PersonalScheduleTab";
 
 export default function CourseFinder() {
   const { isOpen, setClose } = useTimetableStore(
@@ -39,11 +40,7 @@ export default function CourseFinder() {
       >
         <DropDownArrow />
       </button>
-      {editMode === "course" ? (
-        <CourseTab />
-      ) : (
-        <div className="h-full bg-red-500">ad</div>
-      )}
+      {editMode === "course" ? <CourseTab /> : <PersonalScheduleTab />}
     </motion.div>
   );
 }

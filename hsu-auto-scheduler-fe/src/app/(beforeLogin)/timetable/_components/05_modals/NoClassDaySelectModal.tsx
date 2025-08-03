@@ -27,7 +27,11 @@ export default function NoClassDaySelectModal({
   const handleSelectNoClassDays = (day: WeekdayEnum) => {
     const newSet = new Set(selectedNoClassDays);
 
-    newSet.has(day) ? newSet.delete(day) : newSet.add(day);
+    if (newSet.has(day)) {
+      newSet.delete(day);
+    } else {
+      newSet.add(day);
+    }
 
     setSelectNoClassDays(newSet);
   };

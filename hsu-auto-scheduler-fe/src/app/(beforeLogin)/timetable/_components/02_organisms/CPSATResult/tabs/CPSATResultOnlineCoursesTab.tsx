@@ -1,3 +1,5 @@
+"use client";
+
 import { CourseRenderInfoType } from "@/types/courseRenderInfo.type";
 import clsx from "clsx";
 
@@ -7,7 +9,7 @@ type Props = {
 
 export default function CPSATResultOnlineCoursesTab({ onlineCourses }: Props) {
   return (
-    <div className="h-full w-full py-5">
+    <div className="h-full w-full p-5">
       {onlineCourses.length > 0 ? (
         <>
           {onlineCourses.map((onlineCourse, i) => (
@@ -28,8 +30,8 @@ export default function CPSATResultOnlineCoursesTab({ onlineCourses }: Props) {
           ))}
         </>
       ) : (
-        <div className="flex h-full w-full items-center justify-center bg-red-500 text-2xl">
-          ads
+        <div className="flex h-full w-full items-center justify-center text-2xl text-gray-400">
+          온라인 강의가 없습니다
         </div>
       )}
     </div>

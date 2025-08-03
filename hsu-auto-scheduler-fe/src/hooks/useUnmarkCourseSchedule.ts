@@ -4,19 +4,14 @@ import { useShallow } from "zustand/shallow";
 import useCurrentSemester from "./useCurrentSemester";
 
 export default function useUnmarkCourseSchedule() {
-  const {
-    selectedCourses,
-    deleteCourse,
-    ensureSemesterInitialized,
-    deleteSelectedTimeRange,
-  } = useTimetableStore(
-    useShallow((state) => ({
-      selectedCourses: state.selectedCourses,
-      deleteCourse: state.deleteCourse,
-      ensureSemesterInitialized: state.ensureSemesterInitialized,
-      deleteSelectedTimeRange: state.deleteSelectedTimeRange,
-    })),
-  );
+  const { selectedCourses, deleteCourse, deleteSelectedTimeRange } =
+    useTimetableStore(
+      useShallow((state) => ({
+        selectedCourses: state.selectedCourses,
+        deleteCourse: state.deleteCourse,
+        deleteSelectedTimeRange: state.deleteSelectedTimeRange,
+      })),
+    );
 
   const currentSemester = useCurrentSemester();
 

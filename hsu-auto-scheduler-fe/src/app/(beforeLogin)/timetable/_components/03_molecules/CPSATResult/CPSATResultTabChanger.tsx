@@ -23,7 +23,7 @@ export default function CPSATResultTabChanger({
   };
 
   return (
-    <div className="absolute top-0 right-0 flex translate-y-[-98%] bg-transparent text-xs">
+    <div className="absolute top-0 right-0 flex -translate-y-full bg-transparent text-xs">
       <button
         className={clsx(
           "rounded-t-lg p-5 transition-colors duration-200",

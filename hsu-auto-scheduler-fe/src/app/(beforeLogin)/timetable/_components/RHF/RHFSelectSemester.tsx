@@ -35,7 +35,7 @@ export default function RHFSelectSemester({ semesters }: Props) {
 
   const handleSelectChange = (
     value: string,
-    onChange: (...event: any[]) => void,
+    onChange: (value: string) => void,
   ) => {
     onChange(value);
     handleChangeSemester(value);
@@ -47,7 +47,7 @@ export default function RHFSelectSemester({ semesters }: Props) {
       queryKey: ["majors", currentSemester],
       queryFn: () => getMajors(year, term),
     });
-  }, [currentSemester]);
+  }, [currentSemester, queryClient]);
 
   return (
     <Controller

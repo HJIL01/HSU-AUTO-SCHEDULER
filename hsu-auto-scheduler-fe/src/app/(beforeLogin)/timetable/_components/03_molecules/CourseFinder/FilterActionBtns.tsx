@@ -17,7 +17,13 @@ export default function FilterActionBtns({ hasEnoughData }: Props) {
   const currentSemester = useCurrentSemester();
 
   const onReset = () => {
-    const { semester, ...rest } = createCPSATSchemaDefaultValues;
+    const shouldReset = confirm("필터를 초기화 하시겠습니까?");
+
+    if (!shouldReset) {
+      return;
+    }
+
+    const { semester: _, ...rest } = createCPSATSchemaDefaultValues;
 
     reset({
       semester: currentSemester,

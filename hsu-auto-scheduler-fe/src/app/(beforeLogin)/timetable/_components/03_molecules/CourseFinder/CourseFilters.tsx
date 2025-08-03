@@ -5,7 +5,7 @@ import { useGetMajors } from "@/hooks/queries/useGetMajors";
 import { SelectOptionType } from "@/types/selectOption.type";
 import { DayOrNightEnum, DayOrNightKorMap } from "@/enums/dayOrNight.enum";
 import RHFTextInput from "@/components/RHF/RHFTextInput";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { WeekdayKorMap } from "@/enums/weekday.enum";
 import { CreateCPSATschemaType } from "@/types/schemas/CreateCPSAT.schema";
 import useFixInputValues from "@/hooks/useFixInputValues";
@@ -25,13 +25,8 @@ export default function CourseFilters({ hasEnoughData }: Props) {
   // 전공 기초, 전공 필수, 전공 선택, 하루 최대 강의 수, 점심시간 보장
   const [isLeftEnded, setIsLeftEnded] = useState<boolean>(true);
   const [isRightEnded, setIsRightEnded] = useState<boolean>(false);
-  const filterContainerRef = useRef<HTMLDivElement | null>(null);
 
-  useHorizontalScrollByWheel(
-    filterContainerRef,
-    setIsLeftEnded,
-    setIsRightEnded,
-  );
+  const scrollRef = useHorizontalScrollByWheel(setIsLeftEnded, setIsRightEnded);
 
   const [noClassDaysSelectModalIsOpen, setNoClassDaysSelectModalIsOpen] =
     useState<boolean>(false);
@@ -118,7 +113,7 @@ export default function CourseFilters({ hasEnoughData }: Props) {
 
         {/* 필터 컨테이너 */}
         <div
-          ref={filterContainerRef}
+          ref={scrollRef}
           className={clsx(
             "scrollbar-hidden flex max-w-[72dvw] gap-4 overflow-x-auto",
           )}

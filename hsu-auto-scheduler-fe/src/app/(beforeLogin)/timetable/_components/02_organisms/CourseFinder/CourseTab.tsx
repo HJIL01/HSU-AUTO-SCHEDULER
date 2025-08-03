@@ -61,7 +61,7 @@ export default function CourseTab() {
     }
 
     return false;
-  }, [courses]);
+  }, [courses, maxCredit]);
 
   return (
     <div className="h-full w-full space-y-8">
