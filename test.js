@@ -1,3 +1,3 @@
-const test = {
-  t: 1,
-};
+const t = undefined;
+
+console.log(t ? "있음" : " ");
