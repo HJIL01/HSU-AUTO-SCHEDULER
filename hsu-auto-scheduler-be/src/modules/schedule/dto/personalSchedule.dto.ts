@@ -1,5 +1,11 @@
 import { Type } from 'class-transformer';
-import { IsEnum, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import {
+  IsEnum,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsString,
+} from 'class-validator';
 import { WeekdayEnum } from 'src/common/enums/weekday.enum';
 
 export class PersonalScheduleDto {
@@ -18,4 +24,9 @@ export class PersonalScheduleDto {
   @Type(() => Number)
   @IsNumber({ allowNaN: false }, { message: 'endTime은 숫자여야 합니다.' })
   end_time: number;
+
+  @IsOptional()
+  @IsString()
+  @IsNotEmpty()
+  place: string | null;
 }

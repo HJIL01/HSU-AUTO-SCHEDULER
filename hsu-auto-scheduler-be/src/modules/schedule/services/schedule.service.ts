@@ -386,11 +386,13 @@ export class ScheduleService {
     const paginationStart = (currentPage - 1) * pagePerLimit;
     const paginationEnd = paginationStart + pagePerLimit;
 
+    const slicedSolutions = solutions.slice(paginationStart, paginationEnd);
+
     return {
       message: '필터링 및 제약 조건 추출 성공',
       data: {
         total_solution_count,
-        solutions: solutions.slice(paginationStart, paginationEnd),
+        solutions: slicedSolutions,
       },
     };
   }
