@@ -1,7 +1,7 @@
 import { useTimetableStore } from "@/store/timetable/timetableStore";
-import getHourIndexFromMins from "@/utils/getHourIndexFromMins";
 import { useShallow } from "zustand/shallow";
 import useCurrentSemester from "./useCurrentSemester";
+import calcMinIndex from "@/utils/getHourIndexFromMins";
 
 export default function useUnmarkCourseSchedule() {
   const { selectedCourses, deleteCourse, deleteSelectedTimeRange } =
@@ -33,12 +33,8 @@ export default function useUnmarkCourseSchedule() {
       deleteCourse(currentSemester, courseId);
       for (const targetCourseOfflineSchdule of targetCourse.offline_schedules) {
         const day = targetCourseOfflineSchdule.day;
-        const startIndex = getHourIndexFromMins(
-          targetCourseOfflineSchdule.start_time,
-        );
-        const endIndex = getHourIndexFromMins(
-          targetCourseOfflineSchdule.end_time,
-        );
+        const startIndex = calcMinIndex(targetCourseOfflineSchdule.start_time);
+        const endIndex = calcMinIndex(targetCourseOfflineSchdule.end_time);
 
         deleteSelectedTimeRange(currentSemester, day, startIndex, endIndex);
       }

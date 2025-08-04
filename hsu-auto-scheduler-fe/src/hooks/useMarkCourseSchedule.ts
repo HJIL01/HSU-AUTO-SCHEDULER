@@ -1,8 +1,8 @@
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { CourseType } from "@/types/schemas/Course.schema";
-import getHourIndexFromMins from "@/utils/getHourIndexFromMins";
 import { useShallow } from "zustand/shallow";
 import useCurrentSemester from "./useCurrentSemester";
+import calcMinIndex from "@/utils/getHourIndexFromMins";
 
 export default function useMarkCourseSchedule() {
   const {
@@ -31,8 +31,8 @@ export default function useMarkCourseSchedule() {
   const addCourseAndMark = (course: CourseType) => {
     for (const offlineSchedule of course.offline_schedules) {
       const curDay = offlineSchedule.day;
-      const startIndex = getHourIndexFromMins(offlineSchedule.start_time);
-      const endIndex = getHourIndexFromMins(offlineSchedule.end_time);
+      const startIndex = calcMinIndex(offlineSchedule.start_time);
+      const endIndex = calcMinIndex(offlineSchedule.end_time);
 
       ensureSemesterInitialized(currentSemester);
       if (isOverlap(currentSemester, curDay, startIndex, endIndex)) {
@@ -44,8 +44,8 @@ export default function useMarkCourseSchedule() {
     addCourse(currentSemester, course);
     for (const offlineSchedule of course.offline_schedules) {
       const curDay = offlineSchedule.day;
-      const startIndex = getHourIndexFromMins(offlineSchedule.start_time);
-      const endIndex = getHourIndexFromMins(offlineSchedule.end_time);
+      const startIndex = calcMinIndex(offlineSchedule.start_time);
+      const endIndex = calcMinIndex(offlineSchedule.end_time);
       selectTimeRange(currentSemester, curDay, startIndex, endIndex);
     }
   };

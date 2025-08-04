@@ -6,6 +6,13 @@ import clsx from "clsx";
 import { useShallow } from "zustand/shallow";
 import PersonalScheduleModalHeader from "./_components/PersonalScheduleModalHeader";
 import PersonalScheduleModalBody from "./_components/PersonalScheduleModalBody";
+import PersonalScheduleModalFooter from "./_components/PersonalScheduleModalFooter";
+import { FormProvider, useForm } from "react-hook-form";
+import {
+  PersonalScheduleSchema,
+  PersonalScheduleType,
+} from "@/types/schemas/PersonalSchedule.schema";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export default function PersonalScheduleModal() {
   const { setClose, mode } = usePersonalScheduleStore(
@@ -14,6 +21,12 @@ export default function PersonalScheduleModal() {
       mode: state.mode,
     })),
   );
+
+  const methods = useForm<PersonalScheduleType>({
+    mode: "all",
+    resolver: zodResolver(PersonalScheduleSchema),
+  });
+
   return (
     <Portal>
       <div
@@ -23,13 +36,16 @@ export default function PersonalScheduleModal() {
         )}
         onClick={setClose}
       >
-        <div
-          className="w-[90dvw] max-w-300 overflow-hidden rounded-3xl bg-white"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <PersonalScheduleModalHeader mode={mode} setClose={setClose} />
-          <PersonalScheduleModalBody />
-        </div>
+        <FormProvider {...methods}>
+          <form
+            className="w-[90dvw] max-w-300 overflow-hidden rounded-3xl bg-white"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <PersonalScheduleModalHeader mode={mode} setClose={setClose} />
+            <PersonalScheduleModalBody />
+            <PersonalScheduleModalFooter />
+          </form>
+        </FormProvider>
       </div>
     </Portal>
   );
