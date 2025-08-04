@@ -7,10 +7,29 @@ import { DAYS } from "@/constants/days";
 import { HOURS } from "@/constants/hours";
 import { WeekdayKorMap } from "@/enums/weekday.enum";
 import useTimeRangeFields from "@/hooks/useTimeRangeFields";
+import { OfflineScheduleType } from "@/types/schemas/OfflineSchedule.schema";
+import { PersonalScheduleType } from "@/types/schemas/PersonalSchedule.schema";
 import { SelectOptionType } from "@/types/selectOption.type";
 import clsx from "clsx";
+import { Control, Controller } from "react-hook-form";
 
-export default function PersonalScheduleItem() {
+type Props = {
+  index: number;
+  control: Control<PersonalScheduleType>;
+  onRemove: (index: number) => void;
+  onChange: (
+    index: number,
+    fieldName: keyof OfflineScheduleType,
+    value: OfflineScheduleType[keyof OfflineScheduleType],
+  ) => void;
+};
+
+export default function PersonalScheduleItem({
+  index,
+  control,
+  onRemove,
+  onChange,
+}: Props) {
   const dayItems: SelectOptionType[] = DAYS.map((day) => ({
     label: WeekdayKorMap[day],
     value: day,
@@ -33,14 +52,13 @@ export default function PersonalScheduleItem() {
   }));
 
   const {
-    register,
     startTime,
     endTime,
     handleStartHour,
     handleStartMin,
     handleEndHour,
     handleEndMin,
-  } = useTimeRangeFields();
+  } = useTimeRangeFields({ index, onChange });
 
   return (
     <div className="relative rounded-xl border border-[#e9ecef] bg-white p-7">
@@ -52,31 +70,45 @@ export default function PersonalScheduleItem() {
           "[&_input]:border-border-hsu [&_input]:focus:border-deep-hsu [&_input]:border-2 [&_input]:transition-all [&_input]:duration-200 [&_input]:focus:shadow-[0_0_0_3px_rgba(68,114,196,0.1)]",
         )}
       >
-        <div
+        <button
+          type="button"
           className={clsx(
             "absolute top-0 right-0 flex aspect-square w-12 translate-x-[30%] translate-y-[-40%] items-center justify-center rounded-full",
-            "hover cursor-pointer bg-red-600/80 transition-all duration-200 hover:rotate-z-90 hover:bg-red-600",
+            "bg-red-600/80 transition-all duration-200 hover:rotate-z-90 hover:bg-red-600",
           )}
+          onClick={() => onRemove(index)}
         >
           <CloseIcon fill="white" className="aspect-square w-5" />
-        </div>
+        </button>
         <div>
-          <label htmlFor="day">요일</label>
-          <CustomSelectBox items={dayItems} {...register("day")} />
+          <label htmlFor={`offline_schedules.${index}.day`}>요일</label>
+          <Controller
+            name={`offline_schedules.${index}.day`}
+            control={control}
+            render={({ field }) => (
+              <CustomSelectBox
+                items={dayItems}
+                id={`offline_schedules.${index}.day`}
+                {...field}
+              />
+            )}
+          />
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="startHour">시작 시간</label>
+          <label htmlFor={`startHour${index}`}>시작 시간</label>
           <div className="flex gap-2">
             <CustomSelectBox
               items={hourItems}
-              name="startHour"
+              id={`startHour${index}`}
+              name={`startHour${index}`}
               value={startTime.startHour}
               onChange={handleStartHour}
             />
             <CustomSelectBox
               items={minItems}
-              name="startMin"
+              id={`startMin${index}`}
+              name={`startMin${index}`}
               value={startTime.startMin}
               onChange={handleStartMin}
             />
@@ -84,17 +116,19 @@ export default function PersonalScheduleItem() {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="endHour">종료 시간</label>
+          <label htmlFor={`endHour${index}`}>종료 시간</label>
           <div className="flex gap-2">
             <CustomSelectBox
               items={hourItems}
-              name="endHour"
+              id={`endHour${index}`}
+              name={`endHour${index}`}
               value={endTime.endHour}
               onChange={handleEndHour}
             />
             <CustomSelectBox
               items={minItems}
-              name="endMin"
+              id={`endMin${index}`}
+              name={`endMin${index}`}
               value={endTime.endMin}
               onChange={handleEndMin}
             />
@@ -102,11 +136,17 @@ export default function PersonalScheduleItem() {
         </div>
 
         <div className="flex max-w-[50%] flex-1 flex-col">
-          <label htmlFor="place">장소</label>
-          <CustomInput
-            {...register("place")}
-            id="place"
-            placeholder="예) 상상관"
+          <label htmlFor={`offline_schedules.${index}.place`}>장소</label>
+          <Controller
+            name={`offline_schedules.${index}.place`}
+            control={control}
+            render={({ field }) => (
+              <CustomInput
+                {...field}
+                id={`offline_schedules.${index}.place`}
+                placeholder="예) 상상관"
+              />
+            )}
           />
         </div>
       </div>

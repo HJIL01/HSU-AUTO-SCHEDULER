@@ -16,10 +16,15 @@ import {
   createTimeSelectionSlice,
   TimeSelectionSliceType,
 } from "./timeSelections.slice";
+import {
+  createPersonalScheduleModalSlice,
+  PersonalScheduleModalSliceType,
+} from "./personalScheduleModal.slice";
 
 type TimetableStoreType = CourseFinderSliceType &
   HoveredCourseSliceType &
   SelectedCourseSliceType &
+  PersonalScheduleModalSliceType &
   TimeSelectionSliceType;
 
 export const useTimetableStore = create<TimetableStoreType>()(
@@ -29,6 +34,7 @@ export const useTimetableStore = create<TimetableStoreType>()(
         ...createCourseFinderSlice(...a),
         ...createHoveredCourseSlice(...a),
         ...createSelectedCourseSlice(...a),
+        ...createPersonalScheduleModalSlice(...a),
         ...createTimeSelectionSlice(...a),
       })),
       {

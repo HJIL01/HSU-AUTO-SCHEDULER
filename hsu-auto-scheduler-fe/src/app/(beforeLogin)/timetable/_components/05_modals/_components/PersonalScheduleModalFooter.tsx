@@ -2,15 +2,23 @@
 
 import clsx from "clsx";
 
-export default function PersonalScheduleModalFooter() {
+type Props = {
+  setPersonalScheduleModalClose: () => void;
+};
+
+export default function PersonalScheduleModalFooter({
+  setPersonalScheduleModalClose,
+}: Props) {
   return (
     <div className="border-border-hsu flex justify-end gap-5 border-t bg-[#f8f9fa] px-10 py-8 text-white">
       <button
+        type="button"
         className={clsx(
           "bg-cancel-btn-bg rounded-xl px-4 py-3 text-sm font-extrabold transition-all duration-200",
           "hover:-translate-y-1 hover:bg-[#5a6268]",
           "max-md:text-xs",
         )}
+        onClick={setPersonalScheduleModalClose}
       >
         취소
       </button>

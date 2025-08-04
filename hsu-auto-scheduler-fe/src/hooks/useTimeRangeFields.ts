@@ -1,11 +1,5 @@
-import { WeekdayEnum } from "@/enums/weekday.enum";
-import {
-  OfflineScheduleSchema,
-  OfflineScheduleType,
-} from "@/types/schemas/OfflineSchedule.schema";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { OfflineScheduleType } from "@/types/schemas/OfflineSchedule.schema";
 import { ChangeEvent, useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
 
 type StartTimeType = {
   startHour: number;
@@ -17,17 +11,16 @@ type EndTimeType = {
   endMin: number;
 };
 
-export default function useTimeRangeFields() {
-  const { register, setValue, watch } = useForm<OfflineScheduleType>({
-    mode: "all",
-    resolver: zodResolver(OfflineScheduleSchema),
-    defaultValues: {
-      day: WeekdayEnum.MON,
-      start_time: 540,
-      end_time: 600,
-    },
-  });
+type Props = {
+  index: number;
+  onChange: (
+    index: number,
+    fieldName: keyof OfflineScheduleType,
+    value: OfflineScheduleType[keyof OfflineScheduleType],
+  ) => void;
+};
 
+export default function useTimeRangeFields({ index, onChange }: Props) {
   const [startTime, setStartTime] = useState<StartTimeType>({
     startHour: 540,
     startMin: 0,
@@ -77,7 +70,7 @@ export default function useTimeRangeFields() {
       });
     }
 
-    setValue("start_time", startTimeSum);
+    onChange(index, "start_time", startTimeSum);
   }, [startTime]);
 
   useEffect(() => {
@@ -91,11 +84,10 @@ export default function useTimeRangeFields() {
       });
     }
 
-    setValue("end_time", endTimeSum);
+    onChange(index, "end_time", endTimeSum);
   }, [endTime]);
 
   return {
-    register,
     startTime,
     endTime,
     handleStartHour,
