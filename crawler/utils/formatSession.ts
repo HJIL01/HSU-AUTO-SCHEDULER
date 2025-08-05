@@ -73,6 +73,7 @@ function extractInPersonSchedule(
     }
 
     return {
+      offline_schedule_id: crypto.randomUUID(),
       place,
       day,
       start_time: startTime,
