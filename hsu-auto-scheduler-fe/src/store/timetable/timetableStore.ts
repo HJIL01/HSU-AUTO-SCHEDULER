@@ -20,11 +20,16 @@ import {
   createPersonalScheduleModalSlice,
   PersonalScheduleModalSliceType,
 } from "./personalScheduleModal.slice";
+import {
+  createPersonalScheduleSlice,
+  PersonalScheduleSliceType,
+} from "./personalSchedule.slice";
 
 type TimetableStoreType = CourseFinderSliceType &
   HoveredCourseSliceType &
   SelectedCourseSliceType &
   PersonalScheduleModalSliceType &
+  PersonalScheduleSliceType &
   TimeSelectionSliceType;
 
 export const useTimetableStore = create<TimetableStoreType>()(
@@ -35,12 +40,14 @@ export const useTimetableStore = create<TimetableStoreType>()(
         ...createHoveredCourseSlice(...a),
         ...createSelectedCourseSlice(...a),
         ...createPersonalScheduleModalSlice(...a),
+        ...createPersonalScheduleSlice(...a),
         ...createTimeSelectionSlice(...a),
       })),
       {
         name: "Scheduler-Store",
         partialize: (state) => ({
           selectedCourses: state.selectedCourses,
+          personalSchedules: state.personalSchedules,
           timetableSelections: state.timetableSelections,
         }),
       },

@@ -1,5 +1,5 @@
 import { WeekdayEnum, WeekdayKorMap } from "@/enums/weekday.enum";
-import { OfflineScheduleType } from "@/types/schemas/OfflineSchedule.schema";
+import { OfflineScheduleType } from "@/types/schemas/PersonalScheduleOfflineSchedule.schema";
 
 export default function isOverlapPersonalScheduleTimes(
   groupedByDay: Record<WeekdayEnum, OfflineScheduleType[]>,

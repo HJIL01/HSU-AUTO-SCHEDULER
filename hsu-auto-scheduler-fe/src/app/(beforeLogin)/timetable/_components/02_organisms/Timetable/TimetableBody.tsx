@@ -25,24 +25,40 @@ export default function TimeTableBody() {
     isOpen,
     hoveredCourse,
     selectedCourses,
-    ensureSemesterInitialized,
-    // timetableSelections,
+    ensureSelectedCoursesSemesterInitialized,
+    personalSchedules,
+    ensurePersonalScheduleSemesterInitialized,
   } = useTimetableStore(
     useShallow((state) => ({
       isOpen: state.isOpen,
       hoveredCourse: state.hoveredCourse,
       selectedCourses: state.selectedCourses,
-      ensureSemesterInitialized: state.ensureSemesterInitialized,
-      // timetableSelections: state.timetableSelections,
+      ensureSelectedCoursesSemesterInitialized:
+        state.ensureSelectedCoursesSemesterInitialized,
+      personalSchedules: state.personalSchedules,
+      ensurePersonalScheduleSemesterInitialized:
+        state.ensurePersonalScheduleSemesterInitialized,
     })),
   );
-  const semesterSelectedCourses = selectedCourses[currentSemester];
+
+  const selectedCoursesInCurSemester = selectedCourses[currentSemester];
+  const personalSchedulesInCurSemester = personalSchedules[currentSemester];
 
   useEffect(() => {
-    if (!semesterSelectedCourses) {
-      ensureSemesterInitialized(currentSemester);
+    if (!selectedCoursesInCurSemester) {
+      ensureSelectedCoursesSemesterInitialized(currentSemester);
     }
-  }, [semesterSelectedCourses, ensureSemesterInitialized, currentSemester]);
+
+    if (!personalSchedulesInCurSemester) {
+      ensurePersonalScheduleSemesterInitialized(currentSemester);
+    }
+  }, [
+    currentSemester,
+    selectedCoursesInCurSemester,
+    ensureSelectedCoursesSemesterInitialized,
+    personalSchedulesInCurSemester,
+    ensurePersonalScheduleSemesterInitialized,
+  ]);
 
   const hoveredCourseByDay: HoverCourseRenderMapType | undefined =
     useMemo(() => {
@@ -75,11 +91,11 @@ export default function TimeTableBody() {
     useMemo(() => {
       const dayMap: SelectedCoursesRenderMapType = new Map();
 
-      if (!semesterSelectedCourses) {
+      if (!selectedCoursesInCurSemester) {
         return undefined;
       }
 
-      semesterSelectedCourses.forEach((selectedCourse, index) => {
+      selectedCoursesInCurSemester.forEach((selectedCourse, index) => {
         const baseInfo: CourseRenderInfoType = {
           courseId: selectedCourse.course_id,
           courseName: selectedCourse.course_name,
@@ -110,7 +126,7 @@ export default function TimeTableBody() {
       });
 
       return dayMap;
-    }, [semesterSelectedCourses]);
+    }, [selectedCoursesInCurSemester]);
 
   return (
     <motion.div

@@ -1,32 +1,18 @@
 import { Type } from 'class-transformer';
-import {
-  IsEnum,
-  IsNotEmpty,
-  IsNumber,
-  IsOptional,
-  IsString,
-} from 'class-validator';
-import { WeekdayEnum } from 'src/common/enums/weekday.enum';
+import { IsArray, IsNotEmpty, IsString, ValidateNested } from 'class-validator';
+import { PersonalScheduleOfflineScheduleDto } from './personalScheduleOfflineSchedule.dto';
 
 export class PersonalScheduleDto {
   @IsString()
   @IsNotEmpty()
-  schedule_name: string;
+  personal_schedule_id: string;
 
-  @IsEnum(WeekdayEnum)
-  @IsNotEmpty()
-  day: WeekdayEnum;
-
-  @Type(() => Number)
-  @IsNumber({ allowNaN: false }, { message: 'startTime은 숫자여야 합니다.' })
-  start_time: number;
-
-  @Type(() => Number)
-  @IsNumber({ allowNaN: false }, { message: 'endTime은 숫자여야 합니다.' })
-  end_time: number;
-
-  @IsOptional()
   @IsString()
   @IsNotEmpty()
-  place: string | null;
+  schedule_name: string;
+
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => PersonalScheduleOfflineScheduleDto)
+  offline_schedules: PersonalScheduleOfflineScheduleDto[];
 }

@@ -4,7 +4,7 @@ import PersonalScheduleItem from "./PersonalScheduleItem";
 import useFocusState from "@/hooks/useFocusState";
 import { Control, Controller, FieldArrayWithId } from "react-hook-form";
 import { PersonalScheduleType } from "@/types/schemas/PersonalSchedule.schema";
-import { OfflineScheduleType } from "@/types/schemas/OfflineSchedule.schema";
+import { OfflineScheduleType } from "@/types/schemas/PersonalScheduleOfflineSchedule.schema";
 
 type Props = {
   control: Control<PersonalScheduleType>;

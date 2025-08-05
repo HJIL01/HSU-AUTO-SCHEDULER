@@ -1,8 +1,8 @@
 import z from "zod";
 import {
   createOfflineScheduleDefaultValue,
-  OfflineScheduleSchema,
-} from "./OfflineSchedule.schema";
+  personalScheduleOfflineScheduleSchema,
+} from "./PersonalScheduleOfflineSchedule.schema";
 
 export const PersonalScheduleSchema = z.object({
   personal_schedule_id: z.string().min(1, "스케줄 ID는 필수입니다"),
@@ -12,7 +12,7 @@ export const PersonalScheduleSchema = z.object({
     })
     .min(1, { message: "개인 스케줄의 이름을 입력해주세요" }),
 
-  offline_schedules: z.array(OfflineScheduleSchema),
+  offline_schedules: z.array(personalScheduleOfflineScheduleSchema),
 });
 
 export type PersonalScheduleType = z.infer<typeof PersonalScheduleSchema>;

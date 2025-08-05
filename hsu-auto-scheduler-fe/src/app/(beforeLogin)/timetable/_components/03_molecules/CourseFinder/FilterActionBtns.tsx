@@ -7,14 +7,22 @@ import {
   CreateCPSATschemaType,
 } from "@/types/schemas/CreateCPSAT.schema";
 import useCurrentSemester from "@/hooks/useCurrentSemester";
+import { useTimetableStore } from "@/store/timetable/timetableStore";
+import { useShallow } from "zustand/shallow";
 
 type Props = {
   hasEnoughData: boolean;
 };
 
 export default function FilterActionBtns({ hasEnoughData }: Props) {
-  const { reset } = useFormContext<CreateCPSATschemaType>();
   const currentSemester = useCurrentSemester();
+  const { reset } = useFormContext<CreateCPSATschemaType>();
+  const { selectedCourses, personalSchedules } = useTimetableStore(
+    useShallow((state) => ({
+      selectedCourses: state.selectedCourses,
+      personalSchedules: state.personalSchedules,
+    })),
+  );
 
   const onReset = () => {
     const shouldReset = confirm("필터를 초기화 하시겠습니까?");
@@ -23,10 +31,17 @@ export default function FilterActionBtns({ hasEnoughData }: Props) {
       return;
     }
 
-    const { semester: _, ...rest } = createCPSATSchemaDefaultValues;
+    const {
+      semester: _,
+      selected_courses: __,
+      personal_schedules: ___,
+      ...rest
+    } = createCPSATSchemaDefaultValues;
 
     reset({
       semester: currentSemester,
+      selected_courses: selectedCourses[currentSemester],
+      personal_schedules: personalSchedules[currentSemester],
       ...rest,
     });
   };

@@ -130,14 +130,22 @@ export class CourseFilteringQueryService {
     const noClassDaysSet = new Set(no_class_days);
 
     personal_schedules.forEach((personal_schedule) => {
-      const { day, ...rest } = personal_schedule;
+      personal_schedule.offline_schedules.forEach((offlineSchedule) => {
+        const { day } = offlineSchedule;
 
-      // 해당 스케줄이 공강 요일에 포함되지 않는다면 weeklyScheduleMap에 추가
-      if (!noClassDaysSet.has(day)) {
-        weeklyScheduleMap.has(day)
-          ? weeklyScheduleMap.get(day)!.push(rest)
-          : weeklyScheduleMap.set(day, [rest]);
-      }
+        const baseInfo: WeeklyScheduleType = {
+          schedule_name: personal_schedule.schedule_name,
+          start_time: offlineSchedule.start_time,
+          end_time: offlineSchedule.end_time,
+        };
+
+        // 해당 스케줄이 공강 요일에 포함되지 않는다면 weeklyScheduleMap에 추가
+        if (!noClassDaysSet.has(day)) {
+          weeklyScheduleMap.has(day)
+            ? weeklyScheduleMap.get(day)!.push(baseInfo)
+            : weeklyScheduleMap.set(day, [baseInfo]);
+        }
+      });
     });
   }
 

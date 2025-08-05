@@ -6,7 +6,7 @@ import calcMinIndex from "@/utils/getHourIndexFromMins";
 
 export default function useMarkCourseSchedule() {
   const {
-    ensureSemesterInitialized,
+    ensureSelectedCoursesSemesterInitialized,
     isCourseAdded,
     addCourse,
     isOverlap,
@@ -14,7 +14,8 @@ export default function useMarkCourseSchedule() {
     clearHoveredCourse,
   } = useTimetableStore(
     useShallow((state) => ({
-      ensureSemesterInitialized: state.ensureSemesterInitialized,
+      ensureSelectedCoursesSemesterInitialized:
+        state.ensureSelectedCoursesSemesterInitialized,
       selectedCourses: state.selectedCourses,
       isCourseAdded: state.isCourseAdded,
       addCourse: state.addCourse,
@@ -34,7 +35,7 @@ export default function useMarkCourseSchedule() {
       const startIndex = calcMinIndex(offlineSchedule.start_time);
       const endIndex = calcMinIndex(offlineSchedule.end_time);
 
-      ensureSemesterInitialized(currentSemester);
+      ensureSelectedCoursesSemesterInitialized(currentSemester);
       if (isOverlap(currentSemester, curDay, startIndex, endIndex)) {
         alert("이미 같은 시간대에 추가된 스케줄이 있습니다");
         return;

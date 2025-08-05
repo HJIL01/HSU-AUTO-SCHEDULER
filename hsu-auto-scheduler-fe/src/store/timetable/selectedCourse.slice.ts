@@ -8,7 +8,7 @@ type SelectedCourseStateType = {
 };
 
 type SelectedCourseActionType = {
-  ensureSemesterInitialized: (semester: string) => void;
+  ensureSelectedCoursesSemesterInitialized: (semester: string) => void;
   isCourseAdded: (semester: string, courseId: string) => boolean;
   addCourse: (semester: string, course: CourseType) => void;
   deleteCourse: (semester: string, courseId: string) => void;
@@ -29,10 +29,10 @@ export const createSelectedCourseSlice: StateCreator<
   SelectedCourseSliceType
 > = immer(
   combine(initialState, (set, get) => ({
-    ensureSemesterInitialized: (semester: string) => {
-      const currentSelectedCourses = get().selectedCourses[semester];
+    ensureSelectedCoursesSemesterInitialized: (semester: string) => {
+      const selectedCoursesInCurSemester = get().selectedCourses[semester];
 
-      if (!currentSelectedCourses) {
+      if (!selectedCoursesInCurSemester) {
         set((state) => {
           state.selectedCourses[semester] = [];
         });

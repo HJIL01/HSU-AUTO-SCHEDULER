@@ -1,5 +1,5 @@
 import { WeekdayEnum } from "@/enums/weekday.enum";
-import { OfflineScheduleType } from "./schemas/OfflineSchedule.schema";
+import { OfflineScheduleType } from "./schemas/PersonalScheduleOfflineSchedule.schema";
 
 export type SelectedCoursesRenderMapType = Map<
   WeekdayEnum | "nontimes",

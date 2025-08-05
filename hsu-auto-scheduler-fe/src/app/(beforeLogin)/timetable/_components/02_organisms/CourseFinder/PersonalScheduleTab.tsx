@@ -9,6 +9,7 @@ import PersonalScheduleAddCard from "../../03_molecules/CourseFinder/PersonalSch
 import { useShallow } from "zustand/shallow";
 import PersonalScheduleModal from "../../05_modals/PersonalScheduleModal";
 import { useTimetableStore } from "@/store/timetable/timetableStore";
+import useCurrentSemester from "@/hooks/useCurrentSemester";
 
 export default function PersonalScheduleTab() {
   const schedules: PersonalScheduleType[] = [
@@ -133,6 +134,8 @@ export default function PersonalScheduleTab() {
   };
 
   const handleEditPersonalSchedule = () => {
+    const currentSemester = useCurrentSemester();
+
     setPersonalScheduleModalOpen();
     setEditMode();
   };
