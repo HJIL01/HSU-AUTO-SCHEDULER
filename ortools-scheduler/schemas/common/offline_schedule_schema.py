@@ -3,6 +3,7 @@ from .enums import WeekdayEnum
 
 
 class OfflineScheduleSchema(BaseModel):
+    offline_schedule_id: str
     day: WeekdayEnum
     start_time: int
     end_time: int
