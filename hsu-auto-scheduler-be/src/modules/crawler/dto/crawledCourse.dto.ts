@@ -9,7 +9,7 @@ import {
   IsString,
   ValidateNested,
 } from 'class-validator';
-import { OfflineScheduleDto } from 'src/common/dto/04_offline-schedule.dto';
+import { OfflineScheduleDto } from 'src/common/dto/04_offline_schedule.dto';
 import { DayOrNightEnum } from 'src/common/enums/dayOrNight.enum';
 
 export class CrawledCourseDto {

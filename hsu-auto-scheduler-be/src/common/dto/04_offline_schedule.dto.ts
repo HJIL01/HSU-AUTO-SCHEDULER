@@ -5,6 +5,10 @@ import { WeekdayEnum } from '../enums/weekday.enum';
 export class OfflineScheduleDto {
   @IsNotEmpty()
   @IsString()
+  offline_schedule_id: string;
+
+  @IsNotEmpty()
+  @IsString()
   day: WeekdayEnum;
 
   @Type(() => Number)

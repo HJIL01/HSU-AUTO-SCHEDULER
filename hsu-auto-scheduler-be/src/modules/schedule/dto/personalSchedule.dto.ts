@@ -1,6 +1,6 @@
 import { Type } from 'class-transformer';
 import { IsArray, IsNotEmpty, IsString, ValidateNested } from 'class-validator';
-import { PersonalScheduleOfflineScheduleDto } from './personalScheduleOfflineSchedule.dto';
+import { OfflineScheduleDto } from 'src/common/dto/04_offline_schedule.dto';
 
 export class PersonalScheduleDto {
   @IsString()
@@ -13,6 +13,6 @@ export class PersonalScheduleDto {
 
   @IsArray()
   @ValidateNested({ each: true })
-  @Type(() => PersonalScheduleOfflineScheduleDto)
-  offline_schedules: PersonalScheduleOfflineScheduleDto[];
+  @Type(() => OfflineScheduleDto)
+  offline_schedules: OfflineScheduleDto[];
 }

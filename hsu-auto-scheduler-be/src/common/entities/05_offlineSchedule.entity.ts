@@ -1,18 +1,11 @@
-import {
-  Entity,
-  Column,
-  JoinColumn,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-  Unique,
-} from 'typeorm';
+import { Entity, Column, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
 import { CourseEntity } from './04_course.entity';
 import { WeekdayEnum } from '../enums/weekday.enum';
 
 @Entity('offline_schedule')
 export class OfflineScheduleEntity {
-  @PrimaryGeneratedColumn()
-  offline_schedule_id: number;
+  @PrimaryColumn()
+  offline_schedule_id: string;
 
   @Column()
   day: WeekdayEnum;

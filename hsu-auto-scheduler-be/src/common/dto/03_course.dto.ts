@@ -10,7 +10,7 @@ import {
   ValidateNested,
 } from 'class-validator';
 import { DayOrNightEnum } from '../enums/dayOrNight.enum';
-import { OfflineScheduleDto } from './04_offline-schedule.dto';
+import { OfflineScheduleDto } from './04_offline_schedule.dto';
 
 export class CourseDto {
   @IsString()

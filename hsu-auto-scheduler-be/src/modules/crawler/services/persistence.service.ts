@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { MajorDto } from 'src/common/dto/02_major.dto';
-import { OfflineScheduleDto } from 'src/common/dto/04_offline-schedule.dto';
+import { OfflineScheduleDto } from 'src/common/dto/04_offline_schedule.dto';
 import { SemesterEntity } from 'src/common/entities/01_semester.entity';
 import { MajorEntity } from 'src/common/entities/02_major.entity';
 import { SemesterMajorEntity } from 'src/common/entities/03_semester_major.entity';
@@ -85,6 +85,7 @@ export class PersistenceService {
 
     const offlineScheduleEntites = offline_schedules.map((off_schedule) => {
       const entity = new OfflineScheduleEntity();
+      entity.offline_schedule_id = off_schedule.offline_schedule_id;
       entity.day = off_schedule.day;
       entity.start_time = off_schedule.start_time;
       entity.end_time = off_schedule.end_time;
