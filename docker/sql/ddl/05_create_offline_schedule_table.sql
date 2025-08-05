@@ -1,5 +1,5 @@
 CREATE TABLE offline_schedule (
-    offline_schedule_id INT AUTO_INCREMENT PRIMARY KEY,
+    offline_schedule_id VARCHAR(255) NOT NULL PRIMARY KEY,
     day VARCHAR(255) NOT NULL,
     start_time INT NOT NULL,
     end_time INT NOT NULL,
