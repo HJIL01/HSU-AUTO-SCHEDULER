@@ -3,21 +3,25 @@
 import { WeekdayEnum } from "@/enums/weekday.enum";
 import clsx from "clsx";
 import { HOURS } from "@/constants/hours";
-import { CourseRenderInfoType } from "@/types/courseRenderInfo.type";
+import { CourseRenderInfoType } from "@/types/courseRender.type";
 import CourseBlock from "./CourseBlock";
+import { PersonalScheduleRenderInfoType } from "@/types/personalScheduleRender.type";
+import PersonalScheduleBlock from "./PersonalScheduleBlock";
 
 type Props = {
   day: WeekdayEnum;
-  coursesInCurDay?: CourseRenderInfoType[];
   hoveredCourseInCurDay?: CourseRenderInfoType;
+  coursesInCurDay?: CourseRenderInfoType[];
+  personalSchedulesInCurDay?: PersonalScheduleRenderInfoType[];
   isCPSATResult: boolean;
   timetableCellHeight: number;
 };
 
 export default function DayColumn({
   day,
-  coursesInCurDay,
   hoveredCourseInCurDay,
+  coursesInCurDay,
+  personalSchedulesInCurDay,
   isCPSATResult,
   timetableCellHeight,
 }: Props) {
@@ -36,21 +40,30 @@ export default function DayColumn({
         />
       ))}
 
-      {coursesInCurDay &&
-        coursesInCurDay.map((courseInCurDay, i) => (
-          <CourseBlock
-            key={i}
-            courseRenderInfo={courseInCurDay}
-            isCPSATResult={isCPSATResult}
-          />
-        ))}
-
       {hoveredCourseInCurDay && (
         <CourseBlock
           courseRenderInfo={hoveredCourseInCurDay}
           isCPSATResult={isCPSATResult}
         />
       )}
+
+      {coursesInCurDay &&
+        coursesInCurDay.map((courseInCurDay, i) => (
+          <CourseBlock
+            key={`${courseInCurDay.courseId}-${day}`}
+            courseRenderInfo={courseInCurDay}
+            isCPSATResult={isCPSATResult}
+          />
+        ))}
+
+      {personalSchedulesInCurDay &&
+        personalSchedulesInCurDay.map((personalScheduleInCurDay, i) => (
+          <PersonalScheduleBlock
+            key={`${personalScheduleInCurDay.personalScheduleId}-${day}-${i}`}
+            personalScheduleRenderInfo={personalScheduleInCurDay}
+            isCPSATResult={isCPSATResult}
+          />
+        ))}
     </td>
   );
 }

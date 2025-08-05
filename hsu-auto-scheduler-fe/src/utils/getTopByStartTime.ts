@@ -1,18 +1,7 @@
-import { WeekdayEnum } from "@/enums/weekday.enum";
-import { getOfflineScheduleInCurDay } from "./getOfflineScheduleInCurDay";
-import { CourseType } from "@/types/schemas/Course.schema";
 import getTimetableCellHeight from "./getTimetableCellHeight";
 
-export function getTopByStartTime(
-  course: CourseType,
-  day: WeekdayEnum,
-  isCPSATResult: boolean,
-) {
+export function getTopByStartTime(startTime: number, isCPSATResult: boolean) {
   const timetableCellHeight = getTimetableCellHeight(isCPSATResult);
-
-  const targetOfflineSchedule = getOfflineScheduleInCurDay(course, day);
-
-  const startTime = targetOfflineSchedule!.start_time;
 
   /* 
     1. 강의 시작 시간에서 9시(540분)을 빼서 몇 시 시작인지 구하기(분 기준)

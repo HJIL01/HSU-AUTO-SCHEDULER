@@ -1,14 +1,14 @@
 import { COURSE_BLOCK_BG_COLORS } from "@/constants/CourseBlockBgColors";
 import {
   CourseRenderInfoType,
-  SelectedCoursesRenderMapType,
-} from "@/types/courseRenderInfo.type";
+  SelectedCoursesByDayType,
+} from "@/types/courseRender.type";
 import { CourseType } from "@/types/schemas/Course.schema";
 import { getTopByStartTime } from "./getTopByStartTime";
-import { getCourseBlockHeight } from "./getCourseBlockHeight";
+import { getBlockHeight } from "./getBlockHeight";
 
 export default function groupCoursesByDay(courses: CourseType[]) {
-  const groupedCoursesByDay: SelectedCoursesRenderMapType = courses.reduce(
+  const groupedCoursesByDay: SelectedCoursesByDayType = courses.reduce(
     (acc, course, index) => {
       const baseInfo: CourseRenderInfoType = {
         courseId: course.course_id,
@@ -19,30 +19,31 @@ export default function groupCoursesByDay(courses: CourseType[]) {
       };
 
       if (course.offline_schedules.length === 0) {
-        const newNonTimes = acc.get("nontimes") ?? [];
+        const newNonTimes = acc["nontimes"] ?? [];
         newNonTimes.push(baseInfo);
-        acc.set("nontimes", newNonTimes);
+
+        acc["nontimes"] = newNonTimes;
       } else {
         course.offline_schedules.forEach((offlineSchedule) => {
           const day = offlineSchedule.day;
 
-          const newCoursesInCurDay = acc.get(day) ?? [];
+          const newCoursesInCurDay = acc[day] ?? [];
 
           newCoursesInCurDay.push({
             ...baseInfo,
             colorIndex: (index % (COURSE_BLOCK_BG_COLORS.length - 1)) + 1,
             offlineSchedule,
             top: getTopByStartTime(course, day, true),
-            height: getCourseBlockHeight(course, day, true),
+            height: getBlockHeight(course, day, true),
           });
 
-          acc.set(day, newCoursesInCurDay);
+          acc[day] = newCoursesInCurDay;
         });
       }
 
       return acc;
     },
-    new Map(),
+    {} as SelectedCoursesByDayType,
   );
 
   return groupedCoursesByDay;

@@ -3,7 +3,7 @@
 import CloseIcon from "@/assets/icons/CloseIcon";
 import useCurrentSemester from "@/hooks/useCurrentSemester";
 import { useTimetableStore } from "@/store/timetable/timetableStore";
-import { CourseRenderInfoType } from "@/types/courseRenderInfo.type";
+import { CourseRenderInfoType } from "@/types/courseRender.type";
 import { useShallow } from "zustand/shallow";
 
 type Props = {

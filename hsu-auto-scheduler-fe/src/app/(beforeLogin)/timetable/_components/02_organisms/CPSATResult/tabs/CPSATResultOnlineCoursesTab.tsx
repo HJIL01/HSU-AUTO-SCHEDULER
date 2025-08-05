@@ -1,6 +1,6 @@
 "use client";
 
-import { CourseRenderInfoType } from "@/types/courseRenderInfo.type";
+import { CourseRenderInfoType } from "@/types/courseRender.type";
 import clsx from "clsx";
 
 type Props = {

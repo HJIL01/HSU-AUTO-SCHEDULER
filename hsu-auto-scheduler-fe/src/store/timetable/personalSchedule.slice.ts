@@ -8,7 +8,7 @@ type PersonalScheduleStateType = {
 };
 
 type PersonalScheduleActionType = {
-  ensurePersonalScheduleSemesterInitialized: (semester: string) => void;
+  ensurePersonalSchedulesSemesterInitialized: (semester: string) => void;
   addPersonalSchedule: (
     semester: string,
     personalSchedule: PersonalScheduleType,
@@ -38,7 +38,7 @@ export const createPersonalScheduleSlice: StateCreator<
   PersonalScheduleSliceType
 > = immer(
   combine(initialState, (set, get) => ({
-    ensurePersonalScheduleSemesterInitialized: (semester: string) => {
+    ensurePersonalSchedulesSemesterInitialized: (semester: string) => {
       const personalSchedulesInCurSemester = get().personalSchedules[semester];
 
       if (!personalSchedulesInCurSemester) {

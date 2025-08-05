@@ -8,16 +8,17 @@ import { COURSE_FINDER_HEIGHT } from "@/constants/CourseFinderHeight";
 import TimeTableGrid from "../../03_molecules/Timetable/TimeTableGrid";
 import {
   CourseRenderInfoType,
-  HoverCourseRenderMapType,
-  SelectedCoursesRenderMapType,
-} from "@/types/courseRenderInfo.type";
+  HoverCourseByDayType,
+  SelectedCoursesByDayType,
+} from "@/types/courseRender.type";
 import { getOfflineScheduleInCurDay } from "@/utils/getOfflineScheduleInCurDay";
 import { getTopByStartTime } from "@/utils/getTopByStartTime";
-import { getCourseBlockHeight } from "@/utils/getCourseBlockHeight";
 import { COURSE_BLOCK_BG_COLORS } from "@/constants/CourseBlockBgColors";
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import useCurrentSemester from "@/hooks/useCurrentSemester";
 import OnlineCourseListForTimetable from "../../03_molecules/Timetable/OnlineCourseListForTimetable";
+import { getBlockHeight } from "@/utils/getBlockHeight";
+import { PersonalSchedulesByDayType } from "@/types/personalScheduleRender.type";
 
 export default function TimeTableBody() {
   const currentSemester = useCurrentSemester();
@@ -27,7 +28,7 @@ export default function TimeTableBody() {
     selectedCourses,
     ensureSelectedCoursesSemesterInitialized,
     personalSchedules,
-    ensurePersonalScheduleSemesterInitialized,
+    ensurePersonalSchedulesSemesterInitialized,
   } = useTimetableStore(
     useShallow((state) => ({
       isOpen: state.isOpen,
@@ -36,8 +37,8 @@ export default function TimeTableBody() {
       ensureSelectedCoursesSemesterInitialized:
         state.ensureSelectedCoursesSemesterInitialized,
       personalSchedules: state.personalSchedules,
-      ensurePersonalScheduleSemesterInitialized:
-        state.ensurePersonalScheduleSemesterInitialized,
+      ensurePersonalSchedulesSemesterInitialized:
+        state.ensurePersonalSchedulesSemesterInitialized,
     })),
   );
 
@@ -50,83 +51,125 @@ export default function TimeTableBody() {
     }
 
     if (!personalSchedulesInCurSemester) {
-      ensurePersonalScheduleSemesterInitialized(currentSemester);
+      ensurePersonalSchedulesSemesterInitialized(currentSemester);
     }
   }, [
     currentSemester,
     selectedCoursesInCurSemester,
     ensureSelectedCoursesSemesterInitialized,
     personalSchedulesInCurSemester,
-    ensurePersonalScheduleSemesterInitialized,
+    ensurePersonalSchedulesSemesterInitialized,
   ]);
 
-  const hoveredCourseByDay: HoverCourseRenderMapType | undefined =
-    useMemo(() => {
-      if (!hoveredCourse) return undefined;
+  const hoveredCourseByDay: HoverCourseByDayType | undefined = useMemo(() => {
+    if (!hoveredCourse) return undefined;
 
-      const baseInfo: CourseRenderInfoType = {
-        courseId: hoveredCourse.course_id,
-        courseName: hoveredCourse.course_name,
-        courseClassSection: hoveredCourse.class_section,
-        professors: hoveredCourse.professor_names,
-        colorIndex: 0,
-      };
+    const baseInfo: CourseRenderInfoType = {
+      courseId: hoveredCourse.course_id,
+      courseName: hoveredCourse.course_name,
+      courseClassSection: hoveredCourse.class_section,
+      professors: hoveredCourse.professor_names,
+      colorIndex: 0,
+    };
 
-      if (hoveredCourse.offline_schedules.length > 0) {
-        return hoveredCourse.offline_schedules.reduce((acc, cur) => {
-          acc.set(cur.day, {
+    // 오프라인 스케줄이 있을 경우
+    if (hoveredCourse.offline_schedules.length > 0) {
+      return hoveredCourse.offline_schedules.reduce((acc, cur) => {
+        if (!acc[cur.day]) {
+          acc[cur.day] = {
             ...baseInfo,
             offlineSchedule: getOfflineScheduleInCurDay(hoveredCourse, cur.day),
-            top: getTopByStartTime(hoveredCourse, cur.day, false),
-            height: getCourseBlockHeight(hoveredCourse, cur.day, false),
-          });
-          return acc;
-        }, new Map());
-      }
+            top: getTopByStartTime(cur.start_time, false),
+            height: getBlockHeight(cur.start_time, cur.end_time, false),
+          };
+        }
 
-      return new Map([["nontime", baseInfo]]);
-    }, [hoveredCourse]);
+        return acc;
+      }, {} as HoverCourseByDayType);
+    }
+    // 온라인이거나 오프라인 스케줄이 없을 경우
+    else {
+      return { nontimes: baseInfo };
+    }
+  }, [hoveredCourse]);
 
-  const selectedCoursesByDay: SelectedCoursesRenderMapType | undefined =
+  const selectedCoursesByDay: SelectedCoursesByDayType | undefined =
     useMemo(() => {
-      const dayMap: SelectedCoursesRenderMapType = new Map();
-
       if (!selectedCoursesInCurSemester) {
         return undefined;
       }
 
-      selectedCoursesInCurSemester.forEach((selectedCourse, index) => {
+      return selectedCoursesInCurSemester.reduce((acc, cur, index) => {
         const baseInfo: CourseRenderInfoType = {
-          courseId: selectedCourse.course_id,
-          courseName: selectedCourse.course_name,
-          courseClassSection: selectedCourse.class_section,
-          professors: selectedCourse.professor_names,
+          courseId: cur.course_id,
+          courseName: cur.course_name,
+          courseClassSection: cur.class_section,
+          professors: cur.professor_names,
           colorIndex: 0,
         };
 
-        if (selectedCourse.offline_schedules.length === 0) {
-          const newNontimes = dayMap.get("nontimes") ?? [];
-          newNontimes.push(baseInfo);
-          dayMap.set("nontimes", newNontimes);
-        } else {
-          selectedCourse.offline_schedules.forEach((offlineSchedule) => {
-            const curDay = offlineSchedule.day;
+        // 오프라인 스케줄이 있을 경우
+        if (cur.offline_schedules.length > 0) {
+          cur.offline_schedules.forEach((offlineSchedule) => {
+            const newCoursesInCurDay = acc[offlineSchedule.day] ?? [];
 
-            const newCoursesInCurDay = dayMap.get(curDay) ?? [];
             newCoursesInCurDay.push({
               ...baseInfo,
-              offlineSchedule,
-              top: getTopByStartTime(selectedCourse, curDay, false),
-              height: getCourseBlockHeight(selectedCourse, curDay, false),
               colorIndex: (index % (COURSE_BLOCK_BG_COLORS.length - 1)) + 1,
+              offlineSchedule,
+              top: getTopByStartTime(offlineSchedule.start_time, false),
+              height: getBlockHeight(
+                offlineSchedule.start_time,
+                offlineSchedule.end_time,
+                false,
+              ),
             });
-            dayMap.set(curDay, newCoursesInCurDay);
+
+            acc[offlineSchedule.day] = newCoursesInCurDay;
           });
         }
-      });
+        // 온라인이거나 오프라인 스케줄이 없을 경우
+        else {
+          const newNontimes = acc["nontimes"] ?? [];
 
-      return dayMap;
+          newNontimes.push(baseInfo);
+
+          acc["nontimes"] = newNontimes;
+        }
+
+        return acc;
+      }, {} as SelectedCoursesByDayType);
     }, [selectedCoursesInCurSemester]);
+
+  const personalSchedulesByDay: PersonalSchedulesByDayType | undefined =
+    useMemo(() => {
+      if (!personalSchedulesInCurSemester) {
+        return undefined;
+      }
+
+      return personalSchedulesInCurSemester.reduce((acc, cur, index) => {
+        cur.offline_schedules.forEach((offlineSchedule) => {
+          const newPersonalSchedulesInCurDay = acc[offlineSchedule.day] ?? [];
+
+          newPersonalSchedulesInCurDay.push({
+            personalScheduleId: cur.personal_schedule_id,
+            personalScheduleName: cur.personal_schedule_name,
+            offlineSchedule,
+            colorIndex: index,
+            top: getTopByStartTime(offlineSchedule.start_time, false),
+            height: getBlockHeight(
+              offlineSchedule.start_time,
+              offlineSchedule.end_time,
+              false,
+            ),
+          });
+
+          acc[offlineSchedule.day] = newPersonalSchedulesInCurDay;
+        });
+
+        return acc;
+      }, {} as PersonalSchedulesByDayType);
+    }, [personalSchedulesInCurSemester]);
 
   return (
     <motion.div
@@ -148,13 +191,14 @@ export default function TimeTableBody() {
       className={clsx("relative flex h-fit w-full flex-col")}
     >
       <TimeTableGrid
-        selectedCoursesByDay={selectedCoursesByDay}
         hoveredCourseByDay={hoveredCourseByDay}
+        selectedCoursesByDay={selectedCoursesByDay}
+        personalSchedulesByDay={personalSchedulesByDay}
         isCPSATResult={false}
       />
-      {selectedCoursesByDay && selectedCoursesByDay.get("nontimes") && (
+      {selectedCoursesByDay && selectedCoursesByDay["nontimes"] && (
         <OnlineCourseListForTimetable
-          onlineCourses={selectedCoursesByDay.get("nontimes")!}
+          onlineCourses={selectedCoursesByDay["nontimes"]!}
         />
       )}
     </motion.div>

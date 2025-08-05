@@ -1,5 +1,5 @@
 import { WeekdayKorMap, WeekdayOrder } from "@/enums/weekday.enum";
-import { OfflineScheduleType } from "@/types/schemas/PersonalScheduleOfflineSchedule.schema";
+import { OfflineScheduleType } from "@/types/schemas/OfflineSchedule.schema";
 import { formatMinToHour } from "./formatMinToHour";
 
 export function createOfflineScheduleString(

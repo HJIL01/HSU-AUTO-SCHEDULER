@@ -1,4 +1,4 @@
-import { OfflineScheduleType } from "./schemas/PersonalScheduleOfflineSchedule.schema";
+import { OfflineScheduleType } from "./schemas/OfflineSchedule.schema";
 
 export type SessionInfoType = {
   online: number;

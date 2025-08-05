@@ -1,4 +1,4 @@
-import { PersonalScheduleOfflineScheduleType } from "@/types/schemas/PersonalScheduleOfflineSchedule.schema";
+import { OfflineScheduleType } from "@/types/schemas/OfflineSchedule.schema";
 import { ChangeEvent, useEffect, useState } from "react";
 
 type StartTimeType = {
@@ -15,8 +15,8 @@ type Props = {
   index: number;
   onChange: (
     index: number,
-    fieldName: keyof PersonalScheduleOfflineScheduleType,
-    value: PersonalScheduleOfflineScheduleType[keyof PersonalScheduleOfflineScheduleType],
+    fieldName: keyof OfflineScheduleType,
+    value: OfflineScheduleType[keyof OfflineScheduleType],
   ) => void;
 };
 

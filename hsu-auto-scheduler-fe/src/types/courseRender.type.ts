@@ -1,14 +1,12 @@
 import { WeekdayEnum } from "@/enums/weekday.enum";
-import { OfflineScheduleType } from "./schemas/PersonalScheduleOfflineSchedule.schema";
+import { OfflineScheduleType } from "./schemas/OfflineSchedule.schema";
 
-export type SelectedCoursesRenderMapType = Map<
-  WeekdayEnum | "nontimes",
-  CourseRenderInfoType[]
+export type SelectedCoursesByDayType = Partial<
+  Record<WeekdayEnum | "nontimes", CourseRenderInfoType[]>
 >;
 
-export type HoverCourseRenderMapType = Map<
-  WeekdayEnum | "nontimes",
-  CourseRenderInfoType
+export type HoverCourseByDayType = Partial<
+  Record<WeekdayEnum | "nontimes", CourseRenderInfoType>
 >;
 
 export type CourseRenderInfoType = {

@@ -7,12 +7,17 @@ type Props = {
   personalSchedule: PersonalScheduleType;
   index: number;
   handleEditPersonalSchedule: () => void;
+  handleDeletePersonalSchedule: (
+    targetPersonalScheduleId: string,
+    personalScheduleName: string,
+  ) => void;
 };
 
 export default function PersonalScheduleCard({
   personalSchedule,
   index,
   handleEditPersonalSchedule,
+  handleDeletePersonalSchedule,
 }: Props) {
   return (
     <div
@@ -25,7 +30,7 @@ export default function PersonalScheduleCard({
       }}
     >
       <div className="mb-2 flex items-center justify-between">
-        <h3 className="text-hsu text-sm font-bold">{`${index + 1}. ${personalSchedule.schedule_name}`}</h3>
+        <h3 className="text-hsu text-sm font-bold">{`${index + 1}. ${personalSchedule.personal_schedule_name}`}</h3>
         <div className="flex gap-2">
           <button
             className={clsx(
@@ -41,6 +46,12 @@ export default function PersonalScheduleCard({
               "rounded-lg bg-red-600/10 px-4 py-3 text-xs text-red-600",
               "hover:bg-red-600/20",
             )}
+            onClick={() =>
+              handleDeletePersonalSchedule(
+                personalSchedule.personal_schedule_id,
+                personalSchedule.personal_schedule_name,
+              )
+            }
           >
             삭제
           </button>
@@ -48,7 +59,7 @@ export default function PersonalScheduleCard({
       </div>
 
       <div className="text-xs text-gray-600">
-        {personalSchedule.offline_schedules
+        {[...personalSchedule.offline_schedules]
           .sort((a, b) => WeekdayOrder[a.day] - WeekdayOrder[b.day])
           .map((offlineSchedule, i) => (
             <div key={i}>

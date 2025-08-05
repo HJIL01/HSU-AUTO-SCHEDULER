@@ -1,14 +1,14 @@
 "use client";
 
 import { WeekdayEnum, WeekdayKorMap } from "@/enums/weekday.enum";
-import { SelectedCoursesRenderMapType } from "@/types/courseRenderInfo.type";
+import { SelectedCoursesByDayType } from "@/types/courseRender.type";
 import { motion } from "framer-motion";
 
 type Props = {
   totalCredit: number;
   onlineCourseCount: number;
   currentIndex: number;
-  selectedCoursesByDayList: SelectedCoursesRenderMapType[];
+  selectedCoursesByDayList: SelectedCoursesByDayType[];
 };
 
 export default function CPSATResultInfoSummaryTab({
@@ -37,7 +37,7 @@ export default function CPSATResultInfoSummaryTab({
             {Object.values(WeekdayEnum).map((day) => {
               const kor = WeekdayKorMap[day];
 
-              const coursesInCurDay = selectedCoursesByDay.get(day);
+              const coursesInCurDay = selectedCoursesByDay[day];
 
               return (
                 <div key={day} className="flex gap-2">

@@ -7,7 +7,7 @@ import { DAYS } from "@/constants/days";
 import { HOURS } from "@/constants/hours";
 import { WeekdayKorMap } from "@/enums/weekday.enum";
 import useTimeRangeFields from "@/hooks/useTimeRangeFields";
-import { PersonalScheduleOfflineScheduleType } from "@/types/schemas/PersonalScheduleOfflineSchedule.schema";
+import { OfflineScheduleType } from "@/types/schemas/OfflineSchedule.schema";
 import { PersonalScheduleType } from "@/types/schemas/PersonalSchedule.schema";
 import { SelectOptionType } from "@/types/selectOption.type";
 import clsx from "clsx";
@@ -19,8 +19,8 @@ type Props = {
   onRemove: (index: number) => void;
   onChange: (
     index: number,
-    fieldName: keyof PersonalScheduleOfflineScheduleType,
-    value: PersonalScheduleOfflineScheduleType[keyof PersonalScheduleOfflineScheduleType],
+    fieldName: keyof OfflineScheduleType,
+    value: OfflineScheduleType[keyof OfflineScheduleType],
   ) => void;
 };
 

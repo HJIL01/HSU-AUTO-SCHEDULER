@@ -10,6 +10,7 @@ export default function useMarkCourseSchedule() {
     isCourseAdded,
     addCourse,
     isOverlap,
+    ensureTimeSelectionInitialized,
     selectTimeRange,
     clearHoveredCourse,
   } = useTimetableStore(
@@ -20,6 +21,7 @@ export default function useMarkCourseSchedule() {
       isCourseAdded: state.isCourseAdded,
       addCourse: state.addCourse,
       isOverlap: state.isOverlap,
+      ensureTimeSelectionInitialized: state.ensureTimeSelectionInitialized,
       selectTimeRange: state.selectTimeRange,
       clearHoveredCourse: state.clearHoveredCourse,
     })),
@@ -30,12 +32,14 @@ export default function useMarkCourseSchedule() {
   // 클릭 없이 추가랑 마크만 하는 함수
   // 밑의 클릭 있는 함수를 불러도 이 함수만 부르면 알아서 겹치는지 확인하고 삭제해줌
   const addCourseAndMark = (course: CourseType) => {
+    ensureSelectedCoursesSemesterInitialized(currentSemester);
+    ensureTimeSelectionInitialized(currentSemester);
+
     for (const offlineSchedule of course.offline_schedules) {
       const curDay = offlineSchedule.day;
       const startIndex = calcMinIndex(offlineSchedule.start_time);
       const endIndex = calcMinIndex(offlineSchedule.end_time);
 
-      ensureSelectedCoursesSemesterInitialized(currentSemester);
       if (isOverlap(currentSemester, curDay, startIndex, endIndex)) {
         alert("이미 같은 시간대에 추가된 스케줄이 있습니다");
         return;

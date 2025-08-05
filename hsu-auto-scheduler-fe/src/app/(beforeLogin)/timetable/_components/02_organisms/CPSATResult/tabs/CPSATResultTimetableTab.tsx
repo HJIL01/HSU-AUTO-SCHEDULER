@@ -1,5 +1,5 @@
 import TimeTableGrid from "../../../03_molecules/Timetable/TimeTableGrid";
-import { SelectedCoursesRenderMapType } from "@/types/courseRenderInfo.type";
+import { SelectedCoursesRenderMapType } from "@/types/courseRender.type";
 import TimetableHead from "../../../03_molecules/Timetable/TimetableHead";
 import { motion } from "framer-motion";
 

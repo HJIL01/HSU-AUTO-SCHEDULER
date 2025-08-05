@@ -1,13 +1,15 @@
-import { WeekdayEnum } from "@/enums/weekday.enum";
 import { CourseType } from "@/types/schemas/Course.schema";
+import { PersonalScheduleType } from "@/types/schemas/PersonalSchedule.schema";
 
 export function getOfflineScheduleInCurDay(
-  course: CourseType,
-  day: WeekdayEnum,
+  target: CourseType | PersonalScheduleType,
+  target_offline_schedule_id: string,
 ) {
-  const offlineSchedules = course.offline_schedules;
+  const offlineSchedules = target.offline_schedules;
 
-  const targetOfflineSchedule = offlineSchedules.find((off) => off.day === day);
+  const targetOfflineSchedule = offlineSchedules.find(
+    (off) => off.offline_schedule_id === target_offline_schedule_id,
+  );
 
   return targetOfflineSchedule;
 }

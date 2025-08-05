@@ -9,7 +9,7 @@ type TimeSelectionStateType = {
 };
 
 type TimeSelectionActionType = {
-  ensureSemesterInitialized: (semester: string) => void;
+  ensureTimeSelectionInitialized: (semester: string) => void;
   isOverlap: (
     semester: string,
     day: WeekdayEnum,
@@ -45,7 +45,7 @@ export const createTimeSelectionSlice: StateCreator<
   TimeSelectionSliceType
 > = immer(
   combine(initialState, (set, get) => ({
-    ensureSemesterInitialized: (semester) => {
+    ensureTimeSelectionInitialized: (semester) => {
       const current = get().timetableSelections[semester];
       if (!current) {
         set((state) => {

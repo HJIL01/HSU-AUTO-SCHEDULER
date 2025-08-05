@@ -4,7 +4,7 @@ import PersonalScheduleItem from "./PersonalScheduleItem";
 import useFocusState from "@/hooks/useFocusState";
 import { Control, Controller, FieldArrayWithId } from "react-hook-form";
 import { PersonalScheduleType } from "@/types/schemas/PersonalSchedule.schema";
-import { OfflineScheduleType } from "@/types/schemas/PersonalScheduleOfflineSchedule.schema";
+import { OfflineScheduleType } from "@/types/schemas/OfflineSchedule.schema";
 
 type Props = {
   control: Control<PersonalScheduleType>;
@@ -32,18 +32,18 @@ export default function PersonalScheduleModalBody({
       <div className="flex flex-col gap-10">
         <div>
           <label
-            htmlFor="schedule_name"
+            htmlFor="personal_schedule_name"
             className="text-hsu mb-5 block text-sm font-semibold"
           >
             스케줄 이름
           </label>
           <Controller
-            name="schedule_name"
+            name="personal_schedule_name"
             control={control}
             render={({ field }) => (
               <CustomInput
                 {...field}
-                id="schedule_name"
+                id="personal_schedule_name"
                 className={clsx(
                   "bg-light-hsu border-border-hsu w-full border-2 transition-all duration-200",
                   isFocus &&

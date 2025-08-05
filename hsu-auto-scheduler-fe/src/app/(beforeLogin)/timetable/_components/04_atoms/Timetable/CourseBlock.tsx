@@ -2,8 +2,9 @@
 
 import CloseIcon from "@/assets/icons/CloseIcon";
 import { COURSE_BLOCK_BG_COLORS } from "@/constants/CourseBlockBgColors";
+import useHoverState from "@/hooks/useHoverState";
 import useUnmarkCourseSchedule from "@/hooks/useUnmarkCourseSchedule";
-import { CourseRenderInfoType } from "@/types/courseRenderInfo.type";
+import { CourseRenderInfoType } from "@/types/courseRender.type";
 import clsx from "clsx";
 import { useState } from "react";
 
@@ -17,12 +18,11 @@ export default function CourseBlock({
   isCPSATResult,
 }: Props) {
   const isHoverEnabled = !isCPSATResult;
-  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const { isHovered, onMouseEnter, onMouseLeave } = useHoverState();
   const { deleteCourseAndUnmark } = useUnmarkCourseSchedule();
 
   return (
     <div
-      key={courseRenderInfo.courseId}
       className={clsx(
         "border-y-scheduler-cell-border absolute top-0 z-(--z-index-schedule-block) w-full overflow-hidden border-y max-md:p-2",
         COURSE_BLOCK_BG_COLORS[courseRenderInfo.colorIndex],
@@ -32,8 +32,8 @@ export default function CourseBlock({
         top: `${courseRenderInfo.top}px`,
         height: `${courseRenderInfo.height}px`,
       }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       {isHovered && isHoverEnabled && (
         <button

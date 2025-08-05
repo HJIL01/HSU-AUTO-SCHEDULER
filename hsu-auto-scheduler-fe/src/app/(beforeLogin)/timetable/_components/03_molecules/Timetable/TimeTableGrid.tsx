@@ -5,21 +5,24 @@ import { HOURS } from "@/constants/hours";
 import clsx from "clsx";
 import DayColumn from "../../04_atoms/Timetable/DayColumn";
 import {
-  HoverCourseRenderMapType,
-  SelectedCoursesRenderMapType,
-} from "@/types/courseRenderInfo.type";
+  HoverCourseByDayType,
+  SelectedCoursesByDayType,
+} from "@/types/courseRender.type";
 import getTimetableCellHeight from "@/utils/getTimetableCellHeight";
 import TimetableHead from "./TimetableHead";
+import { PersonalSchedulesByDayType } from "@/types/personalScheduleRender.type";
 
 type Props = {
-  selectedCoursesByDay?: SelectedCoursesRenderMapType;
-  hoveredCourseByDay?: HoverCourseRenderMapType;
+  hoveredCourseByDay?: HoverCourseByDayType;
+  selectedCoursesByDay?: SelectedCoursesByDayType;
+  personalSchedulesByDay?: PersonalSchedulesByDayType;
   isCPSATResult: boolean;
 };
 
 export default function TimeTableGrid({
-  selectedCoursesByDay,
   hoveredCourseByDay,
+  selectedCoursesByDay,
+  personalSchedulesByDay,
   isCPSATResult,
 }: Props) {
   const timetableCellHeight = getTimetableCellHeight(isCPSATResult);
@@ -28,7 +31,7 @@ export default function TimeTableGrid({
       className={clsx(
         isCPSATResult
           ? "pb-0"
-          : selectedCoursesByDay?.get("nontimes")
+          : selectedCoursesByDay?.["nontimes"]
             ? "pb-10"
             : "pb-20",
       )}
@@ -67,8 +70,9 @@ export default function TimeTableGrid({
               <DayColumn
                 key={day}
                 day={day}
-                coursesInCurDay={selectedCoursesByDay?.get(day)}
-                hoveredCourseInCurDay={hoveredCourseByDay?.get(day)}
+                hoveredCourseInCurDay={hoveredCourseByDay?.[day]}
+                coursesInCurDay={selectedCoursesByDay?.[day]}
+                personalSchedulesInCurDay={personalSchedulesByDay?.[day]}
                 isCPSATResult={isCPSATResult}
                 timetableCellHeight={timetableCellHeight}
               />

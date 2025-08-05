@@ -3,8 +3,8 @@ import CPSATResultTimetableTab from "../../02_organisms/CPSATResult/tabs/CPSATRe
 import CPSATResultInfoSummaryTab from "../../02_organisms/CPSATResult/tabs/CPSATResultInfoSummaryTab";
 import { CPSATSolutionType } from "@/types/CPSATSolution.type";
 import groupCoursesByDay from "@/utils/groupCoursesByDay";
-import { SelectedCoursesRenderMapType } from "@/types/courseRenderInfo.type";
 import CPSATResultOnlineCoursesTab from "../../02_organisms/CPSATResult/tabs/CPSATResultOnlineCoursesTab";
+import { SelectedCoursesByDayType } from "@/types/courseRender.type";
 
 type Props = {
   tabMode: "timetableMode" | "onlineLectureMode" | "infoSummaryMode";
@@ -17,12 +17,11 @@ export default function CPSATResultTabRenderer({
   CPSATResult,
   currentIndex,
 }: Props) {
-  const selectedCoursesByDayList: SelectedCoursesRenderMapType[] =
-    useMemo(() => {
-      return CPSATResult.map((result) =>
-        groupCoursesByDay(result.selected_courses),
-      );
-    }, [CPSATResult]);
+  const selectedCoursesByDayList: SelectedCoursesByDayType[] = useMemo(() => {
+    return CPSATResult.map((result) =>
+      groupCoursesByDay(result.selected_courses),
+    );
+  }, [CPSATResult]);
 
   const renderTabContent = () => {
     switch (tabMode) {
@@ -37,7 +36,7 @@ export default function CPSATResultTabRenderer({
         return (
           <CPSATResultOnlineCoursesTab
             onlineCourses={
-              selectedCoursesByDayList?.[currentIndex]?.get("nontimes") ?? []
+              selectedCoursesByDayList?.[currentIndex]?.["nontimes"] ?? []
             }
           />
         );
