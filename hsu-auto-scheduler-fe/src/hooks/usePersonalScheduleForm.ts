@@ -5,15 +5,35 @@ import {
 import { PersonalScheduleType } from "@/types/schemas/PersonalSchedule.schema";
 import { SubmitHandler, useFieldArray, useFormContext } from "react-hook-form";
 import useMarkPersonalSchedule from "./useMarkPersonalSchedule";
+import { useTimetableStore } from "@/store/timetable/timetableStore";
+import { useShallow } from "zustand/shallow";
+import { useEffect } from "react";
 
 export default function usePersonalScheduleForm() {
-  const { control, setValue, handleSubmit } =
+  const { mode, removeSelectedPersonalSchedule, selectedPersonalSchedule } =
+    useTimetableStore(
+      useShallow((state) => ({
+        mode: state.mode,
+        removeSelectedPersonalSchedule: state.removeSelectedPersonalSchedule,
+        selectedPersonalSchedule: state.selectedPersonalSchedule,
+      })),
+    );
+
+  const { control, setValue, handleSubmit, reset } =
     useFormContext<PersonalScheduleType>();
   const { append, fields, remove } = useFieldArray({
     control,
     name: "offline_schedules",
   });
   const { addPersonalScheduleAndMark } = useMarkPersonalSchedule();
+
+  useEffect(() => {
+    if (mode === "edit" && selectedPersonalSchedule) {
+      reset(selectedPersonalSchedule);
+    } else {
+      removeSelectedPersonalSchedule();
+    }
+  }, [mode, selectedPersonalSchedule, reset, removeSelectedPersonalSchedule]);
 
   const onAppend = () => {
     append(createOfflineScheduleDefaultValue());

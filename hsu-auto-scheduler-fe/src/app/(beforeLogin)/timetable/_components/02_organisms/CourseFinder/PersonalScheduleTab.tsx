@@ -8,6 +8,7 @@ import PersonalScheduleModal from "../../05_modals/PersonalScheduleModal";
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import useCurrentSemester from "@/hooks/useCurrentSemester";
 import useUnmarkPersonalSchedule from "@/hooks/useUnmarkPersonalSchedule";
+import { PersonalScheduleType } from "@/types/schemas/PersonalSchedule.schema";
 
 export default function PersonalScheduleTab() {
   const currentSemester = useCurrentSemester();
@@ -16,15 +17,19 @@ export default function PersonalScheduleTab() {
     personalSchedulesInCurSemester,
     personalScheduleModalIsOpen,
     setPersonalScheduleModalOpen,
+    setSelectedPersonalSchedule,
     setEditMode,
     setAddMode,
+    selectedPersonalSchedule,
   } = useTimetableStore(
     useShallow((state) => ({
       personalSchedulesInCurSemester: state.personalSchedules[currentSemester],
       personalScheduleModalIsOpen: state.personalScheduleModalIsOpen,
       setPersonalScheduleModalOpen: state.setPersonalScheduleModalOpen,
+      setSelectedPersonalSchedule: state.setSelectedPersonalSchedule,
       setEditMode: state.setEditMode,
       setAddMode: state.setAddMode,
+      selectedPersonalSchedule: state.selectedPersonalSchedule,
     })),
   );
 
@@ -35,7 +40,8 @@ export default function PersonalScheduleTab() {
     setAddMode();
   };
 
-  const handleEditPersonalSchedule = () => {
+  const handleEditPersonalSchedule = (target: PersonalScheduleType) => {
+    setSelectedPersonalSchedule(target);
     setPersonalScheduleModalOpen();
     setEditMode();
   };
@@ -49,6 +55,8 @@ export default function PersonalScheduleTab() {
       personalScheduleName,
     );
   };
+
+  console.log(selectedPersonalSchedule);
 
   return (
     <div className="flex h-full w-full flex-col gap-15 overflow-y-auto bg-white p-5">

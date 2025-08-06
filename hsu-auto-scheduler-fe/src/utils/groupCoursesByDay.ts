@@ -33,8 +33,12 @@ export default function groupCoursesByDay(courses: CourseType[]) {
             ...baseInfo,
             colorIndex: (index % (COURSE_BLOCK_BG_COLORS.length - 1)) + 1,
             offlineSchedule,
-            top: getTopByStartTime(course, day, true),
-            height: getBlockHeight(course, day, true),
+            top: getTopByStartTime(offlineSchedule.start_time, true),
+            height: getBlockHeight(
+              offlineSchedule.start_time,
+              offlineSchedule.end_time,
+              true,
+            ),
           });
 
           acc[day] = newCoursesInCurDay;

@@ -18,6 +18,8 @@ export default function PersonalScheduleModal() {
     useShallow((state) => ({
       setPersonalScheduleModalClose: state.setPersonalScheduleModalClose,
       mode: state.mode,
+      removeSelectedPersonalSchedule: state.removeSelectedPersonalSchedule,
+      selectedPersonalSchedule: state.selectedPersonalSchedule,
     })),
   );
 

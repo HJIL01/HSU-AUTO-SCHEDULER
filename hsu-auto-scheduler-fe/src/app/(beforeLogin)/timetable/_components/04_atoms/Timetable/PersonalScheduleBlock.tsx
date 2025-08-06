@@ -3,6 +3,7 @@
 import CloseIcon from "@/assets/icons/CloseIcon";
 import Edit from "@/assets/icons/Edit";
 import { COURSE_BLOCK_BG_COLORS } from "@/constants/CourseBlockBgColors";
+import { PERSONAL_SCHEDULE_BLOCK_BG_COLORS } from "@/constants/PersonalScheduleBlockBgColors";
 import useHoverState from "@/hooks/useHoverState";
 import useUnmarkPersonalSchedule from "@/hooks/useUnmarkPersonalSchedule";
 import { PersonalScheduleRenderInfoType } from "@/types/personalScheduleRender.type";
@@ -35,7 +36,9 @@ export default function PersonalScheduleBlock({
     <div
       className={clsx(
         "border-y-scheduler-cell-border absolute top-0 z-(--z-index-schedule-block) w-full overflow-hidden border-y max-md:p-2",
-        COURSE_BLOCK_BG_COLORS[personalScheduleRenderInfo.colorIndex],
+        PERSONAL_SCHEDULE_BLOCK_BG_COLORS[
+          personalScheduleRenderInfo.colorIndex
+        ],
         isCPSATResult ? "p-2" : "p-4",
       )}
       style={{

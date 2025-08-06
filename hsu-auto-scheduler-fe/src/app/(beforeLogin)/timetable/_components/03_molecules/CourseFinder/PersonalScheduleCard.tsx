@@ -6,7 +6,7 @@ import clsx from "clsx";
 type Props = {
   personalSchedule: PersonalScheduleType;
   index: number;
-  handleEditPersonalSchedule: () => void;
+  handleEditPersonalSchedule: (target: PersonalScheduleType) => void;
   handleDeletePersonalSchedule: (
     targetPersonalScheduleId: string,
     personalScheduleName: string,
@@ -37,7 +37,7 @@ export default function PersonalScheduleCard({
               "bg-hsu/10 text-hsu rounded-lg px-4 py-3 text-xs",
               "hover:bg-hsu/20",
             )}
-            onClick={handleEditPersonalSchedule}
+            onClick={() => handleEditPersonalSchedule(personalSchedule)}
           >
             수정
           </button>

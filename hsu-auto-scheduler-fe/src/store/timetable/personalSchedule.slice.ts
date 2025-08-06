@@ -5,6 +5,7 @@ import { immer } from "zustand/middleware/immer";
 
 type PersonalScheduleStateType = {
   personalSchedules: Record<string, PersonalScheduleType[]>;
+  selectedPersonalSchedule: null | PersonalScheduleType;
 };
 
 type PersonalScheduleActionType = {
@@ -22,10 +23,13 @@ type PersonalScheduleActionType = {
     personalScheduleId: string,
   ) => void;
   resetPersonalSchedules: (semester: string) => void;
+  setSelectedPersonalSchedule: (schedule: PersonalScheduleType) => void;
+  removeSelectedPersonalSchedule: () => void;
 };
 
 const initialState: PersonalScheduleStateType = {
   personalSchedules: {},
+  selectedPersonalSchedule: null,
 };
 
 export type PersonalScheduleSliceType = PersonalScheduleStateType &
@@ -79,6 +83,18 @@ export const createPersonalScheduleSlice: StateCreator<
     resetPersonalSchedules: (semester: string) => {
       set((state) => {
         state.personalSchedules[semester] = [];
+      });
+    },
+
+    setSelectedPersonalSchedule: (target: PersonalScheduleType) => {
+      set((state) => {
+        state.selectedPersonalSchedule = target;
+      });
+    },
+
+    removeSelectedPersonalSchedule: () => {
+      set((state) => {
+        state.selectedPersonalSchedule = null;
       });
     },
   })),
