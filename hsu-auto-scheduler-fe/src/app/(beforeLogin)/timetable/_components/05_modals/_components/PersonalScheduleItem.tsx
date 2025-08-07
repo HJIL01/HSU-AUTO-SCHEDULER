@@ -145,6 +145,7 @@ export default function PersonalScheduleItem({
                 {...field}
                 id={`offline_schedules.${index}.place`}
                 placeholder="예) 상상관"
+                value={field.value ?? ""}
               />
             )}
           />

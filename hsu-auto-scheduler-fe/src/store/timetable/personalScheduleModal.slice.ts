@@ -1,16 +1,16 @@
 import { StateCreator } from "zustand";
 import { combine } from "zustand/middleware";
+import { immer } from "zustand/middleware/immer";
 
 type PersonalScheduleModalStateType = {
   personalScheduleModalIsOpen: boolean;
-  mode: "edit" | "add";
+  formType: "edit" | "add";
 };
 
 type PersonalScheduleModalActionType = {
   setPersonalScheduleModalOpen: () => void;
   setPersonalScheduleModalClose: () => void;
-  setEditMode: () => void;
-  setAddMode: () => void;
+  setFormType: (formType: "edit" | "add") => void;
 };
 
 export type PersonalScheduleModalSliceType = PersonalScheduleModalStateType &
@@ -18,15 +18,23 @@ export type PersonalScheduleModalSliceType = PersonalScheduleModalStateType &
 
 const initialState: PersonalScheduleModalStateType = {
   personalScheduleModalIsOpen: false,
-  mode: "edit",
+  formType: "edit",
 };
 
-export const createPersonalScheduleModalSlice: StateCreator<PersonalScheduleModalSliceType> =
+export const createPersonalScheduleModalSlice: StateCreator<
+  PersonalScheduleModalSliceType,
+  [],
+  [["zustand/immer", never]],
+  PersonalScheduleModalSliceType
+> = immer(
   combine(initialState, (set) => ({
     setPersonalScheduleModalOpen: () =>
       set({ personalScheduleModalIsOpen: true }),
     setPersonalScheduleModalClose: () =>
       set({ personalScheduleModalIsOpen: false }),
-    setEditMode: () => set({ mode: "edit" }),
-    setAddMode: () => set({ mode: "add" }),
-  }));
+    setFormType: (formType: "edit" | "add") =>
+      set((state) => {
+        state.formType = formType;
+      }),
+  })),
+);

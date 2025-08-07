@@ -48,7 +48,7 @@ export const useTimetableStore = create<TimetableStoreType>()(
         partialize: (state) => ({
           selectedCourses: state.selectedCourses,
           personalSchedules: state.personalSchedules,
-          timetableSelections: state.timetableSelections,
+          timeSelections: state.timeSelections,
         }),
       },
     ),

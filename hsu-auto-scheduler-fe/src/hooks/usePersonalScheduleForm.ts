@@ -1,3 +1,8 @@
+/* 
+  개인 스케줄 폼 내부의 데이터 상태 관리와 dispatch들을 모아놓은 훅
+  일정 추가, 삭제, 제출, 수정 시 초기화 세팅을 담당
+*/
+
 import {
   createOfflineScheduleDefaultValue,
   OfflineScheduleType,
@@ -7,17 +12,31 @@ import { SubmitHandler, useFieldArray, useFormContext } from "react-hook-form";
 import useMarkPersonalSchedule from "./useMarkPersonalSchedule";
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { useShallow } from "zustand/shallow";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
+import usePersonalScheduleModal from "./usePersonalScheduleModal";
+import useCurrentSemester from "./useCurrentSemester";
+import useRemarkPersonalSchedule from "./useRemarkPersonalSchedule";
 
 export default function usePersonalScheduleForm() {
-  const { mode, removeSelectedPersonalSchedule, selectedPersonalSchedule } =
-    useTimetableStore(
-      useShallow((state) => ({
-        mode: state.mode,
-        removeSelectedPersonalSchedule: state.removeSelectedPersonalSchedule,
-        selectedPersonalSchedule: state.selectedPersonalSchedule,
-      })),
-    );
+  const currentSemester = useCurrentSemester();
+
+  const {
+    ensurePersonalSchedulesSemesterInitialized,
+    formType,
+    selectedPersonalSchedule,
+    setSelectedPersonalSchedule,
+    ensureTimeSelectionInitialized,
+  } = useTimetableStore(
+    useShallow((state) => ({
+      ensurePersonalSchedulesSemesterInitialized:
+        state.ensurePersonalSchedulesSemesterInitialized,
+      ensureTimeSelectionInitialized: state.ensureTimeSelectionInitialized,
+      formType: state.formType,
+      selectedPersonalSchedule: state.selectedPersonalSchedule,
+      setSelectedPersonalSchedule: state.setSelectedPersonalSchedule,
+      updatePersonalSchedule: state.updatePersonalSchedule,
+    })),
+  );
 
   const { control, setValue, handleSubmit, reset } =
     useFormContext<PersonalScheduleType>();
@@ -26,16 +45,20 @@ export default function usePersonalScheduleForm() {
     name: "offline_schedules",
   });
   const { addPersonalScheduleAndMark } = useMarkPersonalSchedule();
+  const { updatePersonalScheduleAndRemark } = useRemarkPersonalSchedule();
+  const { handleClosePersonalScheduleModal } = usePersonalScheduleModal();
 
-  useEffect(() => {
-    if (mode === "edit" && selectedPersonalSchedule) {
+  useLayoutEffect(() => {
+    if (formType === "edit" && selectedPersonalSchedule) {
       reset(selectedPersonalSchedule);
     } else {
-      removeSelectedPersonalSchedule();
+      setSelectedPersonalSchedule(null);
     }
-  }, [mode, selectedPersonalSchedule, reset, removeSelectedPersonalSchedule]);
+  }, [formType, selectedPersonalSchedule, reset]);
 
   const onAppend = () => {
+    ensurePersonalSchedulesSemesterInitialized(currentSemester);
+    ensureTimeSelectionInitialized(currentSemester);
     append(createOfflineScheduleDefaultValue());
   };
 
@@ -57,7 +80,23 @@ export default function usePersonalScheduleForm() {
   };
 
   const onSubmit: SubmitHandler<PersonalScheduleType> = (data) => {
-    addPersonalScheduleAndMark(data);
+    if (formType === "add") {
+      const { success, message } = addPersonalScheduleAndMark(data);
+
+      if (!success) {
+        alert(message);
+        return;
+      }
+    } else {
+      const { success, message } = updatePersonalScheduleAndRemark(data);
+
+      if (!success) {
+        alert(message);
+        return;
+      }
+    }
+
+    handleClosePersonalScheduleModal();
   };
 
   const submitHandler = handleSubmit(onSubmit);

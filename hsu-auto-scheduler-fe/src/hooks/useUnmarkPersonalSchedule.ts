@@ -1,15 +1,15 @@
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { useShallow } from "zustand/shallow";
 import useCurrentSemester from "./useCurrentSemester";
-import calcMinIndex from "@/utils/getHourIndexFromMins";
+import calcMinIndex from "@/utils/getTimeIndex";
 
 export default function useUnmarkPersonalSchedule() {
-  const { personalSchedules, deletePersonalSchedule, deleteSelectedTimeRange } =
+  const { personalSchedules, deletePersonalSchedule, deleteTimeRange } =
     useTimetableStore(
       useShallow((state) => ({
         personalSchedules: state.personalSchedules,
         deletePersonalSchedule: state.deletePersonalSchedule,
-        deleteSelectedTimeRange: state.deleteSelectedTimeRange,
+        deleteTimeRange: state.deleteTimeRange,
       })),
     );
 
@@ -35,7 +35,7 @@ export default function useUnmarkPersonalSchedule() {
         const startIndex = calcMinIndex(offlineSchedule.start_time);
         const endIndex = calcMinIndex(offlineSchedule.end_time);
 
-        deleteSelectedTimeRange(currentSemester, day, startIndex, endIndex);
+        deleteTimeRange(currentSemester, day, startIndex, endIndex);
       }
     } else {
       alert(`${personalScheduleName}을 찾을 수 없습니다`);

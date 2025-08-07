@@ -4,16 +4,10 @@ import usePersonalScheduleForm from "@/hooks/usePersonalScheduleForm";
 import PersonalScheduleModalBody from "./PersonalScheduleModalBody";
 import PersonalScheduleModalFooter from "./PersonalScheduleModalFooter";
 import PersonalScheduleModalHeader from "./PersonalScheduleModalHeader";
+import usePersonalScheduleModal from "@/hooks/usePersonalScheduleModal";
 
-type Props = {
-  setPersonalScheduleModalClose: () => void;
-  mode: "edit" | "add";
-};
-
-export default function PersonalScheduleModalForm({
-  setPersonalScheduleModalClose,
-  mode,
-}: Props) {
+export default function PersonalScheduleModalForm() {
+  const { handleClosePersonalScheduleModal } = usePersonalScheduleModal();
   const { control, fields, onAppend, onRemove, onChange, submitHandler } =
     usePersonalScheduleForm();
 
@@ -24,8 +18,7 @@ export default function PersonalScheduleModalForm({
       onSubmit={submitHandler}
     >
       <PersonalScheduleModalHeader
-        mode={mode}
-        setPersonalScheduleModalClose={setPersonalScheduleModalClose}
+        handleClosePersonalScheduleModal={handleClosePersonalScheduleModal}
       />
       <PersonalScheduleModalBody
         control={control}
@@ -35,7 +28,7 @@ export default function PersonalScheduleModalForm({
         onChange={onChange}
       />
       <PersonalScheduleModalFooter
-        setPersonalScheduleModalClose={setPersonalScheduleModalClose}
+        handleClosePersonalScheduleModal={handleClosePersonalScheduleModal}
       />
     </form>
   );

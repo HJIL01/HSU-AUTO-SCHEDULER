@@ -4,25 +4,21 @@ import { StateCreator } from "zustand";
 import { combine } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 
+export type TimeSelectionsType = Record<WeekdayEnum, number[]>;
+
 type TimeSelectionStateType = {
-  timetableSelections: Record<string, Record<WeekdayEnum, number[]>>;
+  timeSelections: Record<string, TimeSelectionsType>;
 };
 
 type TimeSelectionActionType = {
   ensureTimeSelectionInitialized: (semester: string) => void;
-  isOverlap: (
-    semester: string,
-    day: WeekdayEnum,
-    startIndex: number,
-    endIndex: number,
-  ) => boolean;
-  selectTimeRange: (
+  addTimeRange: (
     semester: string,
     day: WeekdayEnum,
     startIndex: number,
     endIndex: number,
   ) => void;
-  deleteSelectedTimeRange: (
+  deleteTimeRange: (
     semester: string,
     day: WeekdayEnum,
     startIndex: number,
@@ -35,7 +31,7 @@ export type TimeSelectionSliceType = TimeSelectionStateType &
   TimeSelectionActionType;
 
 const initialState: TimeSelectionStateType = {
-  timetableSelections: {},
+  timeSelections: {},
 };
 
 export const createTimeSelectionSlice: StateCreator<
@@ -46,12 +42,10 @@ export const createTimeSelectionSlice: StateCreator<
 > = immer(
   combine(initialState, (set, get) => ({
     ensureTimeSelectionInitialized: (semester) => {
-      const current = get().timetableSelections[semester];
+      const current = get().timeSelections[semester];
       if (!current) {
         set((state) => {
-          state.timetableSelections[semester] = Object.values(
-            WeekdayEnum,
-          ).reduce(
+          state.timeSelections[semester] = Object.values(WeekdayEnum).reduce(
             (acc, day) => {
               acc[day] = Array(SLOT_COUNT_PER_DAY).fill(0);
               return acc;
@@ -61,61 +55,43 @@ export const createTimeSelectionSlice: StateCreator<
         });
       }
     },
-    isOverlap: (semester, day, startIndex, endIndex) => {
-      const currentTimetableSelections = get().timetableSelections[semester];
-
-      if (!currentTimetableSelections) {
-        throw new Error(`${semester}에 해당하는 timetable이 없습니다`);
-      }
-
-      const dayTimes = currentTimetableSelections[day];
-      if (dayTimes) {
-        for (let i = startIndex; i < endIndex; i++) {
-          if (dayTimes[i]) {
-            return true;
-          }
-        }
-      }
-
-      return false;
-    },
-    selectTimeRange: (semester, day, startIndex, endIndex) => {
+    addTimeRange: (semester, day, startIndex, endIndex) => {
       set((state) => {
-        const currentTimetableSelections = state.timetableSelections[semester];
+        const currentTimetableSelections = state.timeSelections[semester];
 
         if (!currentTimetableSelections) {
           throw new Error(`${semester}에 해당하는 timetable이 없습니다`);
         }
 
-        const dayTimes = currentTimetableSelections[day];
+        const timeSelectionsInCurDay = currentTimetableSelections[day];
 
-        if (dayTimes) {
+        if (timeSelectionsInCurDay) {
           for (let i = startIndex; i < endIndex; i++) {
-            dayTimes[i] = 1;
+            timeSelectionsInCurDay[i] = 1;
           }
         }
       });
     },
-    deleteSelectedTimeRange: (semester, day, startIndex, endIndex) => {
+    deleteTimeRange: (semester, day, startIndex, endIndex) => {
       set((state) => {
-        const currentTimetableSelections = state.timetableSelections[semester];
+        const currentTimetableSelections = state.timeSelections[semester];
 
         if (!currentTimetableSelections) {
           throw new Error(`${semester}에 해당하는 timetable이 없습니다`);
         }
 
-        const dayTimes = currentTimetableSelections[day];
+        const timeSelectionsInCurDay = currentTimetableSelections[day];
 
-        if (dayTimes) {
+        if (timeSelectionsInCurDay) {
           for (let i = startIndex; i < endIndex; i++) {
-            dayTimes[i] = 0;
+            timeSelectionsInCurDay[i] = 0;
           }
         }
       });
     },
     resetTimeSelection: (semester: string) => {
       set((state) => {
-        state.timetableSelections[semester] = Object.values(WeekdayEnum).reduce(
+        state.timeSelections[semester] = Object.values(WeekdayEnum).reduce(
           (acc, day) => {
             acc[day] = Array(SLOT_COUNT_PER_DAY).fill(0);
             return acc;

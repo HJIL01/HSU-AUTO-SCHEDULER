@@ -7,56 +7,21 @@ import { useShallow } from "zustand/shallow";
 import PersonalScheduleModal from "../../05_modals/PersonalScheduleModal";
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import useCurrentSemester from "@/hooks/useCurrentSemester";
-import useUnmarkPersonalSchedule from "@/hooks/useUnmarkPersonalSchedule";
-import { PersonalScheduleType } from "@/types/schemas/PersonalSchedule.schema";
+import usePersonalScheduleModal from "@/hooks/usePersonalScheduleModal";
 
 export default function PersonalScheduleTab() {
   const currentSemester = useCurrentSemester();
 
-  const {
-    personalSchedulesInCurSemester,
-    personalScheduleModalIsOpen,
-    setPersonalScheduleModalOpen,
-    setSelectedPersonalSchedule,
-    setEditMode,
-    setAddMode,
-    selectedPersonalSchedule,
-  } = useTimetableStore(
-    useShallow((state) => ({
-      personalSchedulesInCurSemester: state.personalSchedules[currentSemester],
-      personalScheduleModalIsOpen: state.personalScheduleModalIsOpen,
-      setPersonalScheduleModalOpen: state.setPersonalScheduleModalOpen,
-      setSelectedPersonalSchedule: state.setSelectedPersonalSchedule,
-      setEditMode: state.setEditMode,
-      setAddMode: state.setAddMode,
-      selectedPersonalSchedule: state.selectedPersonalSchedule,
-    })),
-  );
-
-  const { deletePersonalScheduleAndUnMark } = useUnmarkPersonalSchedule();
-
-  const handleAddPersonalSchedule = () => {
-    setPersonalScheduleModalOpen();
-    setAddMode();
-  };
-
-  const handleEditPersonalSchedule = (target: PersonalScheduleType) => {
-    setSelectedPersonalSchedule(target);
-    setPersonalScheduleModalOpen();
-    setEditMode();
-  };
-
-  const handleDeletePersonalSchedule = (
-    targetPersonalScheduleId: string,
-    personalScheduleName: string,
-  ) => {
-    deletePersonalScheduleAndUnMark(
-      targetPersonalScheduleId,
-      personalScheduleName,
+  const { personalSchedulesInCurSemester, personalScheduleModalIsOpen } =
+    useTimetableStore(
+      useShallow((state) => ({
+        personalSchedulesInCurSemester:
+          state.personalSchedules[currentSemester],
+        personalScheduleModalIsOpen: state.personalScheduleModalIsOpen,
+      })),
     );
-  };
 
-  console.log(selectedPersonalSchedule);
+  const { handleAddPersonalSchedule } = usePersonalScheduleModal();
 
   return (
     <div className="flex h-full w-full flex-col gap-15 overflow-y-auto bg-white p-5">
@@ -83,13 +48,9 @@ export default function PersonalScheduleTab() {
             key={personalSchedule.personal_schedule_id}
             personalSchedule={personalSchedule}
             index={i}
-            handleEditPersonalSchedule={handleEditPersonalSchedule}
-            handleDeletePersonalSchedule={handleDeletePersonalSchedule}
           />
         ))}
-        <PersonalScheduleAddCard
-          handleAddPersonalSchedule={handleAddPersonalSchedule}
-        />
+        <PersonalScheduleAddCard />
       </div>
       {personalScheduleModalIsOpen && <PersonalScheduleModal />}
       {/* <PersonalScheduleModal /> */}

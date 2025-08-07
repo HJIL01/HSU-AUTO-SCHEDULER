@@ -2,16 +2,17 @@ import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { CourseType } from "@/types/schemas/Course.schema";
 import { useShallow } from "zustand/shallow";
 import useCurrentSemester from "./useCurrentSemester";
-import calcMinIndex from "@/utils/getHourIndexFromMins";
+import calcMinIndex from "@/utils/getTimeIndex";
+import isOverlapTimeSelections from "@/utils/isOverlapTimeSelections";
 
 export default function useMarkCourseSchedule() {
   const {
     ensureSelectedCoursesSemesterInitialized,
     isCourseAdded,
     addCourse,
-    isOverlap,
     ensureTimeSelectionInitialized,
-    selectTimeRange,
+    timeSelections,
+    addTimeRange,
     clearHoveredCourse,
   } = useTimetableStore(
     useShallow((state) => ({
@@ -20,9 +21,9 @@ export default function useMarkCourseSchedule() {
       selectedCourses: state.selectedCourses,
       isCourseAdded: state.isCourseAdded,
       addCourse: state.addCourse,
-      isOverlap: state.isOverlap,
       ensureTimeSelectionInitialized: state.ensureTimeSelectionInitialized,
-      selectTimeRange: state.selectTimeRange,
+      timeSelections: state.timeSelections,
+      addTimeRange: state.addTimeRange,
       clearHoveredCourse: state.clearHoveredCourse,
     })),
   );
@@ -35,12 +36,21 @@ export default function useMarkCourseSchedule() {
     ensureSelectedCoursesSemesterInitialized(currentSemester);
     ensureTimeSelectionInitialized(currentSemester);
 
+    const timeSelectionsInCurSemester = timeSelections[currentSemester];
+
     for (const offlineSchedule of course.offline_schedules) {
       const curDay = offlineSchedule.day;
       const startIndex = calcMinIndex(offlineSchedule.start_time);
       const endIndex = calcMinIndex(offlineSchedule.end_time);
 
-      if (isOverlap(currentSemester, curDay, startIndex, endIndex)) {
+      if (
+        isOverlapTimeSelections({
+          timeSelections: timeSelectionsInCurSemester,
+          day: curDay,
+          startIndex,
+          endIndex,
+        })
+      ) {
         alert("이미 같은 시간대에 추가된 스케줄이 있습니다");
         return;
       }
@@ -51,7 +61,7 @@ export default function useMarkCourseSchedule() {
       const curDay = offlineSchedule.day;
       const startIndex = calcMinIndex(offlineSchedule.start_time);
       const endIndex = calcMinIndex(offlineSchedule.end_time);
-      selectTimeRange(currentSemester, curDay, startIndex, endIndex);
+      addTimeRange(currentSemester, curDay, startIndex, endIndex);
     }
   };
 

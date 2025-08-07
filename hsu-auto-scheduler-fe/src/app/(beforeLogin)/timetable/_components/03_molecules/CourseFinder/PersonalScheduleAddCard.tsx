@@ -1,13 +1,11 @@
+"use client";
+
 import Plus from "@/assets/icons/Plus";
+import usePersonalScheduleModal from "@/hooks/usePersonalScheduleModal";
 import clsx from "clsx";
 
-type Props = {
-  handleAddPersonalSchedule: () => void;
-};
-
-export default function PersonalScheduleAddCard({
-  handleAddPersonalSchedule,
-}: Props) {
+export default function PersonalScheduleAddCard() {
+  const { handleAddPersonalSchedule } = usePersonalScheduleModal();
   return (
     <div
       className={clsx(

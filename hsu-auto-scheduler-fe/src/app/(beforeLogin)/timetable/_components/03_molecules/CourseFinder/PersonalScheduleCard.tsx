@@ -1,4 +1,5 @@
 import { WeekdayKorMap, WeekdayOrder } from "@/enums/weekday.enum";
+import usePersonalScheduleModal from "@/hooks/usePersonalScheduleModal";
 import { PersonalScheduleType } from "@/types/schemas/PersonalSchedule.schema";
 import { formatMinToHour } from "@/utils/formatMinToHour";
 import clsx from "clsx";
@@ -6,19 +7,15 @@ import clsx from "clsx";
 type Props = {
   personalSchedule: PersonalScheduleType;
   index: number;
-  handleEditPersonalSchedule: (target: PersonalScheduleType) => void;
-  handleDeletePersonalSchedule: (
-    targetPersonalScheduleId: string,
-    personalScheduleName: string,
-  ) => void;
 };
 
 export default function PersonalScheduleCard({
   personalSchedule,
   index,
-  handleEditPersonalSchedule,
-  handleDeletePersonalSchedule,
 }: Props) {
+  const { handleEditPersonalSchedule, handleDeletePersonalSchedule } =
+    usePersonalScheduleModal();
+
   return (
     <div
       className={clsx(

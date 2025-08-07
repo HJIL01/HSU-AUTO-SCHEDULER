@@ -1,4 +1,5 @@
 import { PersonalScheduleType } from "@/types/schemas/PersonalSchedule.schema";
+import { findIndex } from "lodash";
 import { StateCreator } from "zustand";
 import { combine } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
@@ -20,11 +21,10 @@ type PersonalScheduleActionType = {
   ) => void;
   updatePersonalSchedule: (
     semester: string,
-    personalScheduleId: string,
+    newSchedule: PersonalScheduleType,
   ) => void;
   resetPersonalSchedules: (semester: string) => void;
-  setSelectedPersonalSchedule: (schedule: PersonalScheduleType) => void;
-  removeSelectedPersonalSchedule: () => void;
+  setSelectedPersonalSchedule: (schedule: PersonalScheduleType | null) => void;
 };
 
 const initialState: PersonalScheduleStateType = {
@@ -59,7 +59,24 @@ export const createPersonalScheduleSlice: StateCreator<
       set((state) => {
         const personalSchedulesInCurSemester =
           state.personalSchedules[semester] ?? [];
-        personalSchedulesInCurSemester.push(personalSchedule);
+
+        const cleanedOfflineSchedules = personalSchedule.offline_schedules.map(
+          (offlineSchedule) => {
+            if (offlineSchedule.place?.trim() === "") {
+              return { ...offlineSchedule, place: undefined };
+            }
+            return offlineSchedule;
+          },
+        );
+
+        const cleanedPersonalSchedule = {
+          ...personalSchedule,
+          personal_schedule_name:
+            personalSchedule.personal_schedule_name.trim(),
+          offline_schedules: cleanedOfflineSchedules,
+        };
+
+        personalSchedulesInCurSemester.push(cleanedPersonalSchedule);
         state.personalSchedules[semester] = personalSchedulesInCurSemester;
       });
     },
@@ -76,8 +93,47 @@ export const createPersonalScheduleSlice: StateCreator<
       });
     },
 
-    updatePersonalSchedule: (semester: string, personalScheduleId: string) => {
-      console.log(semester, personalScheduleId);
+    updatePersonalSchedule: (
+      semester: string,
+      newSchedule: PersonalScheduleType,
+    ) => {
+      const targetPersonalScheduleIndex = get().personalSchedules[
+        semester
+      ].findIndex(
+        (personalSchedule) =>
+          personalSchedule.personal_schedule_id ===
+          newSchedule.personal_schedule_id,
+      );
+
+      if (targetPersonalScheduleIndex !== -1) {
+        set((state) => {
+          const cleanedOfflineSchedules = newSchedule.offline_schedules.map(
+            (offlineSchedule) => {
+              const trimedOfflineSchedule = offlineSchedule.place?.trim();
+              if (trimedOfflineSchedule === "") {
+                return { ...offlineSchedule, place: undefined };
+              }
+              return {
+                ...offlineSchedule,
+                place: trimedOfflineSchedule,
+              };
+            },
+          );
+
+          const cleanedPersonalSchedule = {
+            ...newSchedule,
+            personal_schedule_name: newSchedule.personal_schedule_name.trim(),
+            offline_schedules: cleanedOfflineSchedules,
+          };
+
+          state.personalSchedules[semester][targetPersonalScheduleIndex] =
+            cleanedPersonalSchedule;
+        });
+      } else {
+        console.error(
+          `${semester}-${newSchedule.personal_schedule_id}: 개인 스케줄 업데이트 에러`,
+        );
+      }
     },
 
     resetPersonalSchedules: (semester: string) => {
@@ -86,15 +142,11 @@ export const createPersonalScheduleSlice: StateCreator<
       });
     },
 
-    setSelectedPersonalSchedule: (target: PersonalScheduleType) => {
+    setSelectedPersonalSchedule: (
+      personalSchedule: PersonalScheduleType | null,
+    ) => {
       set((state) => {
-        state.selectedPersonalSchedule = target;
-      });
-    },
-
-    removeSelectedPersonalSchedule: () => {
-      set((state) => {
-        state.selectedPersonalSchedule = null;
+        state.selectedPersonalSchedule = personalSchedule;
       });
     },
   })),

@@ -16,9 +16,10 @@ export default function useGetCPSATResults() {
   const { semester, ...rest } = getValues();
   const semester_id = splitSemester(semester);
 
-  const { selectedCourses } = useTimetableStore(
+  const { selectedCourses, personalSchedules } = useTimetableStore(
     useShallow((state) => ({
       selectedCourses: state.selectedCourses,
+      personalSchedules: state.personalSchedules,
     })),
   );
 
@@ -27,6 +28,10 @@ export default function useGetCPSATResults() {
   useEffect(() => {
     setValue("selected_courses", selectedCourses[currentSemester] ?? []);
   }, [currentSemester, selectedCourses, setValue]);
+
+  useEffect(() => {
+    setValue("personal_schedules", personalSchedules[currentSemester] ?? []);
+  }, [currentSemester, personalSchedules, setValue]);
 
   return useInfiniteQuery({
     queryKey: ["cp-sat result"],

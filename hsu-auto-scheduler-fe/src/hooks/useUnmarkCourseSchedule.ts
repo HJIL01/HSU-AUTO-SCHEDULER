@@ -1,7 +1,7 @@
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { useShallow } from "zustand/shallow";
 import useCurrentSemester from "./useCurrentSemester";
-import calcMinIndex from "@/utils/getHourIndexFromMins";
+import calcMinIndex from "@/utils/getTimeIndex";
 
 export default function useUnmarkCourseSchedule() {
   const { selectedCourses, deleteCourse, deleteSelectedTimeRange } =
