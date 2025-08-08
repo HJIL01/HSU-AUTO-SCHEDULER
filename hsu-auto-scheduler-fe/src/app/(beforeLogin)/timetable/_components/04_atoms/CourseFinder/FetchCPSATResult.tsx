@@ -5,14 +5,21 @@ import { CreateCPSATschemaType } from "@/types/schemas/CreateCPSAT.schema";
 import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 import CPSATResultModal from "../../05_modals/CPSATResultModal";
+import { useCPSATResultStore } from "@/store/CPSATResult/CPSATResultStore";
+import { useShallow } from "zustand/shallow";
 
 type Props = {
   hasEnoughData: boolean;
 };
 
 export default function FetchCPSATResult({ hasEnoughData }: Props) {
-  const [CPSATResultModalIsOpen, setCPSATResultModalIsOpen] =
-    useState<boolean>(false);
+  const { CPSATResultModalIsOpen, setCPSATResultModalOpen } =
+    useCPSATResultStore(
+      useShallow((state) => ({
+        CPSATResultModalIsOpen: state.CPSATResultModalIsOpen,
+        setCPSATResultModalOpen: state.setCPSATResultModalOpen,
+      })),
+    );
   const [isFetching, setIsFetching] = useState<boolean>(false);
 
   const { handleSubmit, getValues } = useFormContext<CreateCPSATschemaType>();
@@ -28,7 +35,7 @@ export default function FetchCPSATResult({ hasEnoughData }: Props) {
   const onSubmit = async () => {
     if (!hasEnoughData && !confirmInsufficientCredit()) return;
 
-    setCPSATResultModalIsOpen(true);
+    setCPSATResultModalOpen();
     setIsFetching(true);
     const start = Date.now();
 
@@ -50,12 +57,7 @@ export default function FetchCPSATResult({ hasEnoughData }: Props) {
       >
         시간표 자동 생성
       </button>
-      {CPSATResultModalIsOpen && (
-        <CPSATResultModal
-          isFetching={isFetching}
-          setCPSATResultModalIsOpen={setCPSATResultModalIsOpen}
-        />
-      )}
+      {CPSATResultModalIsOpen && <CPSATResultModal isFetching={isFetching} />}
     </>
   );
 }

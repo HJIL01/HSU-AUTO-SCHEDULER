@@ -4,10 +4,8 @@ import clsx from "clsx";
 import { Dispatch, SetStateAction } from "react";
 
 type Props = {
-  tabMode: "timetableMode" | "onlineLectureMode" | "infoSummaryMode";
-  setTabMode: Dispatch<
-    SetStateAction<"timetableMode" | "onlineLectureMode" | "infoSummaryMode">
-  >;
+  tabMode: "timetableMode" | "summaryMode";
+  setTabMode: Dispatch<SetStateAction<"timetableMode" | "summaryMode">>;
   onlineCourseCount: number;
 };
 
@@ -16,9 +14,7 @@ export default function CPSATResultTabChanger({
   setTabMode,
   onlineCourseCount,
 }: Props) {
-  const handleTabMode = (
-    tabMode: "timetableMode" | "onlineLectureMode" | "infoSummaryMode",
-  ) => {
+  const handleTabMode = (tabMode: "timetableMode" | "summaryMode") => {
     setTabMode(tabMode);
   };
 
@@ -37,23 +33,12 @@ export default function CPSATResultTabChanger({
       </button>
       <button
         className={clsx(
-          "border-course-finder-border rounded-t-lg border-x p-5 transition-colors duration-200",
-          tabMode === "onlineLectureMode"
-            ? "bg-course-finder-main-bg"
-            : "bg-[#807f7e] text-zinc-800",
-        )}
-        onClick={() => handleTabMode("onlineLectureMode")}
-      >
-        온라인 강의 보기({onlineCourseCount})
-      </button>
-      <button
-        className={clsx(
           "rounded-t-lg p-5 transition-colors duration-200",
-          tabMode === "infoSummaryMode"
+          tabMode === "summaryMode"
             ? "bg-course-finder-main-bg"
             : "bg-[#807f7e] text-zinc-800",
         )}
-        onClick={() => handleTabMode("infoSummaryMode")}
+        onClick={() => handleTabMode("summaryMode")}
       >
         시간표 요약
       </button>

@@ -1,27 +1,54 @@
-import React, { useMemo } from "react";
+"use client";
+
+import { Dispatch, SetStateAction, useMemo } from "react";
 import CPSATResultTimetableTab from "../../02_organisms/CPSATResult/tabs/CPSATResultTimetableTab";
 import CPSATResultInfoSummaryTab from "../../02_organisms/CPSATResult/tabs/CPSATResultInfoSummaryTab";
 import { CPSATSolutionType } from "@/types/CPSATSolution.type";
 import groupCoursesByDay from "@/utils/groupCoursesByDay";
-import CPSATResultOnlineCoursesTab from "../../02_organisms/CPSATResult/tabs/CPSATResultOnlineCoursesTab";
 import { SelectedCoursesByDayType } from "@/types/courseRender.type";
+import { useTimetableStore } from "@/store/timetable/timetableStore";
+import { useShallow } from "zustand/shallow";
+import useCurrentSemester from "@/hooks/useCurrentSemester";
+import { PersonalSchedulesByDayType } from "@/types/personalScheduleRender.type";
+import groupPersonalScheduleByDay from "@/utils/groupPersonalSchedulesByDay";
+import CPSATTabNavigation from "./CPSATTabNavigation";
 
 type Props = {
-  tabMode: "timetableMode" | "onlineLectureMode" | "infoSummaryMode";
+  tabMode: "timetableMode" | "summaryMode";
+  setTabMode: Dispatch<SetStateAction<"timetableMode" | "summaryMode">>;
   CPSATResult: CPSATSolutionType[];
   currentIndex: number;
 };
 
 export default function CPSATResultTabRenderer({
   tabMode,
+  setTabMode,
   CPSATResult,
   currentIndex,
 }: Props) {
+  const currentSemester = useCurrentSemester();
+  const { personalSchedules } = useTimetableStore(
+    useShallow((state) => ({
+      personalSchedules: state.personalSchedules,
+    })),
+  );
+
+  const personalSchedulesInCurSemester = personalSchedules[currentSemester];
+
   const selectedCoursesByDayList: SelectedCoursesByDayType[] = useMemo(() => {
     return CPSATResult.map((result) =>
-      groupCoursesByDay(result.selected_courses),
+      groupCoursesByDay(result.selected_courses, true),
     );
   }, [CPSATResult]);
+
+  const personalSchedulesByDay: PersonalSchedulesByDayType | undefined =
+    useMemo(() => {
+      if (!personalSchedulesInCurSemester) {
+        return undefined;
+      }
+
+      return groupPersonalScheduleByDay(personalSchedulesInCurSemester, true);
+    }, [personalSchedulesInCurSemester]);
 
   const renderTabContent = () => {
     switch (tabMode) {
@@ -29,18 +56,11 @@ export default function CPSATResultTabRenderer({
         return (
           <CPSATResultTimetableTab
             selectedCoursesByDayList={selectedCoursesByDayList}
+            personalSchdulesByDay={personalSchedulesByDay}
             currentIndex={currentIndex}
           />
         );
-      case "onlineLectureMode":
-        return (
-          <CPSATResultOnlineCoursesTab
-            onlineCourses={
-              selectedCoursesByDayList?.[currentIndex]?.["nontimes"] ?? []
-            }
-          />
-        );
-      case "infoSummaryMode":
+      case "summaryMode":
         return (
           <CPSATResultInfoSummaryTab
             totalCredit={CPSATResult[currentIndex].total_credit}
@@ -55,11 +75,11 @@ export default function CPSATResultTabRenderer({
   };
 
   return (
-    <div
-      className="bg-timetable-body-bg flex h-318 w-[75dvw] flex-col"
-      onClick={() => console.log(CPSATResult[currentIndex], "클릭됨")}
-    >
-      {renderTabContent()}
+    <div className="flex h-full flex-col">
+      <CPSATTabNavigation tabMode={tabMode} setTabMode={setTabMode} />
+      <div className="h-[calc(100%-104px)] overflow-y-auto">
+        {renderTabContent()}
+      </div>
     </div>
   );
 }

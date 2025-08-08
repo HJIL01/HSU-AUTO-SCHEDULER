@@ -1,3 +1,5 @@
+// 시간표 렌더링에 필요한 강의 정보를 요알을 기준으로 묶어주는 함수
+
 import { COURSE_BLOCK_BG_COLORS } from "@/constants/CourseBlockBgColors";
 import {
   CourseRenderInfoType,
@@ -7,7 +9,10 @@ import { CourseType } from "@/types/schemas/Course.schema";
 import { getTopByStartTime } from "./getTopByStartTime";
 import { getBlockHeight } from "./getBlockHeight";
 
-export default function groupCoursesByDay(courses: CourseType[]) {
+export default function groupCoursesByDay(
+  courses: CourseType[],
+  isCPSATResult: boolean,
+): SelectedCoursesByDayType {
   const groupedCoursesByDay: SelectedCoursesByDayType = courses.reduce(
     (acc, course, index) => {
       const baseInfo: CourseRenderInfoType = {
@@ -33,11 +38,11 @@ export default function groupCoursesByDay(courses: CourseType[]) {
             ...baseInfo,
             colorIndex: (index % (COURSE_BLOCK_BG_COLORS.length - 1)) + 1,
             offlineSchedule,
-            top: getTopByStartTime(offlineSchedule.start_time, true),
+            top: getTopByStartTime(offlineSchedule.start_time, isCPSATResult),
             height: getBlockHeight(
               offlineSchedule.start_time,
               offlineSchedule.end_time,
-              true,
+              isCPSATResult,
             ),
           });
 

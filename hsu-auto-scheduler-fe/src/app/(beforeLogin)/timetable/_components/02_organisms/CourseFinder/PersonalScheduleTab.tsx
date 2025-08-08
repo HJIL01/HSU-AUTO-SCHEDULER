@@ -4,7 +4,6 @@ import clsx from "clsx";
 import PersonalScheduleCard from "../../03_molecules/CourseFinder/PersonalScheduleCard";
 import PersonalScheduleAddCard from "../../03_molecules/CourseFinder/PersonalScheduleAddCard";
 import { useShallow } from "zustand/shallow";
-import PersonalScheduleModal from "../../05_modals/PersonalScheduleModal";
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import useCurrentSemester from "@/hooks/useCurrentSemester";
 import usePersonalScheduleModal from "@/hooks/usePersonalScheduleModal";

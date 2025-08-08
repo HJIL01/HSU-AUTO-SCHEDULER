@@ -29,11 +29,8 @@ export default function TimeTableGrid({
   return (
     <div
       className={clsx(
-        isCPSATResult
-          ? "pb-0"
-          : selectedCoursesByDay?.["nontimes"]
-            ? "pb-10"
-            : "pb-20",
+        !isCPSATResult &&
+          (selectedCoursesByDay?.["nontimes"] ? "pb-10" : "pb-20"),
       )}
     >
       {/* thead */}

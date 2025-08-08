@@ -8,7 +8,7 @@ type Props = {
 
 export default function TimetableHead({ isCPSATResult }: Props) {
   return (
-    <table className="bg-timetable-body-bg w-full border text-sm">
+    <table className="bg-timetable-body-bg sticky top-0 z-(--z-index-CPSATResult-modal) w-full border text-sm">
       <colgroup>
         <col className="border-timetable-cell-border w-30 border" />
         {DAYS.map((day) => (

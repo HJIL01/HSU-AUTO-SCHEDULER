@@ -13,13 +13,14 @@ import {
 } from "@/types/courseRender.type";
 import { getOfflineScheduleInCurDay } from "@/utils/getOfflineScheduleInCurDay";
 import { getTopByStartTime } from "@/utils/getTopByStartTime";
-import { COURSE_BLOCK_BG_COLORS } from "@/constants/CourseBlockBgColors";
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import useCurrentSemester from "@/hooks/useCurrentSemester";
 import OnlineCourseListForTimetable from "../../03_molecules/Timetable/OnlineCourseListForTimetable";
 import { getBlockHeight } from "@/utils/getBlockHeight";
 import { PersonalSchedulesByDayType } from "@/types/personalScheduleRender.type";
 import PersonalScheduleModal from "../../05_modals/PersonalScheduleModal";
+import groupCoursesByDay from "@/utils/groupCoursesByDay";
+import groupPersonalScheduleByDay from "@/utils/groupPersonalSchedulesByDay";
 
 export default function TimeTableBody() {
   const currentSemester = useCurrentSemester();
@@ -102,46 +103,7 @@ export default function TimeTableBody() {
         return undefined;
       }
 
-      return selectedCoursesInCurSemester.reduce((acc, cur, index) => {
-        const baseInfo: CourseRenderInfoType = {
-          courseId: cur.course_id,
-          courseName: cur.course_name,
-          courseClassSection: cur.class_section,
-          professors: cur.professor_names,
-          colorIndex: 0,
-        };
-
-        // 오프라인 스케줄이 있을 경우
-        if (cur.offline_schedules.length > 0) {
-          cur.offline_schedules.forEach((offlineSchedule) => {
-            const newCoursesInCurDay = acc[offlineSchedule.day] ?? [];
-
-            newCoursesInCurDay.push({
-              ...baseInfo,
-              colorIndex: (index % (COURSE_BLOCK_BG_COLORS.length - 1)) + 1,
-              offlineSchedule,
-              top: getTopByStartTime(offlineSchedule.start_time, false),
-              height: getBlockHeight(
-                offlineSchedule.start_time,
-                offlineSchedule.end_time,
-                false,
-              ),
-            });
-
-            acc[offlineSchedule.day] = newCoursesInCurDay;
-          });
-        }
-        // 온라인이거나 오프라인 스케줄이 없을 경우
-        else {
-          const newNontimes = acc["nontimes"] ?? [];
-
-          newNontimes.push(baseInfo);
-
-          acc["nontimes"] = newNontimes;
-        }
-
-        return acc;
-      }, {} as SelectedCoursesByDayType);
+      return groupCoursesByDay(selectedCoursesInCurSemester, false);
     }, [selectedCoursesInCurSemester]);
 
   const personalSchedulesByDay: PersonalSchedulesByDayType | undefined =
@@ -150,28 +112,7 @@ export default function TimeTableBody() {
         return undefined;
       }
 
-      return personalSchedulesInCurSemester.reduce((acc, cur, index) => {
-        cur.offline_schedules.forEach((offlineSchedule) => {
-          const newPersonalSchedulesInCurDay = acc[offlineSchedule.day] ?? [];
-
-          newPersonalSchedulesInCurDay.push({
-            personalScheduleId: cur.personal_schedule_id,
-            personalScheduleName: cur.personal_schedule_name,
-            offlineSchedule,
-            colorIndex: index,
-            top: getTopByStartTime(offlineSchedule.start_time, false),
-            height: getBlockHeight(
-              offlineSchedule.start_time,
-              offlineSchedule.end_time,
-              false,
-            ),
-          });
-
-          acc[offlineSchedule.day] = newPersonalSchedulesInCurDay;
-        });
-
-        return acc;
-      }, {} as PersonalSchedulesByDayType);
+      return groupPersonalScheduleByDay(personalSchedulesInCurSemester, false);
     }, [personalSchedulesInCurSemester]);
 
   return (
@@ -201,7 +142,8 @@ export default function TimeTableBody() {
       />
       {selectedCoursesByDay && selectedCoursesByDay["nontimes"] && (
         <OnlineCourseListForTimetable
-          onlineCourses={selectedCoursesByDay["nontimes"]!}
+          onlineCourses={selectedCoursesByDay["nontimes"]}
+          isCPSATResult={false}
         />
       )}
 

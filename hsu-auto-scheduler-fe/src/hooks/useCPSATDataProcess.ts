@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useGetCPSATResults from "./queries/useGetCPSATResults";
 
-export default function useCPSATProcessedData() {
+export default function useCPSATDataProcess() {
   const [totalSolutionCount, setTotalSolutionCount] = useState<number>(0);
 
   const { data } = useGetCPSATResults();

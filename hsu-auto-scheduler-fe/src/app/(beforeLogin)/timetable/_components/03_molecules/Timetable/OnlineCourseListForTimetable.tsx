@@ -4,13 +4,18 @@ import CloseIcon from "@/assets/icons/CloseIcon";
 import useCurrentSemester from "@/hooks/useCurrentSemester";
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { CourseRenderInfoType } from "@/types/courseRender.type";
+import clsx from "clsx";
 import { useShallow } from "zustand/shallow";
 
 type Props = {
   onlineCourses: CourseRenderInfoType[];
+  isCPSATResult: boolean;
 };
 
-export default function OnlineCourseListForTimetable({ onlineCourses }: Props) {
+export default function OnlineCourseListForTimetable({
+  onlineCourses,
+  isCPSATResult,
+}: Props) {
   const currentSemester = useCurrentSemester();
   const { deleteCourse } = useTimetableStore(
     useShallow((state) => ({
@@ -29,11 +34,16 @@ export default function OnlineCourseListForTimetable({ onlineCourses }: Props) {
   };
 
   return (
-    <div className="border-scheduler-cell-border w-full border-y border-b-transparent pb-20">
+    <div
+      className={clsx(
+        "border-border-hsu w-full border-y border-b-transparent",
+        !isCPSATResult && "pb-20",
+      )}
+    >
       {onlineCourses.map((onlineCourse) => (
         <div
           key={onlineCourse.courseId}
-          className="bg-timetable-body-bg border-timetable-cell-border border-x border-b p-5"
+          className="bg-timetable-body-bg border-border-hsu border-x border-b p-5"
         >
           <div className="flex w-fit items-center gap-3">
             <h2 className="max-md:text-xxs text-sm font-extrabold max-lg:text-xs">
