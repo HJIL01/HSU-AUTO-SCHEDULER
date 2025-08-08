@@ -49,7 +49,7 @@ export default function CourseFilters({ hasEnoughData }: Props) {
     useGetMajors(currentSemester);
 
   if (getMajorsFetching) {
-    return <div className="h-14 w-full" />;
+    return <div className="h-40 w-full" />;
   }
 
   // 전공 선택 리스트
@@ -87,7 +87,15 @@ export default function CourseFilters({ hasEnoughData }: Props) {
   };
 
   return (
-    <div className="flex h-14 justify-between">
+    <div
+      className={clsx(
+        "flex items-center justify-between rounded-2xl bg-white p-6",
+        "border-border-hsu border-2",
+      )}
+      style={{
+        boxShadow: "0 2px 10px rgba(46, 92, 184, 0.1)",
+      }}
+    >
       <div className="relative">
         {/* 엣지 페이드 */}
         <div

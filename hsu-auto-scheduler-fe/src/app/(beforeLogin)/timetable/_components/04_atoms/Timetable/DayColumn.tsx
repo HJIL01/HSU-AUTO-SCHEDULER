@@ -32,7 +32,7 @@ export default function DayColumn({
           key={hour}
           className={clsx(
             "min-w-20",
-            i !== 0 && "border-scheduler-cell-border border-t",
+            i !== 0 && "border-timetable-cell-border border-t",
           )}
           style={{
             height: `${timetableCellHeight}px`,

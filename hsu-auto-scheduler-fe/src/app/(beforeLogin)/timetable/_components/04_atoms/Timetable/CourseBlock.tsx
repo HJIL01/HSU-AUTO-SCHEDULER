@@ -6,7 +6,6 @@ import useHoverState from "@/hooks/useHoverState";
 import useUnmarkCourseSchedule from "@/hooks/useUnmarkCourseSchedule";
 import { CourseRenderInfoType } from "@/types/courseRender.type";
 import clsx from "clsx";
-import { useState } from "react";
 
 type Props = {
   courseRenderInfo: CourseRenderInfoType;
@@ -24,7 +23,7 @@ export default function CourseBlock({
   return (
     <div
       className={clsx(
-        "border-y-scheduler-cell-border absolute top-0 z-(--z-index-schedule-block) w-full overflow-hidden border-y max-md:p-2",
+        "border-y-timetable-cell-border absolute top-0 z-(--z-index-schedule-block) w-full overflow-hidden border-y max-md:p-2",
         COURSE_BLOCK_BG_COLORS[courseRenderInfo.colorIndex],
         isCPSATResult ? "p-2" : "p-4",
       )}

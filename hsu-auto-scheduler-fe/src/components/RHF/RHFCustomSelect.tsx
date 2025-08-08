@@ -3,9 +3,7 @@
 import { SelectOptionType } from "@/types/selectOption.type";
 import { Controller, FieldValues, Path, useFormContext } from "react-hook-form";
 import CustomSelectBox from "../ui/CustomSelectBox";
-import clsx from "clsx";
-import { useState } from "react";
-
+import useFocusState from "@/hooks/useFocusState";
 type Props<T extends FieldValues> = {
   name: Path<T>;
   items: SelectOptionType[];
@@ -22,25 +20,21 @@ export default function RHFCustomSelect<T extends FieldValues>({
   items,
   placeholder,
   className,
-  onChangeOverride,
 }: Props<T>) {
   const {
     control,
     formState: { errors },
   } = useFormContext<T>();
 
-  const [isFocus, setIsFocus] = useState<boolean>(false);
+  const { onFocus, onBlur } = useFocusState();
 
-  const handleInputOnFocus = () => {
-    setIsFocus(true);
-  };
-
-  const handleInputOnBlur = () => {
-    setIsFocus(false);
+  const handleOnBlurOverride = (RHFOnBlur: () => void) => {
+    onBlur();
+    RHFOnBlur();
   };
 
   return (
-    <div className="">
+    <div>
       <Controller
         name={name}
         control={control}
@@ -50,20 +44,13 @@ export default function RHFCustomSelect<T extends FieldValues>({
             items={items}
             placeholder={placeholder}
             className={className}
-            onFocus={handleInputOnFocus}
-            onBlur={handleInputOnBlur}
-            onChange={(e) => {
-              if (onChangeOverride) {
-                onChangeOverride(e.target.value, field.onChange);
-              } else {
-                field.onChange(e.target.value);
-              }
-            }}
+            onFocus={onFocus}
+            onBlur={() => handleOnBlurOverride(field.onBlur)}
           />
         )}
       />
       {errors[name] && (
-        <p className="pl-2 whitespace-nowrap text-red-600">
+        <p className="text-xxs pl-2 whitespace-nowrap text-red-600">
           {String(errors[name].message)}
         </p>
       )}

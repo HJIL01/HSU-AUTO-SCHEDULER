@@ -1,15 +1,16 @@
 "use client";
 
 import { Controller, FieldValues, Path, useFormContext } from "react-hook-form";
-import { ComponentProps, FocusEvent, useState } from "react";
+import { ComponentProps, FocusEvent } from "react";
 import { CustomInput } from "../ui/CustomInput";
 import clsx from "clsx";
+import useFocusState from "@/hooks/useFocusState";
 
 type Props<T extends FieldValues> = {
   id: string;
   name: Path<T>;
   labelText: string;
-  fixValueFuncOnBlur?: (event: FocusEvent<HTMLInputElement>) => void;
+  fixValueFuncOnBlur?: (e: FocusEvent<HTMLInputElement>) => void;
   className?: string;
   type?: string;
 } & ComponentProps<"input">;
@@ -28,23 +29,19 @@ export default function RHFTextInput<T extends FieldValues>({
     formState: { errors },
   } = useFormContext<T>();
 
-  const [isFocus, setIsFocus] = useState<boolean>(false);
-
-  const handleInputOnFocus = () => {
-    setIsFocus(true);
-  };
+  const { isFocus, onFocus, onBlur } = useFocusState();
 
   // event를 받아서 onBlur에 넘겨주고, 상태 변경 처리
   const handleInputOnBlurOverride = (
-    onBlur: (event: React.FocusEvent<HTMLInputElement>) => void,
-    event: React.FocusEvent<HTMLInputElement>,
+    e: React.FocusEvent<HTMLInputElement>,
+    RHFOnBlur: () => void,
   ) => {
     if (fixValueFuncOnBlur) {
-      fixValueFuncOnBlur(event);
+      fixValueFuncOnBlur(e);
     }
 
-    onBlur(event);
-    setIsFocus(false);
+    RHFOnBlur();
+    onBlur();
   };
 
   return (
@@ -52,8 +49,9 @@ export default function RHFTextInput<T extends FieldValues>({
       <label
         htmlFor={id}
         className={clsx(
-          "border-course-finder-border bg-course-finder-filter-bg flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-[5px] transition-colors duration-150",
-          isFocus && "border-zinc-950",
+          "flex cursor-pointer items-center gap-2 rounded-lg px-3 py-[5px]",
+          "border-border-hsu bg-light-hsu border-2 transition-colors duration-200",
+          isFocus && "border-hsu",
         )}
       >
         <span className="inline-block whitespace-nowrap">{labelText}</span>
@@ -62,14 +60,12 @@ export default function RHFTextInput<T extends FieldValues>({
           name={name}
           render={({ field }) => (
             <CustomInput
+              {...field}
               type={type || "text"}
               id={id}
               className={clsx("rounded-0 border-none !p-0", className)}
-              onFocus={handleInputOnFocus}
-              {...{
-                ...field,
-                onBlur: (e) => handleInputOnBlurOverride(field.onBlur, e),
-              }}
+              onFocus={onFocus}
+              onBlur={(e) => handleInputOnBlurOverride(e, field.onBlur)}
               {...props}
             />
           )}

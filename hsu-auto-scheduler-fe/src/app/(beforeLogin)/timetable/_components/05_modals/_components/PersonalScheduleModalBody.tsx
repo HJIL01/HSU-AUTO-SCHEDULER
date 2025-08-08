@@ -1,7 +1,6 @@
 import { CustomInput } from "@/components/ui/CustomInput";
 import clsx from "clsx";
 import PersonalScheduleItem from "./PersonalScheduleItem";
-import useFocusState from "@/hooks/useFocusState";
 import { Control, Controller, FieldArrayWithId } from "react-hook-form";
 import { PersonalScheduleType } from "@/types/schemas/PersonalSchedule.schema";
 import { OfflineScheduleType } from "@/types/schemas/OfflineSchedule.schema";
@@ -25,8 +24,6 @@ export default function PersonalScheduleModalBody({
   onRemove,
   onChange,
 }: Props) {
-  const { isFocus, onFocus, onBlur } = useFocusState();
-
   return (
     <div className="p-10">
       <div className="flex flex-col gap-10">
@@ -44,15 +41,9 @@ export default function PersonalScheduleModalBody({
               <CustomInput
                 {...field}
                 id="personal_schedule_name"
-                className={clsx(
-                  "bg-light-hsu border-border-hsu w-full border-2 transition-all duration-200",
-                  isFocus &&
-                    "border-deep-hsu bg-white shadow-[0_0_0_3px_rgba(68,114,196,0.1)]",
-                )}
-                onFocus={onFocus}
-                onBlur={onBlur}
                 placeholder="예) 알바"
                 maxLength={20}
+                className="focus:border-deep-hsu focus:bg-white focus:shadow-[0_0_0_3px_rgba(68,114,196,0.1)]"
               />
             )}
           />

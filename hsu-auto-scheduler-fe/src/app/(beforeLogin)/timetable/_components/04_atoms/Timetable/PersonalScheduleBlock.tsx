@@ -44,7 +44,7 @@ export default function PersonalScheduleBlock({
   return (
     <div
       className={clsx(
-        "border-y-scheduler-cell-border absolute top-0 z-(--z-index-schedule-block) w-full overflow-hidden border-y max-md:p-2",
+        "border-y-timetable-cell-border absolute top-0 z-(--z-index-schedule-block) w-full overflow-hidden border-y max-md:p-2",
         PERSONAL_SCHEDULE_BLOCK_BG_COLORS[
           personalScheduleRenderInfo.colorIndex
         ],

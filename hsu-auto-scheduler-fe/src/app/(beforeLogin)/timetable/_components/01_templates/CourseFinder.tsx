@@ -9,6 +9,7 @@ import { useState } from "react";
 import CourseTab from "../02_organisms/CourseFinder/CourseTab";
 import CourseFinderTabChanger from "../03_molecules/CourseFinder/CourseFinderTabChanger";
 import PersonalScheduleTab from "../02_organisms/CourseFinder/PersonalScheduleTab";
+import clsx from "clsx";
 
 export default function CourseFinder() {
   const { isOpen, setClose } = useTimetableStore(
@@ -31,7 +32,10 @@ export default function CourseFinder() {
       }}
       initial={{ top: "100dvh", opacity: 0 }}
       transition={{ duration: 1, ease: "easeInOut" }}
-      className="border-t-border border-t-course-finder-border fixed bottom-0 z-(--z-index-course-finder) w-full border-t bg-white px-5 py-7"
+      className={clsx(
+        "fixed bottom-0 z-(--z-index-course-finder) w-full bg-white px-5 py-7",
+        "border-t-border border-t-course-finder-border border-t",
+      )}
     >
       <CourseFinderTabChanger editMode={editMode} setEditMode={setEditMode} />
       <button

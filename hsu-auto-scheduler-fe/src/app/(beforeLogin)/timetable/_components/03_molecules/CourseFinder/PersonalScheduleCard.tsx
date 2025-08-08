@@ -31,7 +31,7 @@ export default function PersonalScheduleCard({
         <div className="flex gap-2">
           <button
             className={clsx(
-              "bg-hsu/10 text-hsu rounded-lg px-4 py-3 text-xs",
+              "bg-hsu/10 text-hsu rounded-lg px-4 py-3 text-xs whitespace-nowrap",
               "hover:bg-hsu/20",
             )}
             onClick={() =>
@@ -42,7 +42,7 @@ export default function PersonalScheduleCard({
           </button>
           <button
             className={clsx(
-              "rounded-lg bg-red-600/10 px-4 py-3 text-xs text-red-600",
+              "rounded-lg bg-red-600/10 px-4 py-3 text-xs whitespace-nowrap text-red-600",
               "hover:bg-red-600/20",
             )}
             onClick={() =>

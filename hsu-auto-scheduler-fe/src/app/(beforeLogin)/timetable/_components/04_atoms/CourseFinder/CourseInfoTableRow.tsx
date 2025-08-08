@@ -5,6 +5,7 @@ import useMarkCourseSchedule from "@/hooks/useMarkCourseSchedule";
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { CourseType } from "@/types/schemas/Course.schema";
 import { createOfflineScheduleString } from "@/utils/createOfflineScheduleString";
+import clsx from "clsx";
 import { useShallow } from "zustand/shallow";
 
 type Props = {
@@ -23,31 +24,58 @@ export default function CourseInfoTableRow({ course }: Props) {
 
   return (
     <tr
-      className="hover:bg-course-finder-courses-table-row-hover-bg cursor-pointer bg-white text-xs [&_td]:border [&_td]:border-t-0 [&_td]:py-3"
+      className={clsx(
+        "cursor-pointer bg-white text-xs",
+        "hover:bg-course-finder-courses-table-row-hover-bg",
+      )}
       onMouseEnter={() => setHoveredCourse(course)}
       onMouseLeave={clearHoveredCourse}
       onClick={() => onClickCourse(course)}
     >
-      <td> {`${course.course_code}-${course.class_section}`}</td>
-      <td>{course.course_name}</td>
-      <td>{course.professor_names.join(", ")}</td>
       <td>
+        <span className="text-hsu bg-hsu/20 rounded-lg p-3 font-semibold">{`${course.course_code}-${course.class_section}`}</span>
+      </td>
+
+      <td className="text-hsu font-semibold">{course.course_name}</td>
+
+      <td className="font-medium text-[#495057]">
+        {course.professor_names.join(", ")}
+      </td>
+
+      <td className="bg-hsu/20 text-hsu font-semibold">
         {course.grades
           .map((grade) => (grade === 0 ? "전학년" : grade))
           .join("/")}
       </td>
-      <td>{course.grade_limit ? course.grade_limit : "-"}</td>
-      <td>{course.credit}</td>
-      <td>{course.completion_types.join("/")}</td>
-      <td>{course.delivery_method}</td>
-      <td>{DayOrNightKorMap[course.day_or_night]}</td>
-      <td className="whitespace-pre-line">
-        {course.online_hour > 0 && `온라인강좌: ${course.online_hour}시간\n`}
+
+      <td className="text-course-info-text-base-gray font-medium">
+        {course.grade_limit ? course.grade_limit : "-"}
+      </td>
+
+      <td className="bg-hsu/20 text-hsu font-semibold">{course.credit}</td>
+
+      <td className="text-course-info-text-base-gray font-medium">
+        {course.delivery_method}
+      </td>
+
+      <td className="text-course-info-text-base-gray font-medium">
+        {course.completion_types.join("/")}
+      </td>
+
+      <td className="bg-hsu/20 text-hsu font-semibold">
+        {DayOrNightKorMap[course.day_or_night]}
+      </td>
+
+      <td className="text-course-info-text-base-gray font-medium whitespace-pre-line">
+        <span className="text-hsu font-semibold">
+          {course.online_hour > 0 && `온라인강좌: ${course.online_hour}시간\n`}
+        </span>
         {course.delivery_method !== "온라인100%" &&
           (course.offline_schedules.length > 0
             ? createOfflineScheduleString(course.offline_schedules)
             : "-")}
       </td>
+
       <td>
         {course.plan_code !== "x" ? (
           <button

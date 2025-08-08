@@ -4,14 +4,13 @@ import useCurrentSemester from "./useCurrentSemester";
 import calcMinIndex from "@/utils/getTimeIndex";
 
 export default function useUnmarkCourseSchedule() {
-  const { selectedCourses, deleteCourse, deleteSelectedTimeRange } =
-    useTimetableStore(
-      useShallow((state) => ({
-        selectedCourses: state.selectedCourses,
-        deleteCourse: state.deleteCourse,
-        deleteSelectedTimeRange: state.deleteSelectedTimeRange,
-      })),
-    );
+  const { selectedCourses, deleteCourse, deleteTimeRange } = useTimetableStore(
+    useShallow((state) => ({
+      selectedCourses: state.selectedCourses,
+      deleteCourse: state.deleteCourse,
+      deleteTimeRange: state.deleteTimeRange,
+    })),
+  );
 
   const currentSemester = useCurrentSemester();
 
@@ -36,7 +35,7 @@ export default function useUnmarkCourseSchedule() {
         const startIndex = calcMinIndex(targetCourseOfflineSchdule.start_time);
         const endIndex = calcMinIndex(targetCourseOfflineSchdule.end_time);
 
-        deleteSelectedTimeRange(currentSemester, day, startIndex, endIndex);
+        deleteTimeRange(currentSemester, day, startIndex, endIndex);
       }
     } else {
       alert(`${courseName}-${classSection}반을 찾을 수 없습니다`);

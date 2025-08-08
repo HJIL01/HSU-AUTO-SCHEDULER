@@ -7,7 +7,7 @@ import { SelectOptionType } from "@/types/selectOption.type";
 import { SemesterType } from "@/types/semester.type";
 import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { ChangeEvent, useEffect } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
 type Props = {
@@ -34,11 +34,11 @@ export default function RHFSelectSemester({ semesters }: Props) {
   };
 
   const handleSelectChange = (
-    value: string,
-    onChange: (value: string) => void,
+    e: ChangeEvent<HTMLSelectElement>,
+    RHFOnChange: (value: string) => void,
   ) => {
-    onChange(value);
-    handleChangeSemester(value);
+    RHFOnChange(e.target.value);
+    handleChangeSemester(e.target.value);
   };
 
   useEffect(() => {
@@ -58,7 +58,8 @@ export default function RHFSelectSemester({ semesters }: Props) {
           {...field}
           items={selectBoxOptions}
           placeholder="학기"
-          onChange={(e) => handleSelectChange(e.target.value, field.onChange)}
+          onChange={(e) => handleSelectChange(e, field.onChange)}
+          className="border-none bg-white focus:border-none"
         />
       )}
     />

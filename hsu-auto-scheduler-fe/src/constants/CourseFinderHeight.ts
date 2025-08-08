@@ -1,1 +1,1 @@
-export const COURSE_FINDER_HEIGHT = 42;
+export const COURSE_FINDER_HEIGHT = 45;

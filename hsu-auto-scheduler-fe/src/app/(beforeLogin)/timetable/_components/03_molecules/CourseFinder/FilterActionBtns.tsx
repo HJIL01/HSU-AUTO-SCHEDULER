@@ -9,6 +9,7 @@ import {
 import useCurrentSemester from "@/hooks/useCurrentSemester";
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { useShallow } from "zustand/shallow";
+import clsx from "clsx";
 
 type Props = {
   hasEnoughData: boolean;
@@ -47,13 +48,14 @@ export default function FilterActionBtns({ hasEnoughData }: Props) {
   };
 
   return (
-    <div className="flex gap-2">
-      <button
-        className="bg-hsu h-full rounded-lg px-3 text-xs whitespace-nowrap text-white"
-        onClick={onReset}
-      >
-        필터 초기화
-      </button>
+    <div
+      className={clsx(
+        "flex gap-2",
+        "[&_button]:bg-hsu [&_button]:h-fit [&_button]:rounded-lg [&_button]:px-3 [&_button]:py-5",
+        "[&_button]:text-xs [&_button]:whitespace-nowrap [&_button]:text-white",
+      )}
+    >
+      <button onClick={onReset}>필터 초기화</button>
       <FetchCPSATResult hasEnoughData={hasEnoughData} />
     </div>
   );

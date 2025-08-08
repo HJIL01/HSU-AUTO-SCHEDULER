@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useInfiniteScroll } from "@/hooks/useInfinityScroll";
 import { CourseType } from "@/types/schemas/Course.schema";
 import CourseInfoTableRow from "../../04_atoms/CourseFinder/CourseInfoTableRow";
+import clsx from "clsx";
 
 type Props = {
   hasNextPage: boolean;
@@ -23,12 +24,22 @@ export default function CourseList({
   const observer = useInfiniteScroll({ hasNextPage, fetchNextPage });
 
   return (
-    // 밑에서 50px을 뺀 이유는 옵저버의 높이가 h-25이기 때문
-    <div className="h-[calc(100%-50px)] w-full overflow-y-auto">
-      <table className="bg-course-finder-courses-table-head-bg sticky top-0 h-18 w-full table-fixed border-collapse border text-xs [&_th]:border">
-        <colgroup>
+    // 밑에서 50px을 뺀 이유는 옵저버의 높이가 h-32(64px)이기 때문
+    <div className="h-[calc(100%-64px)] w-full overflow-y-auto">
+      <table
+        className={clsx(
+          "sticky top-0 h-18 w-full table-fixed",
+          "[&_th]:text-xs [&_th]:text-white",
+          "[&_th]:font-semibold",
+        )}
+      >
+        <colgroup
+          className={clsx(
+            "[&_col]:bg-[linear-gradient(135deg,var(--color-hsu)_0%,var(--color-deep-hsu)_100%)]",
+          )}
+        >
           {/* 과목코드 */}
-          <col className="w-40" />
+          <col className="w-50" />
           {/* 과목명 */}
           <col className="min-w-50" />
           {/* 교수 */}
@@ -39,10 +50,10 @@ export default function CourseList({
           <col className="w-30" />
           {/* 학점 */}
           <col className="w-20" />
-          {/* 이수구분 */}
-          <col className="w-33" />
           {/* 과목구분 */}
           <col className="w-31" />
+          {/* 이수구분 */}
+          <col className="w-33" />
           {/* 주/야 */}
           <col className="w-20" />
           {/* 강의 스케줄 */}
@@ -58,8 +69,8 @@ export default function CourseList({
             <th>학년</th>
             <th>학년제한</th>
             <th>학점</th>
-            <th>이수구분</th>
             <th>과목구분</th>
+            <th>이수구분</th>
             <th>주/야</th>
             <th>강의 스케줄</th>
             <th>강의 계획서</th>
@@ -76,7 +87,7 @@ export default function CourseList({
         <table className="w-full table-fixed border-collapse [&_tr]:h-22">
           <colgroup>
             {/* 과목코드 */}
-            <col className="w-40" />
+            <col className="w-50" />
             {/* 과목명 */}
             <col className="min-w-50" />
             {/* 교수 */}
@@ -87,10 +98,10 @@ export default function CourseList({
             <col className="w-30" />
             {/* 학점 */}
             <col className="w-20" />
-            {/* 이수구분 */}
-            <col className="w-33" />
             {/* 과목구분 */}
             <col className="w-31" />
+            {/* 이수구분 */}
+            <col className="w-33" />
             {/* 주/야 */}
             <col className="w-20" />
             {/* 강의 스케줄 */}
@@ -125,7 +136,7 @@ export default function CourseList({
           role="status"
           aria-live="polite"
           ref={observer}
-          className="flex h-25 w-full items-center justify-center"
+          className="flex h-32 w-full items-center justify-center"
         >
           <SpinSangSangBoogi className="w-12" />
         </div>

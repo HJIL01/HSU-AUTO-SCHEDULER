@@ -12,7 +12,7 @@
     /* 시간표 부분 */
     --color-timetable-body-bg: #F8F8F8;
     --color-timetable-cell-border: #E6E6E6;
-    --color-scheduler-cell-border: #E6E6E6;
+    /* --color-scheduler-cell-border: #E6E6E6; */
 
     --color-course-block-1: #A9B5DF;
     --color-course-block-2: #F75A5A;
@@ -47,6 +47,7 @@
     --color-personal-schedule-block-15: #B4D4FF;
 
     /* course finder 부분 */
+    --color-course-info-text-base-gray: #6c757d;
     --color-course-finder-main-bg: #f9fafb;
     --color-course-finder-border: #98a2b3;
     --color-course-finder-filter-bg: #f2f4f7;

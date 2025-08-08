@@ -59,7 +59,6 @@ export default function PersonalScheduleItem({
         className={clsx(
           "flex flex-wrap gap-3 max-sm:flex-col",
           "[&_label]:text-hsu [&_label]:mb-1 [&_label]:ml-1 [&_label]:block [&_label]:font-semibold",
-          "[&_input]:border-border-hsu [&_input]:focus:border-deep-hsu [&_input]:border-2 [&_input]:transition-all [&_input]:duration-200 [&_input]:focus:shadow-[0_0_0_3px_rgba(68,114,196,0.1)]",
         )}
       >
         <button
@@ -164,6 +163,7 @@ export default function PersonalScheduleItem({
                 id={`offline_schedules.${index}.place`}
                 placeholder="예) 상상관"
                 value={field.value ?? ""}
+                className="focus:border-deep-hsu focus:bg-white focus:shadow-[0_0_0_3px_rgba(68,114,196,0.1)]"
               />
             )}
           />
