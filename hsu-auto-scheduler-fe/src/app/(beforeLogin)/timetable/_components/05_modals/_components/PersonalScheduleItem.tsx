@@ -28,19 +28,18 @@ export default function PersonalScheduleItem({
   index,
   control,
   onRemove,
-  onChange,
 }: Props) {
   const dayItems: SelectOptionType[] = DAYS.map((day) => ({
     label: WeekdayKorMap[day],
     value: day,
   }));
 
-  const hourItems: SelectOptionType[] = HOURS.map((hour) => ({
+  const hourItemsInMins: SelectOptionType[] = HOURS.map((hour) => ({
     label:
       hour < 12
         ? `오전 ${hour === 0 ? 12 : hour}시`
         : `오후 ${hour === 12 ? 12 : hour % 12}시`,
-    value: hour * 60,
+    value: hour,
   }));
 
   const minItems: SelectOptionType[] = Array.from(
@@ -51,14 +50,8 @@ export default function PersonalScheduleItem({
     value: min,
   }));
 
-  const {
-    startTime,
-    endTime,
-    handleStartHour,
-    handleStartMin,
-    handleEndHour,
-    handleEndMin,
-  } = useTimeRangeFields({ index, onChange });
+  const { handleStartTimeChange, handleEndTimeChange } =
+    useTimeRangeFields(index);
 
   return (
     <div className="relative rounded-xl border border-[#e9ecef] bg-white p-7">
@@ -66,7 +59,6 @@ export default function PersonalScheduleItem({
         className={clsx(
           "flex flex-wrap gap-3 max-sm:flex-col",
           "[&_label]:text-hsu [&_label]:mb-1 [&_label]:ml-1 [&_label]:block [&_label]:font-semibold",
-          "[&_select]:border-border-hsu [&_select]:focus:border-deep-hsu [&_select]:border-2 [&_select]:transition-all [&_select]:duration-200 [&_select]:focus:shadow-[0_0_0_3px_rgba(68,114,196,0.1)]",
           "[&_input]:border-border-hsu [&_input]:focus:border-deep-hsu [&_input]:border-2 [&_input]:transition-all [&_input]:duration-200 [&_input]:focus:shadow-[0_0_0_3px_rgba(68,114,196,0.1)]",
         )}
       >
@@ -97,42 +89,68 @@ export default function PersonalScheduleItem({
 
         <div className="flex flex-col">
           <label htmlFor={`startHour${index}`}>시작 시간</label>
-          <div className="flex gap-2">
-            <CustomSelectBox
-              items={hourItems}
-              id={`startHour${index}`}
-              name={`startHour${index}`}
-              value={startTime.startHour}
-              onChange={handleStartHour}
-            />
-            <CustomSelectBox
-              items={minItems}
-              id={`startMin${index}`}
-              name={`startMin${index}`}
-              value={startTime.startMin}
-              onChange={handleStartMin}
-            />
-          </div>
+          <Controller
+            name={`offline_schedules.${index}.start_time`}
+            control={control}
+            render={({ field }) => {
+              const hour = Math.floor(field.value / 60);
+              const min = field.value % 60;
+
+              return (
+                <div className="flex gap-2">
+                  <CustomSelectBox
+                    items={hourItemsInMins}
+                    id={`startHour${index}`}
+                    name={`startHour${index}`}
+                    value={hour}
+                    onChange={(e) =>
+                      handleStartTimeChange(+e.target.value, min)
+                    }
+                  />
+                  <CustomSelectBox
+                    items={minItems}
+                    id={`startMin${index}`}
+                    name={`startMin${index}`}
+                    value={min}
+                    onChange={(e) =>
+                      handleStartTimeChange(hour, +e.target.value)
+                    }
+                  />
+                </div>
+              );
+            }}
+          />
         </div>
 
         <div className="flex flex-col">
           <label htmlFor={`endHour${index}`}>종료 시간</label>
-          <div className="flex gap-2">
-            <CustomSelectBox
-              items={hourItems}
-              id={`endHour${index}`}
-              name={`endHour${index}`}
-              value={endTime.endHour}
-              onChange={handleEndHour}
-            />
-            <CustomSelectBox
-              items={minItems}
-              id={`endMin${index}`}
-              name={`endMin${index}`}
-              value={endTime.endMin}
-              onChange={handleEndMin}
-            />
-          </div>
+          <Controller
+            name={`offline_schedules.${index}.end_time`}
+            control={control}
+            render={({ field }) => {
+              const hour = Math.floor(field.value / 60);
+              const min = field.value % 60;
+
+              return (
+                <div className="flex gap-2">
+                  <CustomSelectBox
+                    items={hourItemsInMins}
+                    id={`endHour${index}`}
+                    name={`endHour${index}`}
+                    value={hour}
+                    onChange={(e) => handleEndTimeChange(+e.target.value, min)}
+                  />
+                  <CustomSelectBox
+                    items={minItems}
+                    id={`endMin${index}`}
+                    name={`endMin${index}`}
+                    value={min}
+                    onChange={(e) => handleEndTimeChange(hour, +e.target.value)}
+                  />
+                </div>
+              );
+            }}
+          />
         </div>
 
         <div className="flex max-w-[50%] flex-1 flex-col">

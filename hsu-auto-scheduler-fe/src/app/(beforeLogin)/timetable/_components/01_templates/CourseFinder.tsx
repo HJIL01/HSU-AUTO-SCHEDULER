@@ -31,12 +31,12 @@ export default function CourseFinder() {
       }}
       initial={{ top: "100dvh", opacity: 0 }}
       transition={{ duration: 1, ease: "easeInOut" }}
-      className="border-t-border border-t-course-finder-border bg-course-finder-main-bg fixed bottom-0 z-(--z-index-course-finder) w-full border-t px-5 py-7"
+      className="border-t-border border-t-course-finder-border fixed bottom-0 z-(--z-index-course-finder) w-full border-t bg-white px-5 py-7"
     >
       <CourseFinderTabChanger editMode={editMode} setEditMode={setEditMode} />
       <button
         onClick={setClose}
-        className="border-course-finder-border bg-course-finder-main-bg absolute top-0 right-0 translate-y-[-98%] rounded-t-lg border border-b-0 p-5"
+        className="border-course-finder-border absolute top-0 right-0 translate-y-[-98%] rounded-t-lg border border-b-0 bg-white p-5"
       >
         <DropDownArrow />
       </button>

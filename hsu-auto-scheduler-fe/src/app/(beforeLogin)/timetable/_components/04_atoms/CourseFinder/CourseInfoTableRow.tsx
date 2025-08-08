@@ -23,7 +23,7 @@ export default function CourseInfoTableRow({ course }: Props) {
 
   return (
     <tr
-      className="bg-course-finder-courses-table-row-bg hover:bg-course-finder-courses-table-row-hover-bg cursor-pointer text-xs [&_td]:border [&_td]:border-t-0 [&_td]:py-3"
+      className="hover:bg-course-finder-courses-table-row-hover-bg cursor-pointer bg-white text-xs [&_td]:border [&_td]:border-t-0 [&_td]:py-3"
       onMouseEnter={() => setHoveredCourse(course)}
       onMouseLeave={clearHoveredCourse}
       onClick={() => onClickCourse(course)}

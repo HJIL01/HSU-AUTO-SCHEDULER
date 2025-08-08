@@ -1,98 +1,44 @@
-import { OfflineScheduleType } from "@/types/schemas/OfflineSchedule.schema";
-import { ChangeEvent, useEffect, useState } from "react";
+import { PersonalScheduleType } from "@/types/schemas/PersonalSchedule.schema";
+import { useFormContext } from "react-hook-form";
 
-type StartTimeType = {
-  startHour: number;
-  startMin: number;
-};
+export default function useTimeRangeFields(index: number) {
+  const { setValue, getValues } = useFormContext<PersonalScheduleType>();
 
-type EndTimeType = {
-  endHour: number;
-  endMin: number;
-};
+  const handleStartTimeChange = (hour: number, min: number) => {
+    const currentEndTime = getValues(`offline_schedules.${index}.end_time`);
+    const newStartTime = hour * 60 + min;
 
-type Props = {
-  index: number;
-  onChange: (
-    index: number,
-    fieldName: keyof OfflineScheduleType,
-    value: OfflineScheduleType[keyof OfflineScheduleType],
-  ) => void;
-};
+    setValue(`offline_schedules.${index}.start_time`, newStartTime);
 
-export default function useTimeRangeFields({ index, onChange }: Props) {
-  const [startTime, setStartTime] = useState<StartTimeType>({
-    startHour: 540,
-    startMin: 0,
-  });
-
-  const [endTime, setEndTime] = useState<EndTimeType>({
-    endHour: 600,
-    endMin: 0,
-  });
-
-  const handleStartHour = (e: ChangeEvent<HTMLSelectElement>) => {
-    setStartTime((prev) => ({
-      ...prev,
-      startHour: +e.target.value,
-    }));
-  };
-
-  const handleStartMin = (e: ChangeEvent<HTMLSelectElement>) => {
-    setStartTime((prev) => ({
-      ...prev,
-      startMin: +e.target.value,
-    }));
-  };
-
-  const handleEndHour = (e: ChangeEvent<HTMLSelectElement>) => {
-    setEndTime((prev) => ({
-      ...prev,
-      endHour: +e.target.value,
-    }));
-  };
-
-  const handleEndMin = (e: ChangeEvent<HTMLSelectElement>) => {
-    setEndTime((prev) => ({
-      ...prev,
-      endMin: +e.target.value,
-    }));
-  };
-
-  useEffect(() => {
-    const startTimeSum = startTime.startHour + startTime.startMin;
-    const endTimeSum = endTime.endHour + endTime.endMin;
-
-    if (startTimeSum > endTimeSum) {
-      setEndTime({
-        endHour: startTime.startHour + 60,
-        endMin: 0,
-      });
+    /* 
+      startTime이 endTime보다 크게 설정될 경우 endTime에 1시간을 더하되,
+      오후 11시 55분보다 클 경우 오후 11시 55분으로 보정
+    */
+    if (newStartTime > currentEndTime) {
+      setValue(
+        `offline_schedules.${index}.end_time`,
+        Math.min(newStartTime + 60, 23 * 60 + 55),
+      );
     }
-
-    onChange(index, "start_time", startTimeSum);
-  }, [startTime]);
-
-  useEffect(() => {
-    const startTimeSum = startTime.startHour + startTime.startMin;
-    const endTimeSum = endTime.endHour + endTime.endMin;
-
-    if (endTimeSum < startTimeSum) {
-      setStartTime({
-        startHour: endTime.endHour - 60,
-        startMin: 0,
-      });
-    }
-
-    onChange(index, "end_time", endTimeSum);
-  }, [endTime]);
-
-  return {
-    startTime,
-    endTime,
-    handleStartHour,
-    handleStartMin,
-    handleEndHour,
-    handleEndMin,
   };
+
+  const handleEndTimeChange = (hour: number, min: number) => {
+    const currentStartTime = getValues(`offline_schedules.${index}.start_time`);
+    const newEndTime = hour * 60 + min;
+
+    setValue(`offline_schedules.${index}.end_time`, newEndTime);
+
+    /* 
+      endTime이 startTime보다 작게 설정된 경우 startTime에 1시간을 빼되,
+      오전 9시보다 작을 경우 오전 9시로 보정
+    */
+    if (newEndTime < currentStartTime) {
+      setValue(
+        `offline_schedules.${index}.start_time`,
+        Math.max(newEndTime - 60, 9 * 60),
+      );
+    }
+  };
+
+  return { handleStartTimeChange, handleEndTimeChange };
 }

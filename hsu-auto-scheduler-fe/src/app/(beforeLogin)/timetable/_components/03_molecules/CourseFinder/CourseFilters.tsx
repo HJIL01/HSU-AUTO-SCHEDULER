@@ -123,21 +123,19 @@ export default function CourseFilters({ hasEnoughData }: Props) {
             name="major_code"
             items={majorSelectedOptions}
             placeholder="전공을 선택하세요"
-            className="!bg-course-finder-filter-bg border-course-finder-border max-w-130 truncate border"
+            className="w-80 truncate"
           />
           {/* 학년 필터 */}
           <RHFCustomSelect<CreateCPSATschemaType>
             name="grade"
             items={gradeSelectOptions}
             placeholder="학년"
-            className="!bg-course-finder-filter-bg border-course-finder-border border"
           />
           {/* 주야 필터 */}
           <RHFCustomSelect<CreateCPSATschemaType>
             name="day_or_night"
             items={dayOrNightSelectOptions}
             placeholder="주/야"
-            className="!bg-course-finder-filter-bg border-course-finder-border border"
           />
           {/* 공강 필터 */}
           <RHFTextInput

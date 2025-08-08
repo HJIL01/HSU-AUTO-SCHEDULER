@@ -40,7 +40,7 @@ export default function RHFCustomSelect<T extends FieldValues>({
   };
 
   return (
-    <div>
+    <div className="">
       <Controller
         name={name}
         control={control}
@@ -49,11 +49,7 @@ export default function RHFCustomSelect<T extends FieldValues>({
             {...field}
             items={items}
             placeholder={placeholder}
-            className={clsx(
-              "transition-colors duration-150",
-              className,
-              isFocus && "border-zinc-950",
-            )}
+            className={className}
             onFocus={handleInputOnFocus}
             onBlur={handleInputOnBlur}
             onChange={(e) => {

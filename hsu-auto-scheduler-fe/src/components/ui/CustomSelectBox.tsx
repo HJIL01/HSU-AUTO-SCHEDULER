@@ -21,7 +21,12 @@ export default function CustomSelectBox({
   return (
     <select
       name={name}
-      className={clsx("h-fit rounded-lg bg-white px-3 py-2 text-xs", className)}
+      className={clsx(
+        "h-fit rounded-lg bg-white px-3 py-2 text-xs",
+        "border-border-hsu border-2 transition-all duration-200",
+        "focus:border-deep-hsu focus:shadow-[0_0_0_3px_rgba(68,114,196,0.1)]",
+        className,
+      )}
       {...props}
     >
       <option value="" disabled hidden>
