@@ -12,22 +12,24 @@
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { useShallow } from "zustand/shallow";
 import useUnmarkPersonalSchedule from "./useUnmarkPersonalSchedule";
-import { PersonalScheduleType } from "@/types/schemas/PersonalSchedule.schema";
+import useCurrentSemester from "./useCurrentSemester";
 
 export default function usePersonalScheduleModal() {
+  const currentSemester = useCurrentSemester();
+
   const {
     setPersonalScheduleModalOpen,
     setSelectedPersonalSchedule,
     setFormType,
     setPersonalScheduleModalClose,
+    personalSchedules,
   } = useTimetableStore(
     useShallow((state) => ({
       setPersonalScheduleModalOpen: state.setPersonalScheduleModalOpen,
       setSelectedPersonalSchedule: state.setSelectedPersonalSchedule,
       setFormType: state.setFormType,
-      selectedPersonalSchedule: state.selectedPersonalSchedule,
       setPersonalScheduleModalClose: state.setPersonalScheduleModalClose,
-      formType: state.formType,
+      personalSchedules: state.personalSchedules,
     })),
   );
 
@@ -40,10 +42,16 @@ export default function usePersonalScheduleModal() {
   };
 
   // 개인 스케줄 수정: 타겟 개인 스케줄 초기화, 모달 열기, 수정 모드로 전환
-  const handleEditPersonalSchedule = (target: PersonalScheduleType) => {
-    setSelectedPersonalSchedule(target);
-    setPersonalScheduleModalOpen();
-    setFormType("edit");
+  const handleEditPersonalSchedule = (targetId: string) => {
+    const targetPersonalSchedule = personalSchedules[currentSemester].find(
+      (ps) => ps.personal_schedule_id === targetId,
+    );
+
+    if (targetPersonalSchedule) {
+      setSelectedPersonalSchedule(targetPersonalSchedule);
+      setPersonalScheduleModalOpen();
+      setFormType("edit");
+    }
   };
 
   // 개인 스케줄 삭제: 개인 스케줄 목록에서 삭제, 타임셀렉션 언마킹

@@ -19,6 +19,7 @@ import useCurrentSemester from "@/hooks/useCurrentSemester";
 import OnlineCourseListForTimetable from "../../03_molecules/Timetable/OnlineCourseListForTimetable";
 import { getBlockHeight } from "@/utils/getBlockHeight";
 import { PersonalSchedulesByDayType } from "@/types/personalScheduleRender.type";
+import PersonalScheduleModal from "../../05_modals/PersonalScheduleModal";
 
 export default function TimeTableBody() {
   const currentSemester = useCurrentSemester();
@@ -29,6 +30,7 @@ export default function TimeTableBody() {
     ensureSelectedCoursesSemesterInitialized,
     personalSchedules,
     ensurePersonalSchedulesSemesterInitialized,
+    personalScheduleModalIsOpen,
   } = useTimetableStore(
     useShallow((state) => ({
       isOpen: state.isOpen,
@@ -39,6 +41,7 @@ export default function TimeTableBody() {
       personalSchedules: state.personalSchedules,
       ensurePersonalSchedulesSemesterInitialized:
         state.ensurePersonalSchedulesSemesterInitialized,
+      personalScheduleModalIsOpen: state.personalScheduleModalIsOpen,
     })),
   );
 
@@ -201,6 +204,8 @@ export default function TimeTableBody() {
           onlineCourses={selectedCoursesByDay["nontimes"]!}
         />
       )}
+
+      {personalScheduleModalIsOpen && <PersonalScheduleModal />}
     </motion.div>
   );
 }

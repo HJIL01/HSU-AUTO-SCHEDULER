@@ -52,6 +52,7 @@ export default function PersonalScheduleModalBody({
                 onFocus={onFocus}
                 onBlur={onBlur}
                 placeholder="예) 알바"
+                maxLength={20}
               />
             )}
           />

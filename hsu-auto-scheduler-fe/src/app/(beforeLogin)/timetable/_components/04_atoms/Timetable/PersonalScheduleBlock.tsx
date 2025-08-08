@@ -2,9 +2,10 @@
 
 import CloseIcon from "@/assets/icons/CloseIcon";
 import Edit from "@/assets/icons/Edit";
-import { COURSE_BLOCK_BG_COLORS } from "@/constants/CourseBlockBgColors";
 import { PERSONAL_SCHEDULE_BLOCK_BG_COLORS } from "@/constants/PersonalScheduleBlockBgColors";
+import useCurrentSemester from "@/hooks/useCurrentSemester";
 import useHoverState from "@/hooks/useHoverState";
+import usePersonalScheduleModal from "@/hooks/usePersonalScheduleModal";
 import useUnmarkPersonalSchedule from "@/hooks/useUnmarkPersonalSchedule";
 import { PersonalScheduleRenderInfoType } from "@/types/personalScheduleRender.type";
 import clsx from "clsx";
@@ -18,9 +19,17 @@ export default function PersonalScheduleBlock({
   personalScheduleRenderInfo,
   isCPSATResult,
 }: Props) {
-  const isHoverEnabled = !isCPSATResult;
+  const currentSemester = useCurrentSemester();
   const { isHovered, onMouseEnter, onMouseLeave } = useHoverState();
+
   const { deletePersonalScheduleAndUnMark } = useUnmarkPersonalSchedule();
+  const { handleEditPersonalSchedule } = usePersonalScheduleModal();
+
+  const isHoverEnabled = !isCPSATResult;
+
+  const handleEdit = () => {
+    handleEditPersonalSchedule(personalScheduleRenderInfo.personalScheduleId);
+  };
 
   const handleDelete = (
     targetPersonalScheduleId: string,
@@ -50,7 +59,10 @@ export default function PersonalScheduleBlock({
     >
       {isHovered && isHoverEnabled && (
         <div className="float-right mr-1 flex gap-1">
-          <button className="aspect-square w-7 bg-transparent max-md:w-5">
+          <button
+            className="aspect-square w-7 bg-transparent max-md:w-5"
+            onClick={handleEdit}
+          >
             <Edit />
           </button>
           <button

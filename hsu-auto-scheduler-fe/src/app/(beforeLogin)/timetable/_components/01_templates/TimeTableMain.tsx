@@ -1,4 +1,3 @@
-import React from "react";
 import TimeTableTitle from "../02_organisms/Timetable/TimetableTitle";
 import TimeTableBody from "../02_organisms/Timetable/TimetableBody";
 

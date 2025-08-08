@@ -1,5 +1,5 @@
 import { PersonalScheduleType } from "@/types/schemas/PersonalSchedule.schema";
-import { findIndex } from "lodash";
+import cleanPersonalSchedule from "@/utils/cleanPersonalSchedule";
 import { StateCreator } from "zustand";
 import { combine } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
@@ -60,21 +60,7 @@ export const createPersonalScheduleSlice: StateCreator<
         const personalSchedulesInCurSemester =
           state.personalSchedules[semester] ?? [];
 
-        const cleanedOfflineSchedules = personalSchedule.offline_schedules.map(
-          (offlineSchedule) => {
-            if (offlineSchedule.place?.trim() === "") {
-              return { ...offlineSchedule, place: undefined };
-            }
-            return offlineSchedule;
-          },
-        );
-
-        const cleanedPersonalSchedule = {
-          ...personalSchedule,
-          personal_schedule_name:
-            personalSchedule.personal_schedule_name.trim(),
-          offline_schedules: cleanedOfflineSchedules,
-        };
+        const cleanedPersonalSchedule = cleanPersonalSchedule(personalSchedule);
 
         personalSchedulesInCurSemester.push(cleanedPersonalSchedule);
         state.personalSchedules[semester] = personalSchedulesInCurSemester;
@@ -107,24 +93,7 @@ export const createPersonalScheduleSlice: StateCreator<
 
       if (targetPersonalScheduleIndex !== -1) {
         set((state) => {
-          const cleanedOfflineSchedules = newSchedule.offline_schedules.map(
-            (offlineSchedule) => {
-              const trimedOfflineSchedule = offlineSchedule.place?.trim();
-              if (trimedOfflineSchedule === "") {
-                return { ...offlineSchedule, place: undefined };
-              }
-              return {
-                ...offlineSchedule,
-                place: trimedOfflineSchedule,
-              };
-            },
-          );
-
-          const cleanedPersonalSchedule = {
-            ...newSchedule,
-            personal_schedule_name: newSchedule.personal_schedule_name.trim(),
-            offline_schedules: cleanedOfflineSchedules,
-          };
+          const cleanedPersonalSchedule = cleanPersonalSchedule(newSchedule);
 
           state.personalSchedules[semester][targetPersonalScheduleIndex] =
             cleanedPersonalSchedule;

@@ -12,14 +12,11 @@ import usePersonalScheduleModal from "@/hooks/usePersonalScheduleModal";
 export default function PersonalScheduleTab() {
   const currentSemester = useCurrentSemester();
 
-  const { personalSchedulesInCurSemester, personalScheduleModalIsOpen } =
-    useTimetableStore(
-      useShallow((state) => ({
-        personalSchedulesInCurSemester:
-          state.personalSchedules[currentSemester],
-        personalScheduleModalIsOpen: state.personalScheduleModalIsOpen,
-      })),
-    );
+  const { personalSchedulesInCurSemester } = useTimetableStore(
+    useShallow((state) => ({
+      personalSchedulesInCurSemester: state.personalSchedules[currentSemester],
+    })),
+  );
 
   const { handleAddPersonalSchedule } = usePersonalScheduleModal();
 
@@ -52,8 +49,6 @@ export default function PersonalScheduleTab() {
         ))}
         <PersonalScheduleAddCard />
       </div>
-      {personalScheduleModalIsOpen && <PersonalScheduleModal />}
-      {/* <PersonalScheduleModal /> */}
     </div>
   );
 }

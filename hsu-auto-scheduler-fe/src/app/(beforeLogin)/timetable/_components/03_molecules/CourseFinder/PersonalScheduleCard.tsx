@@ -34,7 +34,9 @@ export default function PersonalScheduleCard({
               "bg-hsu/10 text-hsu rounded-lg px-4 py-3 text-xs",
               "hover:bg-hsu/20",
             )}
-            onClick={() => handleEditPersonalSchedule(personalSchedule)}
+            onClick={() =>
+              handleEditPersonalSchedule(personalSchedule.personal_schedule_id)
+            }
           >
             수정
           </button>
