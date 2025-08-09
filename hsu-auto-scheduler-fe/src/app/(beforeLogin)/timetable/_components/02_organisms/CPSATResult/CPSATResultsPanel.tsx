@@ -2,9 +2,7 @@
 
 import { CPSATSolutionType } from "@/types/CPSATSolution.type";
 import { useState } from "react";
-import CPSATResultTabRenderer from "../../03_molecules/CPSATResult/CPSATTabRenderer";
 import useCPSATSlider from "@/hooks/useCPSATSlider";
-import CPSATResultTabHeader from "../../03_molecules/CPSATResult/CPSATTabHeader";
 import CPSATPaginationControls from "../../03_molecules/CPSATResult/CPSATPaginationControls ";
 import CPSATTabHeader from "../../03_molecules/CPSATResult/CPSATTabHeader";
 import CPSATTabRenderer from "../../03_molecules/CPSATResult/CPSATTabRenderer";

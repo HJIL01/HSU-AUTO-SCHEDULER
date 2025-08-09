@@ -48,7 +48,7 @@ export default function DayColumn({
       )}
 
       {coursesInCurDay &&
-        coursesInCurDay.map((courseInCurDay, i) => (
+        coursesInCurDay.map((courseInCurDay) => (
           <CourseBlock
             key={`${courseInCurDay.courseId}-${day}`}
             courseRenderInfo={courseInCurDay}

@@ -9,10 +9,6 @@ type Props<T extends FieldValues> = {
   items: SelectOptionType[];
   placeholder: string;
   className?: string;
-  onChangeOverride?: (
-    value: string,
-    defaultOnChange: (...e: any[]) => void,
-  ) => void;
 };
 
 export default function RHFCustomSelect<T extends FieldValues>({

@@ -9,11 +9,7 @@ type Props = {
   onlineCourseCount: number;
 };
 
-export default function CPSATTabChanger({
-  tabMode,
-  setTabMode,
-  onlineCourseCount,
-}: Props) {
+export default function CPSATTabChanger({ tabMode, setTabMode }: Props) {
   const handleTabMode = (tabMode: "timetableMode" | "summaryMode") => {
     setTabMode(tabMode);
   };

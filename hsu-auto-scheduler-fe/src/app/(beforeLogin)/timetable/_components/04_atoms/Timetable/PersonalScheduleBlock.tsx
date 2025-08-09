@@ -3,7 +3,6 @@
 import CloseIcon from "@/assets/icons/CloseIcon";
 import Edit from "@/assets/icons/Edit";
 import { PERSONAL_SCHEDULE_BLOCK_BG_COLORS } from "@/constants/PersonalScheduleBlockBgColors";
-import useCurrentSemester from "@/hooks/useCurrentSemester";
 import useHoverState from "@/hooks/useHoverState";
 import usePersonalScheduleModal from "@/hooks/usePersonalScheduleModal";
 import useUnmarkPersonalSchedule from "@/hooks/useUnmarkPersonalSchedule";
@@ -19,7 +18,6 @@ export default function PersonalScheduleBlock({
   personalScheduleRenderInfo,
   isCPSATResult,
 }: Props) {
-  const currentSemester = useCurrentSemester();
   const { isHovered, onMouseEnter, onMouseLeave } = useHoverState();
 
   const { deletePersonalScheduleAndUnMark } = useUnmarkPersonalSchedule();

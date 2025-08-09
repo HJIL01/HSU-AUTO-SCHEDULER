@@ -54,7 +54,7 @@ export default function usePersonalScheduleForm() {
     } else {
       setSelectedPersonalSchedule(null);
     }
-  }, [formType, selectedPersonalSchedule, reset]);
+  }, [formType, selectedPersonalSchedule, reset, setSelectedPersonalSchedule]);
 
   const onAppend = () => {
     ensurePersonalSchedulesSemesterInitialized(currentSemester);
