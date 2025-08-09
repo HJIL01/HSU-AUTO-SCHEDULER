@@ -4,6 +4,7 @@ from schemas.common.solution_schema import SolutionSchema
 from utils.group_courses_by_day import group_courses_by_day
 from utils.get_total_course_gap import get_total_course_gap
 from utils.has_common_grade import has_common_grade
+from utils.get_no_class_days import get_no_class_days
 
 
 class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
@@ -40,8 +41,19 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
             selected_course.credit for selected_course in selected_courses
         )
 
+        grouped_courses_by_day = group_courses_by_day(selected_courses)
+
+        no_class_days = get_no_class_days(grouped_courses_by_day)
+
         # 현재 해의 강의 당 간격 합
-        total_course_gap = get_total_course_gap(group_courses_by_day(selected_courses))
+        total_course_gap = get_total_course_gap(grouped_courses_by_day)
+
+        # 현재 해의 총 오프라인 강의 개수
+        total_offline_course_count = sum(
+            1
+            for selected_course in selected_courses
+            if selected_course.delivery_method != "온라인100%"
+        )
 
         # 현재 해의 총 온라인 강의 개수
         total_online_course_count = sum(
@@ -55,7 +67,9 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
                 solution_index=self.solution_count,
                 total_credit=total_credit,
                 total_course_gap=total_course_gap,
+                total_offline_course_count=total_offline_course_count,
                 total_online_course_count=total_online_course_count,
+                no_class_days=no_class_days,
                 selected_courses=selected_courses,
             )
         )
