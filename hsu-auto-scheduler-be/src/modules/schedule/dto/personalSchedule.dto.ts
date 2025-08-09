@@ -9,7 +9,7 @@ export class PersonalScheduleDto {
 
   @IsString()
   @IsNotEmpty()
-  schedule_name: string;
+  personal_schedule_name: string;
 
   @IsArray()
   @ValidateNested({ each: true })

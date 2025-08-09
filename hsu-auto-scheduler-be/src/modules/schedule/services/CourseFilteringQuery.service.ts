@@ -134,7 +134,7 @@ export class CourseFilteringQueryService {
         const { day } = offlineSchedule;
 
         const baseInfo: WeeklyScheduleType = {
-          schedule_name: personal_schedule.schedule_name,
+          schedule_name: personal_schedule.personal_schedule_name,
           start_time: offlineSchedule.start_time,
           end_time: offlineSchedule.end_time,
         };

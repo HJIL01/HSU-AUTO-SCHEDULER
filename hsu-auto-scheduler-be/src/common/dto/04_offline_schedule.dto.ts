@@ -1,5 +1,5 @@
 import { Type } from 'class-transformer';
-import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 import { WeekdayEnum } from '../enums/weekday.enum';
 
 export class OfflineScheduleDto {
@@ -19,7 +19,8 @@ export class OfflineScheduleDto {
   @IsNumber({ allowNaN: false }, { message: 'end_time은 숫자여야 합니다.' })
   end_time: number;
 
+  @IsOptional()
   @IsNotEmpty()
   @IsString()
-  place: string;
+  place: string | null;
 }

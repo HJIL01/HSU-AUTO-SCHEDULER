@@ -89,7 +89,7 @@ export class PersistenceService {
       entity.day = off_schedule.day;
       entity.start_time = off_schedule.start_time;
       entity.end_time = off_schedule.end_time;
-      entity.place = off_schedule.place;
+      entity.place = off_schedule.place!;
       entity.course_id = createdCourseEntity.course_id;
       entity.course = createdCourseEntity;
       return entity;
