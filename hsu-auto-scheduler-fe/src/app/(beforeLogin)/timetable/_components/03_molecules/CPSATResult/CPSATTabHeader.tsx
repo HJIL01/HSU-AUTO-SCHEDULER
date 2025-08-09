@@ -10,7 +10,7 @@ type Props = {
   totalSolutionCount: number;
 };
 
-export default function CPSATResulTabHeader({
+export default function CPSATTabHeader({
   currentIndex,
   totalSolutionCount,
 }: Props) {
@@ -25,13 +25,21 @@ export default function CPSATResulTabHeader({
       className={clsx(
         "bg-linear-[135deg,var(--color-hsu)_0%,var(--color-deep-hsu)_100%]",
         "rounded-t-3xl px-10 py-8 text-white",
-        "flex justify-between",
+        "flex items-center justify-between",
       )}
     >
       <div className="flex items-center gap-3">
-        <h3 className="text-lg font-bold">추천 시간표</h3>
+        <h3 className={clsx("text-lg font-bold", "max-md:text-base")}>
+          추천 시간표
+        </h3>
 
-        <span className="inline-block h-fit rounded-xl bg-white/20 px-5 py-3 text-sm font-semibold">
+        <span
+          className={clsx(
+            "inline-block h-fit rounded-xl bg-white/20 px-5 py-3",
+            "text-sm font-semibold",
+            "max-md:text-xs",
+          )}
+        >
           {currentIndex + 1} / {totalSolutionCount}
         </span>
       </div>

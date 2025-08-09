@@ -9,7 +9,7 @@ type Props = {
   onNext: () => void;
 };
 
-export default function CPSATResultPaginationControls({
+export default function CPSATPaginationControls({
   currentIndex,
   totalSolutionCount,
   onPrev,

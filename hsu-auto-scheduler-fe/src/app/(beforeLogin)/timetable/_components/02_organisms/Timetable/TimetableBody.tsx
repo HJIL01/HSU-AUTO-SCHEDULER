@@ -15,12 +15,12 @@ import { getOfflineScheduleInCurDay } from "@/utils/getOfflineScheduleInCurDay";
 import { getTopByStartTime } from "@/utils/getTopByStartTime";
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import useCurrentSemester from "@/hooks/useCurrentSemester";
-import OnlineCourseListForTimetable from "../../03_molecules/Timetable/OnlineCourseListForTimetable";
 import { getBlockHeight } from "@/utils/getBlockHeight";
 import { PersonalSchedulesByDayType } from "@/types/personalScheduleRender.type";
 import PersonalScheduleModal from "../../05_modals/PersonalScheduleModal";
 import groupCoursesByDay from "@/utils/groupCoursesByDay";
 import groupPersonalScheduleByDay from "@/utils/groupPersonalSchedulesByDay";
+import OnlineCourseList from "../../03_molecules/Timetable/OnlineCourseList";
 
 export default function TimeTableBody() {
   const currentSemester = useCurrentSemester();
@@ -141,7 +141,7 @@ export default function TimeTableBody() {
         isCPSATResult={false}
       />
       {selectedCoursesByDay && selectedCoursesByDay["nontimes"] && (
-        <OnlineCourseListForTimetable
+        <OnlineCourseList
           onlineCourses={selectedCoursesByDay["nontimes"]}
           isCPSATResult={false}
         />

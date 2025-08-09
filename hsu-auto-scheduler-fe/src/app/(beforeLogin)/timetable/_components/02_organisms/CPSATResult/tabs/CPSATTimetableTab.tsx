@@ -1,9 +1,8 @@
 import { SelectedCoursesByDayType } from "@/types/courseRender.type";
-import TimeTableGrid from "../../../03_molecules/Timetable/TimeTableGrid";
 import TimetableHead from "../../../03_molecules/Timetable/TimetableHead";
 import { motion } from "framer-motion";
 import { PersonalSchedulesByDayType } from "@/types/personalScheduleRender.type";
-import OnlineCourseListForTimetable from "../../../03_molecules/Timetable/OnlineCourseListForTimetable";
+import CPSATTimetableSlideItem from "../../../03_molecules/CPSATResult/slide/CPSATTimetableSlideItem";
 
 type Props = {
   selectedCoursesByDayList: SelectedCoursesByDayType[];
@@ -11,7 +10,7 @@ type Props = {
   currentIndex: number;
 };
 
-export default function CPSATResultTimetableTab({
+export default function CPSATTimetableTab({
   selectedCoursesByDayList,
   personalSchdulesByDay,
   currentIndex,
@@ -32,22 +31,11 @@ export default function CPSATResultTimetableTab({
         >
           {selectedCoursesByDayList.map((selectedCoursesByDay, i) => {
             return (
-              <div
+              <CPSATTimetableSlideItem
                 key={i}
-                className="flex h-fit w-full shrink-0 flex-col gap-10 bg-white"
-              >
-                <TimeTableGrid
-                  selectedCoursesByDay={selectedCoursesByDay}
-                  personalSchedulesByDay={personalSchdulesByDay}
-                  isCPSATResult={true}
-                />
-                {selectedCoursesByDay && selectedCoursesByDay["nontimes"] && (
-                  <OnlineCourseListForTimetable
-                    onlineCourses={selectedCoursesByDay["nontimes"]}
-                    isCPSATResult={true}
-                  />
-                )}
-              </div>
+                selectedCoursesByDay={selectedCoursesByDay}
+                personalSchdulesByDay={personalSchdulesByDay}
+              />
             );
           })}
         </motion.div>

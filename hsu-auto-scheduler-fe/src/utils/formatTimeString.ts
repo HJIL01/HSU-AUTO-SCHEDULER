@@ -1,4 +1,4 @@
-export function formatMinToHour(time: number) {
+export function formatTimeString(time: number) {
   const hour = time / 60;
   const min = time % 60;
 

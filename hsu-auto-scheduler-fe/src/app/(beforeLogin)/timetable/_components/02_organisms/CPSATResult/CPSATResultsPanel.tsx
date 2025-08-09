@@ -2,10 +2,13 @@
 
 import { CPSATSolutionType } from "@/types/CPSATSolution.type";
 import { useState } from "react";
-import CPSATResultPaginationControls from "../../03_molecules/CPSATResult/CPSATResultPaginationControls ";
-import CPSATResultTabRenderer from "../../03_molecules/CPSATResult/CPSATResultTabRenderer";
+import CPSATResultTabRenderer from "../../03_molecules/CPSATResult/CPSATTabRenderer";
 import useCPSATSlider from "@/hooks/useCPSATSlider";
-import CPSATResulTabHeader from "../../03_molecules/CPSATResult/CPSATResulTabHeader";
+import CPSATResultTabHeader from "../../03_molecules/CPSATResult/CPSATTabHeader";
+import CPSATPaginationControls from "../../03_molecules/CPSATResult/CPSATPaginationControls ";
+import CPSATTabHeader from "../../03_molecules/CPSATResult/CPSATTabHeader";
+import CPSATTabRenderer from "../../03_molecules/CPSATResult/CPSATTabRenderer";
+import clsx from "clsx";
 
 type Props = {
   CPSATResult: CPSATSolutionType[];
@@ -24,24 +27,27 @@ export default function CPSATResultsPanel({
 
   return (
     <div
-      className="relative max-h-[95dvh] w-[75dvw] overflow-y-hidden"
+      className={clsx(
+        "relative max-h-[95dvh] w-[75dvw] overflow-y-hidden",
+        "max-md:w-[85dvw]",
+      )}
       onClick={(e) => {
         e.stopPropagation();
       }}
     >
-      <CPSATResultPaginationControls
+      <CPSATPaginationControls
         currentIndex={currentIndex}
         totalSolutionCount={totalSolutionCount}
         onPrev={onPrev}
         onNext={onNext}
       />
 
-      <CPSATResulTabHeader
+      <CPSATTabHeader
         currentIndex={currentIndex}
         totalSolutionCount={totalSolutionCount}
       />
 
-      <CPSATResultTabRenderer
+      <CPSATTabRenderer
         tabMode={tabMode}
         setTabMode={setTabMode}
         CPSATResult={CPSATResult}

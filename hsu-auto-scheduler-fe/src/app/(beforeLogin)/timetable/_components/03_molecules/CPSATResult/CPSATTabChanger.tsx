@@ -9,7 +9,7 @@ type Props = {
   onlineCourseCount: number;
 };
 
-export default function CPSATResultTabChanger({
+export default function CPSATTabChanger({
   tabMode,
   setTabMode,
   onlineCourseCount,
@@ -19,7 +19,7 @@ export default function CPSATResultTabChanger({
   };
 
   return (
-    <div className="absolute top-0 right-0 flex -translate-y-full bg-transparent text-xs">
+    <nav className="absolute top-0 right-0 flex -translate-y-full bg-transparent text-xs">
       <button
         className={clsx(
           "rounded-t-lg p-5 transition-colors duration-200",
@@ -42,6 +42,6 @@ export default function CPSATResultTabChanger({
       >
         시간표 요약
       </button>
-    </div>
+    </nav>
   );
 }

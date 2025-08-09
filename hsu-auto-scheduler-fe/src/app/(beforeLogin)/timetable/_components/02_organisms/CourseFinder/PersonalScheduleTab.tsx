@@ -27,8 +27,10 @@ export default function PersonalScheduleTab() {
         </h2>
         <button
           className={clsx(
-            "max-sm:text-xxs rounded-xl px-10 py-5 text-sm font-semibold text-white max-md:text-xs",
-            "hover:shadow-hsu/40 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg",
+            "rounded-xl px-10 py-5 font-semibold text-white",
+            "max-sm:text-xxs text-sm max-md:text-xs",
+            "transition-all duration-300",
+            "hover:shadow-hsu/40 hover:-translate-y-2 hover:shadow-lg",
           )}
           style={{
             background: "linear-gradient(135deg, #2e5cb8 0%, #4472c4 100%)",

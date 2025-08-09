@@ -13,7 +13,7 @@ export default function CourseFinderTabChanger({
   setEditMode,
 }: Props) {
   return (
-    <div className="absolute top-0 left-0 flex translate-y-[-98%] bg-transparent text-xs">
+    <nav className="absolute top-0 left-0 flex translate-y-[-98%] bg-transparent text-xs">
       <button
         className={clsx(
           "border-course-finder-border boder-b-0 rounded-t-lg border border-r-0 border-b-0 p-5 transition-colors duration-200",
@@ -32,6 +32,6 @@ export default function CourseFinderTabChanger({
       >
         개인 스케줄 추가
       </button>
-    </div>
+    </nav>
   );
 }

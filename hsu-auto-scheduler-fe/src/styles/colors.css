@@ -5,13 +5,13 @@
     --color-deep-hsu: #4472c4;
     --color-light-hsu: #f8f9ff;
     --color-border-hsu: #e3e8ff;
+    --color-border-hsu-100: #e9ecef;
 
     --color-cancel-btn-bg: #6c757d;
 
     /* 시간표 부분 */
     --color-timetable-body-bg: #F8F8F8;
     --color-timetable-cell-border: #E6E6E6;
-    /* --color-scheduler-cell-border: #E6E6E6; */
 
     --color-course-block-1: #A9B5DF;
     --color-course-block-2: #F75A5A;

@@ -14,7 +14,7 @@ export default function CPSATTabNavigation({ tabMode, setTabMode }: Props) {
       <button
         className={clsx(
           "flex-1 py-4",
-          "text-base font-bold max-md:text-base",
+          "text-base font-bold max-md:text-xs",
           "text-course-info-text-base-gray",
           "border-border-hsu border-b-2",
           "transition-all duration-300",
@@ -28,7 +28,7 @@ export default function CPSATTabNavigation({ tabMode, setTabMode }: Props) {
       <button
         className={clsx(
           "flex-1 py-4",
-          "text-base font-bold max-md:text-base",
+          "text-base font-bold max-md:text-xs",
           "text-course-info-text-base-gray",
           "border-border-hsu border-b-2",
           "transition-all duration-300",

@@ -1,8 +1,6 @@
 "use client";
 
 import { Dispatch, SetStateAction, useMemo } from "react";
-import CPSATResultTimetableTab from "../../02_organisms/CPSATResult/tabs/CPSATResultTimetableTab";
-import CPSATResultInfoSummaryTab from "../../02_organisms/CPSATResult/tabs/CPSATResultInfoSummaryTab";
 import { CPSATSolutionType } from "@/types/CPSATSolution.type";
 import groupCoursesByDay from "@/utils/groupCoursesByDay";
 import { SelectedCoursesByDayType } from "@/types/courseRender.type";
@@ -12,6 +10,8 @@ import useCurrentSemester from "@/hooks/useCurrentSemester";
 import { PersonalSchedulesByDayType } from "@/types/personalScheduleRender.type";
 import groupPersonalScheduleByDay from "@/utils/groupPersonalSchedulesByDay";
 import CPSATTabNavigation from "./CPSATTabNavigation";
+import CPSATTimetableTab from "../../02_organisms/CPSATResult/tabs/CPSATTimetableTab";
+import CPSATSummaryTab from "../../02_organisms/CPSATResult/tabs/CPSATSummaryTab";
 
 type Props = {
   tabMode: "timetableMode" | "summaryMode";
@@ -20,7 +20,7 @@ type Props = {
   currentIndex: number;
 };
 
-export default function CPSATResultTabRenderer({
+export default function CPSATTabRenderer({
   tabMode,
   setTabMode,
   CPSATResult,
@@ -54,7 +54,7 @@ export default function CPSATResultTabRenderer({
     switch (tabMode) {
       case "timetableMode":
         return (
-          <CPSATResultTimetableTab
+          <CPSATTimetableTab
             selectedCoursesByDayList={selectedCoursesByDayList}
             personalSchdulesByDay={personalSchedulesByDay}
             currentIndex={currentIndex}
@@ -62,22 +62,18 @@ export default function CPSATResultTabRenderer({
         );
       case "summaryMode":
         return (
-          <CPSATResultInfoSummaryTab
-            totalCredit={CPSATResult[currentIndex].total_credit}
-            onlineCourseCount={
-              CPSATResult[currentIndex].total_online_course_count
-            }
+          <CPSATSummaryTab
+            CPSATResult={CPSATResult}
             currentIndex={currentIndex}
-            selectedCoursesByDayList={selectedCoursesByDayList}
           />
         );
     }
   };
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-full w-full flex-col bg-white">
       <CPSATTabNavigation tabMode={tabMode} setTabMode={setTabMode} />
-      <div className="h-[calc(100%-104px)] overflow-y-auto">
+      <div className="mt-10 h-[calc(100%-124px)] overflow-y-auto px-8 pb-10">
         {renderTabContent()}
       </div>
     </div>

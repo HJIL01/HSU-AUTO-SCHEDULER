@@ -39,7 +39,13 @@ export default function TimeTableGrid({
       {/* tbody */}
       <table className="[&_td]:border-timetable-cell-border bg-timetable-body-bg [&_th]:border-timetable-cell-border w-full border text-sm [&_td]:border [&_th]:border">
         <colgroup>
-          <col className="border-timetable-cell-border w-30 border" />
+          <col
+            className={clsx(
+              "border-timetable-cell-border border",
+              "w-30",
+              isCPSATResult ? "max-md:w-20" : "max-md:w-25",
+            )}
+          />
           {DAYS.map((day) => (
             <col key={day} className="border-timetable-cell-border border" />
           ))}
@@ -52,8 +58,10 @@ export default function TimeTableGrid({
                 <div
                   key={hour}
                   className={clsx(
-                    "flex items-center justify-center text-xs",
+                    "flex items-center justify-center",
                     i !== 0 && "border-timetable-cell-border border-t",
+                    "text-xs",
+                    isCPSATResult && "max-md:text-[.9rem]",
                   )}
                   style={{
                     height: timetableCellHeight,

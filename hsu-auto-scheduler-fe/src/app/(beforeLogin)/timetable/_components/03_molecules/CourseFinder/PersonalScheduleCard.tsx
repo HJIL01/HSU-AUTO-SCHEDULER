@@ -1,7 +1,7 @@
 import { WeekdayKorMap, WeekdayOrder } from "@/enums/weekday.enum";
 import usePersonalScheduleModal from "@/hooks/usePersonalScheduleModal";
 import { PersonalScheduleType } from "@/types/schemas/PersonalSchedule.schema";
-import { formatMinToHour } from "@/utils/formatMinToHour";
+import { formatTimeString } from "@/utils/formatTimeString";
 import clsx from "clsx";
 
 type Props = {
@@ -63,8 +63,8 @@ export default function PersonalScheduleCard({
           .map((offlineSchedule, i) => (
             <div key={i}>
               {WeekdayKorMap[offlineSchedule.day]}요일 /{" "}
-              {formatMinToHour(offlineSchedule.start_time)} ~{" "}
-              {formatMinToHour(offlineSchedule.end_time)}
+              {formatTimeString(offlineSchedule.start_time)} ~{" "}
+              {formatTimeString(offlineSchedule.end_time)}
               {offlineSchedule.place && ` / ${offlineSchedule.place}`}
             </div>
           ))}

@@ -12,7 +12,7 @@ type Props = {
   isCPSATResult: boolean;
 };
 
-export default function OnlineCourseListForTimetable({
+export default function OnlineCourseList({
   onlineCourses,
   isCPSATResult,
 }: Props) {
