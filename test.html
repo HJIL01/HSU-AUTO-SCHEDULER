@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HSU Auto Scheduler</title>
+    <title>HSU Timetable Modal</title>
     <style>
         * {
             margin: 0;
@@ -14,327 +14,28 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #2e5cb8 0%, #4472c4 100%);
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             min-height: 100vh;
-            color: #333;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #2e5cb8 0%, #4472c4 100%);
-            color: white;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .header h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .header-controls {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .semester-select {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 6px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .semester-select option {
-            background: #2e5cb8;
-            color: white;
-        }
-
-        .schedule-calendar {
-            background: white;
-            margin: 1rem 2rem;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .calendar-header {
-            display: grid;
-            grid-template-columns: 60px repeat(7, 1fr);
-            background: #f8f9fa;
-            border-bottom: 2px solid #e9ecef;
-        }
-
-        .calendar-header div {
             padding: 1rem;
-            text-align: center;
-            font-weight: 600;
-            color: #495057;
-            border-right: 1px solid #e9ecef;
-        }
-
-        .calendar-body {
-            display: grid;
-            grid-template-columns: 60px repeat(7, 1fr);
-            min-height: 300px;
-        }
-
-        .time-slot {
-            padding: 1rem 0.5rem;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #6c757d;
-            border-right: 1px solid #e9ecef;
-            border-bottom: 1px solid #f8f9fa;
-            background: #fafafa;
-        }
-
-        .day-column {
-            border-right: 1px solid #e9ecef;
-            border-bottom: 1px solid #f8f9fa;
-            position: relative;
-            min-height: 70px;
-        }
-
-        .personal-schedule-section {
-            margin: 2rem;
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid #e9ecef;
-        }
-
-        .section-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #2e5cb8;
-        }
-
-        .add-schedule-btn {
-            background: linear-gradient(135deg, #2e5cb8 0%, #4472c4 100%);
-            color: white;
-            border: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .add-schedule-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(46, 92, 184, 0.3);
-        }
-
-        .schedule-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            grid-auto-rows: max-content;
-        }
-
-        .schedule-card {
-            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
-            border: 2px solid #e3e8ff;
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .schedule-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(46, 92, 184, 0.15);
-            border-color: #4472c4;
-        }
-
-        .schedule-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #2e5cb8, #4472c4);
-        }
-
-        .schedule-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .schedule-name {
-            font-weight: 700;
-            color: #2e5cb8;
-            font-size: 1.1rem;
-        }
-
-        .schedule-actions {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .action-btn {
-            background: none;
-            border: none;
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-weight: 500;
-        }
-
-        .edit-btn {
-            color: #2e5cb8;
-            background: rgba(46, 92, 184, 0.1);
-        }
-
-        .edit-btn:hover {
-            background: rgba(46, 92, 184, 0.2);
-        }
-
-        .delete-btn {
-            color: #dc3545;
-            background: rgba(220, 53, 69, 0.1);
-        }
-
-        .delete-btn:hover {
-            background: rgba(220, 53, 69, 0.2);
-        }
-
-        .schedule-details {
-            space-y: 0.5rem;
-        }
-
-        .schedule-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 0;
-            font-size: 0.9rem;
-            color: #495057;
-        }
-
-        .day-badge {
-            background: linear-gradient(135deg, #2e5cb8 0%, #4472c4 100%);
-            color: white;
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            min-width: 35px;
-            text-align: center;
-        }
-
-        .time-info {
-            font-weight: 500;
-            color: #2e5cb8;
-        }
-
-        .place-info {
-            color: #6c757d;
-            font-size: 0.85rem;
-        }
-
-        .add-card {
-            border: 2px dashed #c8d4ff;
-            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 200px;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .add-card:hover {
-            border-color: #4472c4;
-            background: linear-gradient(135deg, #e3e8ff 0%, #f8f9ff 100%);
-            transform: translateY(-2px);
-        }
-
-        .add-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #2e5cb8 0%, #4472c4 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            margin-bottom: 1rem;
-        }
-
-        .add-text {
-            color: #2e5cb8;
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        /* Modal Styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
         }
 
         .modal {
             background: white;
             border-radius: 16px;
+            width: 100%;
+            max-width: 1200px;
+            max-height: 90vh;
+            overflow: hidden;
             box-shadow: 0 20px 60px rgba(46, 92, 184, 0.3);
-            width: 90%;
-            max-width: 600px;
-            max-height: 80vh;
-            overflow-y: auto;
-            transform: scale(0.9) translateY(20px);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .modal-overlay.active .modal {
-            transform: scale(1) translateY(0);
         }
 
         .modal-header {
             background: linear-gradient(135deg, #2e5cb8 0%, #4472c4 100%);
             color: white;
             padding: 1.5rem 2rem;
-            border-radius: 16px 16px 0 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -343,10 +44,38 @@
         .modal-title {
             font-size: 1.3rem;
             font-weight: 700;
-            margin: 0;
         }
 
-        .modal-close {
+        .timetable-number {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .modal-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .control-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 0.6rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .close-btn {
             background: rgba(255, 255, 255, 0.2);
             border: none;
             color: white;
@@ -357,558 +86,685 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.2s ease;
             font-size: 18px;
+            transition: all 0.2s ease;
         }
 
-        .modal-close:hover {
+        .close-btn:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: rotate(90deg);
         }
 
-        .modal-body {
-            padding: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            font-weight: 600;
-            color: #2e5cb8;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 2px solid #e3e8ff;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: all 0.2s ease;
+        .tab-navigation {
             background: #f8f9ff;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #4472c4;
-            background: white;
-            box-shadow: 0 0 0 3px rgba(68, 114, 196, 0.1);
-        }
-
-        .schedule-items {
-            border: 2px solid #e3e8ff;
-            border-radius: 12px;
-            padding: 1rem;
-            background: #f8f9ff;
-        }
-
-        .schedule-item-header {
+            border-bottom: 2px solid #e3e8ff;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
         }
 
-        .schedule-item-title {
-            font-weight: 600;
-            color: #2e5cb8;
-            font-size: 1rem;
-        }
-
-        .add-item-btn {
-            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-            color: white;
+        .tab-btn {
+            background: none;
             border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
+            padding: 1rem 2rem;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s ease;
+            color: #6c757d;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            flex: 1;
         }
 
-        .add-item-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
-        }
-
-        .schedule-item {
+        .tab-btn.active {
+            color: #2e5cb8;
+            border-bottom-color: #2e5cb8;
             background: white;
+        }
+
+        .tab-btn:hover:not(.active) {
+            color: #4472c4;
+            background: rgba(68, 114, 196, 0.1);
+        }
+
+        .tab-content {
+            display: none;
+            height: 60vh;
+            overflow-y: auto;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* 시간표 스타일 */
+        .timetable-container {
+            padding: 1.5rem;
+        }
+
+        .timetable {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            height: 100%;
+        }
+
+        .timetable th {
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+            color: #2e5cb8;
+            font-weight: 600;
+            padding: 0.8rem 0.5rem;
+            text-align: center;
+            border: 1px solid #e3e8ff;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .timetable td {
             border: 1px solid #e9ecef;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 1rem;
+            padding: 0;
+            vertical-align: top;
+            height: 50px;
             position: relative;
         }
 
-        .schedule-item:last-child {
-            margin-bottom: 0;
+        .time-cell {
+            background: #f8f9ff;
+            color: #6c757d;
+            font-weight: 500;
+            text-align: center;
+            padding: 0.5rem;
+            min-width: 60px;
+            font-size: 0.8rem;
         }
 
-        .remove-item {
+        .course-block {
             position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            background: #dc3545;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            border-radius: 6px;
+            padding: 0.3rem;
             color: white;
-            border: none;
-            width: 24px;
-            height: 24px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            line-height: 1.2;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-block:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-red {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        }
+
+        .course-orange {
+            background: linear-gradient(135deg, #fd7e14 0%, #e8590c 100%);
+        }
+
+        .course-blue {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+        }
+
+        .course-green {
+            background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+        }
+
+        .course-pink {
+            background: linear-gradient(135deg, #e83e8c 0%, #d91a72 100%);
+        }
+
+        .course-purple {
+            background: linear-gradient(135deg, #6f42c1 0%, #59359a 100%);
+        }
+
+        .course-name {
+            font-weight: 700;
+            margin-bottom: 2px;
+            font-size: 0.7rem;
+        }
+
+        .course-location {
+            font-size: 0.65rem;
+            opacity: 0.9;
+        }
+
+        /* 온라인 강의 목록 */
+        .online-courses {
+            padding: 1.5rem;
+        }
+
+        .online-course-item {
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+            border: 2px solid #e3e8ff;
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .online-course-item:hover {
+            border-color: #4472c4;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(46, 92, 184, 0.1);
+        }
+
+        .online-course-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .online-course-name {
+            font-weight: 700;
+            color: #2e5cb8;
+            font-size: 1rem;
+        }
+
+        .online-badge {
+            background: linear-gradient(135deg, #17a2b8 0%, #20c997 100%);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .online-course-details {
+            color: #495057;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .online-course-time {
+            color: #2e5cb8;
+            font-weight: 600;
+        }
+
+        /* 통합 요약 스타일 */
+        .summary-container {
+            padding: 1.5rem;
+        }
+
+        .summary-section {
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+            border: 2px solid #e3e8ff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .summary-title {
+            color: #2e5cb8;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .summary-icon {
+            width: 20px;
+            height: 20px;
+            background: #2e5cb8;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            font-size: 12px;
-            transition: all 0.2s ease;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 700;
         }
 
-        .remove-item:hover {
-            background: #c82333;
-            transform: scale(1.1);
-        }
-
-        .form-row {
+        .summary-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
-            margin-bottom: 1rem;
         }
 
-        .form-select {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 2px solid #e3e8ff;
-            border-radius: 8px;
-            font-size: 1rem;
-            background: #f8f9ff;
-            transition: all 0.2s ease;
-        }
-
-        .form-select:focus {
-            outline: none;
-            border-color: #4472c4;
+        .summary-item {
             background: white;
-            box-shadow: 0 0 0 3px rgba(68, 114, 196, 0.1);
-        }
-
-        .time-inputs {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .time-separator {
-            color: #6c757d;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .modal-footer {
-            padding: 1.5rem 2rem;
-            border-top: 1px solid #e9ecef;
-            display: flex;
-            justify-content: flex-end;
-            gap: 1rem;
-            background: #f8f9fa;
-            border-radius: 0 0 16px 16px;
-        }
-
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
+            padding: 1rem;
             border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .summary-label {
+            color: #6c757d;
+            font-size: 0.85rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .summary-value {
+            color: #2e5cb8;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .online-summary-list {
+            space-y: 0.5rem;
+        }
+
+
+        .online-summary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            margin-bottom: 0.5rem;
+        }
+
+        .online-item-name {
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 1rem;
+            color: #333;
         }
 
-        .btn-secondary {
-            background: #6c757d;
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background: #5a6268;
-            transform: translateY(-1px);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #2e5cb8 0%, #4472c4 100%);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(46, 92, 184, 0.3);
-        }
-
-        .hidden {
-            display: none;
+        .online-item-time {
+            color: #2e5cb8;
+            font-size: 0.9rem;
+            font-weight: 600;
         }
 
         @media (max-width: 768px) {
-            .header {
-                padding: 1rem;
-            }
-
-            .schedule-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .personal-schedule-section {
-                margin: 1rem;
-                padding: 1rem;
-            }
-
             .modal {
-                width: 95%;
-                margin: 1rem;
+                max-width: 100%;
+                height: 100vh;
+                max-height: 100vh;
+                border-radius: 0;
             }
 
-            .modal-body {
-                padding: 1.5rem;
+            .modal-header {
+                padding: 1rem;
             }
 
-            .form-row {
+            .modal-title {
+                font-size: 1.1rem;
+            }
+
+            .tab-btn {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .timetable-container,
+            .online-courses,
+            .summary-container {
+                padding: 1rem;
+            }
+
+            .course-block {
+                font-size: 0.7rem;
+                padding: 0.2rem;
+            }
+
+            .summary-grid {
                 grid-template-columns: 1fr;
             }
 
-            .time-inputs {
-                grid-template-columns: 1fr auto 1fr;
+            .control-btn {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.8rem;
             }
         }
     </style>
 </head>
 
 <body>
-    <header class="header">
-        <h1>HSU Auto Scheduler</h1>
-        <div class="header-controls">
-            <span>시간표 조기회</span>
-            <select class="semester-select">
-                <option>2025년 1학기</option>
-                <option>2024년 2학기</option>
-            </select>
-        </div>
-    </header>
-
-    <div class="schedule-calendar">
-        <div class="calendar-header">
-            <div></div>
-            <div>월</div>
-            <div>화</div>
-            <div>수</div>
-            <div>목</div>
-            <div>금</div>
-            <div>토</div>
-            <div>일</div>
-        </div>
-        <div class="calendar-body">
-            <div class="time-slot">9:00</div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-
-            <div class="time-slot">10:00</div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-
-            <div class="time-slot">11:00</div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-
-            <div class="time-slot">12:00</div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-            <div class="day-column"></div>
-        </div>
-    </div>
-
-    <div class="personal-schedule-section">
-        <div class="section-header">
-            <h2 class="section-title">개인 스케줄 관리</h2>
-            <button class="add-schedule-btn" onclick="openModal()">개인 스케줄 추가</button>
-        </div>
-
-        <div class="schedule-grid">
-            <div class="schedule-card">
-                <div class="schedule-header">
-                    <h3 class="schedule-name">1. 스케줄1</h3>
-                    <div class="schedule-actions">
-                        <button class="action-btn edit-btn">수정</button>
-                        <button class="action-btn delete-btn">삭제</button>
-                    </div>
-                </div>
-                <div class="schedule-details">
-                    <div class="schedule-item">
-                        <span class="day-badge">월</span>
-                        <span class="time-info">15:00 ~ 16:00</span>
-                        <span class="place-info">/ 공학관 101호</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="day-badge">수</span>
-                        <span class="time-info">16:40 ~ 18:20</span>
-                        <span class="place-info">/ 인문관 203호</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="day-badge">금</span>
-                        <span class="time-info">21:40 ~ 23:50</span>
-                        <span class="place-info">/ 자연대 303호</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="schedule-card">
-                <div class="schedule-header">
-                    <h3 class="schedule-name">2. 스케줄2</h3>
-                    <div class="schedule-actions">
-                        <button class="action-btn edit-btn">수정</button>
-                        <button class="action-btn delete-btn">삭제</button>
-                    </div>
-                </div>
-                <div class="schedule-details">
-                    <div class="schedule-item">
-                        <span class="day-badge">화</span>
-                        <span class="time-info">15:30 ~ 17:10</span>
-                        <span class="place-info">/ 사회과학관 205호</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="day-badge">목</span>
-                        <span class="time-info">18:20 ~ 20:00</span>
-                        <span class="place-info">/ 도서관 세미나실</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="schedule-card">
-                <div class="schedule-header">
-                    <h3 class="schedule-name">3. 스케줄3</h3>
-                    <div class="schedule-actions">
-                        <button class="action-btn edit-btn">수정</button>
-                        <button class="action-btn delete-btn">삭제</button>
-                    </div>
-                </div>
-                <div class="schedule-details">
-                    <div class="schedule-item">
-                        <span class="day-badge">월</span>
-                        <span class="time-info">13:20 ~ 14:10</span>
-                        <span class="place-info">/ 기초관 101호</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="day-badge">수</span>
-                        <span class="time-info">23:20 ~ 25:30</span>
-                        <span class="place-info">/ 전산관 202호</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="day-badge">금</span>
-                        <span class="time-info">26:40 ~ 28:20</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="schedule-card">
-                <div class="schedule-header">
-                    <h3 class="schedule-name">4. 스케줄3</h3>
-                    <div class="schedule-actions">
-                        <button class="action-btn edit-btn">수정</button>
-                        <button class="action-btn delete-btn">삭제</button>
-                    </div>
-                </div>
-                <div class="schedule-details">
-                    <div class="schedule-item">
-                        <span class="day-badge">월</span>
-                        <span class="time-info">13:20 ~ 14:10</span>
-                        <span class="place-info">/ 기초관 101호</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="day-badge">수</span>
-                        <span class="time-info">23:20 ~ 25:30</span>
-                        <span class="place-info">/ 전산관 202호</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="day-badge">금</span>
-                        <span class="time-info">26:40 ~ 28:20</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="add-card" onclick="openModal()">
-                <div class="add-icon">+</div>
-                <div class="add-text">새 스케줄 추가</div>
+    <div class="modal">
+        <div class="modal-header">
+            <h3 class="modal-title">추천 시간표</h3>
+            <div class="timetable-number">1 / 500</div>
+            <div class="modal-controls">
+                <button class="control-btn">시간표 보기</button>
+                <button class="control-btn">온라인 강의 보기(0)</button>
+                <button class="control-btn">시간표 요약</button>
+                <button class="control-btn">회귀</button>
+                <button class="control-btn">2025년 2학기</button>
+                <button class="close-btn">&times;</button>
             </div>
         </div>
-    </div>
 
-    <!-- Modal -->
-    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-        <div class="modal" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <h3 class="modal-title">개인 스케줄 추가</h3>
-                <button class="modal-close" onclick="closeModal()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="scheduleForm">
-                    <div class="form-group">
-                        <label class="form-label" for="scheduleName">스케줄 이름</label>
-                        <input type="text" id="scheduleName" class="form-input" placeholder="스케줄 이름을 입력하세요" required>
-                    </div>
+        <div class="tab-navigation">
+            <button class="tab-btn active" onclick="switchTab('timetable')">📅 시간표</button>
+            <button class="tab-btn" onclick="switchTab('summary')">📊 종합 요약</button>
+        </div>
 
-                    <div class="form-group">
-                        <div class="schedule-items">
-                            <div class="schedule-item-header">
-                                <span class="schedule-item-title">일정 목록</span>
-                                <button type="button" class="add-item-btn" onclick="addScheduleItem()">+ 일정 추가</button>
-                            </div>
-                            <div id="scheduleItems">
-                                <div class="schedule-item">
-                                    <button type="button" class="remove-item"
-                                        onclick="removeScheduleItem(this)">&times;</button>
-                                    <div class="form-row">
-                                        <div>
-                                            <label class="form-label">요일</label>
-                                            <select class="form-select" name="day" required>
-                                                <option value="">요일 선택</option>
-                                                <option value="MON">월요일</option>
-                                                <option value="TUE">화요일</option>
-                                                <option value="WED">수요일</option>
-                                                <option value="THU">목요일</option>
-                                                <option value="FRI">금요일</option>
-                                                <option value="SAT">토요일</option>
-                                                <option value="SUN">일요일</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label class="form-label">시작 시간</label>
-                                            <input type="time" class="form-input" name="startTime" required>
-                                        </div>
-                                        <div>
-                                            <label class="form-label">종료 시간</label>
-                                            <input type="time" class="form-input" name="endTime" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">장소 (선택사항)</label>
-                                        <input type="text" class="form-input" name="place" placeholder="예: 공학관 101호">
-                                    </div>
+        <div id="timetable" class="tab-content active">
+            <div class="timetable-container">
+                <table class="timetable">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>월</th>
+                            <th>화</th>
+                            <th>수</th>
+                            <th>목</th>
+                            <th>금</th>
+                            <th>토</th>
+                            <th>일</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="time-cell">9:00</td>
+                            <td></td>
+                            <td style="position: relative;">
+                                <div class="course-block course-green">
+                                    <div class="course-name">모 L 오 L 오asdasdqawd</div>
                                 </div>
-                            </div>
+                            </td>
+                            <td style="position: relative;">
+                                <div class="course-block course-pink">
+                                    <div class="course-name">adasdsad</div>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td style="position: relative;">
+                                <div class="course-block course-green">
+                                    <div class="course-name">모 L 오 L 오asdasdqawd</div>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="time-cell">10:00</td>
+                            <td style="position: relative;">
+                                <div class="course-block course-red">
+                                    <div class="course-name">웹서비스 이해(A)</div>
+                                    <div class="course-location">지혜정 상상관203</div>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="time-cell">11:00</td>
+                            <td style="position: relative;">
+                                <div class="course-block course-red">
+                                    <div class="course-name">웹서비스 이해(A)</div>
+                                    <div class="course-location">지혜정 상상관203</div>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="time-cell">12:00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td style="position: relative;">
+                                <div class="course-block course-red">
+                                    <div class="course-name">웹서비스 이해(A)</div>
+                                    <div class="course-location">지혜정 상상관203</div>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="time-cell">13:00</td>
+                            <td style="position: relative;">
+                                <div class="course-block course-orange">
+                                    <div class="course-name">모바일앱스마트시스템(B)</div>
+                                    <div class="course-location">황기태 공학관201</div>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="time-cell">14:00</td>
+                            <td style="position: relative;">
+                                <div class="course-block course-orange">
+                                    <div class="course-name">모바일앱스마트시스템(B)</div>
+                                    <div class="course-location">황기태 공학관201</div>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="time-cell">15:00</td>
+                            <td style="position: relative;">
+                                <div class="course-block course-orange">
+                                    <div class="course-name">모바일앱스마트시스템(B)</div>
+                                    <div class="course-location">황기태 공학관201</div>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="time-cell">16:00</td>
+                            <td></td>
+                            <td></td>
+                            <td style="position: relative;">
+                                <div class="course-block course-pink">
+                                    <div class="course-name">경제학원리2(N)</div>
+                                    <div class="course-location">신길은 공학관305</div>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="time-cell">17:00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="time-cell">18:00</td>
+                            <td></td>
+                            <td style="position: relative;">
+                                <div class="course-block course-purple">
+                                    <div class="course-name">웹프로그래밍기초(N)</div>
+                                    <div class="course-location">이정현 의료관111</div>
+                                </div>
+                            </td>
+                            <td style="position: relative;">
+                                <div class="course-block course-blue">
+                                    <div class="course-name">웹프로그래밍기초(N)</div>
+                                    <div class="course-location">유종민 상상관204</div>
+                                </div>
+                            </td>
+                            <td style="position: relative;">
+                                <div class="course-block course-green">
+                                    <div class="course-name">컴퓨터프로그래밍(N)</div>
+                                    <div class="course-location">류준구 공학관309</div>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="time-cell">19:00</td>
+                            <td style="position: relative;">
+                                <div class="course-block course-blue">
+                                    <div class="course-name">웹서비스2(N)</div>
+                                    <div class="course-location">류준구 상상관204</div>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="time-cell">20:00</td>
+                            <td style="position: relative;">
+                                <div class="course-block course-blue">
+                                    <div class="course-name">웹서비스2(N)</div>
+                                    <div class="course-location">류준구 상상관204</div>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="summary" class="tab-content">
+            <div class="summary-container">
+                <div class="summary-section">
+                    <h3 class="summary-title">
+                        <span class="summary-icon">📊</span>
+                        시간표 통계
+                    </h3>
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <div class="summary-label">총 학점</div>
+                            <div class="summary-value">18학점</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">오프라인 강의</div>
+                            <div class="summary-value">6과목</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">온라인 강의</div>
+                            <div class="summary-value">0과목</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">공강 시간</div>
+                            <div class="summary-value">주 4시간</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">최장 공강</div>
+                            <div class="summary-value">화요일 2시간</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">수업 시작</div>
+                            <div class="summary-value">오전 9:00</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">수업 종료</div>
+                            <div class="summary-value">오후 8:50</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">주말 수업</div>
+                            <div class="summary-value">없음</div>
                         </div>
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="closeModal()">취소</button>
-                <button type="submit" class="btn btn-primary" onclick="saveSchedule()">저장</button>
+                </div>
+
+                <div class="summary-section">
+                    <h3 class="summary-title">
+                        <span class="summary-icon">🌐</span>
+                        온라인 강의 목록
+                    </h3>
+                    <div class="online-summary-list">
+                        <div style="text-align: center; padding: 2rem; color: #6c757d;">
+                            온라인 강의가 없습니다.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="summary-section">
+                    <h3 class="summary-title">
+                        <span class="summary-icon">📋</span>
+                        과목별 상세 정보
+                    </h3>
+                    <div class="online-summary-list">
+                        <div class="online-summary-item">
+                            <span class="online-item-name">웹서비스 이해(A)</span>
+                            <span class="online-item-time">월 10:00-12:00, 목 12:00-13:00</span>
+                        </div>
+                        <div class="online-summary-item">
+                            <span class="online-item-name">모바일앱스마트시스템(B)</span>
+                            <span class="online-item-time">월 13:00-16:00</span>
+                        </div>
+                        <div class="online-summary-item">
+                            <span class="online-item-name">경제학원리2(N)</span>
+                            <span class="online-item-time">수 16:00-17:00</span>
+                        </div>
+                        <div class="online-summary-item">
+                            <span class="online-item-name">웹프로그래밍기초(N)</span>
+                            <span class="online-item-time">화 18:00-19:00, 수 18:00-19:00</span>
+                        </div>
+                        <div class="online-summary-item">
+                            <span class="online-item-name">컴퓨터프로그래밍(N)</span>
+                            <span class="online-item-time">목 18:00-19:00</span>
+                        </div>
+                        <div class="online-summary-item">
+                            <span class="online-item-name">웹서비스2(N)</span>
+                            <span class="online-item-time">월 19:00-21:00</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        function openModal() {
-            document.getElementById('modalOverlay').classList.add('active');
-            document.body.style.overflow = 'hidden';
+        function switchTab(tabName) {
+            // 모든 탭 버튼 비활성화
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            // 모든 탭 콘텐츠 숨기기
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+            // 선택된 탭 활성화
+            document.querySelector(`[onclick="switchTab('${tabName}')"]`).classList.add('active');
+            document.getElementById(tabName).classList.add('active');
         }
 
-        function closeModal(event) {
-            if (event && event.target !== event.currentTarget) return;
-            document.getElementById('modalOverlay').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        function addScheduleItem() {
-            const scheduleItems = document.getElementById('scheduleItems');
-            const newItem = document.createElement('div');
-            newItem.className = 'schedule-item';
-            newItem.innerHTML = `
-                <button type="button" class="remove-item" onclick="removeScheduleItem(this)">&times;</button>
-                <div class="form-row">
-                    <div>
-                        <label class="form-label">요일</label>
-                        <select class="form-select" name="day" required>
-                            <option value="">요일 선택</option>
-                            <option value="MON">월요일</option>
-                            <option value="TUE">화요일</option>
-                            <option value="WED">수요일</option>
-                            <option value="THU">목요일</option>
-                            <option value="FRI">금요일</option>
-                            <option value="SAT">토요일</option>
-                            <option value="SUN">일요일</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="form-label">시작 시간</label>
-                        <input type="time" class="form-input" name="startTime" required>
-                    </div>
-                    <div>
-                        <label class="form-label">종료 시간</label>
-                        <input type="time" class="form-input" name="endTime" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">장소 (선택사항)</label>
-                    <input type="text" class="form-input" name="place" placeholder="예: 공학관 101호">
-                </div>
-            `;
-            scheduleItems.appendChild(newItem);
-        }
-
-        function removeScheduleItem(button) {
-            const scheduleItems = document.getElementById('scheduleItems');
-            if (scheduleItems.children.length > 1) {
-                button.parentElement.remove();
-            } else {
-                alert('최소 하나의 일정은 필요합니다.');
-            }
-        }
-
-        function saveSchedule() {
-            const form = document.getElementById('scheduleForm');
-            const formData = new FormData(form);
-            const scheduleName = formData.get('scheduleName');
-
-            if (!scheduleName) {
-                alert('스케줄 이름을 입력해주세요.');
-                return;
-            }
-
-            // 여기서 실제 저장 로직을 구현하면 됩니다
-            alert('스케줄이 저장되었습니다!');
-            closeModal();
-
-            // 폼 초기화
-            form.reset();
-        }
-
-        // ESC 키로 모달 닫기
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
+        // 강의 블록 클릭 이벤트
+        document.querySelectorAll('.course-block').forEach(block => {
+            block.addEventListener('click', function () {
+                alert(`강의 상세 정보: ${this.querySelector('.course-name').textContent}`);
+            });
         });
     </script>
 </body>

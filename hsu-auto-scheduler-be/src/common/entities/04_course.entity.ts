@@ -43,9 +43,10 @@ export class CourseEntity {
   @Column()
   class_section: string;
 
+  @Column({ type: 'int', nullable: true })
   grade_limit: number | null;
 
-  @Column({ default: 0 })
+  @Column('decimal', { precision: 2, scale: 1, default: 0.0 })
   online_hour: number;
 
   @Column({ type: 'varchar', length: 255, nullable: true })

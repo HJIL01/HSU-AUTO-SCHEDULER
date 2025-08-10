@@ -3,11 +3,6 @@ import { CourseEntity } from './04_course.entity';
 import { SemesterMajorEntity } from './03_semester_major.entity';
 import { MajorCourseEntity } from './06_major_course.entity';
 
-enum SemesterTermEnum {
-  First = 1,
-  Second = 2,
-}
-
 @Entity('semester')
 export class SemesterEntity {
   @PrimaryColumn()
@@ -16,8 +11,8 @@ export class SemesterEntity {
   @Column()
   year: number;
 
-  @Column({ type: 'enum', enum: SemesterTermEnum })
-  term: SemesterTermEnum;
+  @Column()
+  term: number;
 
   @OneToMany(() => CourseEntity, (course) => course.semester)
   courses: CourseEntity[];

@@ -2,25 +2,26 @@ import { Module, ValidationPipe } from '@nestjs/common';
 import { CrawlerModule } from './modules/crawler/crawler.module';
 import { LoggerModule } from './modules/logger/logger.module';
 import { APP_FILTER, APP_GUARD, APP_INTERCEPTOR, APP_PIPE } from '@nestjs/core';
-import { DatabaseModule } from './modules/database/database.module';
 import { ConfigModule } from '@nestjs/config';
 import { AllExceptionFilter } from './common/filters/all-exception.filter';
 import { ResponseInterceptor } from './common/interceptors/response.interceptors';
 import { ScheduleModule } from './modules/schedule/schedule.module';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { dataSourceOptions } from 'db/datasource';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     CrawlerModule,
     LoggerModule,
-    DatabaseModule,
+    TypeOrmModule.forRoot(dataSourceOptions),
     ScheduleModule,
     ThrottlerModule.forRoot([
       {
         name: 'short',
         ttl: 1000,
-        limit: 8,
+        limit: process.env.NODE_ENV === 'develop' ? Infinity : 6,
       },
       {
         name: 'long',
