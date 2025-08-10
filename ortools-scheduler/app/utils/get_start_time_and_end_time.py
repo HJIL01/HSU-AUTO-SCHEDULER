@@ -1,4 +1,4 @@
-from app.schemas.common.course_schema import CourseSchema
+from schemas.common.course_schema import CourseSchema
 
 
 # 요일에 해당하는 해당 수업의 오프라인 세션을 찾아 startTime과 endTime을 return하는 함수

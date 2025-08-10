@@ -1,4 +1,4 @@
-from app.schemas.common.course_schema import CourseSchema
+from schemas.common.course_schema import CourseSchema
 
 
 def has_common_grade(courses: list[CourseSchema]):

@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from app.schemas.common.course_schema import CourseSchema
+from schemas.common.course_schema import CourseSchema
 
 
 class SolutionSchema(BaseModel):

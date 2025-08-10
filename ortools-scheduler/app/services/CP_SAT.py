@@ -1,7 +1,7 @@
 from ortools.sat.python import cp_model
-from app.schemas.common.course_schema import CourseSchema
-from app.schemas.common.constraints_schema import ConstraintsSchema
-from app.services.constraints import (
+from schemas.common.course_schema import CourseSchema
+from schemas.common.constraints_schema import ConstraintsSchema
+from services.constraints import (
     add_pre_selected_course_constraint,
     add_max_credit_constraint,
     add_deduplicated_course_constraint,
@@ -11,8 +11,8 @@ from app.services.constraints import (
     add_daily_lecture_limit_constraint,
     add_non_overlapping_schedule_constraint,
 )
-from app.services.solution_collector import AllSolutionCollector
-from app.services.solution_printer import AllSolutionPrinter
+from services.solution_collector import AllSolutionCollector
+from services.solution_printer import AllSolutionPrinter
 
 
 def HSU_AUTO_SCHEDULER_CP_SAT(

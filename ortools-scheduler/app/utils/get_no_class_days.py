@@ -1,7 +1,7 @@
 from collections import defaultdict
 from typing import Union
-from app.schemas.common.course_schema import CourseSchema
-from app.schemas.common.enums import WeekdayEnum
+from schemas.common.course_schema import CourseSchema
+from schemas.common.enums import WeekdayEnum
 
 
 def get_no_class_days(

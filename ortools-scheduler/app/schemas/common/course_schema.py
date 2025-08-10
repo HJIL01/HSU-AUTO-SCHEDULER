@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field
 from typing import Optional
-from app.schemas.common.enums import DayOrNightEnum
-from app.schemas.common.offline_schedule_schema import OfflineScheduleSchema
+from schemas.common.enums import DayOrNightEnum
+from schemas.common.offline_schedule_schema import OfflineScheduleSchema
 
 
 class CourseSchema(BaseModel):
