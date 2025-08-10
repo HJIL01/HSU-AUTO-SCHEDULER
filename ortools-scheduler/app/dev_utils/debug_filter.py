@@ -1,5 +1,5 @@
 from .mock_courses import courses
-from .CONSTRAINTS import CONSTRAINTS
+from app.dev_utils.CONSTRAINTS import CONSTRAINTS
 
 
 def debugFilter():

@@ -1,6 +1,6 @@
 from pydantic import BaseModel
-from schemas.common.course_schema import CourseSchema
-from schemas.common.constraints_schema import ConstraintsSchema
+from app.schemas.common.course_schema import CourseSchema
+from app.schemas.common.constraints_schema import ConstraintsSchema
 
 
 class CPSATRequestSchema(BaseModel):

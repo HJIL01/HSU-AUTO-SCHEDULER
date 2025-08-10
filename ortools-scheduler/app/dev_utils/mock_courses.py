@@ -1,5 +1,5 @@
 import json
-from ..utils.group_courses_by_day import group_courses_by_day
+from app.utils.group_courses_by_day import group_courses_by_day
 
 
 with open("../courses.json", encoding="utf-8") as f:

@@ -1,7 +1,7 @@
-from schemas.common.course_schema import CourseSchema
-from schemas.common.solution_schema import SolutionSchema
-from utils.group_courses_by_day import group_courses_by_day
-from schemas.common.enums import WeekdayEnum
+from app.schemas.common.course_schema import CourseSchema
+from app.schemas.common.solution_schema import SolutionSchema
+from app.schemas.common.enums import WeekdayEnum
+from app.utils.group_courses_by_day import group_courses_by_day
 
 
 class AllSolutionPrinter:

@@ -1,7 +1,7 @@
 from collections import defaultdict
 from typing import Union
-from schemas.common.course_schema import CourseSchema
-from schemas.common.enums import WeekdayEnum
+from app.schemas.common.course_schema import CourseSchema
+from app.schemas.common.enums import WeekdayEnum
 
 
 def group_courses_by_day(courses: list[CourseSchema]):
