@@ -5,11 +5,21 @@ import {
   ManyToOne,
   OneToMany,
   PrimaryColumn,
+  ValueTransformer,
 } from 'typeorm';
 import { OfflineScheduleEntity } from './05_offlineSchedule.entity';
 import { SemesterEntity } from './01_semester.entity';
 import { DayOrNightEnum } from '../enums/dayOrNight.enum';
 import { MajorCourseEntity } from './06_major_course.entity';
+
+const columnNumericTransformer: ValueTransformer = {
+  to(value: number): number {
+    return value;
+  },
+  from(value: string): number {
+    return parseFloat(value);
+  },
+};
 
 @Entity('course')
 export class CourseEntity {
@@ -46,7 +56,12 @@ export class CourseEntity {
   @Column({ type: 'int', nullable: true })
   grade_limit: number | null;
 
-  @Column('decimal', { precision: 2, scale: 1, default: 0.0 })
+  @Column('decimal', {
+    precision: 2,
+    scale: 1,
+    default: 0.0,
+    transformer: columnNumericTransformer,
+  })
   online_hour: number;
 
   @Column({ type: 'varchar', length: 255, nullable: true })
