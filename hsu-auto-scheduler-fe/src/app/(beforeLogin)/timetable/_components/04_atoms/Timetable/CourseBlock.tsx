@@ -1,27 +1,44 @@
 "use client";
 
 import CloseIcon from "@/assets/icons/CloseIcon";
+import { useResponsiveContext } from "@/components/ResponsiveProvider";
 import { COURSE_BLOCK_BG_COLORS } from "@/constants/CourseBlockBgColors";
 import useHoverState from "@/hooks/common/useHoverState";
 import useUnmarkCourseSchedule from "@/hooks/CourseFinder/PersonalSchedule/useUnmarkCourseSchedule";
 import { CourseRenderInfoType } from "@/types/courseRender.type";
 import clsx from "clsx";
+import { useEffect, useRef } from "react";
 
 type Props = {
   courseRenderInfo: CourseRenderInfoType;
   isCPSATResult: boolean;
+  isHoveredCourse: boolean;
 };
 
 export default function CourseBlock({
   courseRenderInfo,
   isCPSATResult,
+  isHoveredCourse,
 }: Props) {
-  const isHoverEnabled = !isCPSATResult;
+  const deviceType = useResponsiveContext();
+  const courseBlockRef = useRef<HTMLDivElement | null>(null);
+  const isHoverEnabled = !isCPSATResult && !isHoveredCourse;
   const { isHovered, onMouseEnter, onMouseLeave } = useHoverState();
   const { deleteCourseAndUnmark } = useUnmarkCourseSchedule();
 
+  // 모바일 환경에서 강의 클릭(호버)시 해당 강의의 위치로 스크롤
+  useEffect(() => {
+    if (courseBlockRef.current && isHoveredCourse && deviceType === "mobile") {
+      courseBlockRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }, [courseBlockRef, isHoveredCourse, deviceType, courseRenderInfo]);
+
   return (
     <div
+      ref={courseBlockRef}
       className={clsx(
         "border-y-timetable-cell-border absolute top-0 z-(--z-index-schedule-block) w-full overflow-hidden border-y max-md:p-2",
         COURSE_BLOCK_BG_COLORS[courseRenderInfo.colorIndex],

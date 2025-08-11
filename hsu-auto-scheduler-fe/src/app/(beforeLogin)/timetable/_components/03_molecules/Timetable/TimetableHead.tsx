@@ -11,7 +11,7 @@ export default function TimetableHead({ isCPSATResult }: Props) {
     <table
       className={clsx(
         "sticky top-0",
-        "bg-timetable-body-bg z-(--z-index-CPSATResult-modal) w-full",
+        "bg-timetable-body-bg z-[9997] w-full",
         "text-sm",
         isCPSATResult ? "max-md:text-xxs" : "max-md:text-xs",
       )}

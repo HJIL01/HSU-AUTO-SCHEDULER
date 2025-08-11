@@ -6,6 +6,7 @@ import { useInfiniteScroll } from "@/hooks/CourseFinder/Course/CourseList/useInf
 import { CourseType } from "@/types/schemas/Course.schema";
 import CourseListForDesktop from "./CourseListForDesktop";
 import CourseListForMobile from "./CourseListForMobile";
+import clsx from "clsx";
 
 type Props = {
   hasNextPage: boolean;
@@ -24,8 +25,15 @@ export default function CourseListContainer({
   const deviceType = useResponsiveContext();
 
   return (
-    // 밑에서 50px을 뺀 이유는 옵저버의 높이가 h-32(64px)이기 때문
-    <div className="h-[calc(100%-64px)] w-full overflow-y-auto">
+    // 밑의 calc 식은 courseFilters의 전체 높이(패딩, 마진, 높이 포함)를 뺀 계산식임
+    // 데스크탑 기준 높이 64px, space-y-8(16px) = 80px
+    // 모바일 기준 높이 104px, space-y-8(16px) = 120px
+    <div
+      className={clsx(
+        "h-[calc(100%-80px)] w-full overflow-y-auto",
+        "max-md:h-[calc(100%-120px)]",
+      )}
+    >
       {deviceType === "desktop" ? (
         <CourseListForDesktop isLoading={isLoading} courses={courses} />
       ) : (
@@ -36,7 +44,7 @@ export default function CourseListContainer({
         <div
           role="status"
           aria-live="polite"
-          // ref={observer}
+          ref={observer}
           className="flex h-32 w-full items-center justify-center"
         >
           <SpinSangSangBoogi className="w-12" />

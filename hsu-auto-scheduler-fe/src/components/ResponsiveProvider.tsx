@@ -13,7 +13,7 @@ type DeviceType = "desktop" | "mobile";
 
 type Props = {
   children: ReactNode;
-  initialDevice: DeviceType;
+  initialDevice?: DeviceType;
 };
 
 const ResponsiveContext = createContext<DeviceType | null>(null);
@@ -22,21 +22,22 @@ export default function ResponsiveProvider({
   children,
   initialDevice = "desktop",
 }: Props) {
-  const [deviceType, setDeviceType] = useState<"desktop" | "mobile">(
-    initialDevice,
-  );
+  const [deviceType, setDeviceType] = useState<DeviceType>(initialDevice);
 
   useEffect(() => {
-    const handleResize = debounce(() => {
+    const updateDeviceType = () => {
       if (window.innerWidth <= 768) {
         setDeviceType("mobile");
       } else {
         setDeviceType("desktop");
       }
-    }, 200);
+    };
+
+    const handleResize = debounce(updateDeviceType, 200);
+
+    updateDeviceType();
 
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -50,8 +51,8 @@ export default function ResponsiveProvider({
 export function useResponsiveContext() {
   const context = useContext(ResponsiveContext);
 
-  if (!context) {
-    throw new Error("Can't Find Responsive Context");
+  if (context === null) {
+    throw new Error("Can't find Responsive Context");
   }
 
   return context;

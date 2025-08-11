@@ -43,7 +43,8 @@ export default function DayColumn({
       {hoveredCourseInCurDay && (
         <CourseBlock
           courseRenderInfo={hoveredCourseInCurDay}
-          isCPSATResult={true}
+          isCPSATResult={isCPSATResult}
+          isHoveredCourse={true}
         />
       )}
 
@@ -53,6 +54,7 @@ export default function DayColumn({
             key={`${courseInCurDay.courseId}-${day}`}
             courseRenderInfo={courseInCurDay}
             isCPSATResult={isCPSATResult}
+            isHoveredCourse={false}
           />
         ))}
 

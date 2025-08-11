@@ -89,8 +89,10 @@ export default function CourseFilters({ hasEnoughData }: Props) {
   return (
     <div
       className={clsx(
-        "flex items-center justify-between rounded-2xl bg-white p-6",
-        "border-border-hsu border-2",
+        "bg-white p-6",
+        "border-border-hsu rounded-2xl border-2",
+        "flex items-center justify-between",
+        "max-md:flex-col max-md:items-start max-md:gap-8",
       )}
       style={{
         boxShadow: "0 2px 10px rgba(46, 92, 184, 0.1)",
@@ -123,7 +125,8 @@ export default function CourseFilters({ hasEnoughData }: Props) {
         <div
           ref={scrollRef}
           className={clsx(
-            "scrollbar-hidden flex max-w-[72dvw] gap-4 overflow-x-auto",
+            "scrollbar-hidden flex gap-4 overflow-x-auto",
+            "max-w-[72dvw] max-md:max-w-[82dvw]",
           )}
         >
           {/* 전공 필터 */}
