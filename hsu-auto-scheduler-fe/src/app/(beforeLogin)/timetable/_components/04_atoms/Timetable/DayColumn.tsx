@@ -43,7 +43,7 @@ export default function DayColumn({
       {hoveredCourseInCurDay && (
         <CourseBlock
           courseRenderInfo={hoveredCourseInCurDay}
-          isCPSATResult={isCPSATResult}
+          isCPSATResult={true}
         />
       )}
 

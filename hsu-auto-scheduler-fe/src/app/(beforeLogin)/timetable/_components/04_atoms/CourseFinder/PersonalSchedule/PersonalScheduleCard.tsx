@@ -1,5 +1,5 @@
 import { WeekdayKorMap, WeekdayOrder } from "@/enums/weekday.enum";
-import usePersonalScheduleModal from "@/hooks/usePersonalScheduleModal";
+import usePersonalScheduleModal from "@/hooks/CourseFinder/PersonalSchedule/usePersonalScheduleModal";
 import { PersonalScheduleType } from "@/types/schemas/PersonalSchedule.schema";
 import { formatTimeString } from "@/utils/formatTimeString";
 import clsx from "clsx";
@@ -17,14 +17,12 @@ export default function PersonalScheduleCard({
     usePersonalScheduleModal();
 
   return (
-    <div
+    <li
       className={clsx(
         "w-full overflow-hidden rounded-2xl border-2 border-[#e3e8ff] px-8 py-7 transition-all duration-300",
+        "bg-linear-[135deg,var(--color-light-hsu)_0%,#fff_100%]",
         "hover:border-deep-hsu hover:shadow-hsu/20 hover:-translate-y-2 hover:shadow-lg",
       )}
-      style={{
-        background: "linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%)",
-      }}
     >
       <div className="mb-2 flex items-center justify-between">
         <h3 className="text-hsu text-sm font-bold">{`${index + 1}. ${personalSchedule.personal_schedule_name}`}</h3>
@@ -69,6 +67,6 @@ export default function PersonalScheduleCard({
             </div>
           ))}
       </div>
-    </div>
+    </li>
   );
 }

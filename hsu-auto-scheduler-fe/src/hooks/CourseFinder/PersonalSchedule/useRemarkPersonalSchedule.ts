@@ -1,6 +1,6 @@
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { useShallow } from "zustand/shallow";
-import useCurrentSemester from "./useCurrentSemester";
+import useCurrentSemester from "../../common/useCurrentSemester";
 import { PersonalScheduleType } from "@/types/schemas/PersonalSchedule.schema";
 import groupOfflineScheduleByDay from "@/utils/groupOfflineScheduleByDay";
 import { MarkResultType } from "@/types/markResult.type";

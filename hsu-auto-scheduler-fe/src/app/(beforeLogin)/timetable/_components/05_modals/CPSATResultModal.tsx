@@ -2,8 +2,8 @@
 
 import Portal from "@/components/Portal";
 import FetchingLoader from "./FetchingLoader";
-import useCPSATDataProcess from "@/hooks/useCPSATDataProcess";
 import CPSATResultsPanel from "../02_organisms/CPSATResult/CPSATResultsPanel";
+import useCPSATDataProcess from "@/hooks/CPSAT/useCPSATDataProcess";
 
 type Props = {
   isFetching: boolean;

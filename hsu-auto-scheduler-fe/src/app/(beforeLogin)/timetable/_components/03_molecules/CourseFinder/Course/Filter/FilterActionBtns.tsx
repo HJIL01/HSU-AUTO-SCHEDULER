@@ -1,15 +1,15 @@
 "use client";
 
 import { useFormContext } from "react-hook-form";
-import FetchCPSATResult from "../../04_atoms/CourseFinder/FetchCPSATResult";
 import {
   createCPSATSchemaDefaultValues,
   CreateCPSATschemaType,
 } from "@/types/schemas/CreateCPSAT.schema";
-import useCurrentSemester from "@/hooks/useCurrentSemester";
+import useCurrentSemester from "@/hooks/common/useCurrentSemester";
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { useShallow } from "zustand/shallow";
 import clsx from "clsx";
+import FetchCPSATResult from "../../../../04_atoms/CourseFinder/FetchCPSATResult";
 
 type Props = {
   hasEnoughData: boolean;

@@ -6,7 +6,7 @@ import CustomSelectBox from "@/components/ui/CustomSelectBox";
 import { DAYS } from "@/constants/days";
 import { HOURS } from "@/constants/hours";
 import { WeekdayKorMap } from "@/enums/weekday.enum";
-import useTimeRangeFields from "@/hooks/useTimeRangeFields";
+import useTimeRangeFields from "@/hooks/CourseFinder/PersonalSchedule/useTimeRangeFields";
 import { OfflineScheduleType } from "@/types/schemas/OfflineSchedule.schema";
 import { PersonalScheduleType } from "@/types/schemas/PersonalSchedule.schema";
 import { SelectOptionType } from "@/types/selectOption.type";

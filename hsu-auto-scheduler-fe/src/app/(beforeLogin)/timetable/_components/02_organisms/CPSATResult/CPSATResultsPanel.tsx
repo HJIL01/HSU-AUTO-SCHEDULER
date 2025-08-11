@@ -2,11 +2,11 @@
 
 import { CPSATSolutionType } from "@/types/CPSATSolution.type";
 import { useState } from "react";
-import useCPSATSlider from "@/hooks/useCPSATSlider";
 import CPSATPaginationControls from "../../03_molecules/CPSATResult/CPSATPaginationControls ";
 import CPSATTabHeader from "../../03_molecules/CPSATResult/CPSATTabHeader";
 import CPSATTabRenderer from "../../03_molecules/CPSATResult/CPSATTabRenderer";
 import clsx from "clsx";
+import useCPSATSlider from "@/hooks/CPSAT/useCPSATSlider";
 
 type Props = {
   CPSATResult: CPSATSolutionType[];

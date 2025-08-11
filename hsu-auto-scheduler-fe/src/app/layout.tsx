@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./../styles/globals.css";
 import RQProvider from "@/components/RQProvider";
 import RHFProvider from "@/components/RHFProvider";
+import ResponsiveProvider from "@/components/ResponsiveProvider";
 
 export const metadata: Metadata = {
   title: "HSU Auto Scheduler",
@@ -13,11 +14,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
   return (
     <html lang="ko">
       <body>
         <RQProvider>
-          <RHFProvider>{children}</RHFProvider>
+          <RHFProvider>
+            <ResponsiveProvider initialDevice={isMobile ? "mobile" : "desktop"}>
+              {children}
+            </ResponsiveProvider>
+          </RHFProvider>
         </RQProvider>
       </body>
     </html>

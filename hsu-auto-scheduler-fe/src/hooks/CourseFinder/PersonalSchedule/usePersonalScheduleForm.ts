@@ -14,7 +14,7 @@ import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { useShallow } from "zustand/shallow";
 import { useLayoutEffect } from "react";
 import usePersonalScheduleModal from "./usePersonalScheduleModal";
-import useCurrentSemester from "./useCurrentSemester";
+import useCurrentSemester from "../../common/useCurrentSemester";
 import useRemarkPersonalSchedule from "./useRemarkPersonalSchedule";
 
 export default function usePersonalScheduleForm() {

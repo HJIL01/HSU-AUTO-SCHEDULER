@@ -1,13 +1,13 @@
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { PersonalScheduleType } from "@/types/schemas/PersonalSchedule.schema";
 import { useShallow } from "zustand/shallow";
-import useCurrentSemester from "./useCurrentSemester";
 import { WeekdayEnum, WeekdayKorMap } from "@/enums/weekday.enum";
 import isOverlapPersonalScheduleTimes from "@/utils/isOverlapPersonalScheduleTimes";
 import getTimeIndex from "@/utils/getTimeIndex";
 import { MarkResultType } from "@/types/markResult.type";
 import groupOfflineScheduleByDay from "@/utils/groupOfflineScheduleByDay";
 import checkOverlapTimeSelections from "@/utils/isOverlapTimeSelections";
+import useCurrentSemester from "@/hooks/common/useCurrentSemester";
 
 export default function useMarkPersonalSchedule() {
   const currentSemester = useCurrentSemester();

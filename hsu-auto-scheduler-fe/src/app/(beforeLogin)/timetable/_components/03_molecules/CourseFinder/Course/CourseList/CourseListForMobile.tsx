@@ -1,0 +1,70 @@
+"use client";
+
+import { CourseType } from "@/types/schemas/Course.schema";
+import CourseListLoading from "../../../../04_atoms/CourseFinder/CourseList/CourseListLoading";
+import CourseInfoCard from "../../../../04_atoms/CourseFinder/CourseList/CourseInfoCard";
+import { useTimetableStore } from "@/store/timetable/timetableStore";
+import { useShallow } from "zustand/shallow";
+import { useWatch } from "react-hook-form";
+import { useEffect } from "react";
+import useMarkCourseSchedule from "@/hooks/CourseFinder/PersonalSchedule/useMarkCourseSchedule";
+
+type Props = {
+  isLoading: boolean;
+  courses?: CourseType[];
+};
+
+export default function CourseListForMobile({ isLoading, courses }: Props) {
+  const { hoveredCourse, isOpen, setHoveredCourse, clearHoveredCourse } =
+    useTimetableStore(
+      useShallow((state) => ({
+        hoveredCourse: state.hoveredCourse,
+        isOpen: state.isOpen,
+        setHoveredCourse: state.setHoveredCourse,
+        clearHoveredCourse: state.clearHoveredCourse,
+      })),
+    );
+
+  const handleClickCourseCard = (course: CourseType) => {
+    if (hoveredCourse?.course_id === course.course_id) {
+      clearHoveredCourse();
+      return;
+    }
+
+    setHoveredCourse(course);
+  };
+
+  const { onClickCourse } = useMarkCourseSchedule();
+
+  const currentFilters = useWatch();
+
+  // 필터가 바뀌거나 isOpen이 바뀔 때 호버(클릭)된 강의 클리어
+  useEffect(() => {
+    if (hoveredCourse) {
+      clearHoveredCourse();
+    }
+
+    return () => {
+      clearHoveredCourse();
+    };
+  }, [currentFilters, isOpen]);
+
+  return (
+    <ul>
+      {isLoading ? (
+        <CourseListLoading />
+      ) : (
+        courses &&
+        courses.map((course) => (
+          <CourseInfoCard
+            key={course.course_id}
+            course={course}
+            hoveredCourse={hoveredCourse}
+            handleClickCourseCard={handleClickCourseCard}
+            onAddCourse={onClickCourse}
+          />
+        ))
+      )}
+    </ul>
+  );
+}

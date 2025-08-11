@@ -16,6 +16,7 @@ export default function useHorizontalScrollByWheel(
 
       if (!el) return;
 
+      // useResponsiveContext를 사용하지 않는 이유는 데스크탑에서 모바일 뷰로 볼 때를 고려하여 휠 기능이 작동하도록 하기 위함
       const isTouch = isMobileDevice();
       if (isTouch) return;
 

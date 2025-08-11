@@ -1,7 +1,7 @@
 "use client";
 
 import CloseIcon from "@/assets/icons/CloseIcon";
-import useCurrentSemester from "@/hooks/useCurrentSemester";
+import useCurrentSemester from "@/hooks/common/useCurrentSemester";
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { CourseRenderInfoType } from "@/types/courseRender.type";
 import clsx from "clsx";

@@ -1,6 +1,6 @@
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { useShallow } from "zustand/shallow";
-import useCurrentSemester from "./useCurrentSemester";
+import useCurrentSemester from "../../common/useCurrentSemester";
 import calcMinIndex from "@/utils/getTimeIndex";
 
 export default function useUnmarkCourseSchedule() {

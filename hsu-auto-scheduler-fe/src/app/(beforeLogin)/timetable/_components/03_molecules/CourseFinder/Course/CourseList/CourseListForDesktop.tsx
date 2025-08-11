@@ -1,31 +1,38 @@
 "use client";
 
-import SpinSangSangBoogi from "@/components/ui/SpinSangSangBoogi";
 import SangSangBoogi from "@/assets/SangSangBoogi.webp";
-import Image from "next/image";
-import { useInfiniteScroll } from "@/hooks/useInfinityScroll";
-import { CourseType } from "@/types/schemas/Course.schema";
-import CourseInfoTableRow from "../../04_atoms/CourseFinder/CourseInfoTableRow";
+import CourseInfoTableRow from "../../../../04_atoms/CourseFinder/CourseList/CourseInfoTableRow";
 import clsx from "clsx";
+import { CourseType } from "@/types/schemas/Course.schema";
+import Image from "next/image";
+import CourseListLoading from "../../../../04_atoms/CourseFinder/CourseList/CourseListLoading";
+import { useTimetableStore } from "@/store/timetable/timetableStore";
+import { useShallow } from "zustand/shallow";
+import useMarkCourseSchedule from "@/hooks/CourseFinder/PersonalSchedule/useMarkCourseSchedule";
+import openLecturePlan from "@/utils/openLecturePlan";
 
 type Props = {
-  hasNextPage: boolean;
-  fetchNextPage: () => void;
   isLoading: boolean;
   courses?: CourseType[];
 };
 
-export default function CourseList({
-  hasNextPage,
-  fetchNextPage,
-  isLoading,
-  courses,
-}: Props) {
-  const observer = useInfiniteScroll({ hasNextPage, fetchNextPage });
+export default function CourseListForDesktop({ isLoading, courses }: Props) {
+  const { setHoveredCourse, clearHoveredCourse } = useTimetableStore(
+    useShallow((state) => ({
+      setHoveredCourse: state.setHoveredCourse,
+      clearHoveredCourse: state.clearHoveredCourse,
+    })),
+  );
+
+  const handleOpenLecturePlan = (planCode: string) => {
+    openLecturePlan(planCode);
+    clearHoveredCourse();
+  };
+
+  const { onClickCourse } = useMarkCourseSchedule();
 
   return (
-    // 밑에서 50px을 뺀 이유는 옵저버의 높이가 h-32(64px)이기 때문
-    <div className="h-[calc(100%-64px)] w-full overflow-y-auto">
+    <>
       <table
         className={clsx(
           "sticky top-0 h-18 w-full table-fixed",
@@ -79,10 +86,7 @@ export default function CourseList({
       </table>
 
       {isLoading ? (
-        <div className="bg-course-finder-courses-table-row-bg flex h-[calc(100%-36px)] w-full flex-col items-center justify-center text-2xl">
-          <SpinSangSangBoogi className="w-42" />
-          로딩중...
-        </div>
+        <CourseListLoading />
       ) : (
         <table className="w-full table-fixed border-collapse [&_tr]:h-22">
           <colgroup>
@@ -124,23 +128,19 @@ export default function CourseList({
                 </tr>
               ) : (
                 courses.map((course) => (
-                  <CourseInfoTableRow key={course.course_id} course={course} />
+                  <CourseInfoTableRow
+                    key={course.course_id}
+                    course={course}
+                    setHoveredCourse={setHoveredCourse}
+                    clearHoveredCourse={clearHoveredCourse}
+                    onClickCourse={onClickCourse}
+                    handleOpenLecturePlan={handleOpenLecturePlan}
+                  />
                 ))
               ))}
           </tbody>
         </table>
       )}
-
-      {courses && hasNextPage && (
-        <div
-          role="status"
-          aria-live="polite"
-          ref={observer}
-          className="flex h-32 w-full items-center justify-center"
-        >
-          <SpinSangSangBoogi className="w-12" />
-        </div>
-      )}
-    </div>
+    </>
   );
 }

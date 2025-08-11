@@ -3,7 +3,7 @@ import { CreateCPSATschemaType } from "@/types/schemas/CreateCPSAT.schema";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useFormContext } from "react-hook-form";
 import { useShallow } from "zustand/shallow";
-import useCurrentSemester from "../useCurrentSemester";
+import useCurrentSemester from "../common/useCurrentSemester";
 import { CPSAT_RESULT_PER_PAGE } from "@/constants/CPSATResultPerPage";
 import { useEffect } from "react";
 import { splitSemester } from "@/utils/splitSemester";

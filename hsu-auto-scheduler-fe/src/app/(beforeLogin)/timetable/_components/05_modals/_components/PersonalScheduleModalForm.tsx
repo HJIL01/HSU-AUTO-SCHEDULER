@@ -1,10 +1,10 @@
 "use client";
 
-import usePersonalScheduleForm from "@/hooks/usePersonalScheduleForm";
+import usePersonalScheduleForm from "@/hooks/CourseFinder/PersonalSchedule/usePersonalScheduleForm";
 import PersonalScheduleModalBody from "./PersonalScheduleModalBody";
 import PersonalScheduleModalFooter from "./PersonalScheduleModalFooter";
 import PersonalScheduleModalHeader from "./PersonalScheduleModalHeader";
-import usePersonalScheduleModal from "@/hooks/usePersonalScheduleModal";
+import usePersonalScheduleModal from "@/hooks/CourseFinder/PersonalSchedule/usePersonalScheduleModal";
 
 export default function PersonalScheduleModalForm() {
   const { handleClosePersonalScheduleModal } = usePersonalScheduleModal();

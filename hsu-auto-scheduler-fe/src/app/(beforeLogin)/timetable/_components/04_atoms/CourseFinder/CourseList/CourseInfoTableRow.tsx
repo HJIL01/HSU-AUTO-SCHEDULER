@@ -1,27 +1,27 @@
+// 데스크탑 전용 테이블 row
+
 "use client";
 
 import { DayOrNightKorMap } from "@/enums/dayOrNight.enum";
-import useMarkCourseSchedule from "@/hooks/useMarkCourseSchedule";
-import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { CourseType } from "@/types/schemas/Course.schema";
 import { createOfflineScheduleString } from "@/utils/createOfflineScheduleString";
 import clsx from "clsx";
-import { useShallow } from "zustand/shallow";
 
 type Props = {
   course: CourseType;
+  setHoveredCourse: (course: CourseType) => void;
+  clearHoveredCourse: () => void;
+  onClickCourse: (course: CourseType) => void;
+  handleOpenLecturePlan: (planCode: string) => void;
 };
 
-export default function CourseInfoTableRow({ course }: Props) {
-  const { setHoveredCourse, clearHoveredCourse } = useTimetableStore(
-    useShallow((state) => ({
-      setHoveredCourse: state.setHoveredCourse,
-      clearHoveredCourse: state.clearHoveredCourse,
-    })),
-  );
-
-  const { onClickCourse } = useMarkCourseSchedule();
-
+export default function CourseInfoTableRow({
+  course,
+  setHoveredCourse,
+  clearHoveredCourse,
+  onClickCourse,
+  handleOpenLecturePlan,
+}: Props) {
   return (
     <tr
       className={clsx(
@@ -38,7 +38,7 @@ export default function CourseInfoTableRow({ course }: Props) {
 
       <td className="text-hsu font-semibold">{course.course_name}</td>
 
-      <td className="font-medium text-[#495057]">
+      <td className="text-hsu-black-300 font-medium">
         {course.professor_names.join(", ")}
       </td>
 
@@ -81,12 +81,13 @@ export default function CourseInfoTableRow({ course }: Props) {
           <button
             onClick={(e) => {
               e.stopPropagation();
-              window.open(
-                `https://info.hansung.ac.kr/fuz/professor/lecturePlan/suupplan_main_view.jsp?code=${course.plan_code}`,
-                "_blank",
-                "width=1000,height=800,top=0,left=500",
-              );
-              clearHoveredCourse();
+              handleOpenLecturePlan(course.plan_code);
+              // window.open(
+              //   `https://info.hansung.ac.kr/fuz/professor/lecturePlan/suupplan_main_view.jsp?code=${course.plan_code}`,
+              //   "_blank",
+              //   "width=1000,height=800,top=0,left=500",
+              // );
+              // clearHoveredCourse();
             }}
             className="bg-hsu rounded-3xl px-4 py-2 text-white"
           >

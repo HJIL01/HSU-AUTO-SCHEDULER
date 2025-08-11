@@ -1,7 +1,7 @@
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { CourseType } from "@/types/schemas/Course.schema";
 import { useShallow } from "zustand/shallow";
-import useCurrentSemester from "./useCurrentSemester";
+import useCurrentSemester from "../../common/useCurrentSemester";
 import calcMinIndex from "@/utils/getTimeIndex";
 import isOverlapTimeSelections from "@/utils/isOverlapTimeSelections";
 

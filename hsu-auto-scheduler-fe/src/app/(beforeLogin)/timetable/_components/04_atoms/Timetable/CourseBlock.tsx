@@ -2,8 +2,8 @@
 
 import CloseIcon from "@/assets/icons/CloseIcon";
 import { COURSE_BLOCK_BG_COLORS } from "@/constants/CourseBlockBgColors";
-import useHoverState from "@/hooks/useHoverState";
-import useUnmarkCourseSchedule from "@/hooks/useUnmarkCourseSchedule";
+import useHoverState from "@/hooks/common/useHoverState";
+import useUnmarkCourseSchedule from "@/hooks/CourseFinder/PersonalSchedule/useUnmarkCourseSchedule";
 import { CourseRenderInfoType } from "@/types/courseRender.type";
 import clsx from "clsx";
 

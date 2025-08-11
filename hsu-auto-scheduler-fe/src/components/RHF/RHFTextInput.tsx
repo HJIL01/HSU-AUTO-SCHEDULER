@@ -4,7 +4,7 @@ import { Controller, FieldValues, Path, useFormContext } from "react-hook-form";
 import { ComponentProps, FocusEvent } from "react";
 import { CustomInput } from "../ui/CustomInput";
 import clsx from "clsx";
-import useFocusState from "@/hooks/useFocusState";
+import useFocusState from "@/hooks/common/useFocusState";
 
 type Props<T extends FieldValues> = {
   id: string;

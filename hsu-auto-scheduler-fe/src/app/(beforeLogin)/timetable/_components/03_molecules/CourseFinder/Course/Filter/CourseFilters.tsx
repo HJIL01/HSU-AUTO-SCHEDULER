@@ -8,11 +8,11 @@ import RHFTextInput from "@/components/RHF/RHFTextInput";
 import { useState } from "react";
 import { WeekdayKorMap } from "@/enums/weekday.enum";
 import { CreateCPSATschemaType } from "@/types/schemas/CreateCPSAT.schema";
-import useFixInputValues from "@/hooks/useFixInputValues";
+import useFixInputValues from "@/hooks/CourseFinder/Course/Filter/useFixInputValues";
 import clsx from "clsx";
-import useHorizontalScrollByWheel from "@/hooks/useHorizontalScrollByWheel";
+import useHorizontalScrollByWheel from "@/hooks/CourseFinder/Course/Filter/useHorizontalScrollByWheel";
 import RHFCustomSelect from "@/components/RHF/RHFCustomSelect";
-import NoClassDaySelectModal from "../../05_modals/NoClassDaySelectModal";
+import NoClassDaySelectModal from "../../../../05_modals/NoClassDaySelectModal";
 import FilterActionBtns from "./FilterActionBtns";
 
 type Props = {

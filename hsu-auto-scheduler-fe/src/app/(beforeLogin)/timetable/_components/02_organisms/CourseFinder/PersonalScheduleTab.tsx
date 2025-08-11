@@ -1,12 +1,12 @@
 "use client";
 
 import clsx from "clsx";
-import PersonalScheduleCard from "../../03_molecules/CourseFinder/PersonalScheduleCard";
-import PersonalScheduleAddCard from "../../03_molecules/CourseFinder/PersonalScheduleAddCard";
+import PersonalScheduleCard from "../../04_atoms/CourseFinder/PersonalSchedule/PersonalScheduleCard";
+import PersonalScheduleAddCard from "../../04_atoms/CourseFinder/PersonalSchedule/PersonalScheduleAddCard";
 import { useShallow } from "zustand/shallow";
 import { useTimetableStore } from "@/store/timetable/timetableStore";
-import useCurrentSemester from "@/hooks/useCurrentSemester";
-import usePersonalScheduleModal from "@/hooks/usePersonalScheduleModal";
+import useCurrentSemester from "@/hooks/common/useCurrentSemester";
+import usePersonalScheduleModal from "@/hooks/CourseFinder/PersonalSchedule/usePersonalScheduleModal";
 
 export default function PersonalScheduleTab() {
   const currentSemester = useCurrentSemester();
@@ -40,7 +40,7 @@ export default function PersonalScheduleTab() {
           개인 스케줄 추가
         </button>
       </div>
-      <div className="grid auto-rows-fr grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-8">
+      <ul className="grid auto-rows-fr grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-8">
         {personalSchedulesInCurSemester.map((personalSchedule, i) => (
           <PersonalScheduleCard
             key={personalSchedule.personal_schedule_id}
@@ -49,7 +49,7 @@ export default function PersonalScheduleTab() {
           />
         ))}
         <PersonalScheduleAddCard />
-      </div>
+      </ul>
     </div>
   );
 }

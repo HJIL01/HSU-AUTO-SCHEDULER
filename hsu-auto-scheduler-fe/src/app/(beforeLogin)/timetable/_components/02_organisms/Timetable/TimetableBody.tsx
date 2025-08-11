@@ -14,7 +14,7 @@ import {
 import { getOfflineScheduleInCurDay } from "@/utils/getOfflineScheduleInCurDay";
 import { getTopByStartTime } from "@/utils/getTopByStartTime";
 import { useTimetableStore } from "@/store/timetable/timetableStore";
-import useCurrentSemester from "@/hooks/useCurrentSemester";
+import useCurrentSemester from "@/hooks/common/useCurrentSemester";
 import { getBlockHeight } from "@/utils/getBlockHeight";
 import { PersonalSchedulesByDayType } from "@/types/personalScheduleRender.type";
 import PersonalScheduleModal from "../../05_modals/PersonalScheduleModal";

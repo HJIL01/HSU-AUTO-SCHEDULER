@@ -6,7 +6,7 @@ import groupCoursesByDay from "@/utils/groupCoursesByDay";
 import { SelectedCoursesByDayType } from "@/types/courseRender.type";
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { useShallow } from "zustand/shallow";
-import useCurrentSemester from "@/hooks/useCurrentSemester";
+import useCurrentSemester from "@/hooks/common/useCurrentSemester";
 import { PersonalSchedulesByDayType } from "@/types/personalScheduleRender.type";
 import groupPersonalScheduleByDay from "@/utils/groupPersonalSchedulesByDay";
 import CPSATTabNavigation from "./CPSATTabNavigation";

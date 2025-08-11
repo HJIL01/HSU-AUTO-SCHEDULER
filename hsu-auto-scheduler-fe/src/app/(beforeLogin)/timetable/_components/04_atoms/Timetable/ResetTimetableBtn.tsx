@@ -1,6 +1,6 @@
 "use client";
 
-import useCurrentSemester from "@/hooks/useCurrentSemester";
+import useCurrentSemester from "@/hooks/common/useCurrentSemester";
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { useShallow } from "zustand/shallow";
 

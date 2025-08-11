@@ -12,7 +12,7 @@
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { useShallow } from "zustand/shallow";
 import useUnmarkPersonalSchedule from "./useUnmarkPersonalSchedule";
-import useCurrentSemester from "./useCurrentSemester";
+import useCurrentSemester from "../../common/useCurrentSemester";
 
 export default function usePersonalScheduleModal() {
   const currentSemester = useCurrentSemester();

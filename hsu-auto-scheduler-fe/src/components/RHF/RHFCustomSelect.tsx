@@ -3,7 +3,7 @@
 import { SelectOptionType } from "@/types/selectOption.type";
 import { Controller, FieldValues, Path, useFormContext } from "react-hook-form";
 import CustomSelectBox from "../ui/CustomSelectBox";
-import useFocusState from "@/hooks/useFocusState";
+import useFocusState from "@/hooks/common/useFocusState";
 type Props<T extends FieldValues> = {
   name: Path<T>;
   items: SelectOptionType[];

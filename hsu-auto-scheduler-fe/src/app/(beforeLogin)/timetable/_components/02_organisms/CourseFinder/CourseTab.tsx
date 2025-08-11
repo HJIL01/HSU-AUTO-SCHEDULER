@@ -8,8 +8,8 @@ import { splitSemester } from "@/utils/splitSemester";
 import { useFormContext } from "react-hook-form";
 import { CreateCPSATschemaType } from "@/types/schemas/CreateCPSAT.schema";
 import { WeekdayEnum } from "@/enums/weekday.enum";
-import CourseFilters from "../../03_molecules/CourseFinder/CourseFilters";
-import CourseList from "../../03_molecules/CourseFinder/CourseList";
+import CourseListContainer from "../../03_molecules/CourseFinder/Course/CourseList/CourseListContainer";
+import CourseFilters from "../../03_molecules/CourseFinder/Course/Filter/CourseFilters";
 
 export default function CourseTab() {
   const { watch } = useFormContext<CreateCPSATschemaType>();
@@ -66,7 +66,7 @@ export default function CourseTab() {
   return (
     <div className="h-full w-full space-y-8">
       <CourseFilters hasEnoughData={hasEnoughData} />
-      <CourseList
+      <CourseListContainer
         hasNextPage={hasNextPage}
         fetchNextPage={fetchNextPage}
         isLoading={isLoading}
