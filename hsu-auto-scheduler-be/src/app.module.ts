@@ -21,7 +21,7 @@ import { dataSourceOptions } from 'db/datasource';
       {
         name: 'short',
         ttl: 1000,
-        limit: process.env.NODE_ENV === 'develop' ? Infinity : 6,
+        limit: 6,
       },
       {
         name: 'long',
@@ -59,10 +59,14 @@ import { dataSourceOptions } from 'db/datasource';
       useClass: ResponseInterceptor,
     },
     // 쓰로틀링
-    {
-      provide: APP_GUARD,
-      useClass: ThrottlerGuard,
-    },
+    ...(process.env.ENV === 'develop'
+      ? []
+      : [
+          {
+            provide: APP_GUARD,
+            useClass: ThrottlerGuard,
+          },
+        ]),
   ],
 })
 export class AppModule {}
