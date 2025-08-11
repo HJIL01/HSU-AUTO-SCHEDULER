@@ -1,8 +1,8 @@
 from collections import defaultdict
 from typing import Union
-from schemas.common.enums import WeekdayEnum
-from utils.get_start_time_and_end_time import get_start_time_and_end_time
-from utils.sort_by_start_time import sort_by_start_time
+from app.schemas.common.enums import WeekdayEnum
+from app.utils.get_start_time_and_end_time import get_start_time_and_end_time
+from app.utils.sort_by_start_time import sort_by_start_time
 
 
 def get_total_course_gap(courses_by_day: defaultdict[Union[WeekdayEnum, str]]):

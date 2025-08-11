@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from schemas.common.enums import WeekdayEnum
+from app.schemas.common.enums import WeekdayEnum
 
 
 class OfflineScheduleSchema(BaseModel):

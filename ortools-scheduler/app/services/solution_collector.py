@@ -1,10 +1,10 @@
 from ortools.sat.python import cp_model
-from schemas.common.course_schema import CourseSchema
-from schemas.common.solution_schema import SolutionSchema
-from utils.group_courses_by_day import group_courses_by_day
-from utils.get_total_course_gap import get_total_course_gap
-from utils.has_common_grade import has_common_grade
-from utils.get_no_class_days import get_no_class_days
+from app.schemas.common.course_schema import CourseSchema
+from app.schemas.common.solution_schema import SolutionSchema
+from app.utils.group_courses_by_day import group_courses_by_day
+from app.utils.get_total_course_gap import get_total_course_gap
+from app.utils.has_common_grade import has_common_grade
+from app.utils.get_no_class_days import get_no_class_days
 
 
 class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
@@ -95,9 +95,9 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
 
     @property
     def get_solution_count(self):
-        return min(self.solution_count, 500)
+        return min(self.solution_count, 50)
 
     @property
     def get_solutions(self):
-        # 상위 500개만 잘라서 줌
-        return self.solutions[:500]
+        # 상위 50개만 잘라서 줌
+        return self.solutions[:50]
