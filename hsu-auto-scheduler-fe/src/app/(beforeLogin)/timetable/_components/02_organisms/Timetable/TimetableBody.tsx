@@ -4,7 +4,6 @@ import { useEffect, useMemo } from "react";
 import clsx from "clsx";
 import { useShallow } from "zustand/shallow";
 import { motion } from "framer-motion";
-import { COURSE_FINDER_HEIGHT } from "@/constants/CourseFinderHeight";
 import TimeTableGrid from "../../03_molecules/Timetable/TimeTableGrid";
 import {
   CourseRenderInfoType,
@@ -32,6 +31,7 @@ export default function TimeTableBody() {
     personalSchedules,
     ensurePersonalSchedulesSemesterInitialized,
     personalScheduleModalIsOpen,
+    courseFinderHeight,
   } = useTimetableStore(
     useShallow((state) => ({
       isOpen: state.isOpen,
@@ -43,6 +43,7 @@ export default function TimeTableBody() {
       ensurePersonalSchedulesSemesterInitialized:
         state.ensurePersonalSchedulesSemesterInitialized,
       personalScheduleModalIsOpen: state.personalScheduleModalIsOpen,
+      courseFinderHeight: state.courseFinderHeight,
     })),
   );
 
@@ -118,14 +119,12 @@ export default function TimeTableBody() {
   return (
     <motion.div
       initial={{
-        height: isOpen
-          ? `calc(${100 - COURSE_FINDER_HEIGHT}dvh - 52px)`
-          : "auto",
+        height: isOpen ? `calc(${100 - courseFinderHeight}dvh - 52px)` : "auto",
       }}
       animate={{
         height: isOpen
           ? // 밑의 52px은 헤더(TimetableTitle)의 높이
-            `calc(${100 - COURSE_FINDER_HEIGHT}dvh - 52px)`
+            `calc(${100 - courseFinderHeight}dvh - 52px)`
           : "auto",
       }}
       transition={{

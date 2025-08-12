@@ -9,6 +9,7 @@ import {
 } from "@/types/schemas/CreateCPSAT.schema";
 import Portal from "@/components/Portal";
 import CloseIcon from "@/assets/icons/CloseIcon";
+import clsx from "clsx";
 
 type Props = {
   closeNoClassDaysModal: () => void;
@@ -58,11 +59,19 @@ export default function NoClassDaySelectModal({
   return (
     <Portal>
       <div
-        className="fixed top-0 left-0 z-(--z-index-no-class-days-modal) flex h-dvh w-full items-center justify-center bg-black/30"
+        className={clsx(
+          "flex items-center justify-center",
+          "h-dvh w-full",
+          "fixed top-0 left-0 bg-black/30",
+          "z-(--z-index-no-class-days-modal)",
+        )}
         onClick={closeNoClassDaysModal}
       >
         <form
-          className="z-[9999] w-200 space-y-5 bg-white p-12"
+          className={clsx(
+            "z-[9999] space-y-5 bg-white p-12",
+            "w-[90%] max-w-200",
+          )}
           onSubmit={handleApplyNoClassDays}
           onClick={(e) => {
             e.stopPropagation();

@@ -3,7 +3,6 @@
 import DropDownArrow from "@/assets/icons/DrowDownArrow";
 import { useShallow } from "zustand/shallow";
 import { motion } from "framer-motion";
-import { COURSE_FINDER_HEIGHT } from "@/constants/CourseFinderHeight";
 import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { useState } from "react";
 import CourseTab from "../02_organisms/CourseFinder/CourseTab";
@@ -12,10 +11,11 @@ import PersonalScheduleTab from "../02_organisms/CourseFinder/PersonalScheduleTa
 import clsx from "clsx";
 
 export default function CourseFinder() {
-  const { isOpen, setClose } = useTimetableStore(
+  const { isOpen, setClose, courseFinderHeight } = useTimetableStore(
     useShallow((state) => ({
       isOpen: state.isOpen,
       setClose: state.setClose,
+      courseFinderHeight: state.courseFinderHeight,
     })),
   );
 
@@ -24,10 +24,10 @@ export default function CourseFinder() {
   return (
     <motion.div
       style={{
-        height: `${COURSE_FINDER_HEIGHT}dvh`,
+        height: `${courseFinderHeight}dvh`,
       }}
       animate={{
-        top: isOpen ? `calc(${100 - COURSE_FINDER_HEIGHT}dvh)` : "100dvh",
+        top: isOpen ? `calc(${100 - courseFinderHeight}dvh)` : "100dvh",
         opacity: isOpen ? 1 : 0,
       }}
       initial={{ top: "100dvh", opacity: 0 }}

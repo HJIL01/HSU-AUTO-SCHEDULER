@@ -3,11 +3,13 @@ import { combine } from "zustand/middleware";
 
 type CourseFinderStateType = {
   isOpen: boolean;
+  courseFinderHeight: number;
 };
 
 type CourseFinderActionType = {
   setOpen: () => void;
   setClose: () => void;
+  setCourseFinderHeight: (newHeight: number) => void;
 };
 
 export type CourseFinderSliceType = CourseFinderStateType &
@@ -15,10 +17,15 @@ export type CourseFinderSliceType = CourseFinderStateType &
 
 const initialState: CourseFinderStateType = {
   isOpen: false,
+  courseFinderHeight: 45,
 };
 
 export const createCourseFinderSlice: StateCreator<CourseFinderSliceType> =
   combine(initialState, (set) => ({
     setOpen: () => set({ isOpen: true }),
     setClose: () => set({ isOpen: false }),
+    setCourseFinderHeight: (newHeight: number) =>
+      set({
+        courseFinderHeight: newHeight,
+      }),
   }));
