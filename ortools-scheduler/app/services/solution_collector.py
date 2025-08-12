@@ -82,12 +82,12 @@ class AllSolutionCollector(cp_model.CpSolverSolutionCallback):
     def sort_solutions_by_priority(self):
         self.solutions.sort(
             key=lambda solution: (
-                # 전학년 강의가 적은 순
-                has_common_grade(solution.selected_courses),
                 # 총 학점 많은 순
                 -solution.total_credit,
+                # 전학년 강의가 적은 순
+                sum(1 for course in solution.selected_courses if 0 in course.grades)
                 # 온라인 강의 많은 순
-                -solution.total_online_course_count,
+                - solution.total_online_course_count,
                 # 시간 간격 적은 순
                 solution.total_course_gap,
             )
