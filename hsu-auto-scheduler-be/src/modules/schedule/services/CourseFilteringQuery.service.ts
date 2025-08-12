@@ -59,14 +59,17 @@ export class CourseFilteringQueryService {
   }
 
   // sql: 학년 필터링(major course가 조인되어 있을 시)
+  // 학년 제한이 현재 선택된 학년과 같거나 학년 제한이 없는 강의 포함
   getCoursesByGrade(
+    courseRepoAlias: string,
     majorCourseRepoAlias: string,
     grade: number,
   ): QueryFilterType {
     return {
-      clause: `${majorCourseRepoAlias}.grade IN (:...grades)`,
+      clause: `${majorCourseRepoAlias}.grade IN (:...grades) AND (${courseRepoAlias}.grade_limit IS NULL OR ${courseRepoAlias}.grade_limit = :grade)`,
       params: {
         grades: [0, grade],
+        grade,
       },
     };
   }

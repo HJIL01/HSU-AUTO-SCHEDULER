@@ -120,6 +120,7 @@ export class ScheduleService {
     // 3. sql: 학년 필터링(선택)
     if (grade) {
       const gradeFilterQuery = this.courseFilterQueryService.getCoursesByGrade(
+        courseRepoAlias,
         majorCourseRepoAlias,
         grade,
       );
@@ -266,6 +267,7 @@ export class ScheduleService {
 
     // 3. 학년 필터링
     const gradeFilterQuery = this.courseFilterQueryService.getCoursesByGrade(
+      courseRepoAlias,
       majorCourseRepoAlias,
       constraints.grade,
     );
