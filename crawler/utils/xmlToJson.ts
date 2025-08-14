@@ -59,7 +59,7 @@ export function courseXmlToJson(
       course_id: `${semester_id}-${row.kwamokcode}-${String(row.bunban)}`,
       course_code: row.kwamokcode,
       course_name: row.kwamokname,
-      professor_names: row.prof.split(","),
+      professor_names: row.prof,
       completion_type: row.isugubun,
       delivery_method: row.kwamok_gubun,
       credit: +row.hakjum,

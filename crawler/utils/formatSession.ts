@@ -51,7 +51,7 @@ function extractInPersonSchedule(
   });
 
   return formatted.map((schedule) => {
-    const place = schedule[0];
+    const place = schedule[0].trim();
     const day = parseDays(schedule[1]);
     const startTime = 9 * 60 + (Number(schedule[2]) - 1) * 60;
     const endTime = 9 * 60 + (Number(schedule[3]) - 1) * 60 + 60;
