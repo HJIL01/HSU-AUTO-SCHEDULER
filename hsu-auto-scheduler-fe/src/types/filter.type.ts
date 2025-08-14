@@ -6,11 +6,13 @@ import { PersonalScheduleType } from "./schemas/PersonalSchedule.schema";
 export type FilterType = {
   semester_id: string;
 
-  major_code?: string | null;
+  major_code: string | null;
 
-  grade?: number | null;
+  search: string;
 
-  day_or_night?: DayOrNightEnum | null;
+  grade: number | null;
+
+  day_or_night: DayOrNightEnum | null;
 
   no_class_days: WeekdayEnum[];
 

@@ -1,6 +1,6 @@
 "use client";
 
-import DropDownArrow from "@/assets/icons/DrowDownArrow";
+import DropDownArrow from "@/assets/icons/DropDownArrow";
 import { useShallow } from "zustand/shallow";
 import { motion } from "framer-motion";
 import { useTimetableStore } from "@/store/timetable/timetableStore";
@@ -23,14 +23,11 @@ export default function CourseFinder() {
 
   return (
     <motion.div
-      style={{
-        height: `${courseFinderHeight}dvh`,
-      }}
       animate={{
-        top: isOpen ? `calc(${100 - courseFinderHeight}dvh)` : "100dvh",
+        height: isOpen ? `${courseFinderHeight}dvh` : "0dvh",
         opacity: isOpen ? 1 : 0,
       }}
-      initial={{ top: "100dvh", opacity: 0 }}
+      initial={{ height: 0, opacity: 0 }}
       transition={{ duration: 1, ease: "easeInOut" }}
       className={clsx(
         "fixed bottom-0 z-(--z-index-course-finder) w-full bg-white px-5 py-7",

@@ -1,37 +1,58 @@
 "use client";
 
-import { useFormContext } from "react-hook-form";
-import { useGetMajors } from "@/hooks/queries/useGetMajors";
-import { SelectOptionType } from "@/types/selectOption.type";
-import { DayOrNightEnum, DayOrNightKorMap } from "@/enums/dayOrNight.enum";
 import RHFTextInput from "@/components/RHF/RHFTextInput";
-import { useState } from "react";
-import { WeekdayKorMap } from "@/enums/weekday.enum";
 import { CreateCPSATschemaType } from "@/types/schemas/CreateCPSAT.schema";
-import useFixInputValues from "@/hooks/CourseFinder/Course/Filter/useFixInputValues";
-import clsx from "clsx";
-import useHorizontalScrollByWheel from "@/hooks/CourseFinder/Course/Filter/useHorizontalScrollByWheel";
-import RHFCustomSelect from "@/components/RHF/RHFCustomSelect";
+import SearchModal from "../../../../05_modals/SearchModal";
 import NoClassDaySelectModal from "../../../../05_modals/NoClassDaySelectModal";
+import { CustomInput } from "@/components/ui/CustomInput";
+import RHFCustomSelect from "@/components/RHF/RHFCustomSelect";
+import CloseIcon from "@/assets/icons/CloseIcon";
+import clsx from "clsx";
+import { Dispatch, SetStateAction, useState } from "react";
+import useHorizontalScrollByWheel from "@/hooks/CourseFinder/Course/Filter/useHorizontalScrollByWheel";
+import { SelectOptionType } from "@/types/selectOption.type";
+import { WeekdayKorMap } from "@/enums/weekday.enum";
+import useFixInputValues from "@/hooks/CourseFinder/Course/Filter/useFixInputValues";
+import { useFormContext } from "react-hook-form";
 import FilterActionBtns from "./FilterActionBtns";
 
 type Props = {
+  majorSelectedOptions: SelectOptionType[];
+  gradeSelectOptions: SelectOptionType[];
+  dayOrNightSelectOptions: SelectOptionType[];
+  search: string;
+  setSearch: Dispatch<SetStateAction<string>>;
+  searchModalIsOpen: boolean;
+  noClassDaysSelectModalIsOpen: boolean;
+  openSearchModal: () => void;
+  closeSearchModal: () => void;
+  openNoClassDaysModal: () => void;
+  closeNoClassDaysModal: () => void;
   hasEnoughData: boolean;
 };
 
-export default function CourseFilters({ hasEnoughData }: Props) {
-  // 필터: 전공, 학년, 주야, 공강 요일,
-  // 최대 학점,
-  // 전공 기초, 전공 필수, 전공 선택, 하루 최대 강의 수, 점심시간 보장
+export default function CourseFiltersForDesktop({
+  majorSelectedOptions,
+  gradeSelectOptions,
+  dayOrNightSelectOptions,
+  search,
+  setSearch,
+  searchModalIsOpen,
+  noClassDaysSelectModalIsOpen,
+  openSearchModal,
+  closeSearchModal,
+  openNoClassDaysModal,
+  closeNoClassDaysModal,
+  hasEnoughData,
+}: Props) {
+  const { getValues } = useFormContext<CreateCPSATschemaType>();
+
+  const currentNoClassDays = getValues("no_class_days");
+
   const [isLeftEnded, setIsLeftEnded] = useState<boolean>(true);
   const [isRightEnded, setIsRightEnded] = useState<boolean>(false);
 
   const scrollRef = useHorizontalScrollByWheel(setIsLeftEnded, setIsRightEnded);
-
-  const [noClassDaysSelectModalIsOpen, setNoClassDaysSelectModalIsOpen] =
-    useState<boolean>(false);
-
-  const { getValues } = useFormContext<CreateCPSATschemaType>();
 
   const {
     fixValueMaxCreditOnBlur,
@@ -41,64 +62,18 @@ export default function CourseFilters({ hasEnoughData }: Props) {
     fixValueDailyLectureLimit,
   } = useFixInputValues();
 
-  const currentSemester = getValues("semester");
-  const currentNoClassDays = getValues("no_class_days");
-
-  // 해당 학기의 모든 전공들을 가져오는 훅
-  const { data: getMajorsResponse, isFetching: getMajorsFetching } =
-    useGetMajors(currentSemester);
-
-  if (getMajorsFetching) {
-    return <div className="h-40 w-full" />;
-  }
-
-  // 전공 선택 리스트
-  const majorSelectedOptions: SelectOptionType[] =
-    getMajorsResponse?.data.map((major) => ({
-      value: major.major_code,
-      label: `[${major.major_code}] ${major.major_name}`,
-    })) ?? [];
-
-  // 학년 선택 리스트
-  const gradeSelectOptions: SelectOptionType[] = Array.from({ length: 4 }).map(
-    (_, i) => ({
-      value: i + 1,
-      label: i + 1,
-    }),
-  );
-
-  // 주야 선택 리스트
-  const dayOrNightSelectOptions: SelectOptionType[] = [
-    DayOrNightEnum.DAY,
-    DayOrNightEnum.NIGHT,
-  ]
-    .slice(0, 2)
-    .map((e) => ({
-      value: e,
-      label: DayOrNightKorMap[e],
-    }));
-
-  const openNoClassDaysModal = () => {
-    setNoClassDaysSelectModalIsOpen(true);
-  };
-
-  const closeNoClassDaysModal = () => {
-    setNoClassDaysSelectModalIsOpen(false);
-  };
-
   return (
     <div
       className={clsx(
         "bg-white p-6",
         "border-border-hsu rounded-2xl border-2",
         "flex items-center justify-between",
-        "max-md:flex-col max-md:items-start max-md:gap-8",
       )}
       style={{
         boxShadow: "0 2px 10px rgba(46, 92, 184, 0.1)",
       }}
     >
-      <div className="relative">
+      <div className="relative w-full overflow-hidden">
         {/* 엣지 페이드 */}
         <div
           className={clsx(
@@ -112,7 +87,7 @@ export default function CourseFilters({ hasEnoughData }: Props) {
         />
         <div
           className={clsx(
-            "absolute top-0 right-0 z-(--z-index-course-finder-edge-fader) h-full transition-all duration-75",
+            "absolute top-0 right-[10%] z-(--z-index-course-finder-edge-fader) h-full transition-all duration-75",
             !isRightEnded ? "w-5" : "w-0",
           )}
           style={{
@@ -126,7 +101,7 @@ export default function CourseFilters({ hasEnoughData }: Props) {
           ref={scrollRef}
           className={clsx(
             "scrollbar-hidden flex gap-4 overflow-x-auto",
-            "max-w-[72dvw] max-md:max-w-[82dvw]",
+            "w-[90%]",
           )}
         >
           {/* 전공 필터 */}
@@ -134,34 +109,61 @@ export default function CourseFilters({ hasEnoughData }: Props) {
             name="major_code"
             items={majorSelectedOptions}
             placeholder="전공을 선택하세요"
-            className="w-80 truncate"
+            className="max-w-100 truncate"
           />
+
+          {/* 검색 필터 */}
+          <div
+            className={clsx(
+              "flex items-center pr-12 pl-4",
+              "h-16 max-w-200",
+              "text-xs",
+              "bg-light-hsu border-border-hsu rounded-lg border-2",
+              "relative cursor-pointer",
+            )}
+            onClick={openSearchModal}
+          >
+            <span className="truncate">검색어: {search ? search : "없음"}</span>
+            {search && (
+              <button
+                type="button"
+                className="absolute top-1/2 right-3 -translate-y-1/2"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSearch("");
+                }}
+              >
+                <CloseIcon width={11} />
+              </button>
+            )}
+          </div>
+
           {/* 학년 필터 */}
           <RHFCustomSelect<CreateCPSATschemaType>
             name="grade"
             items={gradeSelectOptions}
             placeholder="학년"
           />
+
           {/* 주야 필터 */}
           <RHFCustomSelect<CreateCPSATschemaType>
             name="day_or_night"
             items={dayOrNightSelectOptions}
             placeholder="주/야"
           />
+
           {/* 공강 필터 */}
-          <RHFTextInput
+          <CustomInput
             readOnly
-            name="noname"
-            id="no_class_days"
-            labelText="공강 요일:"
-            placeholder="공강 요일을 선택하세요"
-            className="min-w-30 truncate"
+            name="noClassDaysReadonlyInput"
+            id="noClassDaysReadonlyInput"
+            className="!w-fit"
             onClick={openNoClassDaysModal}
-            value={
+            value={`공강 요일: ${
               currentNoClassDays.length
                 ? `${currentNoClassDays.map((day) => WeekdayKorMap[day]).join(", ")}`
                 : "없음"
-            }
+            }`}
           />
 
           {/* 최대 학점 필터 */}
@@ -174,6 +176,7 @@ export default function CourseFilters({ hasEnoughData }: Props) {
             placeholder="18"
             fixValueFuncOnBlur={fixValueMaxCreditOnBlur}
           />
+
           {/* 전공 기초 필터 */}
           <RHFTextInput<CreateCPSATschemaType>
             type="number"
@@ -184,6 +187,7 @@ export default function CourseFilters({ hasEnoughData }: Props) {
             placeholder="0"
             fixValueFuncOnBlur={fixValueMajorFoundationOnBlur}
           />
+
           {/* 전공 필수 필터 */}
           <RHFTextInput<CreateCPSATschemaType>
             type="number"
@@ -194,6 +198,7 @@ export default function CourseFilters({ hasEnoughData }: Props) {
             placeholder="0"
             fixValueFuncOnBlur={fixValueMajorRequired}
           />
+
           {/* 전공 선택 필터 */}
           <RHFTextInput<CreateCPSATschemaType>
             type="number"
@@ -204,6 +209,7 @@ export default function CourseFilters({ hasEnoughData }: Props) {
             placeholder="0"
             fixValueFuncOnBlur={fixValueMajorElective}
           />
+
           {/* 하루 최대 강의 수 필터 */}
           <RHFTextInput<CreateCPSATschemaType>
             type="number"
@@ -214,6 +220,8 @@ export default function CourseFilters({ hasEnoughData }: Props) {
             placeholder="3"
             fixValueFuncOnBlur={fixValueDailyLectureLimit}
           />
+
+          {/* 점심 보장 필터 */}
           <RHFTextInput<CreateCPSATschemaType>
             type="checkbox"
             name="has_lunch_break"
@@ -221,6 +229,15 @@ export default function CourseFilters({ hasEnoughData }: Props) {
             labelText="점심 보장(12시~13시):"
             className="!w-[3ch] rounded-none"
           />
+
+          {searchModalIsOpen && (
+            <SearchModal
+              closeSearchModal={closeSearchModal}
+              search={search}
+              setSearch={setSearch}
+            />
+          )}
+
           {noClassDaysSelectModalIsOpen && (
             <NoClassDaySelectModal
               closeNoClassDaysModal={closeNoClassDaysModal}
@@ -228,7 +245,8 @@ export default function CourseFilters({ hasEnoughData }: Props) {
           )}
         </div>
       </div>
-      <FilterActionBtns hasEnoughData={hasEnoughData} />
+
+      <FilterActionBtns hasEnoughData={hasEnoughData} setSearch={setSearch} />
     </div>
   );
 }

@@ -17,13 +17,15 @@ import clsx from "clsx";
 type Props<T extends FieldValues> = {
   name: Path<T>;
   items: SelectOptionType[];
+  labelText: string;
   placeholder: string;
   className?: string;
 };
 
-export default function RHFCustomSelect<T extends FieldValues>({
+export default function RHFCustomSelectForMobile<T extends FieldValues>({
   name,
   items,
+  labelText,
   placeholder,
   className,
 }: Props<T>) {
@@ -53,11 +55,17 @@ export default function RHFCustomSelect<T extends FieldValues>({
   const value = getValues(name);
 
   return (
-    <div>
+    <div className="">
+      <label
+        htmlFor={name}
+        className={clsx("block", "text-hsu text-xs font-semibold", "mb-2 ml-2")}
+      >
+        {labelText}
+      </label>
       <div className="relative">
         {value && (
           <button
-            className="absolute top-1/2 right-4 z-20 -translate-y-1/2"
+            className="absolute top-1/2 right-5 z-20 -translate-y-1/2"
             onClick={handleResetField}
           >
             <CloseIcon width={12} />
@@ -69,10 +77,11 @@ export default function RHFCustomSelect<T extends FieldValues>({
           render={({ field }) => (
             <CustomSelectBox
               {...field}
+              id={name}
               items={items}
               placeholder={placeholder}
               className={clsx(
-                "pr-10 pl-4",
+                "w-full truncate pr-10",
                 className,
                 value && "appearance-none",
               )}

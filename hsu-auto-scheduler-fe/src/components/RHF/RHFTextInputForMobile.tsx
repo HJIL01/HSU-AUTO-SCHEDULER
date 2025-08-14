@@ -4,7 +4,6 @@ import { Controller, FieldValues, Path, useFormContext } from "react-hook-form";
 import { ComponentProps, FocusEvent } from "react";
 import { CustomInput } from "../ui/CustomInput";
 import clsx from "clsx";
-import useFocusState from "@/hooks/common/useFocusState";
 
 type Props<T extends FieldValues> = {
   id: string;
@@ -15,7 +14,7 @@ type Props<T extends FieldValues> = {
   type?: string;
 } & ComponentProps<"input">;
 
-export default function RHFTextInput<T extends FieldValues>({
+export default function RHFTextInputForMobile<T extends FieldValues>({
   type,
   id,
   name,
@@ -29,8 +28,6 @@ export default function RHFTextInput<T extends FieldValues>({
     formState: { errors },
   } = useFormContext<T>();
 
-  const { isFocus, onFocus, onBlur } = useFocusState();
-
   // event를 받아서 onBlur에 넘겨주고, 상태 변경 처리
   const handleInputOnBlurOverride = (
     e: React.FocusEvent<HTMLInputElement>,
@@ -41,36 +38,30 @@ export default function RHFTextInput<T extends FieldValues>({
     }
 
     RHFOnBlur();
-    onBlur();
   };
 
   return (
-    <div className="h-16 text-xs">
+    <div className="text-xs">
       <label
         htmlFor={id}
-        className={clsx(
-          "flex h-full cursor-pointer items-center gap-2 rounded-lg px-3",
-          "border-border-hsu bg-light-hsu border-2 transition-colors duration-200",
-          isFocus && "border-hsu",
-        )}
+        className={clsx("block", "text-hsu text-xs font-semibold", "mb-2 ml-2")}
       >
-        <span className="inline-block whitespace-nowrap">{labelText}</span>
-        <Controller
-          control={control}
-          name={name}
-          render={({ field }) => (
-            <CustomInput
-              {...field}
-              type={type || "text"}
-              id={id}
-              className={clsx("rounded-0 !h-fit border-none !p-0", className)}
-              onFocus={onFocus}
-              onBlur={(e) => handleInputOnBlurOverride(e, field.onBlur)}
-              {...props}
-            />
-          )}
-        />
+        {labelText}
       </label>
+      <Controller
+        control={control}
+        name={name}
+        render={({ field }) => (
+          <CustomInput
+            {...field}
+            type={type || "text"}
+            id={id}
+            className={clsx("", className)}
+            onBlur={(e) => handleInputOnBlurOverride(e, field.onBlur)}
+            {...props}
+          />
+        )}
+      />
       {errors[name] && (
         <p className="pl-2 whitespace-nowrap text-red-600">
           {String(errors[name].message)}

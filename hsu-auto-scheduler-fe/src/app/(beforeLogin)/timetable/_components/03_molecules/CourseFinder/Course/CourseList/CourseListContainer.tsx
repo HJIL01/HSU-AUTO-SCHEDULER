@@ -1,18 +1,19 @@
 "use client";
 
-import { useResponsiveContext } from "@/components/ResponsiveProvider";
 import SpinSangSangBoogi from "@/components/ui/SpinSangSangBoogi";
 import { useInfiniteScroll } from "@/hooks/CourseFinder/Course/CourseList/useInfinityScroll";
 import { CourseType } from "@/types/schemas/Course.schema";
 import CourseListForDesktop from "./CourseListForDesktop";
 import CourseListForMobile from "./CourseListForMobile";
 import clsx from "clsx";
+import { DeviceType } from "@/components/ResponsiveProvider";
 
 type Props = {
   hasNextPage: boolean;
   fetchNextPage: () => void;
   isLoading: boolean;
   courses?: CourseType[];
+  deviceType: DeviceType;
 };
 
 export default function CourseListContainer({
@@ -20,9 +21,9 @@ export default function CourseListContainer({
   fetchNextPage,
   isLoading,
   courses,
+  deviceType,
 }: Props) {
   const observer = useInfiniteScroll({ hasNextPage, fetchNextPage });
-  const deviceType = useResponsiveContext();
 
   return (
     // 밑의 calc 식은 courseFilters의 전체 높이(패딩, 마진, 높이 포함)를 뺀 계산식임
@@ -31,7 +32,7 @@ export default function CourseListContainer({
     <div
       className={clsx(
         "h-[calc(100%-80px)] w-full overflow-y-auto",
-        "max-md:h-[calc(100%-120px)]",
+        "max-md:h-[calc(100%-40px)]",
       )}
     >
       {deviceType === "desktop" ? (

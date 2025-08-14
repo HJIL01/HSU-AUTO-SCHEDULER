@@ -1,13 +1,8 @@
-import type { Metadata } from "next";
 import "./../styles/globals.css";
 import RQProvider from "@/components/RQProvider";
 import RHFProvider from "@/components/RHFProvider";
 import ResponsiveProvider from "@/components/ResponsiveProvider";
-
-export const metadata: Metadata = {
-  title: "HSU Auto Scheduler",
-  description: "한성대학교 시간표를 자동으로 추천해주는 웹서비스입니다.",
-};
+import Head from "@/components/SEO/Head";
 
 export default function RootLayout({
   children,
@@ -18,6 +13,7 @@ export default function RootLayout({
 
   return (
     <html lang="ko">
+      <Head />
       <body>
         <RQProvider>
           <RHFProvider>

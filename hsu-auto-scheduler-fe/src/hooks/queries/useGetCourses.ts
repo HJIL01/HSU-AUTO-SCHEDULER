@@ -10,6 +10,7 @@ export default function useGetCourses(filters: FilterType) {
       "courses",
       filters.semester_id,
       filters.major_code,
+      filters.search,
       filters.grade,
       JSON.stringify(filters.no_class_days),
       filters.day_or_night,

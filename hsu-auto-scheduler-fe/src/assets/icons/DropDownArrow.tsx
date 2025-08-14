@@ -2,11 +2,11 @@ import { ComponentProps } from "react";
 
 type Props = ComponentProps<"svg">;
 
-export default function DrowDownArrow({ ...props }: Props) {
+export default function DropDownArrow({ width = 10, ...props }: Props) {
   return (
     <svg
-      width="10"
-      height="6"
+      width={width}
+      height={width}
       viewBox="0 0 10 6"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 
-type DeviceType = "desktop" | "mobile";
+export type DeviceType = "desktop" | "mobile";
 
 type Props = {
   children: ReactNode;
@@ -33,7 +33,7 @@ export default function ResponsiveProvider({
       }
     };
 
-    const handleResize = debounce(updateDeviceType, 200);
+    const handleResize = debounce(updateDeviceType, 100);
 
     updateDeviceType();
 

@@ -59,7 +59,7 @@ export default function RHFSelectSemester({ semesters }: Props) {
           items={selectBoxOptions}
           placeholder="학기"
           onChange={(e) => handleSelectChange(e, field.onChange)}
-          className="border-none bg-white focus:border-none"
+          className="!h-14 border-none bg-white focus:border-none"
         />
       )}
     />

@@ -17,7 +17,7 @@ export type CourseFinderSliceType = CourseFinderStateType &
 
 const initialState: CourseFinderStateType = {
   isOpen: false,
-  courseFinderHeight: 45,
+  courseFinderHeight: 48,
 };
 
 export const createCourseFinderSlice: StateCreator<CourseFinderSliceType> =

@@ -7,6 +7,7 @@ import { useFormContext } from "react-hook-form";
 import CPSATResultModal from "../../05_modals/CPSATResultModal";
 import { useCPSATResultStore } from "@/store/CPSATResult/CPSATResultStore";
 import { useShallow } from "zustand/shallow";
+import clsx from "clsx";
 
 type Props = {
   hasEnoughData: boolean;
@@ -52,7 +53,13 @@ export default function FetchCPSATResult({ hasEnoughData }: Props) {
   return (
     <>
       <button
-        className="bg-hsu h-full rounded-lg px-3 text-xs whitespace-nowrap text-white"
+        className={clsx(
+          "bg-hsu text-white",
+          "h-full px-3",
+          "text-xs whitespace-nowrap",
+          "rounded-lg",
+          "max-md:flex-2/3",
+        )}
         onClick={handleSubmit(onSubmit)}
       >
         시간표 자동 생성

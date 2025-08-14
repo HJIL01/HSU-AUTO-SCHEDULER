@@ -1,5 +1,6 @@
 "use client";
 
+import SangSangBoogi from "@/assets/SangSangBoogi.webp";
 import { CourseType } from "@/types/schemas/Course.schema";
 import CourseListLoading from "../../../../04_atoms/CourseFinder/CourseList/CourseListLoading";
 import CourseInfoCard from "../../../../04_atoms/CourseFinder/CourseList/CourseInfoCard";
@@ -8,6 +9,8 @@ import { useShallow } from "zustand/shallow";
 import { useWatch } from "react-hook-form";
 import { useEffect } from "react";
 import useMarkCourseSchedule from "@/hooks/CourseFinder/PersonalSchedule/useMarkCourseSchedule";
+import clsx from "clsx";
+import Image from "next/image";
 
 type Props = {
   isLoading: boolean;
@@ -47,24 +50,42 @@ export default function CourseListForMobile({ isLoading, courses }: Props) {
     return () => {
       clearHoveredCourse();
     };
-  }, [currentFilters, isOpen]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentFilters, isOpen, clearHoveredCourse]);
 
   return (
-    <ul>
+    <>
       {isLoading ? (
         <CourseListLoading />
       ) : (
         courses &&
-        courses.map((course) => (
-          <CourseInfoCard
-            key={course.course_id}
-            course={course}
-            hoveredCourse={hoveredCourse}
-            handleClickCourseCard={handleClickCourseCard}
-            onAddCourse={onClickCourse}
-          />
+        (courses.length === 0 ? (
+          <div
+            className={clsx(
+              "flex flex-col items-center justify-center",
+              "h-4/5 w-full",
+              "text-sm",
+            )}
+          >
+            <div className="mb-2 h-auto w-25">
+              <Image src={SangSangBoogi} alt="상상부기" />
+            </div>
+            검색 결과가 없습니다
+          </div>
+        ) : (
+          <ul>
+            {courses.map((course) => (
+              <CourseInfoCard
+                key={course.course_id}
+                course={course}
+                hoveredCourse={hoveredCourse}
+                handleClickCourseCard={handleClickCourseCard}
+                onAddCourse={onClickCourse}
+              />
+            ))}
+          </ul>
         ))
       )}
-    </ul>
+    </>
   );
 }

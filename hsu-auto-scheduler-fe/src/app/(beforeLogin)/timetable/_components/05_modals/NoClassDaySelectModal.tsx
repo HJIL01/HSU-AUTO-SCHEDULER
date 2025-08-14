@@ -77,10 +77,13 @@ export default function NoClassDaySelectModal({
             e.stopPropagation();
           }}
         >
-          <div className="flex items-center justify-between text-lg">
-            <h3>공강 요일 선택</h3>
+          <div className={clsx("flex items-center justify-between")}>
+            <h3 className="text-lg max-md:text-sm">공강 요일 선택</h3>
             <div
-              className="relative aspect-square w-10 cursor-pointer"
+              className={clsx(
+                "relative cursor-pointer",
+                "aspect-square w-10 max-md:w-8",
+              )}
               onClick={closeNoClassDaysModal}
             >
               <CloseIcon />

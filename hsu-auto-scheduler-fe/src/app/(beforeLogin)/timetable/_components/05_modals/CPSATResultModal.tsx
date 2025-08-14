@@ -4,12 +4,21 @@ import Portal from "@/components/Portal";
 import FetchingLoader from "./FetchingLoader";
 import CPSATResultsPanel from "../02_organisms/CPSATResult/CPSATResultsPanel";
 import useCPSATDataProcess from "@/hooks/CPSAT/useCPSATDataProcess";
+import clsx from "clsx";
+import CloseIcon from "@/assets/icons/CloseIcon";
+import { useShallow } from "zustand/shallow";
+import { useCPSATResultStore } from "@/store/CPSATResult/CPSATResultStore";
 
 type Props = {
   isFetching: boolean;
 };
 
 export default function CPSATResultModal({ isFetching }: Props) {
+  const { setCPSATResultModalClose } = useCPSATResultStore(
+    useShallow((state) => ({
+      setCPSATResultModalClose: state.setCPSATResultModalClose,
+    })),
+  );
   const { totalSolutionCount, CPSATResult } = useCPSATDataProcess();
 
   return (
@@ -17,14 +26,41 @@ export default function CPSATResultModal({ isFetching }: Props) {
       {isFetching ? (
         <FetchingLoader />
       ) : (
-        <div className="fixed top-0 left-0 z-(--z-index-CPSATResult-modal) flex h-dvh w-full justify-center overflow-y-hidden bg-black/70 py-10">
+        <div
+          className={clsx(
+            "fixed top-0 left-0 z-(--z-index-CPSATResult-modal)",
+            "flex justify-center",
+            "h-dvh w-full overflow-y-hidden",
+            "bg-black/70",
+            "py-10",
+          )}
+        >
           {CPSATResult.length > 0 ? (
             <CPSATResultsPanel
               CPSATResult={CPSATResult}
               totalSolutionCount={totalSolutionCount}
             />
           ) : (
-            <div className="px-5">
+            <div
+              className={clsx(
+                "flex flex-col items-center justify-center",
+                "relative",
+                "h-full w-full",
+                "px-5",
+              )}
+            >
+              <div
+                className={clsx(
+                  "absolute top-5 right-1/20",
+                  "flex items-center justify-center",
+                  "rounded-full border border-gray-300",
+                  "aspect-square w-25",
+                  "cursor-pointer",
+                )}
+                onClick={setCPSATResultModalClose}
+              >
+                <CloseIcon width={30} fill="oklch(87.2% 0.01 258.338)" />
+              </div>
               <p className="mb-3 text-center text-xl text-gray-300">
                 추천 시간표를 찾을 수 없습니다
               </p>

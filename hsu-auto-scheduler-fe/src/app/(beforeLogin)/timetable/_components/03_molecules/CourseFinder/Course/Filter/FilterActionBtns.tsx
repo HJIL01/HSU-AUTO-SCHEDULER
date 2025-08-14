@@ -10,13 +10,16 @@ import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { useShallow } from "zustand/shallow";
 import clsx from "clsx";
 import FetchCPSATResult from "../../../../04_atoms/CourseFinder/FetchCPSATResult";
+import { Dispatch, SetStateAction } from "react";
 
 type Props = {
   hasEnoughData: boolean;
+  setSearch: Dispatch<SetStateAction<string>>;
 };
 
-export default function FilterActionBtns({ hasEnoughData }: Props) {
+export default function FilterActionBtns({ hasEnoughData, setSearch }: Props) {
   const currentSemester = useCurrentSemester();
+
   const { reset } = useFormContext<CreateCPSATschemaType>();
   const { selectedCourses, personalSchedules } = useTimetableStore(
     useShallow((state) => ({
@@ -39,6 +42,7 @@ export default function FilterActionBtns({ hasEnoughData }: Props) {
       ...rest
     } = createCPSATSchemaDefaultValues;
 
+    setSearch("");
     reset({
       semester: currentSemester,
       selected_courses: selectedCourses[currentSemester],
@@ -53,9 +57,20 @@ export default function FilterActionBtns({ hasEnoughData }: Props) {
         "flex gap-2",
         "[&_button]:bg-hsu [&_button]:h-fit [&_button]:rounded-lg [&_button]:px-3 [&_button]:py-5",
         "[&_button]:text-xs [&_button]:whitespace-nowrap [&_button]:text-white",
+        "max-md:[&_button]:border-2",
+        "max-md:w-full",
       )}
     >
-      <button onClick={onReset}>필터 초기화</button>
+      <button
+        onClick={onReset}
+        className={clsx(
+          "max-md:flex-1/3",
+          "max-md:!text-hsu-black-500 max-md:!bg-light-hsu",
+          "max-md:border-border-hsu",
+        )}
+      >
+        필터 초기화
+      </button>
       <FetchCPSATResult hasEnoughData={hasEnoughData} />
     </div>
   );
