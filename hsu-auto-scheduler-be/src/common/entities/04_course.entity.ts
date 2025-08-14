@@ -35,8 +35,8 @@ export class CourseEntity {
   @Column()
   course_name: string;
 
-  @Column('json')
-  professor_names: string[];
+  @Column()
+  professor_names: string;
 
   @Column()
   delivery_method: string;

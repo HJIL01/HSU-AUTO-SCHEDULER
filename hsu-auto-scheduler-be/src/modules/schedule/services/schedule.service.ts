@@ -69,6 +69,7 @@ export class ScheduleService {
     const {
       semester_id,
       major_code,
+      search,
       grade,
       day_or_night,
       no_class_days,
@@ -86,7 +87,6 @@ export class ScheduleService {
       스케줄 시간대,
       점심 true라면 점심 시간에 포함된 강의들
     */
-
     const courseRepoAlias = 'c';
     const majorCourseRepoAlias = 'mc';
     const offlineScheduleRepoAlias = 'os';
@@ -117,7 +117,18 @@ export class ScheduleService {
       query.andWhere(majorFilterQuery.clause, majorFilterQuery.params);
     }
 
-    // 3. sql: 학년 필터링(선택)
+    // 3. 검색어 필터링(선택)
+    if (search) {
+      const searchFilterQuery =
+        this.courseFilterQueryService.getCoursesBySearch(
+          courseRepoAlias,
+          search,
+        );
+
+      query.andWhere(searchFilterQuery.clause, searchFilterQuery.params);
+    }
+
+    // 4. sql: 학년 필터링(선택)
     if (grade) {
       const gradeFilterQuery = this.courseFilterQueryService.getCoursesByGrade(
         courseRepoAlias,
@@ -128,7 +139,7 @@ export class ScheduleService {
       query.andWhere(gradeFilterQuery.clause, gradeFilterQuery.params);
     }
 
-    // 4. sql: 주야 필터링(선택)
+    // 5. sql: 주야 필터링(선택)
     if (day_or_night) {
       const dayOrNightFilterQuery =
         this.courseFilterQueryService.getCoursesByDayOrNight(
@@ -142,7 +153,7 @@ export class ScheduleService {
       );
     }
 
-    // 5. sql: 공강 요일 필터링(선택)
+    // 6. sql: 공강 요일 필터링(선택)
     if (no_class_days.length > 0) {
       const noClassDaysFilterQuery =
         this.courseFilterQueryService.getCoursesByNoClassDays(
@@ -156,7 +167,7 @@ export class ScheduleService {
       );
     }
 
-    // 6. sql: 미리 선택된 강의 필터링(선택)
+    // 7. sql: 미리 선택된 강의 필터링(선택)
     if (selected_courses.length > 0) {
       const selectedCoursesFilterQuery =
         this.courseFilterQueryService.getCoursesByPreSelectedCourses(
@@ -171,7 +182,7 @@ export class ScheduleService {
       );
     }
 
-    // 7. js: 개인 스케줄
+    // 8. js: 개인 스케줄
     if (personal_schedules.length > 0) {
       // 그냥 weeklyScheduleMap에 추가만 하는 것이므로 따로 추가적인 작업 없이 호출만
       this.courseFilterQueryService.getCoursesByPersonalSchedulesFilter(
@@ -191,7 +202,7 @@ export class ScheduleService {
         weeklyScheduleMap,
       );
 
-    // 8. js: 점심 시간 보장 제약이 true일 경우 강의의 시간이 점심 시간과 겹치는지 확인하는 로직
+    // 9. js: 점심 시간 보장 제약이 true일 경우 강의의 시간이 점심 시간과 겹치는지 확인하는 로직
     if (has_lunch_break) {
       filteredCourses =
         this.courseFilterQueryService.getCoursesByLunchTimeFilter(
@@ -204,7 +215,7 @@ export class ScheduleService {
       course_id: course.course_id,
       course_code: course.course_code,
       course_name: course.course_name,
-      professor_names: course.professor_names,
+      professor_names: course.professor_names.split(','),
       completion_types: Array.from(
         new Set(course.major_courses.map((mc) => mc.completion_type)),
       ),
@@ -349,7 +360,7 @@ export class ScheduleService {
           course_id: cur.course_id,
           course_code: cur.course_code,
           course_name: cur.course_name,
-          professor_names: cur.professor_names,
+          professor_names: cur.professor_names.split(','),
           completion_types: Array.from(
             new Set(cur.major_courses.map((mc) => mc.completion_type)),
           ),

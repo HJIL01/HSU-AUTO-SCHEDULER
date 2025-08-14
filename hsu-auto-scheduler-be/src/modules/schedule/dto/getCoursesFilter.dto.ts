@@ -21,18 +21,21 @@ export class GetCoursesFilterDto {
 
   @IsOptional()
   @IsString()
-  major_code?: string | null;
+  major_code: string | null;
+
+  @IsString()
+  search: string;
 
   @IsOptional()
   @Type(() => Number)
   @IsNumber({ allowNaN: false }, { message: 'grade는 숫자여야 합니다.' })
-  grade?: number | null;
+  grade: number | null;
 
   @IsOptional()
   @IsEnum(DayOrNightEnum, {
     message: '유효한 주야 구분이 필요합니다',
   })
-  day_or_night?: DayOrNightEnum | null;
+  day_or_night: DayOrNightEnum | null;
 
   @IsArray()
   @IsEnum(WeekdayEnum, { each: true })

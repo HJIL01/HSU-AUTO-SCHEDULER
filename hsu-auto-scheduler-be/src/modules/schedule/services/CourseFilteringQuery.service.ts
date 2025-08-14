@@ -47,6 +47,14 @@ export class CourseFilteringQueryService {
     };
   }
 
+  // sql: 검색어 필터링(CPSAT 연산이 아닌 강의 조회에만)
+  getCoursesBySearch(courseRepoAlias: string, search: string): QueryFilterType {
+    return {
+      clause: `(${courseRepoAlias}.course_code LIKE :search OR ${courseRepoAlias}.course_name LIKE :search OR ${courseRepoAlias}.professor_names LIKE :search)`,
+      params: { search: `%${search}%` },
+    };
+  }
+
   // sql: 주야 필터링
   getCoursesByDayOrNight(
     courseRepoAlias: string,
