@@ -4,7 +4,6 @@ import useGetCourses from "@/hooks/queries/useGetCourses";
 import { DayOrNightEnum } from "@/enums/dayOrNight.enum";
 import { FilterType } from "@/types/filter.type";
 import { useMemo, useState } from "react";
-import { splitSemester } from "@/utils/splitSemester";
 import { useFormContext, useWatch } from "react-hook-form";
 import { CreateCPSATschemaType } from "@/types/schemas/CreateCPSAT.schema";
 import { WeekdayEnum } from "@/enums/weekday.enum";
@@ -57,10 +56,8 @@ export default function CourseTab() {
   });
 
   const filters: FilterType = useMemo(() => {
-    const semester_id = splitSemester(semester);
-
     return {
-      semester_id,
+      semester_id: semester,
       major_code: major_code || null,
       search,
       grade: grade ? +grade : null,

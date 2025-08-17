@@ -14,7 +14,6 @@ export default function useGetCPSATResults() {
   const currentSemester = useCurrentSemester();
   const { setValue, getValues } = useFormContext<CreateCPSATschemaType>();
   const { semester, ...rest } = getValues();
-  const semester_id = splitSemester(semester);
 
   const { selectedCourses, personalSchedules } = useTimetableStore(
     useShallow((state) => ({
@@ -55,7 +54,7 @@ export default function useGetCPSATResults() {
           body: JSON.stringify({
             currentPage: pageParam,
             pagePerLimit: CPSAT_RESULT_PER_PAGE,
-            semester_id,
+            semester_id: currentSemester,
             constraints: {
               ...rest,
             },

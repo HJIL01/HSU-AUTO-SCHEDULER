@@ -2,6 +2,7 @@
 
 import getMajors from "@/api/getMajors";
 import CustomSelectBox from "@/components/ui/CustomSelectBox";
+import useCurrentSemester from "@/hooks/common/useCurrentSemester";
 import { CreateCPSATschemaType } from "@/types/schemas/CreateCPSAT.schema";
 import { SelectOptionType } from "@/types/selectOption.type";
 import { SemesterType } from "@/types/semester.type";
@@ -20,8 +21,8 @@ export default function RHFSelectSemester({ semesters }: Props) {
   const queryClient = useQueryClient();
   const router = useRouter();
 
-  const { control, getValues } = useFormContext<CreateCPSATschemaType>();
-  const currentSemester = getValues("semester");
+  const currentSemester = useCurrentSemester();
+  const { control } = useFormContext<CreateCPSATschemaType>();
 
   const selectBoxOptions: SelectOptionType[] = semesters.map((semester) => ({
     value: `${semester.year}-${semester.term}`,
@@ -42,10 +43,9 @@ export default function RHFSelectSemester({ semesters }: Props) {
   };
 
   useEffect(() => {
-    const [year, term] = currentSemester.split("-");
     queryClient.prefetchQuery({
       queryKey: ["majors", currentSemester],
-      queryFn: () => getMajors(year, term),
+      queryFn: () => getMajors(currentSemester),
     });
   }, [currentSemester, queryClient]);
 

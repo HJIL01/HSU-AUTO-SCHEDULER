@@ -1,9 +1,9 @@
 import { WeekdayEnum } from "@/enums/weekday.enum";
 import z from "zod";
-import { v4 as uuidv4 } from "uuid";
+import { v7 as uuidv7 } from "uuid";
 
 export const offlineScheduleSchema = z.object({
-  offline_schedule_id: z.uuidv4({ message: "유효한 uuid v4 형식이 아님" }),
+  offline_schedule_id: z.uuidv7({ message: "유효한 uuid v7 형식이 아님" }),
 
   day: z.enum(WeekdayEnum),
 
@@ -22,7 +22,7 @@ export type OfflineScheduleType = z.infer<typeof offlineScheduleSchema>;
 
 export function createOfflineScheduleDefaultValue(): OfflineScheduleType {
   return {
-    offline_schedule_id: uuidv4(),
+    offline_schedule_id: uuidv7(),
     day: WeekdayEnum.MON,
     start_time: 540,
     end_time: 600,
