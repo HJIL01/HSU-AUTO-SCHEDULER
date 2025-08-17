@@ -15,8 +15,8 @@ COPY ./app ./app
 
 # 6. FastAPI 실행 (uvicorn)
 # --host 0.0.0.0 → 외부 접속 허용
-# --port 80 → 컨테이너 내부 포트
-CMD ["uvicorn", "app.main:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "80", "--reload"]
+# --port 8000 → 컨테이너 내부 포트
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
 
 # docker build -t hsu-auto-scheduler-fastapi-docker-image .
-# docker run -d --name hsu-auto-scheduler-fastapi-docker-container -p 8000:80 hsu-auto-scheduler-fastapi-docker-image
+# docker run -d --name hsu-auto-scheduler-fastapi-docker-container -p 8000:8000 hsu-auto-scheduler-fastapi-docker-image
