@@ -3,13 +3,14 @@ import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
 import { SemesterEntity } from 'src/common/entities/01_semester.entity';
 import { MajorEntity } from 'src/common/entities/02_major.entity';
 import { SemesterMajorEntity } from 'src/common/entities/03_semester_major.entity';
-import { DataSource, In, Repository } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
 import { MajorDataDto } from '../dto/majorData.dto';
 import { PersistenceService } from './persistence.service';
 import { CourseDataDto } from '../dto/courseData.dto';
 import { CourseEntity } from 'src/common/entities/04_course.entity';
 import { SemesterDto } from 'src/common/dto/01_semester.dto';
-import { MajorCourseEntity } from 'src/common/entities/06_major_course.entity';
+import { MajorCourseEntity } from 'src/common/entities/07_major_course.entity';
+import { ClassSectionEntity } from 'src/common/entities/05_classSection.entity';
 
 @Injectable()
 export class TransactionService {
@@ -120,16 +121,9 @@ export class TransactionService {
     }
   }
 
-  // 강의 저장 트랜잭션(강의, 전공-강의, 오프라인 스케줄)
+  // 강의 저장 트랜잭션(강의, 분반, 오프라인 스케줄, 전공-강의)
   async createCourseTransaction(courseData: CourseDataDto) {
     const { semester_id, major_code, courses } = courseData;
-
-    // courses가 존재하지 않으면 그대로 종료
-    if (!courses) {
-      return {
-        message: `${semester_id}-${major_code}의 강의는 없습니다`,
-      };
-    }
 
     const [semesterEntity, majorEntity] = await Promise.all([
       this.semesterRepo.findOne({
@@ -155,94 +149,72 @@ export class TransactionService {
     await queryRunner.startTransaction();
 
     try {
-      const courseIds = courses.map((course) => course.course_id);
-      const existingCoursesInCourseTable = await queryRunner.manager.find(
-        CourseEntity,
-        {
-          where: { course_id: In(courseIds) },
-        },
-      );
-      const existingCoursesInMajorCourseTable = await queryRunner.manager.find(
-        MajorCourseEntity,
-        {
-          where: courseIds.map((courseId) => ({
-            course: { course_id: courseId },
-            major: { major_code: majorEntity.major_code },
-            semester: { semester_id: semesterEntity.semester_id },
-          })),
-          relations: ['course', 'major', 'semester'],
-        },
-      );
-
-      const existingCourseMap = existingCoursesInCourseTable.reduce(
-        (acc, cur) => {
-          acc.set(cur.course_id, cur);
-          return acc;
-        },
-        new Map<string, CourseEntity>(),
-      );
-
-      const existingMajorCourseMap = existingCoursesInMajorCourseTable.reduce(
-        (acc, cur) => {
-          acc.set(`${cur.course_id}-${cur.major_code}`, cur);
-          return acc;
-        },
-        new Map<string, MajorCourseEntity>(),
-      );
-
       for (const course of courses) {
-        let courseEntity = existingCourseMap.get(course.course_id);
-        let majorCourseEntity = existingMajorCourseMap.get(
-          `${course.course_id}-${major_code}`,
-        );
+        let [
+          existingCourseEntity,
+          existingClassSectionEntity,
+          existingMajorCourseEntity,
+        ] = await Promise.all([
+          queryRunner.manager.findOne(CourseEntity, {
+            where: {
+              course_code: course.course_code,
+            },
+          }),
+          queryRunner.manager.findOne(ClassSectionEntity, {
+            where: {
+              semester_id: course.semester_id,
+              course_code: course.course_code,
+              class_section: course.class_section,
+              professor_names: course.professor_names,
+            },
+          }),
+          queryRunner.manager.findOne(MajorCourseEntity, {
+            where: {
+              semester_id: course.semester_id,
+              major_code: major_code,
+              course_code: course.course_code,
+            },
+          }),
+        ]);
 
-        // course가 존재하지 않는다면 insert
-        if (!courseEntity) {
-          courseEntity = await this.persistenceService.insertIntoCourseTable(
-            queryRunner,
-            course,
-            semesterEntity,
-          );
-
-          if (course.offline_schedules.length > 0) {
-            const offlineScheduleEntites =
-              await this.persistenceService.insertIntoOfflineScheduleTable(
-                queryRunner,
-                course.offline_schedules,
-                courseEntity!,
-              );
-            console.log(`${course.course_id}의 오프라인 스케줄 저장 성공`);
-          } else {
-            console.error(
-              `${course.course_id}의 오프라인 스케줄은 존재하지 않음`,
+        // 강의가 존재하지 않는다면 저장
+        if (!existingCourseEntity) {
+          existingCourseEntity =
+            await this.persistenceService.insertIntoCourseTable(
+              queryRunner,
+              course,
+              semesterEntity,
             );
-          }
-
-          console.log(
-            `${course.course_id} 및 해당 course의 offline schedule 데이터 저장 성공`,
-          );
-        } else {
-          console.error(
-            `${course.course_id}이미 존재, 해당 course의 offline schedule 테이블 스킵`,
-          );
         }
 
-        if (!majorCourseEntity) {
-          majorCourseEntity =
-            await this.persistenceService.insertIntoMajorCourseTable(
+        // 분반이 존재하지 않는다면 오프라인 스케줄도 존재하지 않음
+        // 분반이 존재한다면 해당 오프라인 스케줄은 존재
+        // 분반이 존재하면서 오프라인 스케줄이 존재하지 않을 가능성 없음
+        if (!existingClassSectionEntity) {
+          existingClassSectionEntity =
+            await this.persistenceService.insertIntoClassSection(
               queryRunner,
-              majorEntity,
-              courseEntity!,
-              semesterEntity,
-              course.completion_type,
-              course.grade,
+              course,
+              existingCourseEntity,
             );
 
-          console.log(
-            `${major_code}-${course.course_id} 전공-강의 데이터 저장 성공`,
-          );
-        } else {
-          console.error(`${major_code}-${course.course_id} 데이터 이미 존재`);
+          const offlineScheduleEntities =
+            await this.persistenceService.insertIntoOfflineScheduleTable(
+              queryRunner,
+              course.offline_schedules,
+              existingCourseEntity,
+              existingClassSectionEntity,
+            );
+        }
+
+        if (!existingMajorCourseEntity) {
+          existingMajorCourseEntity =
+            await this.persistenceService.insertIntoMajorCourseTable(
+              queryRunner,
+              semesterEntity,
+              majorEntity,
+              existingCourseEntity,
+            );
         }
       }
 

@@ -15,18 +15,18 @@ type QueryFilterType = {
 export class CourseFilteringQueryService {
   // sql: 학기 필터링
   getCoursesBySemester(
-    courseRepoAlias: string,
+    classSectionRepoAlias: string,
     semester_id: string,
   ): QueryFilterType {
     return {
-      clause: `${courseRepoAlias}.semester_id = :semester_id`,
+      clause: `${classSectionRepoAlias}.semester_id = :semester_id`,
       params: { semester_id },
     };
   }
 
   // sql: 전공 필터링
   getCoursesByMajor(
-    courseRepoAlias: string,
+    classSectionRepoAlias: string,
     major_code: string,
   ): QueryFilterType {
     return {
@@ -35,7 +35,7 @@ export class CourseFilteringQueryService {
           .subQuery()
           .select('1')
           .from('major_course', 'mc')
-          .where(`mc.course_id = ${courseRepoAlias}.course_id`)
+          .where(`mc.course_code = ${classSectionRepoAlias}.course_code`)
           .andWhere('mc.major_code = :major_code')
           .getQuery();
 
@@ -48,37 +48,25 @@ export class CourseFilteringQueryService {
   }
 
   // sql: 검색어 필터링(CPSAT 연산이 아닌 강의 조회에만)
-  getCoursesBySearch(courseRepoAlias: string, search: string): QueryFilterType {
+  getCoursesBySearch(
+    classSectionRepoAlias: string,
+    courseRepoAlias: string,
+    search: string,
+  ): QueryFilterType {
     return {
-      clause: `(${courseRepoAlias}.course_code LIKE :search OR ${courseRepoAlias}.course_name LIKE :search OR ${courseRepoAlias}.professor_names LIKE :search)`,
+      clause: `(${classSectionRepoAlias}.course_code LIKE :search OR ${courseRepoAlias}.course_name LIKE :search OR ${classSectionRepoAlias}.professor_names LIKE :search)`,
       params: { search: `%${search}%` },
     };
   }
 
   // sql: 주야 필터링
   getCoursesByDayOrNight(
-    courseRepoAlias: string,
+    classSectionRepoAlias: string,
     day_or_night: string,
   ): QueryFilterType {
     return {
-      clause: `${courseRepoAlias}.day_or_night IN (:...day_or_night)`,
+      clause: `${classSectionRepoAlias}.day_or_night IN (:...day_or_night)`,
       params: { day_or_night: [day_or_night, 'both'] },
-    };
-  }
-
-  // sql: 학년 필터링(major course가 조인되어 있을 시)
-  // 학년 제한이 현재 선택된 학년과 같거나 학년 제한이 없는 강의 포함
-  getCoursesByGrade(
-    courseRepoAlias: string,
-    majorCourseRepoAlias: string,
-    grade: number,
-  ): QueryFilterType {
-    return {
-      clause: `${majorCourseRepoAlias}.grade IN (:...grades) AND (${courseRepoAlias}.grade_limit IS NULL OR ${courseRepoAlias}.grade_limit = :grade)`,
-      params: {
-        grades: [0, grade],
-        grade,
-      },
     };
   }
 
@@ -88,7 +76,7 @@ export class CourseFilteringQueryService {
     no_class_days: WeekdayEnum[],
   ): QueryFilterType {
     return {
-      clause: `(${offlineScheduleRepoAlias}.day NOT IN (:...excludeDays) OR ${offlineScheduleRepoAlias}.course_id IS NULL)`,
+      clause: `(${offlineScheduleRepoAlias}.day NOT IN (:...excludeDays) OR ${offlineScheduleRepoAlias}.course_code IS NULL)`,
       params: {
         excludeDays: no_class_days,
       },
@@ -161,9 +149,9 @@ export class CourseFilteringQueryService {
   }
 
   getCoursesFilterByWeeklySchedule(
-    courses: CourseEntity[],
+    courses: CourseDto[],
     weeklyScheduleMap: Map<WeekdayEnum, WeeklyScheduleType[]>,
-  ): CourseEntity[] {
+  ): CourseDto[] {
     courses = courses.filter((course) => {
       return course.offline_schedules.every((curCourseCurOfflineSchedule) => {
         const curCourseCurOfflineScheduleDay = curCourseCurOfflineSchedule.day;
@@ -200,7 +188,7 @@ export class CourseFilteringQueryService {
   }
 
   // js: 점심 시간 필터링
-  getCoursesByLunchTimeFilter(courses: CourseEntity[]): CourseEntity[] {
+  getCoursesByLunchTimeFilter(courses: CourseDto[]): CourseDto[] {
     const lunchStart = 720; // 12:00
     const lunchEnd = 780; // 13:00
 

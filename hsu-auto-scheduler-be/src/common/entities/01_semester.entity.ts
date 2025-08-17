@@ -1,7 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
 import { CourseEntity } from './04_course.entity';
 import { SemesterMajorEntity } from './03_semester_major.entity';
-import { MajorCourseEntity } from './06_major_course.entity';
+import { MajorCourseEntity } from './07_major_course.entity';
 
 @Entity('semester')
 export class SemesterEntity {

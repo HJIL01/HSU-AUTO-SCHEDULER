@@ -4,9 +4,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { SemesterEntity } from 'src/common/entities/01_semester.entity';
 import { MajorEntity } from 'src/common/entities/02_major.entity';
 import { CourseEntity } from 'src/common/entities/04_course.entity';
-import { OfflineScheduleEntity } from 'src/common/entities/05_offlineSchedule.entity';
+import { OfflineScheduleEntity } from 'src/common/entities/06_offlineSchedule.entity';
 import { SemesterMajorEntity } from 'src/common/entities/03_semester_major.entity';
-import { MajorCourseEntity } from 'src/common/entities/06_major_course.entity';
+import { MajorCourseEntity } from 'src/common/entities/07_major_course.entity';
+import { ClassSectionEntity } from 'src/common/entities/05_classSection.entity';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { MajorCourseEntity } from 'src/common/entities/06_major_course.entity';
             MajorEntity,
             SemesterMajorEntity,
             CourseEntity,
+            ClassSectionEntity,
             OfflineScheduleEntity,
             MajorCourseEntity,
           ],
@@ -38,6 +40,7 @@ import { MajorCourseEntity } from 'src/common/entities/06_major_course.entity';
       MajorEntity,
       SemesterMajorEntity,
       CourseEntity,
+      ClassSectionEntity,
       OfflineScheduleEntity,
       MajorCourseEntity,
     ]),

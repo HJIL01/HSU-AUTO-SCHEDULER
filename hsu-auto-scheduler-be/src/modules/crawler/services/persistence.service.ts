@@ -1,14 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { MajorDto } from 'src/common/dto/02_major.dto';
-import { OfflineScheduleDto } from 'src/common/dto/04_offline_schedule.dto';
 import { SemesterEntity } from 'src/common/entities/01_semester.entity';
 import { MajorEntity } from 'src/common/entities/02_major.entity';
 import { SemesterMajorEntity } from 'src/common/entities/03_semester_major.entity';
 import { CourseEntity } from 'src/common/entities/04_course.entity';
-import { OfflineScheduleEntity } from 'src/common/entities/05_offlineSchedule.entity';
-import { MajorCourseEntity } from 'src/common/entities/06_major_course.entity';
+import { OfflineScheduleEntity } from 'src/common/entities/06_offlineSchedule.entity';
+import { MajorCourseEntity } from 'src/common/entities/07_major_course.entity';
 import { QueryRunner } from 'typeorm';
 import { CrawledCourseDto } from '../dto/crawledCourse.dto';
+import { ClassSectionEntity } from 'src/common/entities/05_classSection.entity';
+import { OfflineScheduleDto } from 'src/common/dto/04_offline_schedule.dto';
+import { v7 as uuidv7 } from 'uuid';
 
 @Injectable()
 export class PersistenceService {
@@ -55,18 +57,13 @@ export class PersistenceService {
     semesterEntity: SemesterEntity,
   ) {
     const createdCourseEntity = queryRunner.manager.create(CourseEntity, {
-      semester_id: course.semester_id,
-      course_id: course.course_id,
       course_code: course.course_code,
+      semester_id: course.semester_id,
       course_name: course.course_name,
-      professor_names: course.professor_names,
-      delivery_method: course.delivery_method,
+      completion_type: course.completion_type,
       credit: course.credit,
-      day_or_night: course.day_or_night,
-      class_section: course.class_section,
+      grade: course.grade,
       grade_limit: course.grade_limit,
-      online_hour: course.online_hour,
-      plan_code: course.plan_code,
       semester: semesterEntity,
     });
 
@@ -75,23 +72,55 @@ export class PersistenceService {
     return createdCourseEntity;
   }
 
+  // class section table 저장 메서드
+  async insertIntoClassSection(
+    queryRunner: QueryRunner,
+    course: CrawledCourseDto,
+    courseEntity: CourseEntity,
+  ) {
+    const createdClassSectionEntity = queryRunner.manager.create(
+      ClassSectionEntity,
+      {
+        class_section_id: uuidv7(),
+        class_section: course.class_section,
+        professor_names: course.professor_names,
+        day_or_night: course.day_or_night,
+        delivery_method: course.delivery_method,
+        online_hour: course.online_hour,
+        plan_code: course.plan_code,
+        semester_id: course.semester_id,
+        course: courseEntity,
+      },
+    );
+
+    await queryRunner.manager.save(
+      ClassSectionEntity,
+      createdClassSectionEntity,
+    );
+
+    return createdClassSectionEntity;
+  }
+
   // offline schedule table 저장 메서드
   async insertIntoOfflineScheduleTable(
     queryRunner: QueryRunner,
     offline_schedules: OfflineScheduleDto[],
-    createdCourseEntity: CourseEntity,
+    courseEntity: CourseEntity,
+    classSectionEntity: ClassSectionEntity,
   ) {
     if (offline_schedules.length === 0) return;
 
     const offlineScheduleEntites = offline_schedules.map((off_schedule) => {
       const entity = new OfflineScheduleEntity();
+      entity.semester_id = courseEntity.semester_id;
       entity.offline_schedule_id = off_schedule.offline_schedule_id;
       entity.day = off_schedule.day;
       entity.start_time = off_schedule.start_time;
       entity.end_time = off_schedule.end_time;
       entity.place = off_schedule.place!;
-      entity.course_id = createdCourseEntity.course_id;
-      entity.course = createdCourseEntity;
+      entity.course = courseEntity;
+      entity.class_section = classSectionEntity;
+
       return entity;
     });
 
@@ -106,21 +135,17 @@ export class PersistenceService {
   // major-course table 저장 메서드
   async insertIntoMajorCourseTable(
     queryRunner: QueryRunner,
+    semesterEntity: SemesterEntity,
     majorEntity: MajorEntity,
     courseEntity: CourseEntity,
-    semesterEntity: SemesterEntity,
-    completion_type: string,
-    grade: number,
   ): Promise<MajorCourseEntity> {
     const majorCourseEntity = queryRunner.manager.create(MajorCourseEntity, {
+      semester_id: semesterEntity.semester_id,
       major_code: majorEntity.major_code,
-      course_id: courseEntity.course_id,
-      semester_id: courseEntity.semester_id,
-      completion_type,
-      grade,
+      course_code: courseEntity.course_code,
+      semester: semesterEntity,
       major: majorEntity,
       course: courseEntity,
-      semester: semesterEntity,
     });
 
     await queryRunner.manager.save(MajorCourseEntity, majorCourseEntity);

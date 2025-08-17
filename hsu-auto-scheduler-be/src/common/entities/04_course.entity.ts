@@ -5,71 +5,41 @@ import {
   ManyToOne,
   OneToMany,
   PrimaryColumn,
-  ValueTransformer,
 } from 'typeorm';
-import { OfflineScheduleEntity } from './05_offlineSchedule.entity';
+import { OfflineScheduleEntity } from './06_offlineSchedule.entity';
 import { SemesterEntity } from './01_semester.entity';
-import { DayOrNightEnum } from '../enums/dayOrNight.enum';
-import { MajorCourseEntity } from './06_major_course.entity';
-
-const columnNumericTransformer: ValueTransformer = {
-  to(value: number): number {
-    return value;
-  },
-  from(value: string): number {
-    return parseFloat(value);
-  },
-};
+import { MajorCourseEntity } from './07_major_course.entity';
+import { ClassSectionEntity } from './05_classSection.entity';
 
 @Entity('course')
 export class CourseEntity {
-  @Column()
-  semester_id: string;
+  @PrimaryColumn()
+  course_code: string;
 
   @PrimaryColumn()
-  course_id: string;
-
-  @Column()
-  course_code: string;
+  semester_id: string;
 
   @Column()
   course_name: string;
 
   @Column()
-  professor_names: string;
-
-  @Column()
-  delivery_method: string;
+  completion_type: string;
 
   @Column()
   credit: number;
 
-  @Column({
-    type: 'enum',
-    enum: DayOrNightEnum,
-  })
-  day_or_night: DayOrNightEnum;
-
-  @Column()
-  class_section: string;
+  @Column({ length: 30 })
+  grade: string;
 
   @Column({ type: 'int', nullable: true })
   grade_limit: number | null;
 
-  @Column('decimal', {
-    precision: 2,
-    scale: 1,
-    default: 0.0,
-    transformer: columnNumericTransformer,
-  })
-  online_hour: number;
-
-  @Column({ type: 'varchar', length: 255, nullable: true })
-  plan_code: string | null;
-
   @ManyToOne(() => SemesterEntity, (semester) => semester.courses)
   @JoinColumn({ name: 'semester_id' })
   semester: SemesterEntity;
+
+  @OneToMany(() => ClassSectionEntity, (class_section) => class_section.course)
+  class_sections: ClassSectionEntity[];
 
   @OneToMany(
     () => OfflineScheduleEntity,

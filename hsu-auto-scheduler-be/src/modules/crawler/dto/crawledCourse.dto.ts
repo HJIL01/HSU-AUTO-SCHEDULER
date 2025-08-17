@@ -7,17 +7,13 @@ import {
   IsString,
   ValidateNested,
 } from 'class-validator';
-import { OfflineScheduleDto } from 'src/common/dto/04_offline_schedule.dto';
 import { DayOrNightEnum } from 'src/common/enums/dayOrNight.enum';
+import { OfflineScheduleDto } from 'src/common/dto/04_offline_schedule.dto';
 
 export class CrawledCourseDto {
   @IsString()
   @IsNotEmpty()
   semester_id: string;
-
-  @IsString()
-  @IsNotEmpty()
-  course_id: string;
 
   @IsString()
   @IsNotEmpty()
@@ -52,9 +48,9 @@ export class CrawledCourseDto {
   @IsNotEmpty()
   class_section: string;
 
-  @Type(() => Number)
-  @IsNumber({ allowNaN: false }, { message: 'grade는 숫자여야 합니다.' })
-  grade: number;
+  @IsString()
+  @IsNotEmpty()
+  grade: string;
 
   @IsOptional()
   @IsNumber({ allowNaN: false }, { message: '학년 제한은 숫자여야 합니다.' })
