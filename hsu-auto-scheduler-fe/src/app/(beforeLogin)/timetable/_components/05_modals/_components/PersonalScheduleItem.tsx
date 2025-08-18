@@ -72,7 +72,9 @@ export default function PersonalScheduleItem({
           <CloseIcon fill="white" className="aspect-square w-5" />
         </button>
         <div>
-          <label htmlFor={`offline_schedules.${index}.day`}>요일</label>
+          <label htmlFor={`offline_schedules.${index}.day`} className="text-xs">
+            요일
+          </label>
           <Controller
             name={`offline_schedules.${index}.day`}
             control={control}
@@ -87,7 +89,9 @@ export default function PersonalScheduleItem({
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor={`startHour${index}`}>시작 시간</label>
+          <label htmlFor={`startHour${index}`} className="text-xs">
+            시작 시간
+          </label>
           <Controller
             name={`offline_schedules.${index}.start_time`}
             control={control}
@@ -122,7 +126,9 @@ export default function PersonalScheduleItem({
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor={`endHour${index}`}>종료 시간</label>
+          <label htmlFor={`endHour${index}`} className="text-xs">
+            종료 시간
+          </label>
           <Controller
             name={`offline_schedules.${index}.end_time`}
             control={control}
@@ -153,7 +159,12 @@ export default function PersonalScheduleItem({
         </div>
 
         <div className="flex max-w-[50%] flex-1 flex-col">
-          <label htmlFor={`offline_schedules.${index}.place`}>장소</label>
+          <label
+            htmlFor={`offline_schedules.${index}.place`}
+            className="text-xs"
+          >
+            장소
+          </label>
           <Controller
             name={`offline_schedules.${index}.place`}
             control={control}

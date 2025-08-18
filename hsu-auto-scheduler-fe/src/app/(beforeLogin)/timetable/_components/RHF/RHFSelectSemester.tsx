@@ -56,7 +56,7 @@ export default function RHFSelectSemester({ semesters }: Props) {
     });
 
     ensureTimeSelectionInitialized(currentSemester);
-  }, [currentSemester, queryClient]);
+  }, [currentSemester, queryClient, ensureTimeSelectionInitialized]);
 
   return (
     <Controller

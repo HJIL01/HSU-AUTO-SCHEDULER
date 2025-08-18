@@ -38,12 +38,12 @@ export default function CourseInfoCard({
           {course.course_name}({course.class_section}) (
           {DayOrNightKorMap[course.day_or_night]})
         </h3>
-        <span className={clsx("text-hsu-black-300 text-xs font-medium")}>
+        <span className={clsx("text-hsu-black-300 text-sm font-medium")}>
           {course.professor_names.join(", ")}
         </span>
       </div>
       <div className={clsx("text-hsu-black-300", "space-y-1")}>
-        <p className="whitespace-pre">
+        <p className="text-xs whitespace-pre">
           <span className="text-hsu font-semibold">
             {course.online_hour > 0 &&
               `온라인강좌: ${course.online_hour}시간\n`}
@@ -53,7 +53,7 @@ export default function CourseInfoCard({
               ? createOfflineScheduleString(course.offline_schedules)
               : "-")}
         </p>
-        <p className="space-x-4">
+        <p className="space-x-4 text-xs">
           <span>
             {course.grades
               .map((grade) => (grade === 0 ? "전학년" : `${grade}학년`))
@@ -75,7 +75,7 @@ export default function CourseInfoCard({
           <button
             className={clsx(
               "w-fit px-4 py-2",
-              "bg-hsu text-xxs text-white",
+              "bg-hsu text-[1.1rem] text-white",
               "rounded-3xl",
             )}
             onClick={(e) => {
@@ -89,7 +89,7 @@ export default function CourseInfoCard({
             <button
               className={clsx(
                 "w-fit px-4 py-2",
-                "bg-hsu text-xxs text-white",
+                "bg-hsu text-[1.1rem] text-white",
                 "rounded-3xl",
               )}
               onClick={(e) => {

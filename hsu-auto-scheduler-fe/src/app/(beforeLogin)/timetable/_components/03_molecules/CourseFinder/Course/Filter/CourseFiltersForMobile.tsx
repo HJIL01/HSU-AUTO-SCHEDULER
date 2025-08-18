@@ -251,7 +251,7 @@ export default function CourseFiltersForMobile({
               labelText="🕐 점심 보장(12시~13시)"
             />
           </div>
-          <div className="px-5">
+          <div className="px-5 pb-5">
             <FilterActionBtns
               hasEnoughData={hasEnoughData}
               setSearch={setSearch}
