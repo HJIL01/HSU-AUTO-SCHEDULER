@@ -43,7 +43,7 @@ export const courseSchema = z.object({
 
   offline_schedules: z.array(offlineScheduleSchema),
 
-  plan_code: z.union([z.number(), z.null()]).optional(),
+  plan_code: z.string(),
 });
 
 export type CourseType = z.infer<typeof courseSchema>;

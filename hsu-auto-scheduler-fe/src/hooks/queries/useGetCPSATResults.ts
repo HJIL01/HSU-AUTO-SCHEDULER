@@ -6,14 +6,13 @@ import { useShallow } from "zustand/shallow";
 import useCurrentSemester from "../common/useCurrentSemester";
 import { CPSAT_RESULT_PER_PAGE } from "@/constants/CPSATResultPerPage";
 import { useEffect } from "react";
-import { splitSemester } from "@/utils/splitSemester";
 import { CPSATSolutionType } from "@/types/CPSATSolution.type";
 import { ResponseType } from "@/types/response.type";
 
 export default function useGetCPSATResults() {
   const currentSemester = useCurrentSemester();
   const { setValue, getValues } = useFormContext<CreateCPSATschemaType>();
-  const { semester, ...rest } = getValues();
+  const { semester: _, ...rest } = getValues();
 
   const { selectedCourses, personalSchedules } = useTimetableStore(
     useShallow((state) => ({

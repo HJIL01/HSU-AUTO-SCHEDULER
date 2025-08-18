@@ -1,7 +1,7 @@
 "use client";
 
 import { SelectOptionType } from "@/types/selectOption.type";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import FilterActionBtns from "./FilterActionBtns";
 import clsx from "clsx";
 import DropDownArrow from "@/assets/icons/DropDownArrow";
@@ -54,6 +54,10 @@ export default function CourseFiltersForMobile({
   const handleFilterOpen = () => {
     setFilterIsOpen((prev) => !prev);
   };
+
+  useEffect(() => {
+    setFilterIsOpen(false);
+  }, [search, setFilterIsOpen]);
 
   const {
     fixValueMaxCreditOnBlur,

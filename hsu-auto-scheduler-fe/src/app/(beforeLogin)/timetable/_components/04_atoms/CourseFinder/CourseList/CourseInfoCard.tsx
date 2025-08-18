@@ -85,19 +85,21 @@ export default function CourseInfoCard({
           >
             시간표에 추가
           </button>
-          <button
-            className={clsx(
-              "w-fit px-4 py-2",
-              "bg-hsu text-xxs text-white",
-              "rounded-3xl",
-            )}
-            onClick={(e) => {
-              e.stopPropagation();
-              openLecturePlan(course.plan_code);
-            }}
-          >
-            계획서 조회
-          </button>
+          {course.plan_code !== "x" && (
+            <button
+              className={clsx(
+                "w-fit px-4 py-2",
+                "bg-hsu text-xxs text-white",
+                "rounded-3xl",
+              )}
+              onClick={(e) => {
+                e.stopPropagation();
+                openLecturePlan(course.plan_code);
+              }}
+            >
+              계획서 조회
+            </button>
+          )}
         </div>
       )}
     </li>
