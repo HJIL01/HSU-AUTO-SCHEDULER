@@ -56,7 +56,9 @@ export default function CourseFiltersForMobile({
   };
 
   useEffect(() => {
-    setFilterIsOpen(false);
+    if (search !== "") {
+      setFilterIsOpen(false);
+    }
   }, [search, setFilterIsOpen]);
 
   const {

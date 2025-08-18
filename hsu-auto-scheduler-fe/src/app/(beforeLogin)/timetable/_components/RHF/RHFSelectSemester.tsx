@@ -3,6 +3,7 @@
 import getMajors from "@/api/getMajors";
 import CustomSelectBox from "@/components/ui/CustomSelectBox";
 import useCurrentSemester from "@/hooks/common/useCurrentSemester";
+import { useTimetableStore } from "@/store/timetable/timetableStore";
 import { CreateCPSATschemaType } from "@/types/schemas/CreateCPSAT.schema";
 import { SelectOptionType } from "@/types/selectOption.type";
 import { SemesterType } from "@/types/semester.type";
@@ -10,6 +11,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, useEffect } from "react";
 import { Controller, useFormContext } from "react-hook-form";
+import { useShallow } from "zustand/shallow";
 
 type Props = {
   semesters: SemesterType[];
@@ -22,6 +24,11 @@ export default function RHFSelectSemester({ semesters }: Props) {
   const router = useRouter();
 
   const currentSemester = useCurrentSemester();
+  const { ensureTimeSelectionInitialized } = useTimetableStore(
+    useShallow((state) => ({
+      ensureTimeSelectionInitialized: state.ensureTimeSelectionInitialized,
+    })),
+  );
   const { control } = useFormContext<CreateCPSATschemaType>();
 
   const selectBoxOptions: SelectOptionType[] = semesters.map((semester) => ({
@@ -47,6 +54,8 @@ export default function RHFSelectSemester({ semesters }: Props) {
       queryKey: ["majors", currentSemester],
       queryFn: () => getMajors(currentSemester),
     });
+
+    ensureTimeSelectionInitialized(currentSemester);
   }, [currentSemester, queryClient]);
 
   return (
