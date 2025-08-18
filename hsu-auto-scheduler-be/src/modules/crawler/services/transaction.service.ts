@@ -157,6 +157,7 @@ export class TransactionService {
         ] = await Promise.all([
           queryRunner.manager.findOne(CourseEntity, {
             where: {
+              semester_id,
               course_code: course.course_code,
             },
           }),
