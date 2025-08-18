@@ -60,12 +60,12 @@ export class CrawledCourseDto {
   @IsNumber({ allowNaN: false }, { message: '온라인 시간은 숫자여야 합니다.' })
   online_hour: number;
 
-  @ValidateNested({ each: true })
-  @Type(() => OfflineScheduleDto)
-  offline_schedules: OfflineScheduleDto[];
-
   @IsOptional()
   @IsString()
   @IsNotEmpty()
   plan_code: string | null;
+
+  @ValidateNested({ each: true })
+  @Type(() => OfflineScheduleDto)
+  offline_schedules: OfflineScheduleDto[];
 }
