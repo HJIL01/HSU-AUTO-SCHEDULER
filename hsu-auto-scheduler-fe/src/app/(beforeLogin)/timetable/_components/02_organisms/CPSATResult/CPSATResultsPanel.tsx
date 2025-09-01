@@ -43,6 +43,7 @@ export default function CPSATResultsPanel({
       <CPSATTabHeader
         currentIndex={currentIndex}
         totalSolutionCount={totalSolutionCount}
+        CPSATResult={CPSATResult}
       />
 
       <CPSATTabRenderer

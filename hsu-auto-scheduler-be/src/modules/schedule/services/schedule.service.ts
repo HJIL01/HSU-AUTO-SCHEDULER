@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CourseEntity } from 'src/common/entities/04_course.entity';
 import { WeekdayEnum } from 'src/common/enums/weekday.enum';
 import { firstValueFrom } from 'rxjs';
 import { HttpService } from '@nestjs/axios';
